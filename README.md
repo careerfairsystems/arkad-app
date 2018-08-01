@@ -11,7 +11,8 @@ This will also install npm.
 
 1. Go to Git projects folder: `cd /path/to/my/git_folder`
 2. Clone repository: `git clone https://github.com/careerfairsystems/arkad-app-2018.git`
-3. Install npm: `npm install`
+3. Go to the root of the cloned repo `cd /path/to/my/git_folder/repo_root`
+4. Install npm: `npm install`
 
 ## 3. Run application
 
@@ -41,10 +42,11 @@ Run: `brew install watchman`
 
 1. Install [Atom](https://atom.io)
 2. Open Atom and go to Settings/Preferences and select Install in the side menu
-3. Install the following packages: `busy-signal`, `docblockr`, `intentions`, `linter`, `linter-eslint`, `linter-ui-default`, `prettier-atom`
+3. Install the following packages: `busy-signal`, `intentions`, `linter`, `linter-eslint`, `linter-ui-default`, `prettier-atom`
 4. Setup `prettier-atom` by changing the following settings:
    * ESLint Integration: `true`
    * Format Files on Save: `true`
+   * Single Quotes: `true`
 
 These settings are important to avoid conflicts and to get a common coding structure.
 
