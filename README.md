@@ -42,7 +42,7 @@ Run: `brew install watchman`
 
 1. Install [Atom](https://atom.io)
 2. Open Atom and go to Settings/Preferences and select Install in the side menu
-3. Install the following packages: `busy-signal`, `docblockr`, `intentions`, `linter`, `linter-eslint`, `linter-ui-default`, `prettier-atom`
+3. Install the following packages: `busy-signal`, `intentions`, `linter`, `linter-eslint`, `linter-ui-default`, `prettier-atom`
 4. Setup `prettier-atom` by changing the following settings:
    * ESLint Integration: `true`
    * Format Files on Save: `true`
