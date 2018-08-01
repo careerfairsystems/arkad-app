@@ -46,6 +46,7 @@ Run: `brew install watchman`
 4. Setup `prettier-atom` by changing the following settings:
    * ESLint Integration: `true`
    * Format Files on Save: `true`
+   * Single Quotes: `true`
 
 These settings are important to avoid conflicts and to get a common coding structure.
 
