@@ -1,0 +1,14 @@
+{
+  // Use the AirBnB JS styleguide - https://github.com/airbnb/javascript
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "ecmaFeatures": {
+    "classes": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "global-require": "off",
+    "semi": ["error", "never"],
+    "comma-dangle": ["error", "never"]
+  }
+}

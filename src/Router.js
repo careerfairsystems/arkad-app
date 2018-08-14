@@ -1,4 +1,3 @@
-import React from 'react'
 import { createBottomTabNavigator } from 'react-navigation'
 import MapScreen from './screens/Map/MapScreen'
 import CompaniesScreen from './screens/Companies/CompaniesScreen'
