@@ -1,4 +1,4 @@
-import { createBottomTabNavigator } from 'react-navigation'
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import MapScreen from './screens/Map/MapScreen'
 import CompaniesScreenContainer from './containers/CompaniesScreen'
 import EventsScreenContainer from './containers/EventsScreen'
@@ -6,16 +6,44 @@ import AboutScreen from './screens/About/AboutScreen'
 
 const Router = createBottomTabNavigator({
   Map: {
-    screen: MapScreen
+    screen: createStackNavigator({
+      MapStack: {
+        screen: MapScreen,
+        navigationOptions: {
+          title: 'MapScreen'
+        }
+      }
+    })
   },
   Companies: {
-    screen: CompaniesScreenContainer
+    screen: createStackNavigator({
+      CompanyStack: {
+        screen: CompaniesScreenContainer,
+        navigationOptions: {
+          title: 'Companies'
+        }
+      }
+    })
   },
   Events: {
-    screen: EventsScreenContainer
+    screen: createStackNavigator({
+      EventStack: {
+        screen: EventsScreenContainer,
+        navigationOptions: {
+          title: 'Events'
+        }
+      }
+    })
   },
   About: {
-    screen: AboutScreen
+    screen: createStackNavigator({
+      AboutStack: {
+        screen: AboutScreen,
+        navigationOptions: {
+          title: 'About'
+        }
+      }
+    })
   }
 })
 
