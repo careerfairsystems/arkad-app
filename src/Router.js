@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from 'react-navigation'
 import MapScreen from './screens/Map/MapScreen'
-import CompaniesScreen from './screens/Companies/CompaniesScreen'
-import EventsScreen from './screens/Events/EventsScreen'
+import CompaniesScreenContainer from './containers/CompaniesScreen'
+import EventsScreenContainer from './containers/EventsScreen'
 import AboutScreen from './screens/About/AboutScreen'
 
 const Router = createBottomTabNavigator({
@@ -9,10 +9,10 @@ const Router = createBottomTabNavigator({
     screen: MapScreen
   },
   Companies: {
-    screen: CompaniesScreen
+    screen: CompaniesScreenContainer
   },
   Events: {
-    screen: EventsScreen
+    screen: EventsScreenContainer
   },
   About: {
     screen: AboutScreen

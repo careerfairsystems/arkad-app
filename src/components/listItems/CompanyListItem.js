@@ -2,6 +2,7 @@ import React from 'react'
 import { Text } from 'react-native'
 import PropTypes from 'prop-types'
 import ListItem from './ListItem'
+import FavoriteButton from '../../containers/FavoriteButton'
 
 const styles = {
   title: {
@@ -11,13 +12,14 @@ const styles = {
 }
 
 const { title } = styles
-const EventListItem = ({ navigation, item }) => (
+const CompanyListItem = ({ navigation, item }) => (
   <ListItem navigation={navigation} item={item}>
     <Text style={title}>{item.name}</Text>
+    <FavoriteButton item={item} />
   </ListItem>
 )
 
-EventListItem.propTypes = {
+CompanyListItem.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   item: PropTypes.shape({
     key: PropTypes.string.isRequired,
@@ -25,4 +27,4 @@ EventListItem.propTypes = {
   }).isRequired
 }
 
-export default EventListItem
+export default CompanyListItem

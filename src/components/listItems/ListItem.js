@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 
 const styles = {
   content: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingVertical: 16,
     paddingHorizontal: 8,
     borderBottomWidth: 1,
@@ -22,11 +25,10 @@ const ListItem = ({ children, navigation, item }) => (
 
 ListItem.propTypes = {
   children: PropTypes.node.isRequired,
-  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired })
-    .isRequired,
+  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   item: PropTypes.shape({
     key: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired
   }).isRequired
 }
 
