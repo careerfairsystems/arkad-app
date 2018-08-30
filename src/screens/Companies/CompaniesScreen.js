@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { FlatList } from 'react-native'
+import { View, FlatList } from 'react-native'
 import PropTypes from 'prop-types'
 import LoadingView from '../../components/LoadingView'
 import ErrorView from '../../components/ErrorView'
 import CompanyListItem from '../../components/listItems/CompanyListItem'
+import ShowFavoritesButton from '../../containers/ShowFavoritesButton'
 
 class CompaniesScreen extends Component {
   componentDidMount() {
@@ -13,13 +14,7 @@ class CompaniesScreen extends Component {
 
   render() {
     const {
-      navigation,
-      companyList,
-      loading,
-      error,
-      showFavorites,
-      loadCompanies,
-      toggleShowFavorites
+      navigation, companyList, loading, error, loadCompanies
     } = this.props
     if (loading) {
       return <LoadingView />
@@ -28,10 +23,18 @@ class CompaniesScreen extends Component {
       return <ErrorView error={error} loadCompanies={loadCompanies} />
     }
     return (
-      <FlatList
-        data={companyList}
-        renderItem={({ item }) => <CompanyListItem navigation={navigation} item={item} />}
-      />
+      <View>
+        <ShowFavoritesButton />
+        {
+          // TODO: temporary placement of ShowFavoritesButton component
+          // Don't forget to remove the surrounding View when
+          // moving the ShowFavoritesButton component
+        }
+        <FlatList
+          data={companyList}
+          renderItem={({ item }) => <CompanyListItem navigation={navigation} item={item} />}
+        />
+      </View>
     )
   }
 }
@@ -46,9 +49,7 @@ CompaniesScreen.propTypes = {
   ).isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
-  showFavorites: PropTypes.bool.isRequired,
-  loadCompanies: PropTypes.func.isRequired,
-  toggleShowFavorites: PropTypes.func.isRequired
+  loadCompanies: PropTypes.func.isRequired
 }
 
 export default CompaniesScreen
