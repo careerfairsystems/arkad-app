@@ -3,7 +3,7 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import fontelloConfig from '../selection.json'
-import MapScreen from './screens/Map/MapScreen'
+import MapScreenContainer from './containers/MapScreen'
 import CompaniesScreenContainer from './containers/CompaniesScreen'
 import CompanyDetailsScreen from './screens/Companies/CompanyDetailsScreen'
 import EventsScreenContainer from './containers/EventsScreen'
@@ -17,7 +17,7 @@ const Router = createBottomTabNavigator(
     Map: {
       screen: createStackNavigator({
         MapStack: {
-          screen: MapScreen,
+          screen: MapScreenContainer,
           navigationOptions: {
             title: 'MapScreen'
           }
