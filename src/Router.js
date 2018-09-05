@@ -1,5 +1,6 @@
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import React from 'react'
+import { Image } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import MapScreen from './screens/Map/MapScreen'
 import CompaniesScreenContainer from './containers/CompaniesScreen'
@@ -51,18 +52,23 @@ const Router = createBottomTabNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      // TODO: Fix Arkad icon
+      // TODO: Solve problem with props validation
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state
         let iconName
+        if (routeName === 'About') {
+          return (
+            // TODO: The ARKAD icon is currently displayed as a .png, but to change color when
+            // clicked upon it has to to be an icon.
+            <Image style={{ height: 25, width: 25 }} source={require('./img/AppLoggaIfylld.png')} />
+          )
+        }
         if (routeName === 'Map') {
           iconName = 'map-o'
         } else if (routeName === 'Companies') {
           iconName = 'briefcase'
         } else if (routeName === 'Events') {
           iconName = 'calendar-check-o'
-        } else if (routeName === 'About') {
-          iconName = 'question'
         }
         return <Icon name={iconName} size={20} color={tintColor} />
       }
