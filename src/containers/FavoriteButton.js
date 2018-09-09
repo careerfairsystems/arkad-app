@@ -1,9 +1,7 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { toggleFavorite } from '../actions/filter'
-import FavoriteButton from '../components/FavoriteButtonTemp'
-// TODO: replace the above component with the real FavoriteButton component once it's implemented
-// NOTE: look into FavoriteButtonTemp to see how to determine if the company is favorite or not
+import FavoriteButton from '../components/FavoriteButton'
 
 const mapStateToProps = state => ({
   favorites: state.filterReducer.favorites

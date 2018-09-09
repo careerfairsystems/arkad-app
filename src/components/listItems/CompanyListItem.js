@@ -12,16 +12,16 @@ const styles = {
 }
 
 const { title } = styles
-const CompanyListItem = ({ navigation, item }) => (
-  <ListItem navigation={navigation} item={item}>
-    <Text style={title}>{item.name}</Text>
-    <FavoriteButton item={item} />
+const CompanyListItem = ({ navigation, company }) => (
+  <ListItem navigation={navigation} item={company}>
+    <Text style={title}>{company.name}</Text>
+    <FavoriteButton company={company} />
   </ListItem>
 )
 
 CompanyListItem.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
-  item: PropTypes.shape({
+  company: PropTypes.shape({
     key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
   }).isRequired

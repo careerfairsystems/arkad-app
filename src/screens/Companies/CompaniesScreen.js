@@ -32,7 +32,7 @@ class CompaniesScreen extends Component {
         }
         <FlatList
           data={companyList}
-          renderItem={({ item }) => <CompanyListItem navigation={navigation} item={item} />}
+          renderItem={({ item }) => <CompanyListItem navigation={navigation} company={item} />}
         />
       </View>
     )
