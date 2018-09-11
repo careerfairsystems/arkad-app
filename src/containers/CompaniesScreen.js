@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import loadCompanies from '../actions/company'
+import { loadCompanies, searchCompany } from '../actions/company'
 import CompaniesScreen from '../screens/Companies/CompaniesScreen'
 
 const mapStateToProps = state => ({
@@ -14,7 +14,7 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ loadCompanies }, dispatch)
+  return bindActionCreators({ loadCompanies, searchCompany }, dispatch)
 }
 
 export default connect(

@@ -15,7 +15,7 @@ const fetchCompaniesFailure = error => ({
   error
 })
 
-const loadCompanies = () => (dispatch) => {
+export const loadCompanies = () => (dispatch) => {
   dispatch(fetchCompaniesRequest())
   return fetch(
     'https://p17.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2018","published:true"]',
@@ -47,4 +47,7 @@ const loadCompanies = () => (dispatch) => {
     })
 }
 
-export default loadCompanies
+export const searchCompany = text => ({
+  type: types.SEARCH_COMPANY,
+  text
+})
