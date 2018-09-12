@@ -1,13 +1,16 @@
 import React from 'react'
-import { Image } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { createIconSetFromFontello } from 'react-native-vector-icons'
+import fontelloConfig from '../selection.json'
 import MapScreen from './screens/Map/MapScreen'
 import CompaniesScreenContainer from './containers/CompaniesScreen'
 import CompanyDetailsScreen from './screens/Companies/CompanyDetailsScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import AboutScreen from './screens/About/AboutScreen'
+
+const ArkadIcon = createIconSetFromFontello(fontelloConfig)
 
 const Router = createBottomTabNavigator(
   {
@@ -70,19 +73,14 @@ const Router = createBottomTabNavigator(
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state
         let iconName
-        if (routeName === 'About') {
-          return (
-            // TODO: The ARKAD icon is currently displayed as a .png, but to change color when
-            // clicked upon it has to to be an icon.
-            <Image style={{ height: 25, width: 25 }} source={require('./img/ArkadLogo.png')} />
-          )
-        }
         if (routeName === 'Map') {
           iconName = 'map-o'
         } else if (routeName === 'Companies') {
           iconName = 'briefcase'
         } else if (routeName === 'Events') {
           iconName = 'calendar-check-o'
+        } else if (routeName === 'About') {
+          return <ArkadIcon name="arkadlogo" size={26} color={tintColor} />
         }
         return <Icon name={iconName} size={20} color={tintColor} />
       }
