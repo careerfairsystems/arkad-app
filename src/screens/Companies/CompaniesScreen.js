@@ -1,10 +1,41 @@
 import React, { Component } from 'react'
-import { View, FlatList } from 'react-native'
+import { View, FlatList, TextInput } from 'react-native'
 import PropTypes from 'prop-types'
+import Icon from 'react-native-vector-icons/FontAwesome'
 import LoadingView from '../../components/LoadingView'
 import ErrorView from '../../components/ErrorView'
 import CompanyListItem from '../../components/listItems/CompanyListItem'
 import ShowFavoritesButton from '../../containers/ShowFavoritesButton'
+
+const styles = {
+  content: { flex: 1 },
+  searchContainer: {
+    flex: 1,
+    flexDirection: 'row'
+  },
+  searchIconContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    paddingVertical: 8,
+    paddingLeft: 8,
+    marginVertical: 8,
+    marginLeft: 8,
+    borderBottomLeftRadius: 8,
+    borderTopLeftRadius: 8
+  },
+  searchField: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingVertical: 0,
+    paddingRight: 8,
+    paddingLeft: 5,
+    marginVertical: 8,
+    marginRight: 8,
+    borderBottomRightRadius: 8,
+    borderTopRightRadius: 8
+  }
+}
 
 class CompaniesScreen extends Component {
   componentDidMount() {
@@ -12,10 +43,31 @@ class CompaniesScreen extends Component {
     loadCompanies()
   }
 
+  renderSearchField() {
+    const { searchCompany } = this.props
+    const { searchContainer, searchIconContainer, searchField } = styles
+    return (
+      <View style={searchContainer}>
+        <View style={searchIconContainer}>
+          <Icon name="search" size={14} color="#ccc" />
+        </View>
+        <TextInput
+          style={searchField}
+          onChangeText={text => searchCompany(text)}
+          clearButtonMode="while-editing"
+          underlineColorAndroid="transparent"
+          placeholder="Search company"
+          placeholderTextColor="#ccc"
+        />
+      </View>
+    )
+  }
+
   render() {
     const {
       navigation, companyList, loading, error, loadCompanies
     } = this.props
+    const { content } = styles
     if (loading) {
       return <LoadingView />
     }
@@ -23,7 +75,7 @@ class CompaniesScreen extends Component {
       return <ErrorView error={error} loadCompanies={loadCompanies} />
     }
     return (
-      <View>
+      <View style={content}>
         <ShowFavoritesButton />
         {
           // TODO: temporary placement of ShowFavoritesButton component
@@ -31,6 +83,7 @@ class CompaniesScreen extends Component {
           // moving the ShowFavoritesButton component
         }
         <FlatList
+          ListHeaderComponent={this.renderSearchField()}
           data={companyList}
           renderItem={({ item }) => <CompanyListItem navigation={navigation} company={item} />}
         />
@@ -49,7 +102,8 @@ CompaniesScreen.propTypes = {
   ).isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
-  loadCompanies: PropTypes.func.isRequired
+  loadCompanies: PropTypes.func.isRequired,
+  searchCompany: PropTypes.func.isRequired
 }
 
 export default CompaniesScreen
