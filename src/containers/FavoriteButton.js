@@ -1,10 +1,10 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { toggleFavorite } from '../actions/filter'
+import toggleFavorite from '../actions/favorite'
 import FavoriteButton from '../components/FavoriteButton'
 
 const mapStateToProps = state => ({
-  favorites: state.filterReducer.favorites
+  favorites: state.favoriteReducer.favorites
 })
 
 function mapDispatchToProps(dispatch) {

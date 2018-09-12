@@ -51,3 +51,7 @@ export const searchCompany = text => ({
   type: types.SEARCH_COMPANY,
   text
 })
+
+export const toggleShowFavorites = () => ({
+  type: types.TOGGLE_SHOW_FAVORITES
+})

@@ -1,10 +1,10 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { toggleShowFavorites } from '../actions/filter'
+import { toggleShowFavorites } from '../actions/company'
 import ShowFavoritesButton from '../components/ShowFavoritesButton'
 
 const mapStateToProps = state => ({
-  showFavorites: state.filterReducer.showFavorites
+  showFavorites: state.companyReducer.showFavorites
 })
 
 function mapDispatchToProps(dispatch) {
