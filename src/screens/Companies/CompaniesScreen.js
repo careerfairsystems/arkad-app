@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { View, FlatList, TextInput } from 'react-native'
+import {
+  TextInput, Keyboard, SectionList, View, Text
+} from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import LoadingView from '../../components/LoadingView'
@@ -34,6 +36,12 @@ const styles = {
     marginRight: 8,
     borderBottomRightRadius: 8,
     borderTopRightRadius: 8
+  },
+  sectionHeader: {
+    padding: 8,
+    backgroundColor: '#eee',
+    borderBottomWidth: 1,
+    borderColor: '#ccc'
   }
 }
 
@@ -63,6 +71,15 @@ class CompaniesScreen extends Component {
     )
   }
 
+  renderSectionHeader = (title) => {
+    const { sectionHeader } = styles
+    return (
+      <View style={sectionHeader}>
+        <Text>{title}</Text>
+      </View>
+    )
+  }
+
   render() {
     const {
       navigation, companyList, loading, error, loadCompanies
@@ -74,6 +91,22 @@ class CompaniesScreen extends Component {
     if (error) {
       return <ErrorView error={error} loadCompanies={loadCompanies} />
     }
+    let sections
+    if (companyList.length === 0) {
+      sections = [{ title: 'No matches found', data: [] }]
+    } else {
+      sections = companyList.reduce((a, b) => {
+        const item = a
+        const firstLetter = b.name[0].toUpperCase()
+        if (item[firstLetter]) {
+          item[firstLetter].push(b)
+        } else {
+          item[firstLetter] = [b]
+        }
+        return item
+      }, {})
+      sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
+    }
     return (
       <View style={content}>
         <ShowFavoritesButton />
@@ -82,10 +115,12 @@ class CompaniesScreen extends Component {
           // Don't forget to remove the surrounding View when
           // moving the ShowFavoritesButton component
         }
-        <FlatList
+        <SectionList
           ListHeaderComponent={this.renderSearchField()}
-          data={companyList}
           renderItem={({ item }) => <CompanyListItem navigation={navigation} company={item} />}
+          renderSectionHeader={({ section: { title } }) => this.renderSectionHeader(title)}
+          sections={sections}
+          onScrollBeginDrag={() => Keyboard.dismiss()}
         />
       </View>
     )
