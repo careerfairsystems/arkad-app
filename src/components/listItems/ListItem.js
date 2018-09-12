@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, View } from 'react-native'
+import { TouchableHighlight, View } from 'react-native'
 import PropTypes from 'prop-types'
 
 const styles = {
@@ -10,24 +10,25 @@ const styles = {
     paddingVertical: 16,
     paddingHorizontal: 8,
     borderBottomWidth: 1,
-    borderColor: 'gray'
+    backgroundColor: '#fff',
+    borderColor: '#ccc'
   }
 }
 
 const { content } = styles
 const ListItem = ({ children, navigation, item }) => (
-  // TODO: implement navigation when stack navigator is added
-  // E.g. <TouchableOpacity onPress={() => navigation.navigate('Detail', { item })}>
-  <TouchableOpacity>
+  <TouchableHighlight
+    underlayColor="#d9d9d9"
+    onPress={() => navigation.navigate('Detail', { item })}
+  >
     <View style={content}>{children}</View>
-  </TouchableOpacity>
+  </TouchableHighlight>
 )
 
 ListItem.propTypes = {
   children: PropTypes.node.isRequired,
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   item: PropTypes.shape({
-    key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
   }).isRequired
 }

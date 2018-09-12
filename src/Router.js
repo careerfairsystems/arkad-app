@@ -4,7 +4,9 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import Icon from 'react-native-vector-icons/FontAwesome'
 import MapScreen from './screens/Map/MapScreen'
 import CompaniesScreenContainer from './containers/CompaniesScreen'
+import CompanyDetailsScreen from './screens/Companies/CompanyDetailsScreen'
 import EventsScreenContainer from './containers/EventsScreen'
+import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import AboutScreen from './screens/About/AboutScreen'
 
 const Router = createBottomTabNavigator(
@@ -26,6 +28,12 @@ const Router = createBottomTabNavigator(
           navigationOptions: {
             title: 'Companies'
           }
+        },
+        Detail: {
+          screen: CompanyDetailsScreen,
+          navigationOptions: ({ navigation }) => ({
+            title: navigation.state.params.item.name
+          })
         }
       })
     },
@@ -36,6 +44,12 @@ const Router = createBottomTabNavigator(
           navigationOptions: {
             title: 'Events'
           }
+        },
+        Detail: {
+          screen: EventDetailsScreen,
+          navigationOptions: ({ navigation }) => ({
+            title: navigation.state.params.item.name
+          })
         }
       })
     },

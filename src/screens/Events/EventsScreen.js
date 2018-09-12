@@ -14,7 +14,6 @@ EventsScreen.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   eventList: PropTypes.arrayOf(
     PropTypes.shape({
-      key: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired
     })
   ).isRequired

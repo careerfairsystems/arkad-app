@@ -7,6 +7,10 @@ const initialState = {
   error: ''
 }
 
+const stringCleaner = string => (string ? string.toString().trim() : '')
+
+const arrayCleaner = array => (array ? array.map(item => item.trim()) : [])
+
 const filterCompany = (items, text) => {
   const append = '$' // Append a $ to improve the search, otherwise one character matches are ignored
   const { ratings } = StringSimilarity.findBestMatch(
@@ -25,19 +29,66 @@ const filterCompany = (items, text) => {
 }
 
 const companyReducer = (state = initialState, action) => {
-  let items
+  let filteredCompanies
   switch (action.type) {
     case types.FETCH_COMPANIES_REQUEST:
       return { ...state, loading: true, errorMessage: '' }
     case types.FETCH_COMPANIES_SUCCESS:
-      items = action.companies.map(item => ({
-        key: item.id.toString(),
-        name: item.name
-      }))
+      filteredCompanies = action.companies
+        .filter(company => company.profile)
+        .map((item) => {
+          const { profile } = item
+          return {
+            key: item.id.toString(),
+            name: stringCleaner(item.name),
+            about: stringCleaner(profile.aboutUs),
+            didYouKnow: stringCleaner(profile.didYouKnow),
+
+            employees: {
+              local: stringCleaner(profile.employeesLocal),
+              global: stringCleaner(profile.employeesGlobal)
+            },
+
+            weOffer: arrayCleaner(profile.weOffer),
+            desiredProgramme: arrayCleaner(profile.desiredProgramme),
+            desiredDegree: arrayCleaner(profile.desiredDegree),
+            industry: arrayCleaner(profile.industry),
+
+            contact: {
+              name: stringCleaner(profile.contactName),
+              title: stringCleaner(profile.contactTitle),
+              email: stringCleaner(profile.contactEmail),
+              phone: stringCleaner(profile.contactPhone)
+            },
+
+            mapPosition: stringCleaner(profile.map),
+
+            logotypeUrl: profile.logotype
+              ? stringCleaner(profile.logotype.thumbs.small.replace('http://', 'https://'))
+              : '',
+            brochureUrl: profile.brochure ? stringCleaner(profile.brochure.url) : '',
+            websiteUrl: stringCleaner(profile.urlWebsite),
+            linkedInUrl: stringCleaner(profile.urlLinkedIn),
+            facebookUrl: stringCleaner(profile.urlLinkedIn),
+            twitterUrl: stringCleaner(profile.urlTwitter),
+            youTubeUrl: stringCleaner(profile.urlYouTube)
+          }
+        })
+        .sort((a, b) => {
+          const nameA = a.name.toLowerCase()
+          const nameB = b.name.toLowerCase()
+          if (nameA < nameB) {
+            return -1
+          }
+          if (nameA > nameB) {
+            return 1
+          }
+          return 0
+        })
       return {
         ...state,
-        items,
-        allItems: items,
+        items: filteredCompanies,
+        allItems: filteredCompanies,
         loading: false
       }
     case types.FETCH_COMPANIES_FAILURE:
