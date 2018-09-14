@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
-  TextInput, Keyboard, SectionList, View, Text
+  View, SectionList, TextInput, Keyboard, Text
 } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import LoadingView from '../../components/LoadingView'
-import ErrorView from '../../components/ErrorView'
 import NoResultsView from '../../components/NoResultsView'
 import CompanyListItem from '../../components/listItems/CompanyListItem'
 import ShowFavoritesButton from '../../containers/ShowFavoritesButton'
+import ClearAllFiltersButtonContainer from '../../containers/ClearAllFiltersButton'
 
 const styles = {
   content: { flex: 1 },
@@ -46,89 +45,67 @@ const styles = {
   }
 }
 
-class CompaniesScreen extends Component {
-  componentDidMount() {
-    const { loadCompanies } = this.props
-    loadCompanies()
-  }
-
-  renderSearchField() {
-    const { companyList, searchCompany } = this.props
-    const { searchContainer, searchIconContainer, searchField } = styles
-    return (
-      <View>
-        <View style={searchContainer}>
-          <View style={searchIconContainer}>
-            <Icon name="search" size={14} color="#ccc" />
-          </View>
-          <TextInput
-            style={searchField}
-            onChangeText={text => searchCompany(text)}
-            clearButtonMode="while-editing"
-            underlineColorAndroid="transparent"
-            placeholder="Search company"
-            placeholderTextColor="#ccc"
-          />
-        </View>
-        {companyList.length === 0 ? <NoResultsView /> : null}
+const { searchContainer, searchIconContainer, searchField } = styles
+const renderSearchField = (companyList, searchCompany) => (
+  <View>
+    <View style={searchContainer}>
+      <View style={searchIconContainer}>
+        <Icon name="search" size={14} color="#ccc" />
       </View>
-    )
-  }
+      <TextInput
+        style={searchField}
+        onChangeText={text => searchCompany(text)}
+        clearButtonMode="while-editing"
+        underlineColorAndroid="transparent"
+        placeholder="Search company"
+        placeholderTextColor="#ccc"
+      />
+    </View>
+    {companyList.length === 0 ? <NoResultsView /> : null}
+  </View>
+)
 
-  renderSectionHeader = (title) => {
-    const { sectionHeader } = styles
-    return (
-      <View style={sectionHeader}>
-        <Text>{title}</Text>
-      </View>
-    )
-  }
+const { sectionHeader } = styles
+const renderSectionHeader = title => (title !== '' ? (
+  <View style={sectionHeader}>
+    <Text>{title}</Text>
+  </View>
+) : null)
 
-  render() {
-    const {
-      navigation, companyList, loading, error, loadCompanies
-    } = this.props
-    const { content } = styles
-    if (loading) {
-      return <LoadingView />
-    }
-    if (error) {
-      return <ErrorView error={error} loadCompanies={loadCompanies} />
-    }
-    let sections
-    if (companyList.length === 0) {
-      sections = [{ title: 'No matches found', data: [] }]
-    } else {
-      sections = companyList.reduce((a, b) => {
-        const item = a
-        const firstLetter = b.name[0].toUpperCase()
-        if (item[firstLetter]) {
-          item[firstLetter].push(b)
-        } else {
-          item[firstLetter] = [b]
-        }
-        return item
-      }, {})
-      sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
-    }
-    return (
-      <View style={content}>
-        <ShowFavoritesButton />
-        {
-          // TODO: temporary placement of ShowFavoritesButton component
-          // Don't forget to remove the surrounding View when
-          // moving the ShowFavoritesButton component
-        }
-        <SectionList
-          ListHeaderComponent={this.renderSearchField()}
-          renderItem={({ item }) => <CompanyListItem navigation={navigation} company={item} />}
-          renderSectionHeader={({ section: { title } }) => this.renderSectionHeader(title)}
-          sections={sections}
-          onScrollBeginDrag={() => Keyboard.dismiss()}
-        />
-      </View>
-    )
+const { content } = styles
+const CompaniesScreen = ({ navigation, companyList, searchCompany }) => {
+  let sections
+  if (companyList.length === 0) {
+    sections = [{ title: '', data: [] }]
+  } else {
+    sections = companyList.reduce((a, b) => {
+      const item = a
+      const firstLetter = b.name[0].toUpperCase()
+      if (item[firstLetter]) {
+        item[firstLetter].push(b)
+      } else {
+        item[firstLetter] = [b]
+      }
+      return item
+    }, {})
+    sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
   }
+  return (
+    <View style={content}>
+      <ShowFavoritesButton />
+      <ClearAllFiltersButtonContainer />
+      {
+        // TODO: temporary placement of ShowFavoritesButton component
+      }
+      <SectionList
+        ListHeaderComponent={renderSearchField(companyList, searchCompany)}
+        renderItem={({ item }) => <CompanyListItem navigation={navigation} company={item} />}
+        renderSectionHeader={({ section: { title } }) => renderSectionHeader(title)}
+        sections={sections}
+        onScrollBeginDrag={() => Keyboard.dismiss()}
+      />
+    </View>
+  )
 }
 
 CompaniesScreen.propTypes = {
@@ -165,9 +142,6 @@ CompaniesScreen.propTypes = {
       linkedInUrl: PropTypes.string.isRequired
     })
   ).isRequired,
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
-  loadCompanies: PropTypes.func.isRequired,
   searchCompany: PropTypes.func.isRequired
 }
 

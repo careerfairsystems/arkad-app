@@ -7,14 +7,21 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center'
   },
-  text: { marginTop: 10, color: '#666', fontSize: 13 }
+  indicatorBackground: {
+    backgroundColor: '#fff',
+    padding: 24,
+    borderRadius: 8
+  },
+  loadingText: { marginTop: 10, color: '#666', fontSize: 13 }
 }
 
-const { container, text } = styles
+const { container, indicatorBackground, loadingText } = styles
 const LoadingView = () => (
   <View style={container}>
-    <ActivityIndicator size="large" />
-    <Text style={text}>Loading...</Text>
+    <View style={indicatorBackground}>
+      <ActivityIndicator size="large" />
+      <Text style={loadingText}>Loading...</Text>
+    </View>
   </View>
 )
 

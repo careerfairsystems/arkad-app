@@ -1,4 +1,5 @@
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
@@ -6,21 +7,26 @@ import fontelloConfig from '../selection.json'
 import MapScreenContainer from './containers/MapScreen'
 import CompaniesScreenContainer from './containers/CompaniesScreen'
 import CompanyDetailsScreen from './screens/Companies/CompanyDetailsScreen'
+import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import AboutScreen from './screens/About/AboutScreen'
 import FaqScreenContainer from './containers/FaqScreen'
 
+const styles = {
+  headerIcon: { paddingHorizontal: 14 }
+}
+
 const ArkadIcon = createIconSetFromFontello(fontelloConfig)
 
-const Router = createBottomTabNavigator(
+const MainStack = createBottomTabNavigator(
   {
     Map: {
       screen: createStackNavigator({
         MapStack: {
           screen: MapScreenContainer,
           navigationOptions: {
-            title: 'MapScreen'
+            title: 'Map'
           }
         }
       })
@@ -29,9 +35,17 @@ const Router = createBottomTabNavigator(
       screen: createStackNavigator({
         CompanyStack: {
           screen: CompaniesScreenContainer,
-          navigationOptions: {
-            title: 'Companies'
-          }
+          navigationOptions: ({ navigation }) => ({
+            title: 'Companies',
+            headerRight: (
+              <TouchableOpacity
+                style={styles.headerIcon}
+                onPress={() => navigation.navigate('Filter')}
+              >
+                <Icon name="filter" size={24} color="#000" />
+              </TouchableOpacity>
+            )
+          })
         },
         Detail: {
           screen: CompanyDetailsScreen,
@@ -76,7 +90,8 @@ const Router = createBottomTabNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      // TODO: Solve problem with props validation
+      // Disable unnecessary eslint warning
+      // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state
         let iconName
@@ -95,4 +110,30 @@ const Router = createBottomTabNavigator(
   }
 )
 
-export default Router
+const RootStack = createStackNavigator(
+  {
+    Main: {
+      screen: MainStack,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Filter: {
+      screen: CompanyFilterScreenContainer,
+      navigationOptions: ({ navigation }) => ({
+        title: 'Filter',
+        headerLeft: null,
+        headerRight: (
+          <TouchableOpacity style={styles.headerIcon} onPress={() => navigation.goBack()}>
+            <Icon name="angle-down" size={34} color="#000" />
+          </TouchableOpacity>
+        )
+      })
+    }
+  },
+  {
+    mode: 'modal'
+  }
+)
+
+export default RootStack
