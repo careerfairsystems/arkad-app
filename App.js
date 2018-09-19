@@ -13,7 +13,7 @@ import LoadingView from './src/components/LoadingView'
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['filterReducer']
+  whitelist: ['favoriteReducer']
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)

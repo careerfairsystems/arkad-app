@@ -1,11 +1,10 @@
 import * as types from '../actions/types'
 
 const initialState = {
-  favorites: [],
-  showFavorites: false
+  favorites: []
 }
 
-const filterReducer = (state = initialState, action) => {
+const favoriteReducer = (state = initialState, action) => {
   let indexOf = -1
   let newFavorites = []
   switch (action.type) {
@@ -17,11 +16,9 @@ const filterReducer = (state = initialState, action) => {
       newFavorites = [...state.favorites]
       newFavorites.splice(indexOf, 1)
       return { ...state, favorites: newFavorites }
-    case types.TOGGLE_SHOW_FAVORITES:
-      return { ...state, showFavorites: !state.showFavorites }
     default:
       return state
   }
 }
 
-export default filterReducer
+export default favoriteReducer

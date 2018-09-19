@@ -3,8 +3,10 @@ import * as types from '../actions/types'
 
 const initialState = {
   items: [],
+  allItems: [],
   loading: false,
-  error: ''
+  error: '',
+  showFavorites: false
 }
 
 const stringCleaner = string => (string ? string.toString().trim() : '')
@@ -99,6 +101,8 @@ const companyReducer = (state = initialState, action) => {
         loading: false,
         error: action.error
       }
+    case types.TOGGLE_SHOW_FAVORITES:
+      return { ...state, showFavorites: !state.showFavorites }
     case types.SEARCH_COMPANY:
       return {
         ...state,
