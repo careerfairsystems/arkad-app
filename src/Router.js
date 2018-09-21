@@ -9,6 +9,7 @@ import CompanyDetailsScreen from './screens/Companies/CompanyDetailsScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import AboutScreen from './screens/About/AboutScreen'
+import FaqScreenContainer from './containers/FaqScreen'
 
 const ArkadIcon = createIconSetFromFontello(fontelloConfig)
 
@@ -63,6 +64,12 @@ const Router = createBottomTabNavigator(
           navigationOptions: {
             title: 'About'
           }
+        },
+        Detail: {
+          screen: FaqScreenContainer,
+          navigationOptions: () => ({
+            title: 'FAQ'
+          })
         }
       })
     }
