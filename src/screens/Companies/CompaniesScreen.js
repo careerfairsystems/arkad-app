@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import LoadingView from '../../components/LoadingView'
 import ErrorView from '../../components/ErrorView'
+import NoResultsView from '../../components/NoResultsView'
 import CompanyListItem from '../../components/listItems/CompanyListItem'
 import ShowFavoritesButton from '../../containers/ShowFavoritesButton'
 
@@ -44,21 +45,24 @@ class CompaniesScreen extends Component {
   }
 
   renderSearchField() {
-    const { searchCompany } = this.props
+    const { companyList, searchCompany } = this.props
     const { searchContainer, searchIconContainer, searchField } = styles
     return (
-      <View style={searchContainer}>
-        <View style={searchIconContainer}>
-          <Icon name="search" size={14} color="#ccc" />
+      <View>
+        <View style={searchContainer}>
+          <View style={searchIconContainer}>
+            <Icon name="search" size={14} color="#ccc" />
+          </View>
+          <TextInput
+            style={searchField}
+            onChangeText={text => searchCompany(text)}
+            clearButtonMode="while-editing"
+            underlineColorAndroid="transparent"
+            placeholder="Search company"
+            placeholderTextColor="#ccc"
+          />
         </View>
-        <TextInput
-          style={searchField}
-          onChangeText={text => searchCompany(text)}
-          clearButtonMode="while-editing"
-          underlineColorAndroid="transparent"
-          placeholder="Search company"
-          placeholderTextColor="#ccc"
-        />
+        {companyList.length === 0 ? <NoResultsView /> : null}
       </View>
     )
   }
