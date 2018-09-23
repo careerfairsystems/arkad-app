@@ -1,11 +1,12 @@
 import React from 'react'
 import {
-  View, SectionList, TextInput, Keyboard, Text
+  View, SectionList, TextInput, Keyboard
 } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import NoResultsView from '../../components/NoResultsView'
 import CompanyListItem from '../../components/listItems/CompanyListItem'
+import SectionHeader from '../../components/SectionHeader'
 import ShowFavoritesButton from '../../containers/ShowFavoritesButton'
 import ClearAllFiltersButtonContainer from '../../containers/ClearAllFiltersButton'
 
@@ -36,12 +37,6 @@ const styles = {
     marginRight: 8,
     borderBottomRightRadius: 8,
     borderTopRightRadius: 8
-  },
-  sectionHeader: {
-    padding: 8,
-    backgroundColor: '#eee',
-    borderBottomWidth: 1,
-    borderColor: '#ccc'
   }
 }
 
@@ -64,13 +59,6 @@ const renderSearchField = (companyList, searchCompany) => (
     {companyList.length === 0 ? <NoResultsView /> : null}
   </View>
 )
-
-const { sectionHeader } = styles
-const renderSectionHeader = title => (title !== '' ? (
-  <View style={sectionHeader}>
-    <Text>{title}</Text>
-  </View>
-) : null)
 
 const { content } = styles
 const CompaniesScreen = ({ navigation, companyList, searchCompany }) => {
@@ -100,7 +88,7 @@ const CompaniesScreen = ({ navigation, companyList, searchCompany }) => {
       <SectionList
         ListHeaderComponent={renderSearchField(companyList, searchCompany)}
         renderItem={({ item }) => <CompanyListItem navigation={navigation} company={item} />}
-        renderSectionHeader={({ section: { title } }) => renderSectionHeader(title)}
+        renderSectionHeader={({ section: { title } }) => <SectionHeader title={title} />}
         sections={sections}
         onScrollBeginDrag={() => Keyboard.dismiss()}
       />
