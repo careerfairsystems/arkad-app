@@ -12,7 +12,8 @@ import CompanyDetailsScreen from './screens/Companies/CompanyDetailsScreen'
 import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
-import AboutScreen from './screens/About/AboutScreen'
+import AboutScreenContainer from './containers/AboutScreen'
+import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
 
 const styles = {
@@ -80,12 +81,18 @@ const MainStack = createBottomTabNavigator(
     About: {
       screen: createStackNavigator({
         AboutStack: {
-          screen: AboutScreen,
+          screen: AboutScreenContainer,
           navigationOptions: {
             title: 'About'
           }
         },
-        Detail: {
+        ArkadTeam: {
+          screen: ArkadTeamScreenContainer,
+          navigationOptions: () => ({
+            title: 'The ARKAD team'
+          })
+        },
+        Faq: {
           screen: FaqScreenContainer,
           navigationOptions: () => ({
             title: 'FAQ'

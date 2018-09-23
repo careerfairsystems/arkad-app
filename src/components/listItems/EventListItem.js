@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 import PropTypes from 'prop-types'
-import ListItem from './ListItem'
+import SelectableListItem from './SelectableListItem'
 
 const styles = {
   timeContainer: {
@@ -26,7 +26,7 @@ const {
   timeContainer, infoContainer, time, title, subtitle
 } = styles
 const EventListItem = ({ navigation, item }) => (
-  <ListItem navigation={navigation} item={item}>
+  <SelectableListItem navigation={navigation} item={item}>
     <View style={timeContainer}>
       <Text style={time}>{item.startTime}</Text>
       <Text style={time}>{item.endTime}</Text>
@@ -35,7 +35,7 @@ const EventListItem = ({ navigation, item }) => (
       <Text style={title}>{item.name}</Text>
       <Text style={subtitle}>{item.location}</Text>
     </View>
-  </ListItem>
+  </SelectableListItem>
 )
 
 EventListItem.propTypes = {
