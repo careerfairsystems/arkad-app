@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "accordion-collapse-react-native": "^0.1.6",
     "ajv": "^6.5.2",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
