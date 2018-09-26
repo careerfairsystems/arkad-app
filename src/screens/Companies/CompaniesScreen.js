@@ -7,7 +7,6 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import NoResultsView from '../../components/NoResultsView'
 import CompanyListItem from '../../components/listItems/CompanyListItem'
 import SectionHeader from '../../components/SectionHeader'
-import ShowFavoritesButton from '../../containers/ShowFavoritesButton'
 import ClearAllFiltersButtonContainer from '../../containers/ClearAllFiltersButton'
 
 const styles = {
@@ -80,7 +79,6 @@ const CompaniesScreen = ({ navigation, companyList, searchCompany }) => {
   }
   return (
     <View style={content}>
-      <ShowFavoritesButton />
       <ClearAllFiltersButtonContainer />
       {
         // TODO: temporary placement of ShowFavoritesButton component
