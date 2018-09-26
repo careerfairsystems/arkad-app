@@ -1,12 +1,18 @@
 import React from 'react'
-import { FlatList } from 'react-native'
+import { SectionList } from 'react-native'
 import PropTypes from 'prop-types'
 import EventListItem from '../../components/listItems/EventListItem'
+import SectionHeader from '../../components/SectionHeader'
 
 const EventsScreen = ({ navigation, eventList }) => (
-  <FlatList
-    data={eventList}
-    renderItem={({ item }) => <EventListItem navigation={navigation} item={item} />}
+  <SectionList
+    renderItem={({ item, section }) => {
+      const newItem = item
+      newItem.date = section.title
+      return <EventListItem navigation={navigation} item={newItem} />
+    }}
+    renderSectionHeader={({ section: { title } }) => <SectionHeader title={title} />}
+    sections={eventList}
   />
 )
 
@@ -14,7 +20,19 @@ EventsScreen.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   eventList: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired
+      title: PropTypes.string.isRequired,
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          key: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+          location: PropTypes.string.isRequired,
+          address: PropTypes.string.isRequired,
+          startTime: PropTypes.string.isRequired,
+          endTime: PropTypes.string.isRequired,
+          description: PropTypes.string.isRequired,
+          image: PropTypes.string.isRequired
+        }).isRequired
+      ).isRequired
     })
   ).isRequired
 }
