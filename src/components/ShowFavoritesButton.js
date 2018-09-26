@@ -1,12 +1,19 @@
 import React from 'react'
-import { Button } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
+import Icon from 'react-native-vector-icons/FontAwesome'
+
+const notFavIcon = <Icon name="heart-o" size={25} />
+const favIcon = <Icon name="heart" size={25} color="black" />
+
+const styles = {
+  headerIcon: { paddingHorizontal: 14 }
+}
 
 const ShowFavoritesButton = ({ showFavorites, toggleShowFavorites }) => (
-  <Button
-    title={showFavorites ? 'Hide favorites' : 'Show favorites'}
-    onPress={() => toggleShowFavorites()}
-  />
+  <TouchableOpacity style={styles.headerIcon} onPress={() => toggleShowFavorites()}>
+    {showFavorites ? favIcon : notFavIcon}
+  </TouchableOpacity>
 )
 
 ShowFavoritesButton.propTypes = {
