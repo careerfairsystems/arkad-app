@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
-  ScrollView, View, Text, FlatList
+  ScrollView, View, TouchableHighlight, Text, FlatList
 } from 'react-native'
 import PropTypes from 'prop-types'
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native'
 
 const styles = {
+  container: { flex: 1 },
+  tabBar: {
+    flexDirection: 'row',
+    backgroundColor: '#ccc'
+  },
+  tab: {
+    flex: 0.5,
+    height: 44,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomWidth: 3,
+    borderColor: '#eee'
+  },
+  bottomBorderColor: { borderColor: '#000' },
+  tabText: { fontSize: 14 },
+  separator: {},
   categoryHeader: {
     paddingVertical: 16,
     paddingHorizontal: 8,
@@ -13,15 +29,7 @@ const styles = {
     borderBottomWidth: 1,
     borderColor: '#ccc'
   },
-  categoryHeaderText: { fontSize: 20, fontWeight: 'bold' },
-  subCategoryHeader: {
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    backgroundColor: '#444',
-    borderBottomWidth: 1,
-    borderColor: '#333'
-  },
-  subCategoryHeaderText: { fontSize: 16, color: '#fff', fontWeight: 'bold' },
+  categoryHeaderText: { fontSize: 20 },
   qaContainer: {
     paddingVertical: 8,
     paddingHorizontal: 24,
@@ -34,67 +42,101 @@ const styles = {
 }
 
 const {
-  categoryHeader,
-  categoryHeaderText,
-  subCategoryHeader,
-  subCategoryHeaderText,
-  qaContainer,
-  questionText,
-  answerText
+  categoryHeader, categoryHeaderText, qaContainer, questionText, answerText
 } = styles
-const FaqScreen = ({ faqList }) => (
-  <ScrollView>
-    {faqList.map(category => (
-      <Collapse key={category.key}>
-        <CollapseHeader style={categoryHeader}>
-          <Text style={categoryHeaderText}>{category.name}</Text>
-        </CollapseHeader>
-        <CollapseBody>
-          {category.faq.map(subCategory => (
-            <Collapse key={subCategory.key}>
-              <CollapseHeader style={subCategoryHeader}>
-                <Text style={subCategoryHeaderText}>{subCategory.name}</Text>
-              </CollapseHeader>
-              <CollapseBody>
-                <FlatList
-                  data={subCategory.list}
-                  renderItem={({ item }) => (
-                    <View style={qaContainer}>
-                      <Text style={questionText}>{item.question}</Text>
-                      <Text style={answerText}>{item.answer}</Text>
-                    </View>
-                  )}
-                  scrollEnabled={false}
-                />
-              </CollapseBody>
-            </Collapse>
-          ))}
-        </CollapseBody>
-      </Collapse>
-    ))}
-  </ScrollView>
-)
+const renderFaqList = categories => categories.map(category => (
+  <Collapse key={category.key}>
+    <CollapseHeader style={categoryHeader}>
+      <Text style={categoryHeaderText}>{category.name}</Text>
+    </CollapseHeader>
+    <CollapseBody>
+      <FlatList
+        data={category.list}
+        renderItem={({ item }) => (
+          <View style={qaContainer}>
+            <Text style={questionText}>{item.question}</Text>
+            <Text style={answerText}>{item.answer}</Text>
+          </View>
+        )}
+        scrollEnabled={false}
+      />
+    </CollapseBody>
+  </Collapse>
+))
+
+class FaqScreen extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { selectedTab: 0 }
+  }
+
+  toggleTab(id) {
+    this.setState({ selectedTab: id })
+  }
+
+  renderTab(id, title) {
+    const { selectedTab } = this.state
+    const { tab, bottomBorderColor, tabText } = styles
+    return (
+      <TouchableHighlight
+        style={[tab, selectedTab === id ? bottomBorderColor : null]}
+        underlayColor="#d9d9d9"
+        onPress={() => this.toggleTab(id)}
+      >
+        <Text style={tabText}>{title}</Text>
+      </TouchableHighlight>
+    )
+  }
+
+  render() {
+    const { selectedTab } = this.state
+    const { faqList } = this.props
+    const { container, tabBar, separator } = styles
+    return (
+      <View style={container}>
+        <View style={tabBar}>
+          {this.renderTab(0, 'For students')}
+          <View style={separator} />
+          {this.renderTab(1, 'For companies')}
+        </View>
+        <ScrollView>
+          {selectedTab === 0 ? renderFaqList(faqList.forStudents) : null}
+          {selectedTab === 1 ? renderFaqList(faqList.forCompanies) : null}
+        </ScrollView>
+      </View>
+    )
+  }
+}
 
 FaqScreen.propTypes = {
-  faqList: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      faq: PropTypes.arrayOf(
-        PropTypes.shape({
-          key: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired,
-          list: PropTypes.arrayOf(
-            PropTypes.shape({
-              key: PropTypes.string.isRequired,
-              question: PropTypes.string.isRequired,
-              answer: PropTypes.string.isRequired
-            }).isRequired
-          ).isRequired
-        }).isRequired
-      ).isRequired
-    }).isRequired
-  ).isRequired
+  faqList: PropTypes.shape({
+    forStudents: PropTypes.arrayOf(
+      PropTypes.shape({
+        key: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        list: PropTypes.arrayOf(
+          PropTypes.shape({
+            key: PropTypes.string.isRequired,
+            question: PropTypes.string.isRequired,
+            answer: PropTypes.string.isRequired
+          }).isRequired
+        ).isRequired
+      }).isRequired
+    ).isRequired,
+    forCompanies: PropTypes.arrayOf(
+      PropTypes.shape({
+        key: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        list: PropTypes.arrayOf(
+          PropTypes.shape({
+            key: PropTypes.string.isRequired,
+            question: PropTypes.string.isRequired,
+            answer: PropTypes.string.isRequired
+          }).isRequired
+        ).isRequired
+      }).isRequired
+    ).isRequired
+  }).isRequired
 }
 
 export default FaqScreen
