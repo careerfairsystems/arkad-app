@@ -1,10 +1,26 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import StringSimilarity from 'string-similarity'
+import { loadCompanies } from '../actions/api'
 import { searchCompany } from '../actions/company'
 import CompaniesScreen from '../screens/Companies/CompaniesScreen'
 
-const filter = (items, showFavorites, favorites, searchText) => {
+const filterCategories = (items, desiredProgramme, weOffer, industry, desiredDegree) => {
+  let companies = items
+  companies = companies.filter(
+    item => (desiredProgramme.length !== 0
+      ? item.desiredProgramme.some(element => desiredProgramme.includes(element))
+      : true)
+      && (weOffer.length !== 0 ? item.weOffer.some(element => weOffer.includes(element)) : true)
+      && (industry.length !== 0 ? item.industry.some(element => industry.includes(element)) : true)
+      && (desiredDegree.length !== 0
+        ? item.desiredDegree.some(element => desiredDegree.includes(element))
+        : true)
+  )
+  return companies
+}
+
+const filterFavoritesAndSearch = (items, showFavorites, favorites, searchText) => {
   let companies = items
   companies = showFavorites ? items.filter(company => favorites.indexOf(company.key) !== -1) : items
   if (searchText === '') {
@@ -37,16 +53,23 @@ const filter = (items, showFavorites, favorites, searchText) => {
 }
 
 const mapStateToProps = state => ({
-  companyList: filter(
-    state.companyReducer.items,
+  companyList: filterFavoritesAndSearch(
+    filterCategories(
+      state.apiReducer.items,
+      state.companyReducer.desiredProgramme,
+      state.companyReducer.weOffer,
+      state.companyReducer.industry,
+      state.companyReducer.desiredDegree
+    ),
     state.companyReducer.showFavorites,
     state.favoriteReducer.favorites,
     state.companyReducer.searchText
-  )
+  ),
+  refreshing: state.companyReducer.refreshing
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ searchCompany }, dispatch)
+  return bindActionCreators({ loadCompanies, searchCompany }, dispatch)
 }
 
 export default connect(

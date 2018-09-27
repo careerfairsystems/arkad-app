@@ -1,7 +1,5 @@
 import React from 'react'
-import {
-  View, TouchableHighlight, Text, Alert
-} from 'react-native'
+import { View, TouchableHighlight, Text } from 'react-native'
 import PropTypes from 'prop-types'
 
 const styles = {
@@ -26,18 +24,16 @@ const styles = {
 const {
   container, errorText, button, buttonText
 } = styles
-const ErrorView = ({ error, loadCompanies }) => (
+const ErrorView = ({ loadCompanies }) => (
   <View style={container}>
     <Text style={errorText}>Unable to load data. Please reload.</Text>
     <TouchableHighlight style={button} onPress={loadCompanies}>
       <Text style={buttonText}>Reload</Text>
     </TouchableHighlight>
-    {Alert.alert(error)}
   </View>
 )
 
 ErrorView.propTypes = {
-  error: PropTypes.string.isRequired,
   loadCompanies: PropTypes.func.isRequired
 }
 
