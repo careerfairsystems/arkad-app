@@ -2,8 +2,8 @@ import * as types from '../actions/types'
 
 const maps = [
   'Kårhuset',
-  'Stuiecentrum, floor 1',
-  'Stuiecentrum, floor 2',
+  'Studiecentrum, floor 1',
+  'Studiecentrum, floor 2',
   'E-huset',
   'Matteannexet'
 ]
