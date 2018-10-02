@@ -1,23 +1,15 @@
 import React, { Component } from 'react'
-import {
-  View, Image, TouchableOpacity, Linking, Alert
-} from 'react-native'
+import { TouchableOpacity, Linking, Alert } from 'react-native'
 import PropTypes from 'prop-types'
 import ActionSheet from 'react-native-actionsheet'
 import Icon from 'react-native-vector-icons/Feather'
 import DetailsScreen from '../../components/DetailsScreen'
+import DisplayImage from '../../components/DisplayImage'
 import TextSection from '../../components/text/TextSection'
 import TextArraySection from '../../components/text/TextArraySection'
 import TextSubtitleSection from '../../components/text/TextSubtitleSection'
 
 const styles = {
-  logo: {
-    backgroundColor: '#fff',
-    padding: 8,
-    marginBottom: 8,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   headerIcon: {
     paddingRight: 8
   }
@@ -31,21 +23,10 @@ class CompanyDetailsScreen extends Component {
       title: navigation.state.params.item.name,
       headerRight: (
         <TouchableOpacity style={headerIcon} onPress={() => params.actionSheet.show()}>
-          <Icon name="more-vertical" size={25} color="black" />
+          <Icon name="more-vertical" size={25} color="#fff" />
         </TouchableOpacity>
       )
     }
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = { width: null, height: null }
-  }
-
-  componentWillMount() {
-    const { navigation } = this.props
-    const company = navigation.state.params.item
-    Image.getSize(company.logotypeUrl, (width, height) => this.setState({ width, height }))
   }
 
   componentDidMount() {
@@ -76,9 +57,7 @@ class CompanyDetailsScreen extends Component {
   }
 
   render() {
-    const { width, height } = this.state
     const { navigation, favorites, toggleFavorite } = this.props
-    const { logo } = styles
     const company = navigation.state.params.item
     let actionSheetData = [
       { title: 'Brochure', url: company.brochureUrl },
@@ -99,9 +78,7 @@ class CompanyDetailsScreen extends Component {
     const actionSheetUrls = ['', ...actionSheetData.map(item => item.url), '']
     return (
       <DetailsScreen>
-        <View style={logo}>
-          <Image style={{ width, height }} source={{ uri: company.logotypeUrl }} />
-        </View>
+        <DisplayImage source={{ uri: company.logotypeUrl }} />
 
         <TextSection title={`About ${company.name}`} description={company.about} />
         <TextSection title="Did you know?" description={company.didYouKnow} />

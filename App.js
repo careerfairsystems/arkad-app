@@ -17,7 +17,7 @@ const App = () => (
   <Provider store={store}>
     <PersistGate loading={<LoadingView />} persistor={persistor}>
       <AppStateHandlerContainer />
-      <StatusBar />
+      <StatusBar barStyle="light-content" />
       <Router />
     </PersistGate>
   </Provider>

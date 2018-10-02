@@ -7,7 +7,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center'
   },
-  text: { marginTop: 16, color: '#666', fontSize: 13 }
+  text: { marginTop: 16, color: '#000', fontSize: 13 }
 }
 
 const { container, text } = styles

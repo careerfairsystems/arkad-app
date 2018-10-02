@@ -3,8 +3,8 @@ import { TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-const notFavIcon = <Icon name="heart-o" size={25} />
-const favIcon = <Icon name="heart" size={25} color="red" />
+const notFavIcon = <Icon name="heart-o" size={25} color="#000" />
+const favIcon = <Icon name="heart" size={25} color={global.arkadRed} />
 
 const FavoriteButton = ({ company, favorites, toggleFavorite }) => {
   let favorite = false

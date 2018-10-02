@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 
 const styles = {
   content: {
-    padding: 16
+    padding: 16,
+    backgroundColor: '#fff'
   }
 }
 

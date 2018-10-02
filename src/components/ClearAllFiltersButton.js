@@ -6,7 +6,7 @@ const styles = {
   button: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
+    backgroundColor: global.arkadRed,
     paddingVertical: 8
   },
   buttonText: {

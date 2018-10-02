@@ -4,10 +4,11 @@ import PropTypes from 'prop-types'
 
 const styles = {
   sectionHeader: {
-    padding: 8,
-    backgroundColor: '#eee',
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: global.lightGray,
     borderBottomWidth: 1,
-    borderColor: '#ccc'
+    borderColor: global.separatorColor
   }
 }
 

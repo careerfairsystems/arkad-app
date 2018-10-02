@@ -15,7 +15,7 @@ const styles = {
     flex: 1,
     fontSize: 16
   },
-  subtitle: { flex: 1, fontSize: 14, color: '#aaa' }
+  subtitle: { flex: 1, fontSize: 14, color: global.subtitleColor }
 }
 
 const {

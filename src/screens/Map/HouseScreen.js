@@ -14,7 +14,7 @@ const styles = {
   },
   button: {
     width,
-    backgroundColor: 'white'
+    backgroundColor: '#fff'
   },
   buttonText: {
     marginVertical: 10,

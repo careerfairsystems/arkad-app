@@ -13,7 +13,9 @@ const styles = {
   content: { flex: 1 },
   searchContainer: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderColor: global.separatorColor
   },
   searchIconContainer: {
     justifyContent: 'center',
@@ -44,7 +46,7 @@ const renderSearchField = (companyList, searchCompany) => (
   <View>
     <View style={searchContainer}>
       <View style={searchIconContainer}>
-        <Icon name="search" size={14} color="#ccc" />
+        <Icon name="search" size={14} color={global.gray} />
       </View>
       <TextInput
         style={searchField}
@@ -52,7 +54,7 @@ const renderSearchField = (companyList, searchCompany) => (
         clearButtonMode="while-editing"
         underlineColorAndroid="transparent"
         placeholder="Search company"
-        placeholderTextColor="#ccc"
+        placeholderTextColor={global.gray}
       />
     </View>
     {companyList.length === 0 ? <NoResultsView /> : null}
