@@ -1,8 +1,8 @@
 import * as types from './types'
 
-const toggleChangeFloor = floor => ({
-  type: types.TOGGLE_CHANGE_FLOOR,
-  floor
+const toggleChangeMap = map => ({
+  type: types.TOGGLE_CHANGE_MAP,
+  map
 })
 
-export default toggleChangeFloor
+export default toggleChangeMap

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import PropTypes from 'prop-types'
-import DropdownMenu from 'react-native-dropdown-menu'
 import ApiLoadingView from '../../components/ApiLoadingView'
+import OverviewMap from '../../components/maps/OverviewMap'
 
 const styles = {
-  container: {
-    flex: 1
+  view: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#acd6ea'
   }
 }
 
@@ -18,35 +20,25 @@ class MapScreen extends Component {
 
   render() {
     const {
-      currentFloor, floors, loading, error, toggleChangeFloor, loadCompanies
+      loading, error, loadCompanies, navigation, toggleChangeMap, maps
     } = this.props
-    const { container } = styles
+    const { view } = styles
     return (
-      <View style={container}>
+      <View style={view}>
         <ApiLoadingView loading={loading} error={error} loadCompanies={loadCompanies} />
-        <DropdownMenu
-          bgColor="white"
-          tintColor="black"
-          activityTintColor="green"
-          handler={(selection, row) => toggleChangeFloor(floors[row])}
-          data={[floors]}
-        >
-          <View>
-            <Text>{currentFloor}</Text>
-          </View>
-        </DropdownMenu>
+        <OverviewMap navigation={navigation} toggleChangeMap={toggleChangeMap} maps={maps} />
       </View>
     )
   }
 }
 
 MapScreen.propTypes = {
-  currentFloor: PropTypes.string.isRequired,
-  floors: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
-  toggleChangeFloor: PropTypes.func.isRequired,
-  loadCompanies: PropTypes.func.isRequired
+  loadCompanies: PropTypes.func.isRequired,
+  maps: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  toggleChangeMap: PropTypes.func.isRequired
 }
 
 export default MapScreen

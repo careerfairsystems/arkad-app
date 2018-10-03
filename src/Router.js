@@ -6,6 +6,7 @@ import { createIconSetFromFontello } from 'react-native-vector-icons'
 import fontelloConfig from '../selection.json'
 import ShowFavoritesButton from './containers/ShowFavoritesButton'
 import MapScreenContainer from './containers/MapScreen'
+import HouseScreenContainer from './containers/HouseScreen'
 import CompaniesScreenContainer from './containers/CompaniesScreen'
 import CompanyDetailsScreen from './screens/Companies/CompanyDetailsScreen'
 import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
@@ -29,6 +30,9 @@ const MainStack = createBottomTabNavigator(
           navigationOptions: {
             title: 'Map'
           }
+        },
+        Detail: {
+          screen: HouseScreenContainer
         }
       })
     },
