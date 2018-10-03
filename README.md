@@ -52,3 +52,24 @@ Run: `brew install watchman`
 These settings are important to avoid conflicts and to get a common coding structure.
 
 ### Now you can start coding! :heart_eyes:
+
+## Parse SVG to React components
+
+1. Open a new terminal in the folder where the SVG-file is located.
+2. Run `npx @svgr/cli name-of-file.svg --native -d maps`
+3. The parser will parse the SVG-file and place it in a folder maps.
+4. To make the component zoomable open the created js-file in your favorite editor and add the following code at the top of your file:
+
+```
+import { Dimensions } from 'react-native'
+import SvgPanZoom from 'react-native-svg-pan-zoom'
+
+const { width } = Dimensions.get('window')
+
+const zoom = width / 600
+```
+
+5. Replace `<Svg viewBox="0 0 600 800" {...props}>` and `</Svg>` with `<SvgPanZoom canvasHeight={800} canvasWidth={600} minScale={0.5} initialZoom={zoom}>` and `</SvgPanZoom>`.
+6. Make sure that the SvgPanZoom-component is placed within a `<View>` component with width and height set to 100% (important!).
+7. Enjoy!
+
