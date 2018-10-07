@@ -12,6 +12,8 @@ const initialState = {
 
 const stringCleaner = string => (string ? string.toString().trim() : '')
 
+const urlFormatter = url => (url.includes('http') || url === '' ? url : `http://${url}`)
+
 const arrayCleaner = array => (array
   ? array.map(item => stringCleaner(item)).sort((a, b) => {
     const nameA = a.toLowerCase()
@@ -89,12 +91,12 @@ const apiReducer = (state = initialState, action) => {
           logotypeUrl: profile.logotype
             ? stringCleaner(profile.logotype.thumbs.small.replace('http://', 'https://'))
             : '',
-          brochureUrl: profile.brochure ? stringCleaner(profile.brochure.url) : '',
-          websiteUrl: stringCleaner(profile.urlWebsite),
-          linkedInUrl: stringCleaner(profile.urlLinkedIn),
-          facebookUrl: stringCleaner(profile.urlLinkedIn),
-          twitterUrl: stringCleaner(profile.urlTwitter),
-          youTubeUrl: stringCleaner(profile.urlYouTube)
+          brochureUrl: profile.brochure ? urlFormatter(stringCleaner(profile.brochure.url)) : '',
+          websiteUrl: urlFormatter(stringCleaner(profile.urlWebsite)),
+          linkedInUrl: urlFormatter(stringCleaner(profile.urlLinkedIn)),
+          facebookUrl: urlFormatter(stringCleaner(profile.urlLinkedIn)),
+          twitterUrl: urlFormatter(stringCleaner(profile.urlTwitter)),
+          youTubeUrl: urlFormatter(stringCleaner(profile.urlYouTube))
         }
         return company
       })

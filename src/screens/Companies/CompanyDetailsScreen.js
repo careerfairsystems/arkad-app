@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { View, Image } from 'react-native'
+import {
+  View, Image, TouchableOpacity, Linking, Alert
+} from 'react-native'
 import PropTypes from 'prop-types'
+import ActionSheet from 'react-native-actionsheet'
+import Icon from 'react-native-vector-icons/Feather'
 import DetailsScreen from '../../components/DetailsScreen'
 import TextSection from '../../components/text/TextSection'
 import TextArraySection from '../../components/text/TextArraySection'
 import TextSubtitleSection from '../../components/text/TextSubtitleSection'
-import UrlButton from '../../components/UrlButton'
 
 const styles = {
   logo: {
@@ -14,10 +17,26 @@ const styles = {
     marginBottom: 8,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  headerIcon: {
+    paddingRight: 8
   }
 }
 
 class CompanyDetailsScreen extends Component {
+  static navigationOptions = ({ navigation }) => {
+    const { params = {} } = navigation.state
+    const { headerIcon } = styles
+    return {
+      title: navigation.state.params.item.name,
+      headerRight: (
+        <TouchableOpacity style={headerIcon} onPress={() => params.actionSheet.show()}>
+          <Icon name="more-vertical" size={25} color="black" />
+        </TouchableOpacity>
+      )
+    }
+  }
+
   constructor(props) {
     super(props)
     this.state = { width: null, height: null }
@@ -29,11 +48,55 @@ class CompanyDetailsScreen extends Component {
     Image.getSize(company.logotypeUrl, (width, height) => this.setState({ width, height }))
   }
 
+  componentDidMount() {
+    const { navigation } = this.props
+    navigation.setParams({ actionSheet: this.actionSheet })
+  }
+
+  removeUndefinedUrlObjects = (urlData) => {
+    const formattedUrlData = []
+    urlData.forEach((item) => {
+      if (item.url !== '') {
+        formattedUrlData.push(item)
+      }
+    })
+    return formattedUrlData
+  }
+
+  openUrl(url) {
+    Linking.canOpenURL(url)
+      .then((supported) => {
+        if (supported) {
+          Linking.openURL(url)
+        } else {
+          Alert.alert(`Could not open URL: ${this.url}`)
+        }
+      })
+      .catch(err => Alert.alert(`Could not open URL: ${err}`))
+  }
+
   render() {
     const { width, height } = this.state
-    const { navigation } = this.props
+    const { navigation, favorites, toggleFavorite } = this.props
     const { logo } = styles
     const company = navigation.state.params.item
+    let actionSheetData = [
+      { title: 'Brochure', url: company.brochureUrl },
+      { title: 'Website', url: company.websiteUrl },
+      { title: 'LinkedIn', url: company.linkedInUrl },
+      { title: 'Facebook', url: company.facebookUrl },
+      { title: 'Twitter', url: company.twitterUrl },
+      { title: 'YouTube', url: company.youTubeUrl }
+    ]
+    actionSheetData = this.removeUndefinedUrlObjects(actionSheetData)
+    const favoriteButtonText = favorites.includes(company.key) ? 'Remove favorite' : 'Add favorite'
+    const alertButtonText = favorites.includes(company.key) ? 'Removed' : 'Added'
+    const actionSheetOptions = [
+      favoriteButtonText,
+      ...actionSheetData.map(item => item.title),
+      'Cancel'
+    ]
+    const actionSheetUrls = ['', ...actionSheetData.map(item => item.url), '']
     return (
       <DetailsScreen>
         <View style={logo}>
@@ -68,19 +131,35 @@ class CompanyDetailsScreen extends Component {
 
         <TextSection title="Find us" description={company.mapPosition} />
 
-        <UrlButton buttonText="Brochure URL" url={company.brochureUrl} />
-        <UrlButton buttonText="Website" url={company.websiteUrl} />
-        <UrlButton buttonText="LinkedIn" url={company.linkedInUrl} />
-        <UrlButton buttonText="Facebook" url={company.facebookUrl} />
-        <UrlButton buttonText="Twitter" url={company.twitterUrl} />
-        <UrlButton buttonText="YouTube" url={company.youTubeUrl} />
+        <ActionSheet
+          ref={(ref) => {
+            this.actionSheet = ref
+          }}
+          title="Choose an option"
+          options={actionSheetOptions}
+          cancelButtonIndex={actionSheetOptions.length - 1}
+          onPress={(index) => {
+            switch (index) {
+              case 0:
+                toggleFavorite(company.key)
+                Alert.alert(`${alertButtonText} ${company.name} as favorite`)
+                break
+              case actionSheetOptions.length - 1:
+                break
+              default:
+                this.openUrl(actionSheetUrls[index])
+            }
+          }}
+        />
       </DetailsScreen>
     )
   }
 }
 
 CompanyDetailsScreen.propTypes = {
-  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired
+  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  toggleFavorite: PropTypes.func.isRequired
 }
 
 export default CompanyDetailsScreen

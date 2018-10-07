@@ -8,7 +8,7 @@ const SelectableListItem = ({ children, navigation, item }) => (
     underlayColor="#d9d9d9"
     onPress={() => navigation.navigate('Detail', { item })}
   >
-    <View pointerEvents="none">
+    <View>
       <ListItem>{children}</ListItem>
     </View>
   </TouchableHighlight>
