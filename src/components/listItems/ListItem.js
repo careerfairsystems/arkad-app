@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableHighlight, View } from 'react-native'
+import { View } from 'react-native'
 import PropTypes from 'prop-types'
 
 const styles = {
@@ -16,21 +16,10 @@ const styles = {
 }
 
 const { content } = styles
-const ListItem = ({ children, navigation, item }) => (
-  <TouchableHighlight
-    underlayColor="#d9d9d9"
-    onPress={() => navigation.navigate('Detail', { item })}
-  >
-    <View style={content}>{children}</View>
-  </TouchableHighlight>
-)
+const ListItem = ({ children }) => <View style={content}>{children}</View>
 
 ListItem.propTypes = {
-  children: PropTypes.node.isRequired,
-  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
-  item: PropTypes.shape({
-    name: PropTypes.string.isRequired
-  }).isRequired
+  children: PropTypes.node.isRequired
 }
 
 export default ListItem
