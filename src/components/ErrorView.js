@@ -8,6 +8,11 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center'
   },
+  errorBackground: {
+    backgroundColor: '#fff',
+    padding: 24,
+    borderRadius: 8
+  },
   errorText: { color: '#000', fontSize: 13 },
   button: {
     paddingVertical: 8,
@@ -22,14 +27,16 @@ const styles = {
 }
 
 const {
-  container, errorText, button, buttonText
+  container, errorBackground, errorText, button, buttonText
 } = styles
 const ErrorView = ({ loadCompanies }) => (
   <View style={container}>
-    <Text style={errorText}>Unable to load data. Please reload.</Text>
-    <TouchableHighlight style={button} onPress={loadCompanies}>
-      <Text style={buttonText}>Reload</Text>
-    </TouchableHighlight>
+    <View style={errorBackground}>
+      <Text style={errorText}>Unable to load data. Please reload.</Text>
+      <TouchableHighlight style={button} onPress={loadCompanies}>
+        <Text style={buttonText}>Reload</Text>
+      </TouchableHighlight>
+    </View>
   </View>
 )
 
