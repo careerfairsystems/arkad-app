@@ -8,7 +8,7 @@ import ShowFavoritesButton from './containers/ShowFavoritesButton'
 import MapScreenContainer from './containers/MapScreen'
 import HouseScreenContainer from './containers/HouseScreen'
 import CompaniesScreenContainer from './containers/CompaniesScreen'
-import CompanyDetailsScreen from './screens/Companies/CompanyDetailsScreen'
+import CompanyDetailsScreenContainer from './containers/CompanyDetailsScreen'
 import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
@@ -55,7 +55,7 @@ const MainStack = createBottomTabNavigator(
           })
         },
         Detail: {
-          screen: CompanyDetailsScreen,
+          screen: CompanyDetailsScreenContainer,
           navigationOptions: ({ navigation }) => ({
             title: navigation.state.params.item.name
           })
