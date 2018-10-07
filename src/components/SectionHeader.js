@@ -12,11 +12,11 @@ const styles = {
 }
 
 const { sectionHeader } = styles
-const SectionHeader = ({ title }) => (
+const SectionHeader = ({ title }) => (title !== '' ? (
   <View style={sectionHeader}>
     <Text>{title}</Text>
   </View>
-)
+) : null)
 
 SectionHeader.propTypes = {
   title: PropTypes.string.isRequired

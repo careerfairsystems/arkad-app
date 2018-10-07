@@ -1,42 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 import PropTypes from 'prop-types'
-import ApiLoadingView from '../../components/ApiLoadingView'
+import ApiLoadingViewContainer from '../../containers/ApiLoadingView'
 import OverviewMap from '../../components/maps/OverviewMap'
 
 const styles = {
-  view: {
+  container: {
     width: '100%',
     height: '100%',
     backgroundColor: '#acd6ea'
   }
 }
 
-class MapScreen extends Component {
-  componentDidMount() {
-    const { loadCompanies } = this.props
-    loadCompanies()
-  }
-
-  render() {
-    const {
-      loading, error, loadCompanies, navigation, toggleChangeMap, maps
-    } = this.props
-    const { view } = styles
-    return (
-      <View style={view}>
-        <ApiLoadingView loading={loading} error={error} loadCompanies={loadCompanies} />
-        <OverviewMap navigation={navigation} toggleChangeMap={toggleChangeMap} maps={maps} />
-      </View>
-    )
-  }
-}
+const { container } = styles
+const MapScreen = ({ navigation, toggleChangeMap, maps }) => (
+  <View style={container}>
+    <ApiLoadingViewContainer />
+    <OverviewMap navigation={navigation} toggleChangeMap={toggleChangeMap} maps={maps} />
+  </View>
+)
 
 MapScreen.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.string.isRequired,
-  loadCompanies: PropTypes.func.isRequired,
   maps: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   toggleChangeMap: PropTypes.func.isRequired
 }

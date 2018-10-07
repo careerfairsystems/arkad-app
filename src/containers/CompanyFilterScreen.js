@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import CompanyFilterScreen from '../screens/Companies/CompanyFilterScreen'
 
 const mapStateToProps = state => ({
-  allFilters: state.companyReducer.allFilters
+  filters: state.apiReducer.filters
 })
 
 export default connect(mapStateToProps)(CompanyFilterScreen)

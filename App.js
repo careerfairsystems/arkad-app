@@ -3,27 +3,20 @@ import { StatusBar } from 'react-native'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import { persistStore } from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react'
 import reducers from './src/reducers'
 import Router from './src/Router'
 import LoadingView from './src/components/LoadingView'
+import AppStateHandlerContainer from './src/containers/AppStateHandler'
 
-const persistConfig = {
-  key: 'root',
-  storage,
-  whitelist: ['favoriteReducer']
-}
-
-const persistedReducer = persistReducer(persistConfig, reducers)
-
-const store = createStore(persistedReducer, applyMiddleware(thunk))
+const store = createStore(reducers, applyMiddleware(thunk))
 const persistor = persistStore(store)
 
 const App = () => (
   <Provider store={store}>
     <PersistGate loading={<LoadingView />} persistor={persistor}>
+      <AppStateHandlerContainer />
       <StatusBar />
       <Router />
     </PersistGate>

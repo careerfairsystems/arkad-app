@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  View, SectionList, TextInput, Keyboard
+  View, SectionList, RefreshControl, TextInput, Keyboard
 } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -60,7 +60,9 @@ const renderSearchField = (companyList, searchCompany) => (
 )
 
 const { content } = styles
-const CompaniesScreen = ({ navigation, companyList, searchCompany }) => {
+const CompaniesScreen = ({
+  navigation, companyList, refreshing, loadCompanies, searchCompany
+}) => {
   let sections
   if (companyList.length === 0) {
     sections = [{ title: '', data: [] }]
@@ -84,6 +86,14 @@ const CompaniesScreen = ({ navigation, companyList, searchCompany }) => {
         // TODO: temporary placement of ShowFavoritesButton component
       }
       <SectionList
+        refreshControl={(
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={() => {
+              loadCompanies()
+            }}
+          />
+)}
         ListHeaderComponent={renderSearchField(companyList, searchCompany)}
         renderItem={({ item }) => <CompanyListItem navigation={navigation} company={item} />}
         renderSectionHeader={({ section: { title } }) => <SectionHeader title={title} />}
@@ -128,6 +138,8 @@ CompaniesScreen.propTypes = {
       linkedInUrl: PropTypes.string.isRequired
     })
   ).isRequired,
+  refreshing: PropTypes.bool.isRequired,
+  loadCompanies: PropTypes.func.isRequired,
   searchCompany: PropTypes.func.isRequired
 }
 

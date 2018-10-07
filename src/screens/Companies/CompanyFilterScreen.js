@@ -4,25 +4,25 @@ import DetailsScreen from '../../components/DetailsScreen'
 import Section from '../../components/text/Section'
 import FilterSelectContainer from '../../containers/FilterSelect'
 
-const CompanyFilterScreen = ({ allFilters }) => (
+const CompanyFilterScreen = ({ filters }) => (
   <DetailsScreen>
     <Section title="Program">
-      <FilterSelectContainer item={allFilters.desiredProgramme} />
+      <FilterSelectContainer item={filters.desiredProgramme} />
     </Section>
     <Section title="Offers">
-      <FilterSelectContainer item={allFilters.weOffer} />
+      <FilterSelectContainer item={filters.weOffer} />
     </Section>
     <Section title="Industry">
-      <FilterSelectContainer item={allFilters.industry} />
+      <FilterSelectContainer item={filters.industry} />
     </Section>
     <Section title="Degree">
-      <FilterSelectContainer item={allFilters.desiredDegree} />
+      <FilterSelectContainer item={filters.desiredDegree} />
     </Section>
   </DetailsScreen>
 )
 
 CompanyFilterScreen.propTypes = {
-  allFilters: PropTypes.shape({
+  filters: PropTypes.shape({
     desiredProgramme: PropTypes.shape({
       name: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,

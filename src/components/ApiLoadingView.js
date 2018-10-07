@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Modal, View } from 'react-native'
 import PropTypes from 'prop-types'
 import LoadingView from './LoadingView'
@@ -11,22 +11,35 @@ const styles = {
   }
 }
 
-const { content } = styles
-const ApiLoadingView = ({ loading, error, loadCompanies }) => {
-  const success = !loading && error === ''
-  return (
-    <Modal animationType="fade" transparent visible={!success} onRequestClose={() => {}}>
-      <View style={content}>
-        {loading ? <LoadingView /> : null}
-        {error ? <ErrorView error={error} loadCompanies={loadCompanies} /> : null}
-      </View>
-    </Modal>
-  )
+class ApiLoadingView extends Component {
+  componentDidMount() {
+    const { updated, loadCompanies } = this.props
+    if (updated === 0) {
+      loadCompanies()
+    }
+  }
+
+  render() {
+    const {
+      loading, error, updated, loadCompanies
+    } = this.props
+    const { content } = styles
+    const success = (!loading && error === '') || updated !== 0
+    return (
+      <Modal animationType="fade" transparent visible={!success} onRequestClose={() => {}}>
+        <View style={content}>
+          {loading ? <LoadingView /> : null}
+          {error ? <ErrorView loadCompanies={loadCompanies} /> : null}
+        </View>
+      </Modal>
+    )
+  }
 }
 
 ApiLoadingView.propTypes = {
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string.isRequired,
+  updated: PropTypes.number.isRequired,
   loadCompanies: PropTypes.func.isRequired
 }
 
