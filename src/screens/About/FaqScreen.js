@@ -9,33 +9,33 @@ const styles = {
   container: { flex: 1 },
   tabBar: {
     flexDirection: 'row',
-    backgroundColor: '#ccc'
+    backgroundColor: global.arkadBlue
   },
   tab: {
     flex: 0.5,
     height: 44,
     justifyContent: 'center',
     alignItems: 'center',
-    borderBottomWidth: 3,
-    borderColor: '#eee'
+    borderBottomWidth: 5,
+    borderColor: global.arkadBlue
   },
-  bottomBorderColor: { borderColor: '#000' },
-  tabText: { fontSize: 14 },
-  separator: {},
+  selectedBottomBorderColor: { borderColor: global.arkadLightBlue },
+  tabText: { fontSize: 14, color: global.gray },
+  selectedTextColor: { color: '#fff' },
   categoryHeader: {
-    paddingVertical: 16,
-    paddingHorizontal: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     backgroundColor: '#fff',
     borderBottomWidth: 1,
-    borderColor: '#ccc'
+    borderColor: global.separatorColor
   },
   categoryHeaderText: { fontSize: 20 },
   qaContainer: {
     paddingVertical: 8,
     paddingHorizontal: 24,
-    backgroundColor: '#eee',
+    backgroundColor: global.lightGray,
     borderBottomWidth: 1,
-    borderColor: '#ccc'
+    borderColor: global.separatorColor
   },
   questionText: { fontSize: 14, fontWeight: 'bold' },
   answerText: { fontSize: 12 }
@@ -76,14 +76,16 @@ class FaqScreen extends Component {
 
   renderTab(id, title) {
     const { selectedTab } = this.state
-    const { tab, bottomBorderColor, tabText } = styles
+    const {
+      tab, selectedBottomBorderColor, tabText, selectedTextColor
+    } = styles
     return (
       <TouchableHighlight
-        style={[tab, selectedTab === id ? bottomBorderColor : null]}
-        underlayColor="#d9d9d9"
+        style={[tab, selectedTab === id ? selectedBottomBorderColor : null]}
+        underlayColor={null}
         onPress={() => this.toggleTab(id)}
       >
-        <Text style={tabText}>{title}</Text>
+        <Text style={[tabText, selectedTab === id ? selectedTextColor : null]}>{title}</Text>
       </TouchableHighlight>
     )
   }
@@ -91,12 +93,11 @@ class FaqScreen extends Component {
   render() {
     const { selectedTab } = this.state
     const { faqList } = this.props
-    const { container, tabBar, separator } = styles
+    const { container, tabBar } = styles
     return (
       <View style={container}>
         <View style={tabBar}>
           {this.renderTab(0, 'For students')}
-          <View style={separator} />
           {this.renderTab(1, 'For companies')}
         </View>
         <ScrollView>

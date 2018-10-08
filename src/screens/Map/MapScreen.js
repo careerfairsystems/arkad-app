@@ -8,7 +8,7 @@ const styles = {
   container: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#acd6ea'
+    backgroundColor: global.arkadLightBlue
   }
 }
 

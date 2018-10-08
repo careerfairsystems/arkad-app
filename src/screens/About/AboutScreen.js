@@ -2,6 +2,7 @@ import React from 'react'
 import { TouchableHighlight, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import DetailsScreen from '../../components/DetailsScreen'
+import DisplayImage from '../../components/DisplayImage'
 import TextSection from '../../components/text/TextSection'
 import TextSubtitleSection from '../../components/text/TextSubtitleSection'
 
@@ -11,7 +12,7 @@ const styles = {
     paddingHorizontal: 16,
     borderRadius: 8,
     marginTop: 10,
-    backgroundColor: '#555',
+    backgroundColor: global.buttonColor,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -24,6 +25,7 @@ const styles = {
 const { button, text } = styles
 const AboutScreen = ({ navigation, aboutUs, openingHours }) => (
   <DetailsScreen>
+    <DisplayImage source={require('../../../resources/img/arkad_logo.png')} />
     <TextSection title="About ARKAD" description={aboutUs} />
     <TextSubtitleSection
       title="Opening hours"

@@ -20,85 +20,127 @@ const styles = {
   headerIcon: { paddingHorizontal: 14 }
 }
 
+const navigationOptions = {
+  headerStyle: {
+    backgroundColor: global.arkadBlue
+  },
+  headerTintColor: '#fff'
+}
+
 const ArkadIcon = createIconSetFromFontello(fontelloConfig)
 
 const MainStack = createBottomTabNavigator(
   {
     Map: {
-      screen: createStackNavigator({
-        MapStack: {
-          screen: MapScreenContainer,
-          navigationOptions: {
-            title: 'Map'
+      screen: createStackNavigator(
+        {
+          MapStack: {
+            screen: MapScreenContainer,
+            navigationOptions: {
+              ...navigationOptions,
+              title: 'Map'
+            }
+          },
+          Detail: {
+            screen: HouseScreenContainer,
+            navigationOptions: {
+              ...navigationOptions
+            }
           }
         },
-        Detail: {
-          screen: HouseScreenContainer
+        {
+          cardStyle: { backgroundColor: global.arkadGray }
         }
-      })
+      )
     },
     Companies: {
-      screen: createStackNavigator({
-        CompanyStack: {
-          screen: CompaniesScreenContainer,
-          navigationOptions: ({ navigation }) => ({
-            title: 'Companies',
-            headerRight: (
-              <TouchableOpacity
-                style={styles.headerIcon}
-                onPress={() => navigation.navigate('Filter')}
-              >
-                <Icon name="filter" size={24} color="#000" />
-              </TouchableOpacity>
-            ),
-            headerLeft: <ShowFavoritesButton />
-          })
+      screen: createStackNavigator(
+        {
+          CompanyStack: {
+            screen: CompaniesScreenContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: 'Companies',
+              headerRight: (
+                <TouchableOpacity
+                  style={styles.headerIcon}
+                  onPress={() => navigation.navigate('Filter')}
+                >
+                  <Icon name="filter" size={24} color="#fff" />
+                </TouchableOpacity>
+              ),
+              headerLeft: <ShowFavoritesButton />
+            })
+          },
+          Detail: {
+            screen: CompanyDetailsScreenContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: navigation.state.params.item.name
+            })
+          }
         },
-        Detail: {
-          screen: CompanyDetailsScreenContainer,
-          navigationOptions: ({ navigation }) => ({
-            title: navigation.state.params.item.name
-          })
+        {
+          cardStyle: { backgroundColor: global.arkadGray }
         }
-      })
+      )
     },
     Events: {
-      screen: createStackNavigator({
-        EventStack: {
-          screen: EventsScreenContainer,
-          navigationOptions: {
-            title: 'Events'
+      screen: createStackNavigator(
+        {
+          EventStack: {
+            screen: EventsScreenContainer,
+            navigationOptions: {
+              ...navigationOptions,
+              title: 'Events'
+            }
+          },
+          Detail: {
+            screen: EventDetailsScreen,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: navigation.state.params.item.name
+            })
           }
         },
-        Detail: {
-          screen: EventDetailsScreen,
-          navigationOptions: ({ navigation }) => ({
-            title: navigation.state.params.item.name
-          })
+        {
+          cardStyle: { backgroundColor: global.arkadGray }
         }
-      })
+      )
     },
     About: {
-      screen: createStackNavigator({
-        AboutStack: {
-          screen: AboutScreenContainer,
-          navigationOptions: {
-            title: 'About'
+      screen: createStackNavigator(
+        {
+          AboutStack: {
+            screen: AboutScreenContainer,
+            navigationOptions: {
+              ...navigationOptions,
+              title: 'About'
+            }
+          },
+          ArkadTeam: {
+            screen: ArkadTeamScreenContainer,
+            navigationOptions: () => ({
+              ...navigationOptions,
+              title: 'The ARKAD team'
+            })
+          },
+          Faq: {
+            screen: FaqScreenContainer,
+            navigationOptions: () => ({
+              ...navigationOptions,
+              title: 'FAQ',
+              headerStyle: {
+                ...navigationOptions.headerStyle,
+                borderBottomWidth: 0
+              }
+            })
           }
         },
-        ArkadTeam: {
-          screen: ArkadTeamScreenContainer,
-          navigationOptions: () => ({
-            title: 'The ARKAD team'
-          })
-        },
-        Faq: {
-          screen: FaqScreenContainer,
-          navigationOptions: () => ({
-            title: 'FAQ'
-          })
+        {
+          cardStyle: { backgroundColor: global.arkadGray }
         }
-      })
+      )
     }
   },
   {
@@ -118,6 +160,13 @@ const MainStack = createBottomTabNavigator(
           return <ArkadIcon name="arkadlogo" size={26} color={tintColor} />
         }
         return <Icon name={iconName} size={20} color={tintColor} />
+      },
+      tabBarOptions: {
+        activeTintColor: global.arkadBlue,
+        style: {
+          borderTopWidth: 2,
+          borderTopColor: global.arkadBlue
+        }
       }
     })
   }
@@ -134,18 +183,20 @@ const RootStack = createStackNavigator(
     Filter: {
       screen: CompanyFilterScreenContainer,
       navigationOptions: ({ navigation }) => ({
+        ...navigationOptions,
         title: 'Filter',
         headerLeft: null,
         headerRight: (
           <TouchableOpacity style={styles.headerIcon} onPress={() => navigation.goBack()}>
-            <Icon name="angle-down" size={34} color="#000" />
+            <Icon name="angle-down" size={34} color="#fff" />
           </TouchableOpacity>
         )
       })
     }
   },
   {
-    mode: 'modal'
+    mode: 'modal',
+    cardStyle: { backgroundColor: global.arkadGray }
   }
 )
 

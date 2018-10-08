@@ -52,21 +52,24 @@ const FilterSelect = ({
       searchPlaceholderText="Search"
       noResultsComponent={renderNoResults}
       colors={{
-        success: 'red',
+        success: global.arkadRed,
         text: '#000',
         subText: '#000'
       }}
       styles={{
         selectToggle: {
-          backgroundColor: '#eee',
+          backgroundColor: global.gray,
           padding: 8,
           marginBottom: 8,
           borderRadius: 4
         },
         subItem: { marginVertical: 8 },
         itemText: { fontWeight: 'bold', fontSize: 20 },
-        subSeparator: { backgroundColor: '#ccc' },
-        button: { backgroundColor: '#555' }
+        subSeparator: { backgroundColor: global.separatorColor },
+        chipContainer: { borderColor: global.arkadBlue },
+        chipText: { color: global.arkadBlue },
+        chipIcon: { color: global.arkadRed },
+        button: { backgroundColor: global.buttonColor }
       }}
       itemFontFamily={{}}
       subItemFontFamily={{}}

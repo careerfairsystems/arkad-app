@@ -285,7 +285,7 @@ const apiReducer = (state = initialState, action) => {
           mapPosition: stringCleaner(profile.map),
 
           logotypeUrl: profile.logotype
-            ? stringCleaner(profile.logotype.thumbs.small.replace('http://', 'https://'))
+            ? stringCleaner(profile.logotype.thumbs.large.replace('http://', 'https://'))
             : '',
           brochureUrl: profile.brochure ? urlFormatter(stringCleaner(profile.brochure.url)) : '',
           websiteUrl: urlFormatter(stringCleaner(profile.urlWebsite)),

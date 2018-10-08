@@ -7,11 +7,11 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     borderBottomWidth: 1,
     backgroundColor: '#fff',
-    borderColor: '#ccc'
+    borderColor: global.separatorColor
   }
 }
 

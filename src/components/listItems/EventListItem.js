@@ -8,7 +8,8 @@ const styles = {
     width: 45,
     paddingRight: 8,
     marginRight: 8,
-    borderRightWidth: 1
+    borderRightWidth: 1,
+    borderColor: global.arkadBlue
   },
   infoContainer: { flexDirection: 'column', flex: 1 },
   time: {
@@ -19,7 +20,7 @@ const styles = {
     flex: 1,
     fontSize: 16
   },
-  subtitle: { flex: 1, fontSize: 14, color: '#aaa' }
+  subtitle: { flex: 1, fontSize: 14, color: global.subtitleColor }
 }
 
 const {

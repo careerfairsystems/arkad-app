@@ -12,7 +12,7 @@ const styles = {
     padding: 24,
     borderRadius: 8
   },
-  loadingText: { marginTop: 10, color: '#666', fontSize: 13 }
+  loadingText: { marginTop: 10, color: '#000', fontSize: 13 }
 }
 
 const { container, indicatorBackground, loadingText } = styles

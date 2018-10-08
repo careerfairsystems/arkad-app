@@ -4,9 +4,10 @@ import PropTypes from 'prop-types'
 
 const styles = {
   content: {
-    padding: 8,
-    marginBottom: 8,
-    backgroundColor: '#fff'
+    paddingVertical: 8,
+    backgroundColor: '#fff',
+    borderBottomWidth: 2,
+    borderColor: global.arkadBlue
   },
   sectionTitle: {
     fontSize: 20,

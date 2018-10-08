@@ -19,7 +19,7 @@ const styles = {
     paddingHorizontal: 16,
     borderRadius: 8,
     marginTop: 10,
-    backgroundColor: '#555',
+    backgroundColor: global.arkadBlue,
     justifyContent: 'center',
     alignItems: 'center'
   },
