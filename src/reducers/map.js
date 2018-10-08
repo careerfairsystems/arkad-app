@@ -2,10 +2,11 @@ import * as types from '../actions/types'
 
 const maps = [
   'Kårhuset',
+  'E-huset',
   'Studiecentrum, floor 1',
   'Studiecentrum, floor 2',
-  'E-huset',
-  'Matteannexet'
+  'Matteannexet, floor 1',
+  'Matteannexet, floor 2'
 ]
 
 const initialState = {
