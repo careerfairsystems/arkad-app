@@ -25,12 +25,12 @@ class MapScreen extends Component {
     const { view } = styles
     return (
       <View style={view}>
+        <ApiLoadingView loading={loading} error={error} loadCompanies={loadCompanies} />
         <OverviewMap navigation={navigation} toggleChangeMap={toggleChangeMap} maps={maps} />
       </View>
     )
   }
 }
-// <ApiLoadingView loading={loading} error={error} loadCompanies={loadCompanies} />
 
 MapScreen.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,

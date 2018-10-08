@@ -99,15 +99,11 @@ class HouseScreen extends Component {
           defaultIndex={maps.indexOf(currentMap)}
           defaultValue={`${currentMap} ${arrow}`}
         />
-        {/* TODO: Add house map */}
         <View style={mapView}>{this.renderMap(currentMap)}</View>
       </View>
     )
   }
 }
-// <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-// <Text>{currentMap}</Text>
-// </View>
 
 HouseScreen.propTypes = {
   currentMap: PropTypes.string.isRequired,
