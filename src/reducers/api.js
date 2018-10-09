@@ -3,6 +3,7 @@ import * as types from '../actions/types'
 
 const initialState = {
   items: [],
+  maps: [],
   filters: {},
   notUpdated: [],
   loading: false,
@@ -237,6 +238,7 @@ const filterFormatter = (name, id, array) => {
 
 const apiReducer = (state = initialState, action) => {
   let filteredCompanies
+  let maps = []
   let desiredProgramme = []
   let weOffer = []
   let industry = []
@@ -282,7 +284,8 @@ const apiReducer = (state = initialState, action) => {
             phone: stringCleaner(profile.contactPhone)
           },
 
-          mapPosition: stringCleaner(profile.map),
+          map: stringCleaner(profile.map),
+          boothNumber: profile.boothNumber ? profile.boothNumber : -1,
 
           logotypeUrl: profile.logotype
             ? stringCleaner(profile.logotype.thumbs.large.replace('http://', 'https://'))
@@ -297,11 +300,23 @@ const apiReducer = (state = initialState, action) => {
         return company
       })
       filteredCompanies.map((company) => {
+        maps = [...maps, company.map]
         desiredProgramme = [...desiredProgramme, ...company.desiredProgramme]
         weOffer = [...weOffer, ...company.weOffer]
         industry = [...industry, ...company.industry]
         desiredDegree = [...desiredDegree, ...company.desiredDegree]
         return company
+      })
+      maps = Array.from(new Set(maps)).sort((a, b) => {
+        const nameA = a.toLowerCase()
+        const nameB = b.toLowerCase()
+        if (nameA < nameB) {
+          return -1
+        }
+        if (nameA > nameB) {
+          return 1
+        }
+        return 0
       })
       desiredProgramme = filterFormatter('Programs', 'desiredProgramme', desiredProgramme)
       weOffer = filterFormatter('Offers', 'weOffer', weOffer)
@@ -316,6 +331,7 @@ const apiReducer = (state = initialState, action) => {
           industry,
           desiredDegree
         },
+        maps,
         notUpdated: [],
         loading: false,
         updated: Math.floor(Date.now() / 1000)

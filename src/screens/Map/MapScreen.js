@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import PropTypes from 'prop-types'
 import ApiLoadingViewContainer from '../../containers/ApiLoadingView'
-import OverviewMap from '../../components/maps/OverviewMap'
+import OverviewMap from '../../containers/OverviewMap'
 
 const styles = {
   container: {
@@ -13,17 +13,15 @@ const styles = {
 }
 
 const { container } = styles
-const MapScreen = ({ navigation, toggleChangeMap, maps }) => (
+const MapScreen = ({ navigation }) => (
   <View style={container}>
     <ApiLoadingViewContainer />
-    <OverviewMap navigation={navigation} toggleChangeMap={toggleChangeMap} maps={maps} />
+    <OverviewMap navigation={navigation} />
   </View>
 )
 
 MapScreen.propTypes = {
-  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
-  maps: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  toggleChangeMap: PropTypes.func.isRequired
+  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired
 }
 
 export default MapScreen

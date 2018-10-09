@@ -4,8 +4,9 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import fontelloConfig from '../selection.json'
+import Dropdown from './containers/Dropdown'
 import ShowFavoritesButton from './containers/ShowFavoritesButton'
-import MapScreenContainer from './containers/MapScreen'
+import MapScreen from './screens/Map/MapScreen'
 import HouseScreenContainer from './containers/HouseScreen'
 import CompaniesScreenContainer from './containers/CompaniesScreen'
 import CompanyDetailsScreenContainer from './containers/CompanyDetailsScreen'
@@ -35,17 +36,25 @@ const MainStack = createBottomTabNavigator(
       screen: createStackNavigator(
         {
           MapStack: {
-            screen: MapScreenContainer,
+            screen: MapScreen,
             navigationOptions: {
               ...navigationOptions,
               title: 'Map'
             }
           },
-          Detail: {
+          House: {
             screen: HouseScreenContainer,
             navigationOptions: {
-              ...navigationOptions
+              ...navigationOptions,
+              headerTitle: <Dropdown />
             }
+          },
+          CompanyDetails: {
+            screen: CompanyDetailsScreenContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: navigation.state.params.item.name
+            })
           }
         },
         {

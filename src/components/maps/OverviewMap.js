@@ -1,21 +1,24 @@
 import React from 'react'
 import { Dimensions } from 'react-native'
+import PropTypes from 'prop-types'
 import {
   Defs, ClipPath, Path, G, Text, TSpan
 } from 'react-native-svg'
-import PropTypes from 'prop-types'
 import SvgPanZoom from 'react-native-svg-pan-zoom'
 
 const { width } = Dimensions.get('window')
 
 const zoom = width / 600
 
-const handlePress = (toggleChangeMap, maps, idx, navigation) => {
-  toggleChangeMap(maps[idx])
-  navigation.navigate('Detail')
+const showHouse = (navigation, maps, toggleChangeMap, toggleChangeCompany, map) => {
+  toggleChangeMap(maps[maps.indexOf(map)])
+  toggleChangeCompany(0)
+  navigation.navigate('House')
 }
 
-const OverviewMap = ({ navigation, toggleChangeMap, maps }) => (
+const OverviewMap = ({
+  navigation, maps, toggleChangeMap, toggleChangeCompany
+}) => (
   <SvgPanZoom canvasHeight={800} canvasWidth={600} minScale={0.5} initialZoom={zoom}>
     <Defs>
       <ClipPath id="a">
@@ -266,7 +269,8 @@ const OverviewMap = ({ navigation, toggleChangeMap, maps }) => (
         id="E-Huset"
         fill="#002b64"
         d="M479.13 402.82v-9.32h-4.48v-7.82H441.1v-23.86h26.84v-9.69h-2.98v-7.46h-50.7v-4.1h-13.41v4.1h-11.56v51.44h-7.08v2.99h-15.66v20.12h14.91v35.42h-11.93v17.52h19.76v24.6h9.69v10.44H378.11v8.57h3.72v8.57h73.81v-8.57h2.61v-8.95H441.1v-24.23h38.03v-9.32h-4.48v-7.82H441.1v-23.11h38.03v-9.32h-4.48v-7.83H441.1v-22.37h38.03z"
-        onPress={() => handlePress(toggleChangeMap, maps, maps.indexOf('E-huset'), navigation)}
+        onPress={() => showHouse(navigation, maps, toggleChangeMap, toggleChangeCompany, global.eHuset)
+        }
       />
     </G>
     <G>
@@ -274,7 +278,8 @@ const OverviewMap = ({ navigation, toggleChangeMap, maps }) => (
         id="Karhuset"
         fill="#002b64"
         d="M307.28 198.92l3.73-4.85-8.51-6.28 22.72-46.94-16.65-8.06-31.11 64.27 5.79 2.8-23.74 32.92 44.63 32.19 32.49-45.05-29.35-21z"
-        onPress={() => handlePress(toggleChangeMap, maps, maps.indexOf('Kårhuset'), navigation)}
+        onPress={() => showHouse(navigation, maps, toggleChangeMap, toggleChangeCompany, global.karhuset)
+        }
       />
     </G>
     <G>
@@ -282,7 +287,13 @@ const OverviewMap = ({ navigation, toggleChangeMap, maps }) => (
         id="StudieC"
         fill="#002b64"
         d="M337.85 336.54l1.98-7.52-7.57-1.99-1.98 7.52-22.85-6.03-13.66 51.85 52.78 13.91 13.66-51.84-22.36-5.9z"
-        onPress={() => handlePress(toggleChangeMap, maps, maps.indexOf('Studiecentrum, floor 1'), navigation)
+        onPress={() => showHouse(
+          navigation,
+          maps,
+          toggleChangeMap,
+          toggleChangeCompany,
+          global.studiecentrumFirstFloor
+        )
         }
       />
     </G>
@@ -291,7 +302,13 @@ const OverviewMap = ({ navigation, toggleChangeMap, maps }) => (
         id="Annexet"
         fill="#002b64"
         d="M150.15 398.259l63.306-5.438 3.915 45.572-63.307 5.438z"
-        onPress={() => handlePress(toggleChangeMap, maps, maps.indexOf('Matteannexet, floor 1'), navigation)
+        onPress={() => showHouse(
+          navigation,
+          maps,
+          toggleChangeMap,
+          toggleChangeCompany,
+          global.matteannexetFirstFloor
+        )
         }
       />
     </G>
@@ -382,8 +399,9 @@ const OverviewMap = ({ navigation, toggleChangeMap, maps }) => (
 
 OverviewMap.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
+  maps: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   toggleChangeMap: PropTypes.func.isRequired,
-  maps: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  toggleChangeCompany: PropTypes.func.isRequired
 }
 
 export default OverviewMap
