@@ -13,25 +13,29 @@ const initialState = {
           key: '0',
           name: 'Daniel Tovesson',
           role: 'Scrum Master',
-          image: 'daniel_tovesson'
+          image: 'daniel_tovesson',
+          linkedInUrl: 'https://www.linkedin.com/in/gustav-lilja-335065150'
         },
         {
           key: '1',
           name: 'Fredrik Siemund',
           role: 'Developer',
-          image: 'fredrik_siemund'
+          image: 'fredrik_siemund',
+          linkedInUrl: 'https://www.linkedin.com/in/gustav-lilja-335065150'
         },
         {
           key: '2',
           name: 'John Helbrink',
           role: 'Developer',
-          image: 'john_helbrink'
+          image: 'john_helbrink',
+          linkedInUrl: 'https://www.linkedin.com/in/gustav-lilja-335065150'
         },
         {
           key: '3',
           name: 'Gustav Lilja',
           role: 'UX-designer',
-          image: 'gustav_lilja'
+          image: 'gustav_lilja',
+          linkedInUrl: 'https://www.linkedin.com/in/gustav-lilja-335065150'
         }
       ]
     },
@@ -42,7 +46,8 @@ const initialState = {
           key: '0',
           name: 'Victor Winberg',
           role: 'Scrum Master',
-          image: 'victor_winberg'
+          image: 'victor_winberg',
+          linkedInUrl: 'https://www.linkedin.com/in/gustav-lilja-335065150'
         }
       ]
     },
