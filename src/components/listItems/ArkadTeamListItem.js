@@ -2,6 +2,7 @@ import React from 'react'
 import { Image, View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import ListItem from './ListItem'
+import LinkedInButton from '../LinkedInButton'
 
 const styles = {
   image: {
@@ -51,6 +52,7 @@ const ArkadTeamListItem = ({ person }) => {
         <Text style={title}>{person.name}</Text>
         <Text style={subtitle}>{person.role}</Text>
       </View>
+      <LinkedInButton url={person.linkedInUrl} />
     </ListItem>
   )
 }
