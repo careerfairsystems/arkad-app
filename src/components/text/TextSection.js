@@ -3,15 +3,21 @@ import PropTypes from 'prop-types'
 import Section from './Section'
 import DescriptionText from './DescriptionText'
 
-const TextSection = ({ title, description }) => (description !== '' ? (
+const TextSection = ({ title, description, button }) => (description !== '' ? (
   <Section title={title}>
     <DescriptionText description={description} />
+    {button || null}
   </Section>
 ) : null)
 
 TextSection.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
+  button: PropTypes.element
+}
+
+TextSection.defaultProps = {
+  button: null
 }
 
 export default TextSection
