@@ -1,39 +1,81 @@
 const initialState = [
   {
-    title: '14 November',
+    title: '4 November',
     data: [
       {
         key: '1',
-        name: 'Bygg en dator med IBM',
-        location: 'Kårhuset',
-        address: 'Sölvegatan 22A 22362 Lund',
-        startTime: '08:00',
-        endTime: '10:00',
+        name: 'Toughest Lab',
+        speaker: '',
+        startTime: '14:00',
+        endTime: '17:00',
+        language: '',
+        location: 'Toughest Lab, Malmö',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image: 'https://storage.googleapis.com/jexpo-arkad/1007385894541221_large_000.png'
+          'Come and get sweaty with ARKAD! We’re arranging two 90-minute long classes with Toughest’s instructors which will be hold at Toughest LAB in Malmö. The two sessions will have 40 spots each, and a shuttle bus will depart from Kårhuset.',
+        signUpURL: 'https://www.arkadtlth.se/events/'
+      }
+    ]
+  },
+  {
+    title: '8 November',
+    data: [
+      {
+        key: '1',
+        name: 'ATEA',
+        speaker: '',
+        startTime: '12:15',
+        endTime: '13:00',
+        language: 'Swedish',
+        location: 'Matteannexet: MA7',
+        description:
+          "You're about to make life-changing decisions regarding your future, what's the smarter choice? How can you make the most out of contributing to a more sustainable world, perform on top and at the same time keep challenging yourself and your environment?",
+        signUpURL: 'https://www.arkadtlth.se/events/'
       },
       {
         key: '2',
-        name: 'Bygg en bil med Volvo',
-        location: 'Kårhuset',
-        address: 'Sölvegatan 22A 22362 Lund',
-        startTime: '14:00',
-        endTime: '16:00',
+        name: 'Snacka Snyggt',
+        speaker: 'Serena Mon de Vienne',
+        startTime: '17:00',
+        endTime: '18:30',
+        language: 'Swedish',
+        location: 'Kårhuset: Aulan',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image: 'https://storage.googleapis.com/jexpo-arkad/1007385894541221_large_000.png'
-      },
+          'Serena Mon de Vienne from the rhetoric consulting firm Snacka Snyggt will provide all the tips and trix for using the right rhetorics for landing the dream job. How do you avoid the clichés, how do you adjust your rhetorics due to your personal characteristics, how to brag in a trustworthy way without stepping on the toes of jantelagen, and how you can use storytelling to deliver a story in a trustworthy way.',
+        signUpURL: 'https://www.arkadtlth.se/events/'
+      }
+    ]
+  },
+  {
+    title: '12 November',
+    data: [
       {
-        key: '3',
-        name: 'Spökrunda med IKEA',
-        location: 'Kårhuset',
-        address: 'Sölvegatan 22A 22362 Lund',
-        startTime: '15:00',
-        endTime: '16:00',
+        key: '1',
+        name: 'Region Skåne',
+        speaker: '',
+        startTime: '12:15',
+        endTime: '13:00',
+        language: 'Swedish',
+        location: 'E-huset: E:B',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image: 'https://storage.googleapis.com/jexpo-arkad/1007385894541221_large_000.png'
+          'Region Skåne operates 10 hospitals, 150 primary care centres and are investing to become the leading region in digitalization of health care in Sweden in 2025. Are you interested in sourcing technology? There are several exciting opportunities coming up now, visit this lunch seminar to know more about you carreer at Region Skåne.',
+        signUpURL: 'https://www.arkadtlth.se/events/'
+      }
+    ]
+  },
+  {
+    title: '13 November',
+    data: [
+      {
+        key: '1',
+        name: 'Opening Ceremony ARKAD 2018',
+        speaker: '',
+        startTime: '18:00',
+        endTime: '21:00',
+        language: '',
+        location: 'Kårhuset: Gasquesalen',
+        description:
+          'Come to Gasquesalen and enjoy a spectacular evening with us to celebrate the opening of this year’s ARKAD fair! There will be live music, entertainment and a competition where great knowledge of Lund will be the key for winning the big prize. We will offer delicious appetizers and a wide sortiment of good beverages. Welcome!',
+        signUpURL: 'https://www.arkadtlth.se/events/'
       }
     ]
   },
@@ -42,25 +84,15 @@ const initialState = [
     data: [
       {
         key: '1',
-        name: 'Föreläsning med Accando',
-        location: 'Kårhuset',
-        address: 'Sölvegatan 22A 22362 Lund',
-        startTime: '14:00',
-        endTime: '18:00',
+        name: 'Pitch Please',
+        speaker: '',
+        startTime: '12:00',
+        endTime: '13:00',
+        language: '',
+        location: 'Matteannexet: MA7',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image: 'https://storage.googleapis.com/jexpo-arkad/1007385894541221_large_000.png'
-      },
-      {
-        key: '2',
-        name: 'Lär dig spionera med Axis',
-        location: 'Kårhuset',
-        address: 'Sölvegatan 22A 22362 Lund',
-        startTime: '16:00',
-        endTime: '18:00',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        image: 'https://storage.googleapis.com/jexpo-arkad/1007385894541221_large_000.png'
+          'Come and listen to offers for examination work, internships and trainee employment from companies who want you to work for their organisations. The companies who will pitch their offers are Preem, Sydkraft Hydropower, Tunstall Nordic, and Schibsted Media Group. Lunch will be offered!',
+        signUpURL: 'https://www.arkadtlth.se/events/'
       }
     ]
   }
