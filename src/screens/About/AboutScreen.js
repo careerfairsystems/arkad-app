@@ -1,28 +1,11 @@
 import React from 'react'
-import { TouchableHighlight, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import DetailsScreen from '../../components/DetailsScreen'
 import DisplayImage from '../../components/DisplayImage'
 import TextSection from '../../components/text/TextSection'
 import TextSubtitleSection from '../../components/text/TextSubtitleSection'
+import Button from '../../components/Button'
 
-const styles = {
-  button: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 8,
-    marginTop: 10,
-    backgroundColor: global.buttonColor,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  text: {
-    color: '#fff',
-    fontSize: 16
-  }
-}
-
-const { button, text } = styles
 const AboutScreen = ({
   navigation, aboutUs, openingHours, aboutArkadTeam
 }) => (
@@ -40,15 +23,9 @@ const AboutScreen = ({
     <TextSection
       title="The ARKAD organization"
       description={aboutArkadTeam}
-      button={(
-        <TouchableHighlight style={button} onPress={() => navigation.navigate('ArkadTeam')}>
-          <Text style={text}>The ARKAD team</Text>
-        </TouchableHighlight>
-)}
+      button={<Button title="The ARKAD team" onPress={() => navigation.navigate('ArkadTeam')} />}
     />
-    <TouchableHighlight style={button} onPress={() => navigation.navigate('Faq')}>
-      <Text style={text}>Questions? Check out our FAQ!</Text>
-    </TouchableHighlight>
+    <Button title="Questions? Check out our FAQ!" onPress={() => navigation.navigate('Faq')} />
   </DetailsScreen>
 )
 

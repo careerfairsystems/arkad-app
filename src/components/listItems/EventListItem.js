@@ -44,13 +44,13 @@ EventListItem.propTypes = {
   item: PropTypes.shape({
     key: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    address: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
+    speaker: PropTypes.string.isRequired,
     startTime: PropTypes.string.isRequired,
     endTime: PropTypes.string.isRequired,
+    language: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired
+    signUpURL: PropTypes.string.isRequired
   }).isRequired
 }
 
