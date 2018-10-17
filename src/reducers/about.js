@@ -1,10 +1,12 @@
 const initialState = {
   aboutUs:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    'With 190 exhibiting companies and 300 volunteers, ARKAD is the largest career fair in Scandinavia. On the 14th and 15th of November Lund University, Faculty of Engineering will be crowded with thousands of students and exhibitors eager to meet new people and seize future opportunities. We hope to see you all there!',
   openingHours: [
     { date: '14 November', time: '08:00-18:00' },
     { date: '15 November', time: '08:00-18:00' }
   ],
+  aboutArkadTeam:
+    'The ARKAD organization consist of the Project Group, Coordinators and Hosts. All together we are almost 300 people and together we have been working very hard to make this year’s fair be the best one ever.',
   arkadTeam: [
     {
       title: 'IT - mobile application',

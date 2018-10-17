@@ -23,7 +23,9 @@ const styles = {
 }
 
 const { button, text } = styles
-const AboutScreen = ({ navigation, aboutUs, openingHours }) => (
+const AboutScreen = ({
+  navigation, aboutUs, openingHours, aboutArkadTeam
+}) => (
   <DetailsScreen>
     <DisplayImage source={require('../../../resources/img/arkad_logo.png')} />
     <TextSection title="About ARKAD" description={aboutUs} />
@@ -35,9 +37,15 @@ const AboutScreen = ({ navigation, aboutUs, openingHours }) => (
         description: openingHour.time
       }))}
     />
-    <TouchableHighlight style={button} onPress={() => navigation.navigate('ArkadTeam')}>
-      <Text style={text}>The ARKAD team</Text>
-    </TouchableHighlight>
+    <TextSection
+      title="The ARKAD organization"
+      description={aboutArkadTeam}
+      button={(
+        <TouchableHighlight style={button} onPress={() => navigation.navigate('ArkadTeam')}>
+          <Text style={text}>The ARKAD team</Text>
+        </TouchableHighlight>
+)}
+    />
     <TouchableHighlight style={button} onPress={() => navigation.navigate('Faq')}>
       <Text style={text}>Questions? Check out our FAQ!</Text>
     </TouchableHighlight>
@@ -47,6 +55,7 @@ const AboutScreen = ({ navigation, aboutUs, openingHours }) => (
 AboutScreen.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   aboutUs: PropTypes.string.isRequired,
+  aboutArkadTeam: PropTypes.string.isRequired,
   openingHours: PropTypes.arrayOf(
     PropTypes.shape({ date: PropTypes.string.isRequired, time: PropTypes.string.isRequired })
       .isRequired
