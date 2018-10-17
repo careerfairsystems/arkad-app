@@ -6,6 +6,7 @@ import { createIconSetFromFontello } from 'react-native-vector-icons'
 import fontelloConfig from '../selection.json'
 import MapActionSheet from './containers/MapActionSheet'
 import ShowFavoritesButton from './containers/ShowFavoritesButton'
+import FaqButton from './components/FaqButton'
 import MapScreen from './screens/Map/MapScreen'
 import HouseScreenContainer from './containers/HouseScreen'
 import CompaniesScreenContainer from './containers/CompaniesScreen'
@@ -122,10 +123,11 @@ const MainStack = createBottomTabNavigator(
         {
           AboutStack: {
             screen: AboutScreenContainer,
-            navigationOptions: {
+            navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: 'About'
-            }
+              title: 'About',
+              headerRight: <FaqButton navigation={navigation} />
+            })
           },
           ArkadTeam: {
             screen: ArkadTeamScreenContainer,
