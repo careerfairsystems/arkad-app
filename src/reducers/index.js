@@ -17,7 +17,7 @@ const rootPersistConfig = {
 const apiPersistConfig = {
   key: 'api',
   storage,
-  whitelist: ['items', 'filters', 'updated']
+  whitelist: ['items', 'filters', 'maps', 'updated']
 }
 
 const rootReducer = combineReducers({

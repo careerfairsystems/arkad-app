@@ -1,8 +1,11 @@
 import * as types from './types'
 
-const toggleChangeMap = map => ({
+export const toggleChangeMap = map => ({
   type: types.TOGGLE_CHANGE_MAP,
   map
 })
 
-export default toggleChangeMap
+export const toggleChangeCompany = company => ({
+  type: types.TOGGLE_CHANGE_COMPANY,
+  company
+})

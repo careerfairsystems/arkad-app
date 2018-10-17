@@ -132,7 +132,7 @@ CompaniesScreen.propTypes = {
         phone: PropTypes.string.isRequired
       }).isRequired,
 
-      mapPosition: PropTypes.string.isRequired,
+      map: PropTypes.string.isRequired,
 
       logotypeUrl: PropTypes.string.isRequired,
       brochureUrl: PropTypes.string.isRequired,

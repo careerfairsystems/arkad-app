@@ -1,15 +1,30 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import toggleChangeMap from '../actions/map'
+import { toggleChangeCompany } from '../actions/map'
 import HouseScreen from '../screens/Map/HouseScreen'
 
 const mapStateToProps = state => ({
   currentMap: state.mapReducer.currentMap,
-  maps: state.mapReducer.maps
+  selectedCompany: state.mapReducer.selectedCompany,
+  companyList: state.apiReducer.items
+    .filter(item => item.map === state.mapReducer.currentMap)
+    .sort((a, b) => {
+      {
+        const boothNumberA = a.boothNumber
+        const boothNumberB = b.boothNumber
+        if (boothNumberA < boothNumberB) {
+          return -1
+        }
+        if (boothNumberA > boothNumberB) {
+          return 1
+        }
+        return 0
+      }
+    })
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ toggleChangeMap }, dispatch)
+  return bindActionCreators({ toggleChangeCompany }, dispatch)
 }
 
 export default connect(

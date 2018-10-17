@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
-import { TouchableOpacity, Linking, Alert } from 'react-native'
+import {
+  TouchableOpacity, TouchableHighlight, Text, Linking, Alert
+} from 'react-native'
 import PropTypes from 'prop-types'
 import ActionSheet from 'react-native-actionsheet'
 import Icon from 'react-native-vector-icons/Feather'
+import Section from '../../components/text/Section'
 import DetailsScreen from '../../components/DetailsScreen'
 import DisplayImage from '../../components/DisplayImage'
 import TextSection from '../../components/text/TextSection'
@@ -12,7 +15,14 @@ import TextSubtitleSection from '../../components/text/TextSubtitleSection'
 const styles = {
   headerIcon: {
     paddingRight: 8
-  }
+  },
+  button: {
+    backgroundColor: global.arkadBlue,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    borderRadius: 8
+  },
+  buttonText: { color: '#fff', fontSize: 16 }
 }
 
 class CompanyDetailsScreen extends Component {
@@ -57,7 +67,14 @@ class CompanyDetailsScreen extends Component {
   }
 
   render() {
-    const { navigation, favorites, toggleFavorite } = this.props
+    const {
+      navigation,
+      favorites,
+      toggleFavorite,
+      toggleChangeMap,
+      toggleChangeCompany
+    } = this.props
+    const { button, buttonText } = styles
     const company = navigation.state.params.item
     let actionSheetData = [
       { title: 'Brochure', url: company.brochureUrl },
@@ -81,6 +98,26 @@ class CompanyDetailsScreen extends Component {
         <DisplayImage source={{ uri: company.logotypeUrl }} />
 
         <TextSection title={`About ${company.name}`} description={company.about} />
+
+        <Section title="Find us">
+          <TouchableHighlight
+            style={button}
+            onPress={() => {
+              toggleChangeMap(company.map)
+              toggleChangeCompany(company.boothNumber)
+              navigation.navigate('MapStack')
+              navigation.navigate('House')
+            }}
+          >
+            <Text style={buttonText}>{`${company.map}, booth ${company.boothNumber}`}</Text>
+          </TouchableHighlight>
+        </Section>
+
+        <TextArraySection title="We offer" descriptionArray={company.weOffer} />
+        <TextArraySection title="Desired programme" descriptionArray={company.desiredProgramme} />
+        <TextArraySection title="Desired degree" descriptionArray={company.desiredDegree} />
+        <TextArraySection title="Industry" descriptionArray={company.industry} />
+
         <TextSection title="Did you know?" description={company.didYouKnow} />
 
         <TextSubtitleSection
@@ -91,11 +128,6 @@ class CompanyDetailsScreen extends Component {
           ]}
         />
 
-        <TextArraySection title="We offer" descriptionArray={company.weOffer} />
-        <TextArraySection title="Desired programme" descriptionArray={company.desiredProgramme} />
-        <TextArraySection title="Desired degree" descriptionArray={company.desiredDegree} />
-        <TextArraySection title="Industry" descriptionArray={company.industry} />
-
         <TextSubtitleSection
           title="Contact"
           subtitleSections={[
@@ -105,8 +137,6 @@ class CompanyDetailsScreen extends Component {
             { key: '3', subtitle: 'Phone', description: company.contact.phone }
           ]}
         />
-
-        <TextSection title="Find us" description={company.mapPosition} />
 
         <ActionSheet
           ref={(ref) => {
@@ -136,7 +166,9 @@ class CompanyDetailsScreen extends Component {
 CompanyDetailsScreen.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   favorites: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  toggleFavorite: PropTypes.func.isRequired
+  toggleFavorite: PropTypes.func.isRequired,
+  toggleChangeMap: PropTypes.func.isRequired,
+  toggleChangeCompany: PropTypes.func.isRequired
 }
 
 export default CompanyDetailsScreen
