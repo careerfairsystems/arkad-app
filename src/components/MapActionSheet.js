@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, Text } from 'react-native'
+import {
+  Platform, View, TouchableOpacity, Text
+} from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/Feather'
 import ActionSheet from 'react-native-actionsheet'
@@ -8,7 +10,12 @@ const styles = {
   button: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    ...Platform.select({
+      android: {
+        marginLeft: 16
+      }
+    })
   },
   buttonText: {
     textAlign: 'center',

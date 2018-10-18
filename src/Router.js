@@ -4,6 +4,7 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import fontelloConfig from '../selection.json'
+import SubtitleHeader from './components/SubtitleHeader'
 import MapActionSheet from './containers/MapActionSheet'
 import ShowFavoritesButton from './containers/ShowFavoritesButton'
 import MapScreen from './screens/Map/MapScreen'
@@ -39,7 +40,7 @@ const MainStack = createBottomTabNavigator(
             screen: MapScreen,
             navigationOptions: {
               ...navigationOptions,
-              title: 'Map'
+              headerTitle: <SubtitleHeader title="The ARKAD area" subtitle="Click on a house" />
             }
           },
           House: {
