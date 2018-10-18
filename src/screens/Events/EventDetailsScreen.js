@@ -36,7 +36,7 @@ const EventDetailsScreen = ({ navigation }) => {
       <TextSection
         title="Description"
         description={event.description}
-        button={<Button title="Sign up!" onPress={() => openUrl(event.signUpURL)} />}
+        button={<Button title="Sign up" onPress={() => openUrl(event.signUpURL)} />}
       />
     </DetailsScreen>
   )
