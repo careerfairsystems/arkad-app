@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -16,7 +17,6 @@
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
@@ -50,6 +50,7 @@
 		8A28A654A6AE4AD2A446AF1B /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC09C9AD53FA4208B1C2B47F /* MaterialIcons.ttf */; };
 		8E1F43233EF54FBBB39C054F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CA54EF901AB4207B6F41050 /* Zocial.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
+		B0733EF6BDC04E09B89169F1 /* libSMXCrashlytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE0B24B917A4E70ABAB09E8 /* libSMXCrashlytics.a */; };
 		C185C7942140013C0034B0F8 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C185C76E2140013C0034B0F8 /* FontAwesome.ttf */; };
 		C185C7952140013C0034B0F8 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C185C76E2140013C0034B0F8 /* FontAwesome.ttf */; };
 		D07FBB273CB94410AD5E9FC0 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C61EFAED7088442CA97236FC /* Octicons.ttf */; };
@@ -58,7 +59,6 @@
 		F7AE9774E27543EBBAD10022 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95E7459EB1224144BD9D4161 /* Entypo.ttf */; };
 		FF39BBAD21777CC700AF1C65 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF39BBAB21777CC700AF1C65 /* Fabric.framework */; };
 		FF39BBAE21777CC700AF1C65 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF39BBAC21777CC700AF1C65 /* Crashlytics.framework */; };
-		B0733EF6BDC04E09B89169F1 /* libSMXCrashlytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE0B24B917A4E70ABAB09E8 /* libSMXCrashlytics.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,6 +335,20 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		C179E1442178FF3000A2833B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF01D23446A640518E922152 /* SMXCrashlytics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D8D9DB831C6D03DB009FBC0E;
+			remoteInfo = SMXCrashlytics;
+		};
+		C179E1462178FF3000A2833B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF01D23446A640518E922152 /* SMXCrashlytics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6463C84C1EBA12A60095B8CD;
+			remoteInfo = "SMXCrashlytics-tvOS";
+		};
 		C18910CB216146800007DB5E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0968E9CF6A994E81839F6B12 /* RNSVG.xcodeproj */;
@@ -375,7 +389,6 @@
 		13B07F961A680F5B00A75B9A /* arkad_app_2018.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arkad_app_2018.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = arkad_app_2018/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = arkad_app_2018/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = arkad_app_2018/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = arkad_app_2018/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = arkad_app_2018/main.m; sourceTree = "<group>"; };
@@ -396,6 +409,7 @@
 		A314E65CE301497FBA9E7423 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		AC0D12AB99114E6E839EFDCE /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		BF01D23446A640518E922152 /* SMXCrashlytics.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SMXCrashlytics.xcodeproj; path = "../node_modules/react-native-fabric/ios/SMXCrashlytics.xcodeproj"; sourceTree = "<group>"; };
 		C185C76E2140013C0034B0F8 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		C4A60A0473C8448896579CE9 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		C61EFAED7088442CA97236FC /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -405,10 +419,9 @@
 		D8B6BD269BCD4791A5E2EC45 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		E9793CEC99954C50B7DC5E1B /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		EACA1E61C48C40F4B950E507 /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
+		FBE0B24B917A4E70ABAB09E8 /* libSMXCrashlytics.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSMXCrashlytics.a; sourceTree = "<group>"; };
 		FF39BBAB21777CC700AF1C65 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		FF39BBAC21777CC700AF1C65 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		BF01D23446A640518E922152 /* SMXCrashlytics.xcodeproj */ = {isa = PBXFileReference; name = "SMXCrashlytics.xcodeproj"; path = "../node_modules/react-native-fabric/ios/SMXCrashlytics.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		FBE0B24B917A4E70ABAB09E8 /* libSMXCrashlytics.a */ = {isa = PBXFileReference; name = "libSMXCrashlytics.a"; path = "libSMXCrashlytics.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -580,7 +593,6 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = arkad_app_2018;
@@ -705,12 +717,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C179E1402178FF3000A2833B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C179E1452178FF3000A2833B /* libSMXCrashlytics.a */,
+				C179E1472178FF3000A2833B /* libSMXCrashlytics.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C189109F2161467B0007DB5E /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				D09A452AC37B4F07B18C8F67 /* libRNVectorIcons.a */,
 				EACA1E61C48C40F4B950E507 /* libRNSVG.a */,
 				C92D292F4B7E45748B47445A /* libRNSVG-tvOS.a */,
+				FBE0B24B917A4E70ABAB09E8 /* libSMXCrashlytics.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -899,6 +921,10 @@
 				{
 					ProductGroup = C18910C72161467F0007DB5E /* Products */;
 					ProjectRef = A314E65CE301497FBA9E7423 /* RNVectorIcons.xcodeproj */;
+				},
+				{
+					ProductGroup = C179E1402178FF3000A2833B /* Products */;
+					ProjectRef = BF01D23446A640518E922152 /* SMXCrashlytics.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1171,6 +1197,20 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C179E1452178FF3000A2833B /* libSMXCrashlytics.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSMXCrashlytics.a;
+			remoteRef = C179E1442178FF3000A2833B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C179E1472178FF3000A2833B /* libSMXCrashlytics.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSMXCrashlytics.a;
+			remoteRef = C179E1462178FF3000A2833B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C18910CC216146800007DB5E /* libRNSVG.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1208,7 +1248,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				C185C7942140013C0034B0F8 /* FontAwesome.ttf in Resources */,
 				21137D7F5CD744AAB4F1A931 /* arkad.ttf in Resources */,
 				F7AE9774E27543EBBAD10022 /* Entypo.ttf in Resources */,
@@ -1342,18 +1381,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = arkad_app_2018;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1422,6 +1449,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1450,6 +1478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
