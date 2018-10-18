@@ -285,7 +285,7 @@ const apiReducer = (state = initialState, action) => {
           },
 
           map: stringCleaner(profile.map),
-          boothNumber: profile.boothNumber ? profile.boothNumber : -1,
+          boothNumber: profile.boothNumber ? profile.boothNumber : 0,
 
           logotypeUrl: profile.logotype
             ? stringCleaner(profile.logotype.thumbs.large.replace('http://', 'https://'))
@@ -307,17 +307,19 @@ const apiReducer = (state = initialState, action) => {
         desiredDegree = [...desiredDegree, ...company.desiredDegree]
         return company
       })
-      maps = Array.from(new Set(maps)).sort((a, b) => {
-        const nameA = a.toLowerCase()
-        const nameB = b.toLowerCase()
-        if (nameA < nameB) {
-          return -1
-        }
-        if (nameA > nameB) {
-          return 1
-        }
-        return 0
-      })
+      maps = Array.from(new Set(maps))
+        .sort((a, b) => {
+          const nameA = a.toLowerCase()
+          const nameB = b.toLowerCase()
+          if (nameA < nameB) {
+            return -1
+          }
+          if (nameA > nameB) {
+            return 1
+          }
+          return 0
+        })
+        .filter(item => item !== '')
       desiredProgramme = filterFormatter('Programs', 'desiredProgramme', desiredProgramme)
       weOffer = filterFormatter('Offers', 'weOffer', weOffer)
       industry = filterFormatter('Industries', 'industry', industry)

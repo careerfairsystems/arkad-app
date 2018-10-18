@@ -99,19 +99,21 @@ class CompanyDetailsScreen extends Component {
 
         <TextSection title={`About ${company.name}`} description={company.about} />
 
-        <Section title="Find us">
-          <TouchableHighlight
-            style={button}
-            onPress={() => {
-              toggleChangeMap(company.map)
-              toggleChangeCompany(company.boothNumber)
-              navigation.navigate('MapStack')
-              navigation.navigate('House')
-            }}
-          >
-            <Text style={buttonText}>{`${company.map}, booth ${company.boothNumber}`}</Text>
-          </TouchableHighlight>
-        </Section>
+        {company.map !== '' && company.boothNumber !== 0 ? (
+          <Section title="Find us">
+            <TouchableHighlight
+              style={button}
+              onPress={() => {
+                toggleChangeMap(company.map)
+                toggleChangeCompany(company.boothNumber)
+                navigation.navigate('MapStack')
+                navigation.navigate('House')
+              }}
+            >
+              <Text style={buttonText}>{`${company.map}, booth ${company.boothNumber}`}</Text>
+            </TouchableHighlight>
+          </Section>
+        ) : null}
 
         <TextArraySection title="We offer" descriptionArray={company.weOffer} />
         <TextArraySection title="Desired programme" descriptionArray={company.desiredProgramme} />
