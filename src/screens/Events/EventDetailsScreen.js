@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Linking, Alert } from 'react-native'
 import DetailsScreen from '../../components/DetailsScreen'
+import TitleSection from '../../components/text/TitleSection'
 import TextSection from '../../components/text/TextSection'
 import Button from '../../components/Button'
 
@@ -31,7 +32,7 @@ const EventDetailsScreen = ({ navigation }) => {
   }`
   return (
     <DetailsScreen>
-      <TextSection title={event.name} description={description} />
+      <TitleSection title={event.name} description={description} />
       <TextSection
         title="Description"
         description={event.description}
