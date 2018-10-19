@@ -22,46 +22,22 @@ const styles = {
 const {
   image, infoContainer, title, subtitle
 } = styles
-const ArkadTeamListItem = ({ person }) => {
-  let imageSource
-  switch (person.image) {
-    case 'daniel_tovesson':
-      imageSource = require('../../../resources/img/arkadTeam/daniel_tovesson.png')
-      break
-    case 'fredrik_siemund':
-      imageSource = require('../../../resources/img/arkadTeam/fredrik_siemund.png')
-      break
-    case 'john_helbrink':
-      imageSource = require('../../../resources/img/arkadTeam/john_helbrink.png')
-      break
-    case 'gustav_lilja':
-      imageSource = require('../../../resources/img/arkadTeam/gustav_lilja.png')
-      break
-    case 'victor_winberg':
-      imageSource = require('../../../resources/img/arkadTeam/victor_winberg.png')
-      break
-    case 'company_hosts':
-      imageSource = require('../../../resources/img/arkadTeam/company_hosts.png')
-      break
-    default:
-  }
-  return (
-    <ListItem>
-      <Image style={image} source={imageSource} />
-      <View style={infoContainer}>
-        <Text style={title}>{person.name}</Text>
-        <Text style={subtitle}>{person.role}</Text>
-      </View>
-      <LinkedInButton url={person.linkedInUrl} />
-    </ListItem>
-  )
-}
+const ArkadTeamListItem = ({ person }) => (
+  <ListItem>
+    <Image style={image} source={person.image} />
+    <View style={infoContainer}>
+      <Text style={title}>{person.name}</Text>
+      <Text style={subtitle}>{person.role}</Text>
+    </View>
+    <LinkedInButton url={person.linkedInUrl} />
+  </ListItem>
+)
 
 ArkadTeamListItem.propTypes = {
   person: PropTypes.shape({
     name: PropTypes.string.isRequired,
     role: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired
+    image: PropTypes.number.isRequired
   }).isRequired
 }
 

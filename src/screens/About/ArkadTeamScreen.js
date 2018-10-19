@@ -20,7 +20,7 @@ ArkadTeamScreen.propTypes = {
         PropTypes.shape({
           name: PropTypes.string.isRequired,
           role: PropTypes.string.isRequired,
-          image: PropTypes.string.isRequired
+          image: PropTypes.number.isRequired
         }).isRequired
       ).isRequired
     }).isRequired

@@ -25,7 +25,6 @@ const AboutScreen = ({
       description={aboutArkadTeam}
       button={<Button title="The ARKAD team" onPress={() => navigation.navigate('ArkadTeam')} />}
     />
-    <Button title="Questions? Check out our FAQ!" onPress={() => navigation.navigate('Faq')} />
   </DetailsScreen>
 )
 
