@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
   currentMap: state.mapReducer.currentMap,
   selectedCompany: state.mapReducer.selectedCompany,
   companyList: state.apiReducer.items
-    .filter(item => item.map === state.mapReducer.currentMap)
+    .filter(item => item.map === state.mapReducer.currentMap && item.boothNumber !== 0)
     .sort((a, b) => {
       {
         const boothNumberA = a.boothNumber
