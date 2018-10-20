@@ -8,19 +8,7 @@ const mapStateToProps = state => ({
   selectedCompany: state.mapReducer.selectedCompany,
   companyList: state.apiReducer.items
     .filter(item => item.map === state.mapReducer.currentMap && item.boothNumber !== 0)
-    .sort((a, b) => {
-      {
-        const boothNumberA = a.boothNumber
-        const boothNumberB = b.boothNumber
-        if (boothNumberA < boothNumberB) {
-          return -1
-        }
-        if (boothNumberA > boothNumberB) {
-          return 1
-        }
-        return 0
-      }
-    })
+    .sort((a, b) => a.boothNumber - b.boothNumber)
 })
 
 function mapDispatchToProps(dispatch) {

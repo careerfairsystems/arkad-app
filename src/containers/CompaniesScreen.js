@@ -48,17 +48,7 @@ const filterFavoritesAndSearch = (items, showFavorites, favorites, searchText) =
       return sortedItem
     })
     .filter(item => item.rating !== 0)
-    .sort((a, b) => {
-      const ratingA = a.rating
-      const ratingB = b.rating
-      if (ratingA < ratingB) {
-        return -1
-      }
-      if (ratingA > ratingB) {
-        return 1
-      }
-      return 0
-    })
+    .sort((a, b) => b.rating - a.rating)
   return companies
 }
 
