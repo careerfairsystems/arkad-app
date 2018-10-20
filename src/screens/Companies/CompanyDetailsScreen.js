@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import {
-  TouchableOpacity, TouchableHighlight, Text, Linking, Alert
-} from 'react-native'
+import { TouchableOpacity, Linking, Alert } from 'react-native'
 import PropTypes from 'prop-types'
 import ActionSheet from 'react-native-actionsheet'
 import Icon from 'react-native-vector-icons/Feather'
@@ -11,18 +9,12 @@ import DisplayImage from '../../components/DisplayImage'
 import TextSection from '../../components/text/TextSection'
 import TextArraySection from '../../components/text/TextArraySection'
 import TextSubtitleSection from '../../components/text/TextSubtitleSection'
+import Button from '../../components/Button'
 
 const styles = {
   headerIcon: {
     paddingRight: 8
-  },
-  button: {
-    backgroundColor: global.arkadBlue,
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-    borderRadius: 8
-  },
-  buttonText: { color: '#fff', fontSize: 16 }
+  }
 }
 
 class CompanyDetailsScreen extends Component {
@@ -74,7 +66,6 @@ class CompanyDetailsScreen extends Component {
       toggleChangeMap,
       toggleChangeCompany
     } = this.props
-    const { button, buttonText } = styles
     const company = navigation.state.params.item
     let actionSheetData = [
       { title: 'Brochure', url: company.brochureUrl },
@@ -101,17 +92,15 @@ class CompanyDetailsScreen extends Component {
 
         {company.map !== '' && company.boothNumber !== 0 ? (
           <Section title="Find us">
-            <TouchableHighlight
-              style={button}
+            <Button
+              title={`${company.map}, booth ${company.boothNumber}`}
               onPress={() => {
                 toggleChangeMap(company.map)
                 toggleChangeCompany(company.boothNumber)
                 navigation.navigate('MapStack')
                 navigation.navigate('House')
               }}
-            >
-              <Text style={buttonText}>{`${company.map}, booth ${company.boothNumber}`}</Text>
-            </TouchableHighlight>
+            />
           </Section>
         ) : null}
 

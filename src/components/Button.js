@@ -1,27 +1,34 @@
 import React from 'react'
-import { TouchableHighlight, Text } from 'react-native'
+import { TouchableHighlight, View, Text } from 'react-native'
 import PropTypes from 'prop-types'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 const styles = {
-  button: {
+  container: {
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 8,
-    marginTop: 10,
-    backgroundColor: global.buttonColor,
+    backgroundColor: global.buttonColor
+  },
+  button: {
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
   },
   text: {
     color: '#fff',
-    fontSize: 16
+    fontSize: 16,
+    marginRight: 8
   }
 }
 
-const { button, text } = styles
+const { container, button, text } = styles
 const Button = ({ title, onPress }) => (
-  <TouchableHighlight style={button} onPress={onPress}>
-    <Text style={text}>{title}</Text>
+  <TouchableHighlight style={container} onPress={onPress}>
+    <View style={button}>
+      <Text style={text}>{title}</Text>
+      <Icon name="angle-right" size={22} color="#fff" />
+    </View>
   </TouchableHighlight>
 )
 
