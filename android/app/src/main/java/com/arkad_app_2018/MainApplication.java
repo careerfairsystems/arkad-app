@@ -4,8 +4,8 @@ import android.app.Application;
 
 import com.crashlytics.android.Crashlytics;
 import com.facebook.react.ReactApplication;
-import com.smixx.fabric.FabricPackage;
 import com.horcrux.svg.SvgPackage;
+import com.smixx.fabric.FabricPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -28,8 +28,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new FabricPackage(),
             new SvgPackage(),
+            new FabricPackage(),
             new VectorIconsPackage()
       );
     }

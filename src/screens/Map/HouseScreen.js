@@ -8,6 +8,7 @@ import MatteannexetSecondFloor from '../../components/maps/MatteannexetSecondFlo
 import StudiecentrumFirstFloor from '../../components/maps/StudiecentrumFirstFloor'
 import StudiecentrumSecondFloor from '../../components/maps/StudiecentrumSecondFloor'
 import MapCompanyListItem from '../../components/listItems/MapCompanyListItem'
+import LoadingView from '../../components/LoadingView'
 
 const styles = {
   container: { flex: 1 },
@@ -37,9 +38,22 @@ const styles = {
 }
 
 class HouseScreen extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { map: <LoadingView /> }
+  }
+
+  componentDidMount() {
+    // Set a zero timeout so that it doesn't load this immediately when pressing a building
+    setTimeout(() => {
+      this.setState({ map: this.renderMap() })
+    }, 0)
+  }
+
   componentDidUpdate(prevProps) {
     const { currentMap } = this.props
     if (prevProps.currentMap !== currentMap) {
+      this.updateMap()
       this.flatList.scrollToIndex({ index: 0, animated: false })
     }
   }
@@ -81,6 +95,10 @@ class HouseScreen extends Component {
     return newSvg
   }
 
+  updateMap = () => {
+    this.setState({ map: this.renderMap() })
+  }
+
   renderMap = () => {
     const { currentMap } = this.props
     switch (currentMap) {
@@ -102,6 +120,7 @@ class HouseScreen extends Component {
   }
 
   render() {
+    const { map } = this.state
     const {
       navigation, selectedCompany, companyList, toggleChangeCompany
     } = this.props
@@ -110,7 +129,7 @@ class HouseScreen extends Component {
     } = styles
     return (
       <View style={container}>
-        <View style={mapView}>{this.renderMap()}</View>
+        <View style={mapView}>{map}</View>
         <View style={listContainer}>
           <View style={listHeader}>
             <Text style={listHeaderText}>Companies</Text>
