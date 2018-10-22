@@ -17,6 +17,52 @@ const initialState = [
     ]
   },
   {
+    title: '5 November',
+    data: [
+      {
+        key: '1',
+        name: 'The Digital Revolution',
+        speaker: 'Andreas Ekström',
+        startTime: '17:00',
+        endTime: '18:30',
+        language: 'Swedish',
+        location: 'Kårhuset: Aulan',
+        description:
+          'The journalist Andreas Ekström will perform his internationally famous lecture - Seven ways to own the world". It will bring up how power, money and knowledge has been unevenly distributed in the digital revolution, but also the enormous possibilities which have appeared - to build business, new social interplay and the internet that we really want.',
+        signUpURL: 'https://www.arkadtlth.se/events/'
+      }
+    ]
+  },
+  {
+    title: '7 November',
+    data: [
+      {
+        key: '1',
+        name: 'Assa Abloy',
+        speaker: '',
+        startTime: '12:15',
+        endTime: '13:00',
+        language: 'English',
+        location: 'Matteannexet: MA7',
+        description:
+          'Come and meet the real people of ASSA ABLOY before ARKAD! Are you curious to learn more about what you can do at ASSA ABLOY and what master thesis projects we have open for application? Our Research and Development colleagues from different parts of our organization will talk you through some interesting topics and opportunities, and are prepared to answer questions about the future, innovation, and more.',
+        signUpURL: 'https://www.arkadtlth.se/events/'
+      },
+      {
+        key: '2',
+        name: 'Kodjo Akolor',
+        speaker: '',
+        startTime: '17:00',
+        endTime: '18:30',
+        language: 'Swedish',
+        location: 'Kårhuset: Aulan',
+        description:
+          'Kodjo Akolor, a Swedish comedian famous from Morgonpasset i p3, Musikhjälpen and a lot more is coming to perfom a stand-up show the 7th of November!',
+        signUpURL: 'https://www.arkadtlth.se/events/'
+      }
+    ]
+  },
+  {
     title: '8 November',
     data: [
       {
@@ -57,7 +103,7 @@ const initialState = [
         language: 'Swedish',
         location: 'E-huset: E:B',
         description:
-          'Region Skåne operates 10 hospitals, 150 primary care centres and are investing to become the leading region in digitalization of health care in Sweden in 2025. Are you interested in sourcing technology? There are several exciting opportunities coming up now, visit this lunch seminar to know more about you carreer at Region Skåne.',
+          'Region Skåne operates 10 hospitals, 150 primary care centres and are investing to become the leading region in digitalization of health care in Sweden in 2025. Are you interested in sourcing technology? There are several exciting opportunities coming up now, visit this lunch seminar to know more about your carreer at Region Skåne.',
         signUpURL: 'https://www.arkadtlth.se/events/'
       }
     ]
