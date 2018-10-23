@@ -683,7 +683,7 @@ const initialState = {
             key: '2',
             question: 'At what times can we mount and prepare our exhibitor stand?',
             answer:
-              'Wednesday 14/11 between 8.00 and 9.00 am if you are standing in Kårhuset. If you are in one of the other buildings you have the possibility to do it on Tuesday 13/11 15.00-18.00, or on Wednesday between 8.00 and 9.00 am.'
+              'Wednesday 14/11 between 8.00 and 9.30 am if you are standing in Kårhuset. If you are in one of the other buildings you have the possibility to do it on Tuesday 13/11 15.00-18.00, or on Wednesday between 8.00 and 9.30 am.'
           },
           {
             key: '3',
