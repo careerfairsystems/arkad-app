@@ -6,7 +6,7 @@ import Section from '../../components/text/Section'
 import FilterSelectContainer from '../../containers/FilterSelect'
 import Button from '../../components/Button'
 
-const CompanyFilterScreen = ({ filters, navigation }) => (
+const CompanyFilterScreen = ({ navigation, filters }) => (
   <DetailsScreen>
     <Section title="Program">
       <FilterSelectContainer item={filters.desiredProgramme} />
@@ -27,6 +27,7 @@ const CompanyFilterScreen = ({ filters, navigation }) => (
 )
 
 CompanyFilterScreen.propTypes = {
+  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   filters: PropTypes.shape({
     desiredProgramme: PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -52,8 +53,7 @@ CompanyFilterScreen.propTypes = {
       children: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired }).isRequired)
         .isRequired
     }).isRequired
-  }).isRequired,
-  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired
+  }).isRequired
 }
 
 export default CompanyFilterScreen
