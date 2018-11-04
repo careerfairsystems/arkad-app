@@ -243,8 +243,8 @@ const initialState = {
         },
         {
           key: '3',
-          name: 'Meal Coordinator',
-          role: 'Linnéa Rosenbecker',
+          name: 'Linnéa Rosenbecker',
+          role: 'Meal Coordinator',
           image: require('../../resources/img/arkadTeam/IMG_6573.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/linnearosenbecker/'
         }

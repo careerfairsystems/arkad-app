@@ -41,7 +41,7 @@ const MainStack = createBottomTabNavigator(
             screen: MapScreen,
             navigationOptions: {
               ...navigationOptions,
-              headerTitle: <SubtitleHeader title="The ARKAD area" subtitle="Click on a house" />
+              headerTitle: <SubtitleHeader title="The ARKAD area" subtitle="Click on a building" />
             }
           },
           House: {
