@@ -1,10 +1,12 @@
 import React from 'react'
+import { View } from 'react-native'
 import PropTypes from 'prop-types'
 import DetailsScreen from '../../components/DetailsScreen'
 import Section from '../../components/text/Section'
 import FilterSelectContainer from '../../containers/FilterSelect'
+import Button from '../../components/Button'
 
-const CompanyFilterScreen = ({ filters }) => (
+const CompanyFilterScreen = ({ filters, navigation }) => (
   <DetailsScreen>
     <Section title="Program">
       <FilterSelectContainer item={filters.desiredProgramme} />
@@ -18,6 +20,9 @@ const CompanyFilterScreen = ({ filters }) => (
     <Section title="Degree">
       <FilterSelectContainer item={filters.desiredDegree} />
     </Section>
+    <View style={{ paddingVertical: 8 }}>
+      <Button title="Done" onPress={() => navigation.goBack()} />
+    </View>
   </DetailsScreen>
 )
 
@@ -47,7 +52,8 @@ CompanyFilterScreen.propTypes = {
       children: PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string.isRequired }).isRequired)
         .isRequired
     }).isRequired
-  }).isRequired
+  }).isRequired,
+  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired
 }
 
 export default CompanyFilterScreen
