@@ -1,14 +1,8 @@
 import React from 'react'
-import { Dimensions } from 'react-native'
 import PropTypes from 'prop-types'
-import {
+import Svg, {
   Defs, ClipPath, Path, G, Text, TSpan
 } from 'react-native-svg'
-import SvgPanZoom from 'react-native-svg-pan-zoom'
-
-const { width } = Dimensions.get('window')
-
-const zoom = width / 600
 
 const showHouse = (navigation, maps, toggleChangeMap, toggleChangeCompany, map) => {
   toggleChangeMap(maps[maps.indexOf(map)])
@@ -19,7 +13,7 @@ const showHouse = (navigation, maps, toggleChangeMap, toggleChangeCompany, map) 
 const OverviewMap = ({
   navigation, maps, toggleChangeMap, toggleChangeCompany
 }) => (
-  <SvgPanZoom canvasHeight={800} canvasWidth={600} minScale={0.5} initialZoom={zoom}>
+  <Svg height="100%" width="100%" viewBox="100 0 434.7 772.8">
     <Defs>
       <ClipPath id="a">
         <Path
@@ -394,7 +388,7 @@ const OverviewMap = ({
         </TSpan>
       </Text>
     </G>
-  </SvgPanZoom>
+  </Svg>
 )
 
 OverviewMap.propTypes = {
