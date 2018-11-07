@@ -10,15 +10,31 @@ const styles = {
   headerIcon: { paddingHorizontal: 14 }
 }
 
-const ShowFavoritesButton = ({ showFavorites, toggleShowFavorites }) => (
-  <TouchableOpacity style={styles.headerIcon} onPress={() => toggleShowFavorites()}>
+const ShowFavoritesButton = ({
+  showFavorites,
+  toggleShowFavorites,
+  searchCompany,
+  clearCompanyFilter
+}) => (
+  <TouchableOpacity
+    style={styles.headerIcon}
+    onPress={() => {
+      if (!showFavorites) {
+        searchCompany('')
+        clearCompanyFilter()
+      }
+      toggleShowFavorites()
+    }}
+  >
     {showFavorites ? favIcon : notFavIcon}
   </TouchableOpacity>
 )
 
 ShowFavoritesButton.propTypes = {
   showFavorites: PropTypes.bool.isRequired,
-  toggleShowFavorites: PropTypes.func.isRequired
+  toggleShowFavorites: PropTypes.func.isRequired,
+  searchCompany: PropTypes.func.isRequired,
+  clearCompanyFilter: PropTypes.func.isRequired
 }
 
 export default ShowFavoritesButton

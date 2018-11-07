@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import StringSimilarity from 'string-similarity'
 import { loadCompanies } from '../actions/api'
-import { searchCompany } from '../actions/company'
+import { toggleShowFavorites, searchCompany } from '../actions/company'
 import CompaniesScreen from '../screens/Companies/CompaniesScreen'
 
 const filterCategories = (items, desiredProgramme, weOffer, industry, desiredDegree) => {
@@ -65,11 +65,13 @@ const mapStateToProps = state => ({
     state.favoriteReducer.favorites,
     state.companyReducer.searchText
   ),
+  searchText: state.companyReducer.searchText,
+  showFavorites: state.companyReducer.showFavorites,
   refreshing: state.companyReducer.refreshing
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ loadCompanies, searchCompany }, dispatch)
+  return bindActionCreators({ loadCompanies, toggleShowFavorites, searchCompany }, dispatch)
 }
 
 export default connect(

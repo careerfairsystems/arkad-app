@@ -19,6 +19,8 @@ const FilterSelect = ({
   weOffer,
   industry,
   desiredDegree,
+  showFavorites,
+  toggleShowFavorites,
   addCompanyFilter
 }) => {
   let filter
@@ -43,7 +45,12 @@ const FilterSelect = ({
       uniqueKey="name"
       subKey="children"
       selectedItems={filter}
-      onSelectedItemsChange={selectedItems => addCompanyFilter(item.id, selectedItems)}
+      onSelectedItemsChange={(selectedItems) => {
+        if (showFavorites) {
+          toggleShowFavorites()
+        }
+        addCompanyFilter(item.id, selectedItems)
+      }}
       showDropDowns={false}
       readOnlyHeadings
       showRemoveAll
@@ -90,6 +97,8 @@ FilterSelect.propTypes = {
   weOffer: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   industry: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   desiredDegree: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  showFavorites: PropTypes.bool.isRequired,
+  toggleShowFavorites: PropTypes.func.isRequired,
   addCompanyFilter: PropTypes.func.isRequired
 }
 
