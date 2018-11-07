@@ -3912,10 +3912,6 @@ react-native-sectioned-multi-select@^0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/react-native-sectioned-multi-select/-/react-native-sectioned-multi-select-0.5.2.tgz#5a9a93a5785c89892314950f65568e0ba6f32d97"
 
-react-native-svg-pan-zoom@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/react-native-svg-pan-zoom/-/react-native-svg-pan-zoom-0.1.2.tgz#d86ff1b25e8dabdd75439d77dc55060bb413d9de"
-
 react-native-tab-view@^0.0.77:
   version "0.0.77"
   resolved "http://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-0.0.77.tgz#11ceb8e7c23100d07e628dc151b57797524d00d4"
