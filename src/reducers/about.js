@@ -35,21 +35,21 @@ const initialState = {
         {
           key: '3',
           name: 'Axel Adelgren',
-          role: 'Busniess Manager',
+          role: 'Business Manager',
           image: require('../../resources/img/arkadTeam/IMG_3781.jpg'),
           linkedInUrl: ''
         },
         {
           key: '4',
           name: 'Louise Pettersson',
-          role: 'Busniess Manager',
+          role: 'Business Manager',
           image: require('../../resources/img/arkadTeam/IMG_3795.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/louise-pettersson-2b2296153'
         },
         {
           key: '5',
           name: 'Nicolas Munke Cilano',
-          role: 'Busniess Manager',
+          role: 'Business Manager',
           image: require('../../resources/img/arkadTeam/IMG_3798.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/nicolas-munke-cilano/'
         },
