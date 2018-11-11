@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { toggleShowFavorites } from '../actions/company'
+import { toggleShowFavorites, searchCompany, clearCompanyFilter } from '../actions/company'
 import ShowFavoritesButton from '../components/ShowFavoritesButton'
 
 const mapStateToProps = state => ({
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ toggleShowFavorites }, dispatch)
+  return bindActionCreators({ toggleShowFavorites, searchCompany, clearCompanyFilter }, dispatch)
 }
 
 export default connect(

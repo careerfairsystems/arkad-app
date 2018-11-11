@@ -42,7 +42,13 @@ const styles = {
 }
 
 const { searchContainer, searchIconContainer, searchField } = styles
-const renderSearchField = (companyList, searchCompany) => (
+const renderSearchField = (
+  companyList,
+  searchText,
+  showFavorites,
+  toggleShowFavorites,
+  searchCompany
+) => (
   <View>
     <View style={searchContainer}>
       <View style={searchIconContainer}>
@@ -50,11 +56,17 @@ const renderSearchField = (companyList, searchCompany) => (
       </View>
       <TextInput
         style={searchField}
-        onChangeText={text => searchCompany(text)}
+        onChangeText={(text) => {
+          if (showFavorites) {
+            toggleShowFavorites()
+          }
+          searchCompany(text)
+        }}
         clearButtonMode="while-editing"
         underlineColorAndroid="transparent"
         placeholder="Search company"
         placeholderTextColor={global.gray}
+        value={searchText}
       />
     </View>
     {companyList.length === 0 ? <NoResultsView /> : null}
@@ -63,7 +75,14 @@ const renderSearchField = (companyList, searchCompany) => (
 
 const { content } = styles
 const CompaniesScreen = ({
-  navigation, companyList, refreshing, loadCompanies, searchCompany
+  navigation,
+  companyList,
+  searchText,
+  showFavorites,
+  refreshing,
+  loadCompanies,
+  toggleShowFavorites,
+  searchCompany
 }) => {
   let sections
   if (companyList.length === 0) {
@@ -84,9 +103,6 @@ const CompaniesScreen = ({
   return (
     <View style={content}>
       <ClearAllFiltersButtonContainer />
-      {
-        // TODO: temporary placement of ShowFavoritesButton component
-      }
       <SectionList
         refreshControl={(
           <RefreshControl
@@ -96,7 +112,13 @@ const CompaniesScreen = ({
             }}
           />
 )}
-        ListHeaderComponent={renderSearchField(companyList, searchCompany)}
+        ListHeaderComponent={renderSearchField(
+          companyList,
+          searchText,
+          showFavorites,
+          toggleShowFavorites,
+          searchCompany
+        )}
         renderItem={({ item }) => <CompanyListItem navigation={navigation} company={item} />}
         renderSectionHeader={({ section: { title } }) => <SectionHeader title={title} />}
         sections={sections}
@@ -140,8 +162,11 @@ CompaniesScreen.propTypes = {
       linkedInUrl: PropTypes.string.isRequired
     })
   ).isRequired,
+  searchText: PropTypes.string.isRequired,
+  showFavorites: PropTypes.bool.isRequired,
   refreshing: PropTypes.bool.isRequired,
   loadCompanies: PropTypes.func.isRequired,
+  toggleShowFavorites: PropTypes.func.isRequired,
   searchCompany: PropTypes.func.isRequired
 }
 
