@@ -95,6 +95,37 @@ class HouseScreen extends Component {
     return newSvg
   }
 
+  parseSvgMA = (svg) => {
+    const { selectedCompany } = this.props
+    let newSvg = svg
+    newSvg = {
+      ...newSvg,
+      props: {
+        ...newSvg.props,
+        children: newSvg.props.children.map((item) => {
+          let newItem = item
+          if (item.props['data-name'] === `${selectedCompany}`) {
+            newItem = {
+              ...item,
+              props: {
+                ...item.props,
+                children: item.props.children.map((number, index) => ({
+                  ...number,
+                  props: {
+                    ...number.props,
+                    fill: index === 0 ? global.arkadRed : '#ffffff'
+                  }
+                }))
+              }
+            }
+          }
+          return newItem
+        })
+      }
+    }
+    return newSvg
+  }
+
   updateMap = () => {
     this.setState({ map: this.renderMap() })
   }
@@ -107,9 +138,9 @@ class HouseScreen extends Component {
       case global.karhuset:
         return <Karhuset parseSvg={this.parseSvg} />
       case global.matteannexetFirstFloor:
-        return <MatteannexetFirstFloor parseSvg={this.parseSvg} />
+        return <MatteannexetFirstFloor parseSvg={this.parseSvgMA} />
       case global.matteannexetSecondFloor:
-        return <MatteannexetSecondFloor parseSvg={this.parseSvg} />
+        return <MatteannexetSecondFloor parseSvg={this.parseSvgMA} />
       case global.studiecentrumFirstFloor:
         return <StudiecentrumFirstFloor parseSvg={this.parseSvg} />
       case global.studiecentrumSecondFloor:
