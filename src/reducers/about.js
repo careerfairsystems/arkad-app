@@ -581,13 +581,13 @@ const initialState = {
           {
             key: '3',
             question: 'During what time is the fair open?',
-            answer: 'Wednesday 14/11: 10.00-16.00 \n Thursday 15/11: 10.00 - 15.00'
+            answer: 'Wednesday 14/11: 10.00-16.00\nThursday 15/11: 10.00 - 15.00'
           },
           {
             key: '4',
             question: 'During what times is the Info Desk open?',
             answer:
-              'Tuesday 13/11: 15.00-18.00 \n Wednesday 14/11: 9.00-16.30 \n Thursday 15/11: 9.30-15.30'
+              'Tuesday 13/11: 15.00-18.00\nWednesday 14/11: 8.00-16.00\nThursday 15/11: 9.30-15.30'
           },
           {
             key: '5',
@@ -627,7 +627,7 @@ const initialState = {
             key: '1',
             question: 'Where is the Banquet?',
             answer:
-              'The Banquet is at Sparbanken Skåne Arena. The address is: \n Stattenavägen 25 \n 222 28 Lund.'
+              'The Banquet is at Sparbanken Skåne Arena. The address is:\nStattenavägen 25\n222 28 Lund.'
           },
           {
             key: '2',
@@ -671,7 +671,7 @@ const initialState = {
             key: '0',
             question: 'What is included in the Exhibition-package?',
             answer:
-              ' - An exhibitor booth of 3x2 meters with a maximum height of 2.3 meters \n- Exposure through our website and mobile applications \n- Access to a Career Fair Host \n- Access to lounge, wardrobe and information desk \n- Breakfast, coffee and refreshments during both days of the fair \n- Lunch tickets to four (4) representatives per day \n- Two (2) tickets to the ARKAD Banquet \n- Two (2) parking tickets per day \n- Access to Wi-fi and electrical outlets \n- Low tables and chairs \n- Free shuttle service in Lund'
+              ' - An exhibitor booth of 3x2 meters with a maximum height of 2.3 meters\n- Exposure through our website and mobile applications\n- Access to a Career Fair Host\n- Access to lounge, wardrobe and information desk\n- Breakfast, coffee and refreshments during both days of the fair\n- Lunch tickets to four (4) representatives per day\n- Two (2) tickets to the ARKAD Banquet\n- Two (2) parking tickets per day\n- Access to Wi-fi and electrical outlets\n- Low tables and chairs\n- Free shuttle service in Lund'
           },
           {
             key: '1',
@@ -694,13 +694,12 @@ const initialState = {
             key: '4',
             question: 'What is the delivery address?',
             answer:
-              'Kårhuset, ARKAD \nSölvegatan 22B \n223 62 Lund \nReference: Cecilia Nordenö \nTelephone: 0763-415256'
+              'Kårhuset, ARKAD\nSölvegatan 22B\n223 62 Lund\nReference: Cecilia Nordenö\nTelephone: 0763-415256'
           },
           {
             key: '5',
             question: 'At what times is the goods reception open?',
-            answer:
-              'Friday 9/11: 13.00-17.00 \nMonday 12/11: 8.00-17.00 \nTuesday 13/11: 8.00-17.00'
+            answer: 'Friday 9/11: 13.00-17.00\nMonday 12/11: 8.00-17.00\nTuesday 13/11: 8.00-17.00'
           },
           {
             key: '6',
@@ -736,7 +735,7 @@ const initialState = {
             key: '1',
             question: 'During what times is the Info Desk open?',
             answer:
-              'Tuesday 13/11: 15.00-18.00 \nWednesday 14/11: 9.00-16.30 \nThursday 15/11: 9.30-15.30'
+              'Tuesday 13/11: 15.00-18.00\nWednesday 14/11: 8.00-16.00\nThursday 15/11: 9.30-15.30'
           },
           {
             key: '2',
@@ -790,7 +789,7 @@ const initialState = {
             key: '0',
             question: 'Where is the Banquet?',
             answer:
-              'The Banquet is at Sparbanken Skåne Arena. The address is: \nStattenavägen 25 \n222 28 Lund. \nParking is available if you would like to go there by car.'
+              'The Banquet is at Sparbanken Skåne Arena. The address is:\nStattenavägen 25\n222 28 Lund.\nParking is available if you would like to go there by car.'
           },
           {
             key: '1',
@@ -838,7 +837,7 @@ const initialState = {
           {
             key: '1',
             question: 'When can we send back goods after the fair?',
-            answer: 'Thursday 15/11: 15.00-17.00 \nFriday 16/11: 8.00-13.00'
+            answer: 'Thursday 15/11: 15.00-17.00\nFriday 16/11: 8.00-13.00'
           }
         ]
       }
