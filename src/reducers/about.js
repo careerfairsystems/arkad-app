@@ -37,7 +37,7 @@ const initialState = {
           name: 'Axel Adelgren',
           role: 'Business Manager',
           image: require('../../resources/img/arkadTeam/IMG_3781.jpg'),
-          linkedInUrl: ''
+          linkedInUrl: 'https://www.linkedin.com/in/axel-adelgren-4a15a1161'
         },
         {
           key: '4',
