@@ -290,7 +290,7 @@ const apiReducer = (state = initialState, action) => {
           logotypeUrl: profile.logotype
             ? stringCleaner(profile.logotype.thumbs.large.replace('http://', 'https://'))
             : '',
-          brochureUrl: profile.brochure ? urlFormatter(stringCleaner(profile.brochure.url)) : '',
+          brochureUrl: profile.ad ? urlFormatter(stringCleaner(profile.ad.url)) : '',
           websiteUrl: urlFormatter(stringCleaner(profile.urlWebsite)),
           linkedInUrl: urlFormatter(stringCleaner(profile.urlLinkedIn)),
           facebookUrl: urlFormatter(stringCleaner(profile.urlLinkedIn)),
