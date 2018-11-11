@@ -2168,8 +2168,8 @@ const StudiecentrumFirstFloor = ({ parseSvg }) => {
           />
         </G>
       </G>
-      <G id="Layer_2-2" data-name="Layer 2">
-        <G id="_103" data-name=" 103">
+      <G id="_103" data-name="103">
+        <G id="_103" data-name="103">
           <Circle x="176.6" y="240.66" fill="#e3e3e3" r="10" />
           <Path
             d="M171.74,244.3h-1.56v-5h-1.94v-1.18a3.46,3.46,0,0,0,.79-.06,2.12,2.12,0,0,0,.68-.25,1.59,1.59,0,0,0,.52-.48,1.8,1.8,0,0,0,.26-.74h1.25Z"
