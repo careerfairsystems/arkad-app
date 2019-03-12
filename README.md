@@ -10,7 +10,7 @@ This will also install npm.
 ## 2. Clone repository to your computer
 
 1.  Go to Git projects folder: `cd /path/to/my/git_folder`
-2.  Clone repository: `git clone https://github.com/careerfairsystems/arkad-app-2018.git`
+2.  Clone repository: `git clone https://github.com/careerfairsystems/arkad-app.git`
 3.  Go to the root of the cloned repo `cd /path/to/my/git_folder/repo_root`
 4.  Install npm: `npm install`
 
