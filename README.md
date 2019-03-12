@@ -1,4 +1,4 @@
-# ARKAD mobile application 2018
+# ARKAD mobile application
 
 ## 1. Install Node.js
 
