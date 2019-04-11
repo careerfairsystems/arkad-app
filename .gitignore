@@ -2,6 +2,11 @@
 #
 .DS_Store
 
+# Windows
+#
+.metadata
+.project
+
 # Xcode
 #
 build/
