@@ -18,7 +18,7 @@ const fetchCompaniesFailure = error => ({
 export const loadCompanies = () => (dispatch) => {
   dispatch(fetchCompaniesRequest())
   return fetch(
-    'https://p17.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2018","published:true"]',
+    'https://p18.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2018","published:true"]',
     {
       method: 'GET'
     }
@@ -63,7 +63,7 @@ const fetchUpdatedSinceFailure = error => ({
 
 export const loadUpdatedSince = updated => (dispatch) => {
   dispatch(fetchUpdatedSinceRequest())
-  return fetch(`https://p17.jexpo.se/arkad/exhibitors?filter=[["updated_since","${updated}"]]`, {
+  return fetch(`https://p18.jexpo.se/arkad/exhibitors?filter=[["updated_since","${updated}"]]`, {
     method: 'GET'
   })
     .then((response) => {
