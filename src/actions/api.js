@@ -15,6 +15,40 @@ const fetchCompaniesFailure = error => ({
   error
 })
 
+export const login = () => (dispatch) => {
+  dispatch(loginRequest())
+  return fetch(
+    'https://arkad-nexpo.herokuapp.com/api/login',
+    {
+      method: 'GET',
+      headers: new Headers().append('Authorization', 'Basic ' + base64.encode('testUser' + ":" + 'testPwd'))
+    }
+  )
+    .then((response) => {
+      if (response.status === 200) {
+        console.log(response.json())
+        return response.json()
+      }
+      response
+        .json()
+        .then((responseJson) => {
+          dispatch(loginFailure(responseJson.error.title))
+        })
+        .catch((error) => {
+          dispatch(loginFailure(error.message))
+        })
+      return null
+    })
+    .then((responseJson) => {
+      if (responseJson) {
+        dispatch(loginSuccess(responseJson.results))
+      }
+    })
+    .catch((error) => {
+      dispatch(loginFailure(error.message))
+    })
+}
+
 export const loadCompanies = () => (dispatch) => {
   dispatch(fetchCompaniesRequest())
   return fetch(
