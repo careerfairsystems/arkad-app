@@ -17,7 +17,7 @@ import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import ProfileScreenContainer from './containers/ProfileScreenContainer'
-import ProfileScreen from './screens/Profile/ProfileScreen'
+import ProfileLoginScreen from './screens/Profile/ProfileLoginScreen'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
@@ -133,7 +133,7 @@ const MainStack = createBottomTabNavigator(
             }
           },
           Detail: {
-            screen: ProfileScreen,
+            screen: ProfileLoginScreen,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: navigation.state.params.item.name

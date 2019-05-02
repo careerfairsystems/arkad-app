@@ -1,9 +1,6 @@
-import React from 'react'
-import { View } from 'react-native'
+import { connect } from 'react-redux'
+import ProfileLoginScreen from '../screens/Profile/ProfileLoginScreen'
 
-const ProfileScreenContainer = () => (
-  <View>
-  </View>
-)
 
-export default ProfileScreenContainer
+
+export default ProfileLoginScreen
