@@ -1,9 +1,19 @@
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import StringSimilarity from 'string-similarity'
+import { loadLogin } from '../actions/api'
 import ProfileLoginScreen from '../screens/Profile/ProfileLoginScreen'
-import { login } from '../actions/api'
+
+
+const mapStateToProps = state => ({
+  logedIn: state.loginReducer.logedIn
+})
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ login }, dispatch)
+  return bindActionCreators({ loadLogin }, dispatch)
 }
 
-export default ProfileLoginScreen
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProfileLoginScreen)

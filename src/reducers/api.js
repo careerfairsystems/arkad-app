@@ -7,6 +7,7 @@ const initialState = {
   filters: {},
   notUpdated: [],
   loading: false,
+  logedIn: false,
   error: '',
   updated: 0
 }
@@ -358,6 +359,27 @@ const apiReducer = (state = initialState, action) => {
         loading: false
       }
     case types.FETCH_UPDATED_SINCE_FAILURE:
+      Alert.alert(action.error)
+      return {
+        ...state,
+        loading: false,
+        error: action.error
+      }
+    case types.FETCH_LOGIN_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        error: ''
+      }
+    case types.FETCH_LOGIN_SUCCESS:
+      console.log("ivujndfvunvsumsv")
+      return {
+        ...state,
+        logedIn: true,
+        loading: false,
+        updated: Math.floor(Date.now() / 1000)
+      }
+    case types.FETCH_LOGIN_FAILURE:
       Alert.alert(action.error)
       return {
         ...state,

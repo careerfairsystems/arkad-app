@@ -1,5 +1,6 @@
 /* global fetch:false */
 import * as types from './types'
+import base64 from 'react-native-base64'
 
 const fetchCompaniesRequest = () => ({
   type: types.FETCH_COMPANIES_REQUEST
@@ -14,40 +15,6 @@ const fetchCompaniesFailure = error => ({
   type: types.FETCH_COMPANIES_FAILURE,
   error
 })
-
-export const login = () => (dispatch) => {
-  dispatch(loginRequest())
-  return fetch(
-    'https://arkad-nexpo.herokuapp.com/api/login',
-    {
-      method: 'GET',
-      headers: new Headers().append('Authorization', 'Basic ' + base64.encode('testUser' + ":" + 'testPwd'))
-    }
-  )
-    .then((response) => {
-      if (response.status === 200) {
-        console.log(response.json())
-        return response.json()
-      }
-      response
-        .json()
-        .then((responseJson) => {
-          dispatch(loginFailure(responseJson.error.title))
-        })
-        .catch((error) => {
-          dispatch(loginFailure(error.message))
-        })
-      return null
-    })
-    .then((responseJson) => {
-      if (responseJson) {
-        dispatch(loginSuccess(responseJson.results))
-      }
-    })
-    .catch((error) => {
-      dispatch(loginFailure(error.message))
-    })
-}
 
 export const loadCompanies = () => (dispatch) => {
   dispatch(fetchCompaniesRequest())
@@ -121,5 +88,69 @@ export const loadUpdatedSince = updated => (dispatch) => {
     })
     .catch((error) => {
       dispatch(fetchUpdatedSinceFailure(error.message))
+    })
+}
+
+const fetchLoginRequest = () => ({
+  type: types.FETCH_LOGIN_REQUEST
+})
+
+const fetchLoginSuccess = companies => ({
+  type: types.FETCH_LOGIN_SUCCESS,
+  companies
+})
+
+const fetchLginFailure = error => ({
+  type: types.FETCH_LOGIN_FAILURE,
+  error
+})
+
+
+let username = 'arvid.pilhall@me.com';
+let password = '123456789';
+
+let headers = new Headers();
+
+headers.set('Authorization', 'Basic ' + base64.encode(username + ":" + password));
+
+export const loadLogin = (username, password) => (dispatch) => {
+  console.log(username)
+  console.log(password)
+  dispatch(fetchLoginRequest())
+  return fetch(
+    'https://arkad-nexpo.herokuapp.com/api/login?email=arvid.pilhall@me.com&password=123456789',
+    {
+      method: 'POST',
+    }
+  )
+    .then((response) => {
+      console.log("STATUS")
+      console.log(response.status)
+      if (response.status === 200) {
+        console.log("YEY DET LYCKADES!")
+        return response.json()
+      }
+      response
+        .json()
+        .then((responseJson) => {
+          console.log("FUUUUUK ERROR 1")
+          console.log(responseJson.error.title)
+          dispatch(fetchLoginFailure(responseJson.error.title))
+        })
+        .catch((error) => {
+          console.log("FUUUUUK ERROR 2")
+          console.log(error.message)
+          dispatch(fetchLoginFailure(error.message))
+        })
+      return null
+    })
+    .then((responseJson) => {
+      if (responseJson) {
+        dispatch(fetchLoginSuccess(responseJson.results))
+      }
+    })
+    .catch((error) => {
+      console.log("FUUUUUK ERROR 4")
+      dispatch(fetchLoginFailure(error.message))
     })
 }

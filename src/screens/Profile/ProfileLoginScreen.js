@@ -36,16 +36,68 @@ const styles = {
   }
 }
 
+// const LoginScreen = ({
+//   navigation, loadLogin
+// }) => {
+//   function test () {
+//     console.log("\nasdas\nasdasd\n\n\n\n\nasdad")
+//     loadLogin("hej", "hejsan!")
+//     console.log("\notyiupotyiutpoiu\naoiertuoiertu\n\n\n\n\nauytafdtyagbhd")
+//   }
+//   return (
+//     <View style={outerContainer}>
+//       <View style={innerContainer}>
+//         <Text style={h1}>
+//           ARKAD
+//         </Text>
+//         <Text style={h2}>
+//           -Login
+//         </Text>
+//         <TextInput
+//           underlineColorAndroid={'transparent'}
+//           style={textInput}
+//           placeholder="Username"
+//           onChangeText={(text) => this.setState({text})}
+//         />
+//         <TextInput
+//           underlineColorAndroid={'transparent'}
+//           style={textInput}
+//           placeholder="Password"
+//           onChangeText={(text) => this.setState({text})}
+//         />
+//         <Button title='Login' onPress={() => test()}/>
+//       </View>
+//     </View>
+//   )
+// }
+
 const { outerContainer, innerContainer, loginBtn, h1, h2, textInput } = styles
 
 class ProfileLoginScreen extends Component {
+  constructor(props){
+    super(props)
 
-  loginOnPress () {
-    this.props.navigation.navigate('Map')
-    console.log("asdadsa")
+    this.state = {
+      username: '',
+      password: '',
+    }
+  }
+
+  _handlePress() {
+     console.log(this.state.username);
+     console.log(this.state.password);
+  }
+
+  test () {
+    const loadLogin = this.props.loadLogin
+    console.log("\nasdas\nasdasd\n\n\n\n\nasdad")
+    loadLogin("hej", "hejsan!")
+    console.log("\notyiupotyiutpoiu\naoiertuoiertu\n\n\n\n\nauytafdtyagbhd")
   }
 
   render() {
+    const navigation = this.props.navigation
+    const loadLogin = this.props.loadLogin
     return (
       <View style={outerContainer}>
         <View style={innerContainer}>
@@ -67,7 +119,7 @@ class ProfileLoginScreen extends Component {
             placeholder="Password"
             onChangeText={(text) => this.setState({text})}
           />
-          <Button title='Login' onPress={this.loginOnPress()}/>
+          <Button title='Login' onPress={() => this.test()}/>
         </View>
       </View>
     )
