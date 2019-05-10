@@ -3,11 +3,11 @@ import * as types from '../actions/types'
 
 const initialState = {
   items: [],
+  logedIn: false,
   maps: [],
   filters: {},
   notUpdated: [],
   loading: false,
-  logedIn: false,
   error: '',
   updated: 0
 }
@@ -244,6 +244,7 @@ const apiReducer = (state = initialState, action) => {
   let weOffer = []
   let industry = []
   let desiredDegree = []
+  console.log(action)
   switch (action.type) {
     case types.FETCH_COMPANIES_REQUEST:
       return {
@@ -252,6 +253,7 @@ const apiReducer = (state = initialState, action) => {
         error: ''
       }
     case types.FETCH_COMPANIES_SUCCESS:
+      console.log("FYFAN")
       filteredCompanies = action.companies.filter(company => company.profile).map((item) => {
         const { profile } = item
         const company = {
@@ -366,13 +368,15 @@ const apiReducer = (state = initialState, action) => {
         error: action.error
       }
     case types.FETCH_LOGIN_REQUEST:
+      console.log("INNE I FETCH_LOGIN_REQUEST")
       return {
         ...state,
+        logedIn: false,
         loading: true,
         error: ''
       }
     case types.FETCH_LOGIN_SUCCESS:
-      console.log("ivujndfvunvsumsv")
+      console.log("INNE I FETCH_LOGIN_SUCCESS")
       return {
         ...state,
         logedIn: true,
@@ -383,6 +387,7 @@ const apiReducer = (state = initialState, action) => {
       Alert.alert(action.error)
       return {
         ...state,
+        logedIn: false,
         loading: false,
         error: action.error
       }

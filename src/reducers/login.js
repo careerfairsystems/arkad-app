@@ -1,11 +1,10 @@
 import * as types from '../actions/types'
 
 const initialState = {
-  logedIn: false
+  refreshing: false
 }
 
 const loginReducer = (state = initialState, action) => {
-  let newState
   switch (action.type) {
     case types.FETCH_LOGIN_REQUEST:
       return {
@@ -13,6 +12,7 @@ const loginReducer = (state = initialState, action) => {
         refreshing: true
       }
     case types.FETCH_LOGIN_SUCCESS:
+      console.log("INNE I LOGIN REDUCER!")
       return {
         ...state,
         refreshing: false

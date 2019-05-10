@@ -5,8 +5,9 @@ import { loadLogin } from '../actions/api'
 import ProfileLoginScreen from '../screens/Profile/ProfileLoginScreen'
 
 
+
 const mapStateToProps = state => ({
-  logedIn: state.loginReducer.logedIn
+  logedIn: state.apiReducer.logedIn
 })
 
 function mapDispatchToProps(dispatch) {

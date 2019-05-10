@@ -17,6 +17,7 @@ const fetchCompaniesFailure = error => ({
 })
 
 export const loadCompanies = () => (dispatch) => {
+  console.log("INNE I LOADCOMPANIES")
   dispatch(fetchCompaniesRequest())
   return fetch(
     'https://p18.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2018","published:true"]',
@@ -95,9 +96,9 @@ const fetchLoginRequest = () => ({
   type: types.FETCH_LOGIN_REQUEST
 })
 
-const fetchLoginSuccess = companies => ({
+const fetchLoginSuccess = login => ({
   type: types.FETCH_LOGIN_SUCCESS,
-  companies
+  login
 })
 
 const fetchLginFailure = error => ({
@@ -106,12 +107,12 @@ const fetchLginFailure = error => ({
 })
 
 
-let username = 'arvid.pilhall@me.com';
-let password = '123456789';
-
-let headers = new Headers();
-
-headers.set('Authorization', 'Basic ' + base64.encode(username + ":" + password));
+// let username = 'arvid.pilhall@me.com';
+// let password = '123456789';
+//
+// let headers = new Headers();
+//
+// headers.set('Authorization', 'Basic ' + base64.encode(username + ":" + password));
 
 export const loadLogin = (username, password) => (dispatch) => {
   console.log(username)
