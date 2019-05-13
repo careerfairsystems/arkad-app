@@ -244,7 +244,6 @@ const apiReducer = (state = initialState, action) => {
   let weOffer = []
   let industry = []
   let desiredDegree = []
-  console.log(action)
   switch (action.type) {
     case types.FETCH_COMPANIES_REQUEST:
       return {
@@ -253,7 +252,6 @@ const apiReducer = (state = initialState, action) => {
         error: ''
       }
     case types.FETCH_COMPANIES_SUCCESS:
-      console.log("FYFAN")
       filteredCompanies = action.companies.filter(company => company.profile).map((item) => {
         const { profile } = item
         const company = {
@@ -368,7 +366,6 @@ const apiReducer = (state = initialState, action) => {
         error: action.error
       }
     case types.FETCH_LOGIN_REQUEST:
-      console.log("INNE I FETCH_LOGIN_REQUEST")
       return {
         ...state,
         logedIn: false,
@@ -376,7 +373,6 @@ const apiReducer = (state = initialState, action) => {
         error: ''
       }
     case types.FETCH_LOGIN_SUCCESS:
-      console.log("INNE I FETCH_LOGIN_SUCCESS")
       return {
         ...state,
         logedIn: true,
@@ -384,7 +380,14 @@ const apiReducer = (state = initialState, action) => {
         updated: Math.floor(Date.now() / 1000)
       }
     case types.FETCH_LOGIN_FAILURE:
-      Alert.alert(action.error)
+      Alert.alert(
+        'Login failed!',
+        'Wrong username or password.',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      );
       return {
         ...state,
         logedIn: false,

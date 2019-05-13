@@ -17,7 +17,6 @@ const fetchCompaniesFailure = error => ({
 })
 
 export const loadCompanies = () => (dispatch) => {
-  console.log("INNE I LOADCOMPANIES")
   dispatch(fetchCompaniesRequest())
   return fetch(
     'https://p18.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2018","published:true"]',
@@ -96,62 +95,44 @@ const fetchLoginRequest = () => ({
   type: types.FETCH_LOGIN_REQUEST
 })
 
-const fetchLoginSuccess = login => ({
+const fetchLoginSuccess = () => ({
   type: types.FETCH_LOGIN_SUCCESS,
-  login
+  logedIn: true
 })
 
-const fetchLginFailure = error => ({
+const fetchLoginFailure = error => ({
   type: types.FETCH_LOGIN_FAILURE,
   error
 })
 
-
-// let username = 'arvid.pilhall@me.com';
-// let password = '123456789';
-//
-// let headers = new Headers();
-//
-// headers.set('Authorization', 'Basic ' + base64.encode(username + ":" + password));
-
 export const loadLogin = (username, password) => (dispatch) => {
-  console.log(username)
-  console.log(password)
   dispatch(fetchLoginRequest())
   return fetch(
-    'https://arkad-nexpo.herokuapp.com/api/login?email=arvid.pilhall@me.com&password=123456789',
+    `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
     {
       method: 'POST',
     }
   )
     .then((response) => {
-      console.log("STATUS")
-      console.log(response.status)
       if (response.status === 200) {
-        console.log("YEY DET LYCKADES!")
         return response.json()
       }
       response
         .json()
         .then((responseJson) => {
-          console.log("FUUUUUK ERROR 1")
-          console.log(responseJson.error.title)
           dispatch(fetchLoginFailure(responseJson.error.title))
         })
         .catch((error) => {
-          console.log("FUUUUUK ERROR 2")
-          console.log(error.message)
           dispatch(fetchLoginFailure(error.message))
         })
       return null
     })
     .then((responseJson) => {
       if (responseJson) {
-        dispatch(fetchLoginSuccess(responseJson.results))
+        dispatch(fetchLoginSuccess())
       }
     })
     .catch((error) => {
-      console.log("FUUUUUK ERROR 4")
       dispatch(fetchLoginFailure(error.message))
     })
 }

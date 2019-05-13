@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableHighlight, View, Text } from 'react-native'
+import { TouchableHighlight, View, Text, ActivityIndicator } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -23,11 +23,16 @@ const styles = {
 }
 
 const { container, button, text } = styles
-const Button = ({ title, onPress }) => (
+const Button = ({ title, onPress, loading = false }) => (
   <TouchableHighlight style={container} onPress={onPress}>
     <View style={button}>
-      <Text style={text}>{title}</Text>
-      <Icon name="angle-right" size={22} color="#fff" />
+      { loading
+        ? <ActivityIndicator/>
+        : [
+          <Text key='buttonText' style={text}>{title}</Text>,
+          <Icon key='buttonIcon' name="angle-right" size={22} color="#fff" />
+        ]
+      }
     </View>
   </TouchableHighlight>
 )
