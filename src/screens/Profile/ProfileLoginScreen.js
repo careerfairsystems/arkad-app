@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { View, Text, TextInput } from 'react-native'
 import PropTypes from 'prop-types'
 import Button from '../../components/Button'
-import LoadingView from '../../components/LoadingView'
 
 
 const styles = {
@@ -35,20 +34,9 @@ const styles = {
     borderRadius: 8,
     marginVertical: 10
   },
-  loadingContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  indicatorBackground: {
-    backgroundColor: '#fff',
-    padding: 24,
-    borderRadius: 8
-  },
-  loadingText: { marginTop: 10, color: '#000', fontSize: 13 }
 }
 
-const { outerContainer, innerContainer, loginBtn, h1, h2, textInput, loadingContainer, indicatorBackground, loadingText } = styles
+const { outerContainer, innerContainer, loginBtn, h1, h2, textInput } = styles
 
 class ProfileLoginScreen extends Component {
   constructor(props){
