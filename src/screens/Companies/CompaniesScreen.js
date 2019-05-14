@@ -42,19 +42,22 @@ const styles = {
   constructionContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: global.arkadBlue,
-    flex: 1
+    backgroundColor: global.arkadLightBlue,
+    flex: 1,
+    paddingLeft: 20,
+    paddingRight: 20
   },
   constructionText: {
     fontWeight: 'bold',
-    color: '#fff',
+    color: global.arkadBlue,
     textAlign: 'center',
-    fontSize: 38
+    fontSize: 30,
+    marginBottom: 20
   },
   infoText: {
     textAlign: 'center',
-    color: '#fff',
-    fontSize: 14
+    color: global.arkadBlue,
+    fontSize: 12
   }
 }
 
@@ -120,7 +123,7 @@ const CompaniesScreen = ({
   if (!checkDate()) {
     return (
       <View style={constructionContainer}>
-        <Text style={constructionText}>Under construction</Text>
+        <Text style={constructionText}>Waiting for companies</Text>
         <Text style={infoText}>
           When the job fair approaches, the companies that will attend
           to the fair will be visible here!
