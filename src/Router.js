@@ -1,7 +1,6 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
-// all icons can be viewed at https://oblador.github.io/react-native-vector-icons/
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import fontelloConfig from '../selection.json'
@@ -16,8 +15,6 @@ import CompanyDetailsScreenContainer from './containers/CompanyDetailsScreen'
 import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
-import ProfileScreenContainer from './containers/ProfileScreenContainer'
-import ProfileScreen from './screens/Profile/ProfileScreen'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
@@ -122,29 +119,6 @@ const MainStack = createBottomTabNavigator(
         }
       )
     },
-    Profile: {
-      screen: createStackNavigator(
-        {
-          ProfileStack: {
-            screen: ProfileScreenContainer,
-            navigationOptions: {
-              ...navigationOptions,
-              title: 'Profile'
-            }
-          },
-          Detail: {
-            screen: ProfileScreen,
-            navigationOptions: ({ navigation }) => ({
-              ...navigationOptions,
-              title: navigation.state.params.item.name
-            })
-          }
-        },
-        {
-          cardStyle: { backgroundColor: global.arkadGray }
-        }
-      )
-    },
     About: {
       screen: createStackNavigator(
         {
@@ -194,8 +168,6 @@ const MainStack = createBottomTabNavigator(
           iconName = 'briefcase'
         } else if (routeName === 'Events') {
           iconName = 'calendar-check-o'
-        } else if (routeName === 'Profile') {
-          iconName = 'user'
         } else if (routeName === 'About') {
           return <ArkadIcon name="arkadlogo" size={26} color={tintColor} />
         }
