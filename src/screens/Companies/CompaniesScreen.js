@@ -161,8 +161,10 @@ const CompaniesScreen = ({
 }
 
 function checkDate() {
-  var startDate = new Date("5/15/2019");
-  var todaysDate = new Date();
+  var startDate = new Date("11/13/2019");
+  var todaysDate = new Date('(CET)');
+  console.log(startDate)
+  console.log(todaysDate)
 
   if(startDate.setHours(0,0,0,0) <= todaysDate.setHours(0,0,0,0)) {
       return true
