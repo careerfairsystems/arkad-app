@@ -16,6 +16,7 @@ import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import AboutScreenContainer from './containers/AboutScreen'
+import CountdownScreen from './screens/Countdown/CountdownScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
 
@@ -34,6 +35,19 @@ const ArkadIcon = createIconSetFromFontello(fontelloConfig)
 
 const MainStack = createBottomTabNavigator(
   {
+    Countdown: {
+      screen: createStackNavigator(
+        {
+          Countdown: {
+            screen: CountdownScreen,
+            navigationOptions: {
+              ...navigationOptions,
+              headerTitle: <SubtitleHeader title="COUNTDOWN"/>
+            }
+          }
+        }
+      )
+    },
     Map: {
       screen: createStackNavigator(
         {
@@ -162,7 +176,9 @@ const MainStack = createBottomTabNavigator(
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state
         let iconName
-        if (routeName === 'Map') {
+        if (routeName === 'Countdown') {
+          iconName = 'calendar'
+        } else if (routeName === 'Map') {
           iconName = 'map-o'
         } else if (routeName === 'Companies') {
           iconName = 'briefcase'
