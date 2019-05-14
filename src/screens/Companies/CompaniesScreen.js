@@ -162,7 +162,7 @@ const CompaniesScreen = ({
 
 function checkDate() {
   var startDate = new Date("11/13/2019");
-  var todaysDate = new Date('(CET)');
+  var todaysDate = new Date();
   console.log(startDate)
   console.log(todaysDate)
 
