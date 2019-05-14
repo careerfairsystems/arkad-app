@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-  ScrollView, View, TouchableHighlight, Text, FlatList
+  ScrollView, View, TouchableHighlight, Text, FlatList, Linking
 } from 'react-native'
 import PropTypes from 'prop-types'
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native'
@@ -38,11 +38,12 @@ const styles = {
     borderColor: global.separatorColor
   },
   questionText: { fontSize: 14, fontWeight: 'bold' },
-  answerText: { fontSize: 12 }
+  answerText: { fontSize: 12 },
+  urlText: { color: global.arkadBlue }
 }
 
 const {
-  categoryHeader, categoryHeaderText, qaContainer, questionText, answerText
+  categoryHeader, categoryHeaderText, qaContainer, questionText, answerText, urlText
 } = styles
 const renderFaqList = categories => categories.map(category => (
   <Collapse key={category.key}>
@@ -56,6 +57,7 @@ const renderFaqList = categories => categories.map(category => (
           <View style={qaContainer}>
             <Text style={questionText}>{item.question}</Text>
             <Text style={answerText}>{item.answer}</Text>
+            <Text style={urlText} onPress={() => Linking.openURL(item.links)}>{item.links}</Text>
           </View>
         )}
         scrollEnabled={false}
