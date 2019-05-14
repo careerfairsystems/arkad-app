@@ -42,22 +42,26 @@ const styles = {
   constructionContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: global.arkadLightBlue,
+    backgroundColor: 'rgba(0, 43, 100, 0.85)',
     flex: 1,
     paddingLeft: 20,
     paddingRight: 20
   },
   constructionText: {
-    fontWeight: 'bold',
-    color: global.arkadBlue,
     textAlign: 'center',
-    fontSize: 30,
-    marginBottom: 20
+    color: '#fff',
+    fontSize: 36,
+    paddingRight: 20,
+    paddingLeft: 20,
+    fontWeight: '500'
   },
   infoText: {
     textAlign: 'center',
-    color: global.arkadBlue,
-    fontSize: 12
+    color: '#fff',
+    fontSize: 14,
+    paddingRight: 20,
+    paddingLeft: 20,
+    fontWeight: '400'
   }
 }
 
