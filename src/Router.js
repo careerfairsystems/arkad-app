@@ -193,6 +193,8 @@ const MainStack = createBottomTabNavigator(
           iconName = 'briefcase'
         } else if (routeName === 'Events') {
           iconName = 'calendar-check-o'
+        } else if (routeName === 'Profile') {
+          iconName = 'user'
         } else if (routeName === 'About') {
           return <ArkadIcon name="arkadlogo" size={26} color={tintColor} />
         }
