@@ -1,7 +1,6 @@
 import React from 'react'
 import { TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
-// all icons can be viewed at https://oblador.github.io/react-native-vector-icons/
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import fontelloConfig from '../selection.json'
@@ -194,8 +193,6 @@ const MainStack = createBottomTabNavigator(
           iconName = 'briefcase'
         } else if (routeName === 'Events') {
           iconName = 'calendar-check-o'
-        } else if (routeName === 'Profile') {
-          iconName = 'user'
         } else if (routeName === 'About') {
           return <ArkadIcon name="arkadlogo" size={26} color={tintColor} />
         }

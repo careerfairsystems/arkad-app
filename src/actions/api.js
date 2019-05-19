@@ -64,7 +64,8 @@ const fetchUpdatedSinceFailure = error => ({
 
 export const loadUpdatedSince = updated => (dispatch) => {
   dispatch(fetchUpdatedSinceRequest())
-  return fetch(`https://p18.jexpo.se/arkad/exhibitors?filter=[["updated_since","${updated}"]]`, {
+  // old filter '?filter=[["updated_since","${updated}"]]'
+  return fetch(`https://p18.jexpo.se/arkad/exhibitors`, {
     method: 'GET'
   })
     .then((response) => {
