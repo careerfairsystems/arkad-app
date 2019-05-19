@@ -60,7 +60,7 @@ class ProfileLoginScreen extends Component {
     this.setState({password:''})
     this.setState({isLoading: false})
     if (this.props.logedIn) {
-      this.props.navigation.navigate('Map')
+      this.props.navigation.navigate('CompanyProfileListView')
     }
   }
 

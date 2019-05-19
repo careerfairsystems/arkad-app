@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { loadLogin } from '../actions/api'
-import ProfileLoginScreen from '../screens/Profile/ProfileLoginScreen'
+import ProfileLoginScreen from '../screens/Profile/CompanyProfileListScreen'
 
 
 

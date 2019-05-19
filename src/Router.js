@@ -20,6 +20,7 @@ import ProfileLoginScreen from './screens/Profile/ProfileLoginScreen'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
+import CompanyProfileListContainer from './containers/CompanyProfileListContainer'
 
 const styles = {
   headerIcon: { paddingHorizontal: 14 }
@@ -131,12 +132,12 @@ const MainStack = createBottomTabNavigator(
               title: 'Profile'
             }
           },
-          Detail: {
-            screen: ProfileLoginScreen,
-            navigationOptions: ({ navigation }) => ({
+          CompanyProfileListView: {
+            screen: CompanyProfileListContainer,
+            navigationOptions: {
               ...navigationOptions,
-              title: navigation.state.params.item.name
-            })
+              title: 'CompanyListView'
+            }
           }
         },
         {
