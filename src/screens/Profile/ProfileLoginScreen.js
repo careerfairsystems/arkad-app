@@ -49,6 +49,13 @@ class ProfileLoginScreen extends Component {
     }
   }
 
+  // componentDidMount() {
+  //   console.log(this.props.logedIn)
+  //   if (this.props.logedIn) {
+  //     this.props.navigation.navigate('CompanyProfileListView')
+  //   }
+  // }
+
   handlePress() {
     this.setState({isLoading: true})
     this.login()

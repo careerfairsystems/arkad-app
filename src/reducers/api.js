@@ -388,6 +388,13 @@ const apiReducer = (state = initialState, action) => {
         ],
         {cancelable: true},
       );
+      case types.LOGOUT:
+        return {
+          ...state,
+          logedIn: false,
+          loading: false,
+          updated: Math.floor(Date.now() / 1000)
+        }
       return {
         ...state,
         logedIn: false,

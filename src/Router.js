@@ -21,6 +21,7 @@ import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
 import CompanyProfileListContainer from './containers/CompanyProfileListContainer'
+import LogoutButton from './containers/LogoutButton'
 
 const styles = {
   headerIcon: { paddingHorizontal: 14 }
@@ -134,10 +135,11 @@ const MainStack = createBottomTabNavigator(
           },
           CompanyProfileListView: {
             screen: CompanyProfileListContainer,
-            navigationOptions: {
+            navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: 'CompanyListView'
-            }
+              title: 'CompanyListView',
+              headerLeft: <LogoutButton navigation={navigation} />,
+            })
           }
         },
         {
