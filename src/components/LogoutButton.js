@@ -10,6 +10,9 @@ const styles = {
 function logout(navigation, loadLogout) {
   loadLogout()
   navigation.navigate('ProfileStack')
+  navigation.setParams({
+      headerLeft: null
+  });
 }
 
 const { button, text } = styles

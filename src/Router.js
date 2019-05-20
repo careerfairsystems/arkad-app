@@ -20,7 +20,6 @@ import ProfileLoginScreen from './screens/Profile/ProfileLoginScreen'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
-import CompanyProfileListContainer from './containers/CompanyProfileListContainer'
 import LogoutButton from './containers/LogoutButton'
 
 const styles = {
@@ -128,19 +127,12 @@ const MainStack = createBottomTabNavigator(
         {
           ProfileStack: {
             screen: ProfileScreenContainer,
-            navigationOptions: {
-              ...navigationOptions,
-              title: 'Profile'
-            }
-          },
-          CompanyProfileListView: {
-            screen: CompanyProfileListContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: 'CompanyListView',
-              headerLeft: <LogoutButton navigation={navigation} />,
+              title: 'Profile',
+              headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined
             })
-          }
+          },
         },
         {
           cardStyle: { backgroundColor: global.arkadGray }

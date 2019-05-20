@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, TextInput } from 'react-native'
 import PropTypes from 'prop-types'
 import Button from '../../components/Button'
+import LogoutButton from '../../containers/LogoutButton'
 
 
 const styles = {
@@ -49,12 +50,15 @@ class ProfileLoginScreen extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   console.log(this.props.logedIn)
-  //   if (this.props.logedIn) {
-  //     this.props.navigation.navigate('CompanyProfileListView')
-  //   }
-  // }
+  componentDidMount() {
+    this.props.navigation.setParams({
+        headerLeft: null
+    });
+    // console.log(this.props.logedIn)
+    // if (this.props.logedIn) {
+    //   this.props.navigation.navigate('CompanyProfileListView')
+    // }
+  }
 
   handlePress() {
     this.setState({isLoading: true})
@@ -67,42 +71,59 @@ class ProfileLoginScreen extends Component {
     this.setState({password:''})
     this.setState({isLoading: false})
     if (this.props.logedIn) {
-      this.props.navigation.navigate('CompanyProfileListView')
+      this.props.navigation.setParams({
+          headerLeft: <LogoutButton navigation={this.props.navigation} />
+      });
     }
+    // if (this.props.logedIn) {
+    //   this.props.navigation.navigate('CompanyProfileListView')
+    // }
   }
 
   render() {
-    return (
-      <View style={outerContainer}>
-        <View style={innerContainer}>
-          <Text style={h1}>
-            ARKAD
-          </Text>
-          <Text style={h2}>
-            -Login
-          </Text>
-          <TextInput
-            underlineColorAndroid={'transparent'}
-            style={textInput}
-            placeholder="Username"
-            value={this.state.username}
-            onChangeText={(text) => this.setState({username:text})}
-          />
-          <TextInput
-            underlineColorAndroid={'transparent'}
-            style={textInput}
-            placeholder="Password"
-            secureTextEntry={true}
-            value={this.state.password}
-            onChangeText={(text) => this.setState({password:text})}
-          />
-          <Button title='Login'
-                  onPress={() => this.handlePress()}
-                  loading={this.state.isLoading}
-          />
+    if (this.props.logedIn) {
+      return (
+        <View style={outerContainer}>
+          <View style={innerContainer}>
+            <Text style={h1}>
+              THIS IS GOING TO BE A LIST
+            </Text>
+          </View>
         </View>
-      </View>
-    )
+      )
+    } else {
+      return (
+        <View style={outerContainer}>
+          <View style={innerContainer}>
+            <Text style={h1}>
+              ARKAD
+            </Text>
+            <Text style={h2}>
+              -Login
+            </Text>
+            <TextInput
+              underlineColorAndroid={'transparent'}
+              style={textInput}
+              placeholder="Username"
+              value={this.state.username}
+              onChangeText={(text) => this.setState({username:text})}
+            />
+            <TextInput
+              underlineColorAndroid={'transparent'}
+              style={textInput}
+              placeholder="Password"
+              secureTextEntry={true}
+              value={this.state.password}
+              onChangeText={(text) => this.setState({password:text})}
+            />
+            <Button title='Login'
+                    onPress={() => this.handlePress()}
+                    loading={this.state.isLoading}
+            />
+          </View>
+        </View>
+      )
+    }
   }
 }
 

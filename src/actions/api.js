@@ -109,7 +109,8 @@ const fetchLoginFailure = error => ({
 export const loadLogin = (username, password) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
-    `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
+    // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
+    `https://arkad-nexpo.herokuapp.com/api/login?email=arvid.pilhall@me.com&password=123456789`,
     {
       method: 'POST',
     }
