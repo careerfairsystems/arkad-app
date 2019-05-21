@@ -2,10 +2,10 @@
 
 const initialState = {
   aboutUs:
-    'With 190 exhibiting companies and 300 volunteers, ARKAD is the largest career fair in Scandinavia. On the 14th and 15th of November Lund University, Faculty of Engineering will be crowded with thousands of students and exhibitors eager to meet new people and seize future opportunities. We hope to see you all there!',
+    'With 190 exhibiting companies and 300 volunteers, ARKAD is the largest career fair in Scandinavia. On the 13th and 14th of November Lund University, Faculty of Engineering will be crowded with thousands of students and exhibitors eager to meet new people and seize future opportunities. We hope to see you all there!',
   openingHours: [
-    { date: '14 November', time: '10:00-16:00' },
-    { date: '15 November', time: '10:00-15:00' }
+    { date: '13 November', time: '10:00-16:00' },
+    { date: '14 November', time: '10:00-15:00' }
   ],
   aboutArkadTeam:
     'The ARKAD organization consist of the Project Group, Coordinators and Hosts. All together we are almost 300 people and together we have been working very hard to make this year’s fair be the best one ever.',

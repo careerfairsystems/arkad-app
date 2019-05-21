@@ -128,7 +128,7 @@ const MainStack = createBottomTabNavigator(
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: 'About',
-              headerRight: <FaqButton navigation={navigation} />
+//              headerRight: <FaqButton navigation={navigation} />
             })
           },
           ArkadTeam: {
