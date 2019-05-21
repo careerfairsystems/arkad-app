@@ -16,8 +16,6 @@ import CompanyDetailsScreenContainer from './containers/CompanyDetailsScreen'
 import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
-import ProfileScreenContainer from './containers/ProfileScreenContainer'
-import ProfileScreen from './screens/Profile/ProfileScreen'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
@@ -111,29 +109,6 @@ const MainStack = createBottomTabNavigator(
           },
           Detail: {
             screen: EventDetailsScreen,
-            navigationOptions: ({ navigation }) => ({
-              ...navigationOptions,
-              title: navigation.state.params.item.name
-            })
-          }
-        },
-        {
-          cardStyle: { backgroundColor: global.arkadGray }
-        }
-      )
-    },
-    Profile: {
-      screen: createStackNavigator(
-        {
-          ProfileStack: {
-            screen: ProfileScreenContainer,
-            navigationOptions: {
-              ...navigationOptions,
-              title: 'Profile'
-            }
-          },
-          Detail: {
-            screen: ProfileScreen,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: navigation.state.params.item.name
