@@ -8,7 +8,6 @@ import SectionHeader from '../../components/SectionHeader'
 
 
 const styles = {
-  content: { flex: 1 },
   outerContainer: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -41,7 +40,7 @@ const styles = {
 }
 
 const studentList = [ {  key: '1010146733143312',
-                         name: 'HAHAHAHAHAHA',
+                         name: 'HAHiuiouoiuoiuoiuAHAHAHAHA',
                          about: '3Shape creates 3D scanning and CAD/CAM software solutions - award winning technology that enables healthcare professionals to treat more people, more effectively and with improved care. We use and create the latest technology, and always push to do things smarter. \n\nWe’re constantly on the lookout for talented developers who thrive on daily challenges. We believe that the best results are achieved by empowering the people closest to the action. Our agile teams employ the market’s state-of-the-art components, sensors and tools to create real-time 3D solutions for treatment and manufacturing.',
                          didYouKnow: 'Two students founded 3Shape in 2000: One was an engineering student the other one a business student. Together, natural born entrepreneurs. Today, we are more than 1,500 employees, and many live in Sweden and commute to our headquarters in central Copenhagen daily.',
                          employees: { local: '', global: '1100' },
@@ -74,7 +73,7 @@ const studentList = [ {  key: '1010146733143312',
                          twitterUrl: 'https://twitter.com/3Shape',
                          youTubeUrl: '' },
                        { key: '1010146794928248',
-                         name: 'AAK Sweden AB',
+                         name: 'oioioioioioioioi',
                          about: 'Our goal is simple. We want to be your first choice for value-adding vegetable oil solutions. Regardless if you are a customer, employee, or supplier. AAK has employees in more than 25 countries. We have 20 production facilities and customization plants across the world and a global procurement and sales organization. Organic growth, investments in production facilities, and selective acquisitions are expanding that global presence. AAK strives to be an attractive employer with a high-performance organization with people carrying AAK forward. Join us on an exciting journey.',
                          didYouKnow: 'At AAK, sustainable development is fundamental to our business. Social and environmental responsibility, hand in hand with financial growth, is key to our continued development and future success. This is what we mean by sustainable growth.',
                          employees: { local: '450', global: '3200' },
@@ -160,8 +159,8 @@ class ProfileLoginScreen extends Component {
       }, {})
       sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
     }
-    console.log("HAHASIDHAIUHSDIUAHSDIUAHS")
-    console.log(sections)
+    // console.log("HAHASIDHAIUHSDIUAHSDIUAHS")
+    // console.log(sections)
     return(
       <View style={outerContainer}>
       <SectionList

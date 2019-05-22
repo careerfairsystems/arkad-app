@@ -12,8 +12,7 @@ const styles = {
 
 const { title } = styles
 const StudentListItem = ({ navigation, student }) => {
-  console.log("AAAAAAAAAAAAAAAAAHAHAHAHAHAHHA")
-  console.log(student)
+  console.log(student.name)
   return (
     <SelectableListItem navigation={navigation} item={student}>
       <Text style={title}>{student.name}</Text>
