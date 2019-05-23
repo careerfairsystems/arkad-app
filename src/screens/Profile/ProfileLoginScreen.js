@@ -383,6 +383,7 @@ class ProfileLoginScreen extends Component {
 
   async login() {
     await this.props.loadLogin(this.state.username, this.state.password)
+    this.props.loadBlips()
     this.setState({username:''})
     this.setState({password:''})
     this.setState({isLoading: false})

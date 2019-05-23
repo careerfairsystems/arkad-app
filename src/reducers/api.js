@@ -3,6 +3,7 @@ import * as types from '../actions/types'
 
 const initialState = {
   items: [],
+  blips: [],
   logedIn: false,
   maps: [],
   filters: {},
@@ -244,6 +245,7 @@ const apiReducer = (state = initialState, action) => {
   let weOffer = []
   let industry = []
   let desiredDegree = []
+  console.log(action.type)
   switch (action.type) {
     case types.FETCH_COMPANIES_REQUEST:
       return {
@@ -395,6 +397,29 @@ const apiReducer = (state = initialState, action) => {
           loading: false,
           updated: Math.floor(Date.now() / 1000)
         }
+        case types.FETCH_BLIPS_REQUEST:
+          console.log("IOJSADOIAMOIAMSFOIAFOAISDN")
+          return {
+            ...state,
+            loading: true,
+            error: ''
+          }
+        case types.FETCH_BLIPS_SUCCESS:
+          console.log("IOJSADOIAMOIAMSFOIAFOAISDN")
+          return {
+            ...state,
+            loading: false,
+            updated: Math.floor(Date.now() / 1000)
+          }
+        case types.FETCH_BLIPS_FAILURE:
+          console.log("IOJSADOIAMOIAMSFOIAFOAISDN")
+          Alert.alert(
+            'Request to databse failed!',
+            [
+              {text: 'OK'},
+            ],
+            {cancelable: true},
+          );
       return {
         ...state,
         logedIn: false,

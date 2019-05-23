@@ -109,7 +109,8 @@ const fetchLoginFailure = error => ({
 export const loadLogin = (username, password) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
-    `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
+    // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
+    `https://arkad-nexpo.herokuapp.com/api/login?email=arvid.pilhall@me.com&password=123456789`,
     {
       method: 'POST',
     }
@@ -135,5 +136,53 @@ export const loadLogin = (username, password) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(fetchLoginFailure(error.message))
+    })
+}
+
+const fetchBlipRequest = () => ({
+  type: types.FETCH_BLIPS_REQUEST
+})
+
+const fetchBlipSuccess = (response) => ({
+  type: types.FETCH_BLIPS_SUCCESS,
+  response
+})
+
+const fetchBlipFailure = error => ({
+  type: types.FETCH_BLIPS_FAILURE,
+  error
+})
+
+export const loadBlips = () => (dispatch) => {
+  dispatch(fetchBlipRequest())
+  return fetch(
+    `https://arkad-nexpo.herokuapp.com/api/me/company/blips`,
+    {
+      method: 'GET',
+    }
+  )
+    .then((response) => {
+      console.log(response.status)
+      if (response.status === 200) {
+        console.log("YEY VI FICK 200!")
+        return response.json()
+      }
+      response
+        .json()
+        .then((responseJson) => {
+          dispatch(fetchBlipFailure(responseJson.error.title))
+        })
+        .catch((error) => {
+          dispatch(fetchBlipFailure(error.message))
+        })
+      return null
+    })
+    .then((responseJson) => {
+      if (responseJson) {
+        dispatch(fetchBlipSuccess(responseJson))
+      }
+    })
+    .catch((error) => {
+      dispatch(fetchBlipFailure(error.message))
     })
 }
