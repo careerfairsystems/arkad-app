@@ -312,7 +312,7 @@ const styles = {
     backgroundColor: global.arkadBlue
   },
   welcomeContainer: {
-    marginVertical: 30
+    marginVertical: 20
   },
   outerContainer: {
    justifyContent: 'center',
@@ -344,7 +344,7 @@ const styles = {
    marginVertical: 10
   },
   welcomeText: {
-   fontSize: 40,
+   fontSize: 30,
    textAlign: 'center',
    color: '#fff',
    marginBottom: 10
@@ -424,7 +424,7 @@ class ProfileLoginScreen extends Component {
             Välkommen Axis!
           </Text>
           <Text style={infoText}>
-            Nedan visas en lista på de studenter som ni har pratat med. Klicka på dem för att lägga till en kommentar eller betyg.
+            Nedan visas en lista på de studenter som ni har pratat med. Klicka på en student för att lägga till en kommentar eller betyg.
           </Text>
         </View>
         <SectionList
