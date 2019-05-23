@@ -1,22 +1,20 @@
 import React from 'react'
 import { Text } from 'react-native'
 import PropTypes from 'prop-types'
-import SelectableListItem from './SelectableListItem'
+import SelectableStudentListItem from './SelectableStudentListItem'
 
 const styles = {
   title: {
-    flex: 1,
     fontSize: 16
   }
 }
 
 const { title } = styles
 const StudentListItem = ({ navigation, student }) => {
-  console.log(student.name)
   return (
-    <SelectableListItem navigation={navigation} item={student}>
+    <SelectableStudentListItem navigation={navigation} item={student}>
       <Text style={title}>{student.name}</Text>
-    </SelectableListItem>
+    </SelectableStudentListItem>
   )
 }
 
