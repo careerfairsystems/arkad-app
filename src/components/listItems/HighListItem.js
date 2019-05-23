@@ -11,7 +11,7 @@ const styles = {
     borderBottomWidth: 1,
     backgroundColor: '#fff',
     borderColor: global.separatorColor,
-    height: 80,
+    height: 70,
   }
 }
 

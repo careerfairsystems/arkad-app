@@ -7,38 +7,6 @@ import StudentListItem from '../../components/listItems/StudentListItem'
 import SectionHeader from '../../components/SectionHeader'
 
 
-const styles = {
-  outerContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#fff'
-  },
-  innerContainer: {
-    width: '80%'
-  },
-  loginBtn: {
-    width: '50%',
-    color: '#000'
-  },
-  h1: {
-    fontSize: 70,
-    textAlign: 'center'
-  },
-  h2: {
-    fontSize: 30,
-    textAlign: 'center'
-  },
-  textInput: {
-    height: 40,
-    borderTopColor: '#000',
-    backgroundColor: '#c9c9c9',
-    borderRadius: 8,
-    marginVertical: 10
-  },
-}
-
 const studentList = [ {  key: '1',
                          name: 'Arvid Pilhall',
                          about: 'Awesome person',
@@ -337,7 +305,59 @@ const studentList = [ {  key: '1',
                        }
                      ]
 
-const { content, outerContainer, innerContainer, loginBtn, h1, h2, textInput } = styles
+const styles = {
+  listContainer: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: global.arkadBlue
+  },
+  welcomeContainer: {
+    marginVertical: 30
+  },
+  outerContainer: {
+   justifyContent: 'center',
+   alignItems: 'center',
+   width: '100%',
+   height: '100%',
+   backgroundColor: '#fff'
+  },
+  innerContainer: {
+   width: '80%'
+  },
+  loginBtn: {
+   width: '50%',
+   color: '#000'
+  },
+  h1: {
+   fontSize: 70,
+   textAlign: 'center'
+  },
+  h2: {
+   fontSize: 30,
+   textAlign: 'center'
+  },
+  textInput: {
+   height: 40,
+   borderTopColor: '#000',
+   backgroundColor: '#c9c9c9',
+   borderRadius: 8,
+   marginVertical: 10
+  },
+  welcomeText: {
+   fontSize: 40,
+   textAlign: 'center',
+   color: '#fff',
+   marginBottom: 10
+  },
+  infoText: {
+   textAlign: 'center',
+   color: '#fff'
+  },
+}
+
+
+const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, textInput,
+        welcomeText, infoText } = styles
 
 class ProfileLoginScreen extends Component {
   constructor(props){
@@ -373,6 +393,14 @@ class ProfileLoginScreen extends Component {
     }
   }
 
+  renderHeader(headerItem){
+    return(
+      <View style={{backgroundColor:'#000000'}}>
+      <Text style={styles.headerText}>{headerItem.section.key}</Text>
+      </View>
+    );
+  }
+
   listView() {
     if (studentList.length === 0) {
       sections = [{ title: '', data: [] }]
@@ -389,16 +417,22 @@ class ProfileLoginScreen extends Component {
       }, {})
       sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
     }
-    // console.log("HAHASIDHAIUHSDIUAHSDIUAHS")
-    // console.log(sections)
     return(
-      <View style={outerContainer}>
-      <SectionList
-        style={{width:'100%'}}
-        renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} />}
-        sections={sections}
-        onScrollBeginDrag={() => Keyboard.dismiss()}
-      />
+      <View style={listContainer}>
+        <View style={welcomeContainer}>
+          <Text style={welcomeText}>
+            Välkommen Axis!
+          </Text>
+          <Text style={infoText}>
+            Nedan visas en lista på de studenter som ni har pratat med. Klicka på dem för att lägga till en kommentar eller betyg.
+          </Text>
+        </View>
+        <SectionList
+          style={{width:'100%'}}
+          renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} />}
+          sections={sections}
+          onScrollBeginDrag={() => Keyboard.dismiss()}
+        />
       </View>
     )
   }

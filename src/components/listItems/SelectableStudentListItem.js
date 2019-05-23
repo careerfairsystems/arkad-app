@@ -1,13 +1,13 @@
 import React from 'react'
-import { TouchableHighlight, View, Image } from 'react-native'
+import { TouchableHighlight, View, Image, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import HighListItem from './HighListItem'
 import SelectStudentButton from '../SelectStudentButton'
 
 const styles = {
   image: {
-    height: 34,
-    width: 34,
+    height: 45,
+    width: 45,
     marginHorizontal: 16,
     borderRadius: 17,
     marginVertical: 12,
