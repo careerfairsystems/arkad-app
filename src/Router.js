@@ -17,6 +17,7 @@ import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import ProfileScreenContainer from './containers/ProfileScreenContainer'
 import ProfileLoginScreen from './screens/Profile/ProfileLoginScreen'
+import StudentCardContainer from './containers/StudentCardContainer'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
@@ -133,6 +134,13 @@ const MainStack = createBottomTabNavigator(
               headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined
             })
           },
+          Detail: {
+            screen: StudentCardContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: navigation.state.params.item.name
+            })
+          }
         },
         {
           cardStyle: { backgroundColor: global.arkadGray }
