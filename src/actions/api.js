@@ -137,11 +137,3 @@ export const loadLogin = (username, password) => (dispatch) => {
       dispatch(fetchLoginFailure(error.message))
     })
 }
-
-// const logout = () => ({
-//   type: types.LOGOUT
-// })
-//
-// export const loadLogout = () => (dispatch) => {
-//   dispatch(logout())
-// }
