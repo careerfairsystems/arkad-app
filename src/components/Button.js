@@ -18,21 +18,18 @@ const styles = {
   text: {
     color: '#fff',
     fontSize: 16,
-    marginRight: 8
   }
 }
 
 const { container, button, text } = styles
-const Button = ({ title, onPress, loading = false }) => (
+const Button = ({ title, onPress, loading = false, showIcon = true }) => (
   <TouchableHighlight style={container} onPress={onPress}>
     <View style={button}>
       { loading
-        ? <ActivityIndicator/>
-        : [
-          <Text key='buttonText' style={text}>{title}</Text>,
-          <Icon key='buttonIcon' name="angle-right" size={22} color="#fff" />
-        ]
+        ? <ActivityIndicator style={{marginLeft: 8}} color='#fff'/>
+        : <Text key='buttonText' style={text}>{title}</Text>
       }
+      { showIcon ? <Icon style={{marginLeft: 8}} key='buttonIcon' name="angle-right" size={22} color="#fff" /> : null }
     </View>
   </TouchableHighlight>
 )

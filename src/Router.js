@@ -130,6 +130,7 @@ const MainStack = createBottomTabNavigator(
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: 'Profile',
+              header: navigation.state.params ? navigation.state.params.header : null,
               headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined
             })
           },
