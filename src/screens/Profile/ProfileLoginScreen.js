@@ -386,15 +386,15 @@ const styles = {
     width:'100%',
   },
   createAccountView: {
-    height:'95%',
-    width:'95%',
-    backgroundColor: 'rgba(172, 214, 234, 0.9)',
+    height:'90%',
+    width:'90%',
+    backgroundColor: 'rgba(172, 214, 234, 0.98)',
     borderRadius:10
   },
   createAccountText: {
     fontSize: 14,
     color: global.arkadBlue,
-    marginBottom: 20
+    marginBottom: 8
   }
 }
 
@@ -488,26 +488,45 @@ class ProfileLoginScreen extends Component {
     return(
       <View style={createAccountContainer}>
         <View style={createAccountView}>
-        <View>
-            <Text style={[createAccountText, {fontWeight: 'bold'}]}>
-              Student
-            </Text>
-            <Text style={createAccountText}>
-              TESTA
-            </Text>
-            <Text style={createAccountText}>
-              TESTA
-            </Text>
+          <View style={{marginVertical: 20, marginHorizontal: 20}}>
+            <View style={{justifyContent: 'center',
+            alignItems: 'center', marginBottom:50}}>
+              <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
+                Welcome!
+              </Text>
             </View>
-            <View style={{
-            justifyContent: 'center',
-            alignItems: 'center',}}>
-          <View style={{width:'40%'}}>
-          <Button title='Close'
-                  onPress={() => this.setState({createAccount: false})}
-                  showIcon={false}
-          />
+            <View>
+              <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                Student
+              </Text>
+              <Text style={createAccountText} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
+                <Text>Sign up</Text>
+                <Text style={{fontWeight:'bold'}}> here</Text>
+                <Text>.</Text>
+              </Text>
+            </View>
+            <View style={{marginTop: 30}}>
+              <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                Company
+              </Text>
+              <Text style={createAccountText}>
+                Ask a co-worker with an account to send you an invite.
+              </Text>
+            </View>
           </View>
+          <View style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            bottom:0,
+          position: 'absolute',
+        width:'100%',
+      marginBottom:20}}>
+            <View style={{width:'40%'}}>
+              <Button title='Close'
+                      onPress={() => this.setState({createAccount: false})}
+                      showIcon={false}
+              />
+            </View>
           </View>
         </View>
       </View>

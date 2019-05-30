@@ -29,7 +29,7 @@ const Button = ({ title, onPress, loading = false, showIcon = true }) => (
         ? <ActivityIndicator style={{marginLeft: 8}} color='#fff'/>
         : <Text key='buttonText' style={text}>{title}</Text>
       }
-      { showIcon ? <Icon style={{marginLeft: 8}} key='buttonIcon' name="angle-right" size={22} color="#fff" /> : null }
+      { showIcon&&!loading ? <Icon style={{marginLeft: 8}} key='buttonIcon' name="angle-right" size={22} color="#fff" /> : null }
     </View>
   </TouchableHighlight>
 )
