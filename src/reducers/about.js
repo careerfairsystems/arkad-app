@@ -88,7 +88,7 @@ const initialState = {
           name: 'Emma Sandin',
           role: 'Banquet Manager',
           image: require('../../resources/img/arkadTeam/default.png'),
-          linkedInUrl: ''
+          linkedInUrl: 'https://www.linkedin.com/in/emma-sandin-8213a6188/'
         },
         {
           key: '11',
@@ -109,14 +109,14 @@ const initialState = {
           name: 'Martin Olsson',
           role: 'Premises Manager',
           image: require('../../resources/img/arkadTeam/default.png'),
-          linkedInUrl: ''
+          linkedInUrl: 'https://www.linkedin.com/in/martin-olsson-/'
         },
         {
           key: '14',
           name: 'Johanna Lidholm',
           role: 'Service Manager',
           image: require('../../resources/img/arkadTeam/default.png'),
-          linkedInUrl: ''
+          linkedInUrl: 'https://www.linkedin.com/in/johanna-lidholm/'
         },
         {
           key: '15',
