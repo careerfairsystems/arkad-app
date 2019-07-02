@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, Text, View } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
@@ -24,7 +24,23 @@ import FaqScreenContainer from './containers/FaqScreen'
 import LogoutButton from './containers/LogoutButton'
 
 const styles = {
-  headerIcon: { paddingHorizontal: 14 }
+  headerIcon: {
+    paddingHorizontal: 14,
+    alignItems: 'center'
+  },
+  filterView: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    width: 120,
+    paddingLeft: 1
+  },
+  buttonText: {
+    fontSize: 12,
+    right: 0,
+    color: global.arkadGray
+  }
 }
 
 const navigationOptions = {
@@ -77,14 +93,22 @@ const MainStack = createBottomTabNavigator(
               ...navigationOptions,
               title: 'Companies',
               headerRight: (
-                <TouchableOpacity
-                  style={styles.headerIcon}
-                  onPress={() => navigation.navigate('Filter')}
-                >
-                  <Icon name="filter" size={24} color="#fff" />
-                </TouchableOpacity>
-              ),
-              headerLeft: <ShowFavoritesButton />
+                <View style={styles.filterView}>
+                  <View>
+                    <ShowFavoritesButton />
+                    <Text style={styles.buttonText}>Favorites</Text>
+                  </View>
+                  <View style={styles.filterView}>
+                    <TouchableOpacity
+                      style={styles.headerIcon}
+                      onPress={() => navigation.navigate('Filter')}
+                    >
+                      <Icon name="filter" size={21} color="#fff" />
+                      <Text style={styles.buttonText}>Filter</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              )
             })
           },
           Detail: {
