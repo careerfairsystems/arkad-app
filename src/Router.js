@@ -15,9 +15,12 @@ import CompanyDetailsScreenContainer from './containers/CompanyDetailsScreen'
 import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
+import ProfileScreenContainer from './containers/ProfileScreenContainer'
+import ProfileLoginScreen from './screens/Profile/ProfileLoginScreen'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
+import LogoutButton from './containers/LogoutButton'
 
 const styles = {
   headerIcon: {
@@ -143,6 +146,24 @@ const MainStack = createBottomTabNavigator(
         }
       )
     },
+    Profile: {
+      screen: createStackNavigator(
+        {
+          ProfileStack: {
+            screen: ProfileScreenContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: 'Profile',
+              header: navigation.state.params ? navigation.state.params.header : null,
+              headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined
+            })
+          },
+        },
+        {
+          cardStyle: { backgroundColor: global.arkadGray }
+        }
+      )
+    },
     About: {
       screen: createStackNavigator(
         {
@@ -192,6 +213,8 @@ const MainStack = createBottomTabNavigator(
           iconName = 'briefcase'
         } else if (routeName === 'Events') {
           iconName = 'calendar-check-o'
+        } else if (routeName === 'Profile') {
+          iconName = 'user'
         } else if (routeName === 'About') {
           return <ArkadIcon name="arkadlogo" size={26} color={tintColor} />
         }

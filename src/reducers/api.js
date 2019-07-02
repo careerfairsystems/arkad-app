@@ -3,6 +3,7 @@ import * as types from '../actions/types'
 
 const initialState = {
   items: [],
+  logedIn: false,
   maps: [],
   filters: {},
   notUpdated: [],
@@ -361,6 +362,42 @@ const apiReducer = (state = initialState, action) => {
       Alert.alert(action.error)
       return {
         ...state,
+        loading: false,
+        error: action.error
+      }
+    case types.FETCH_LOGIN_REQUEST:
+      return {
+        ...state,
+        logedIn: false,
+        loading: true,
+        error: ''
+      }
+    case types.FETCH_LOGIN_SUCCESS:
+      return {
+        ...state,
+        logedIn: true,
+        loading: false,
+        updated: Math.floor(Date.now() / 1000)
+      }
+    case types.FETCH_LOGIN_FAILURE:
+      Alert.alert(
+        'Login failed!',
+        'Wrong username or password.',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      );
+      case types.LOGOUT:
+        return {
+          ...state,
+          logedIn: false,
+          loading: false,
+          updated: Math.floor(Date.now() / 1000)
+        }
+      return {
+        ...state,
+        logedIn: false,
         loading: false,
         error: action.error
       }

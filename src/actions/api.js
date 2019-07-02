@@ -1,5 +1,6 @@
 /* global fetch:false */
 import * as types from './types'
+import base64 from 'react-native-base64'
 
 const fetchCompaniesRequest = () => ({
   type: types.FETCH_COMPANIES_REQUEST
@@ -88,5 +89,51 @@ export const loadUpdatedSince = updated => (dispatch) => {
     })
     .catch((error) => {
       dispatch(fetchUpdatedSinceFailure(error.message))
+    })
+}
+
+const fetchLoginRequest = () => ({
+  type: types.FETCH_LOGIN_REQUEST
+})
+
+const fetchLoginSuccess = () => ({
+  type: types.FETCH_LOGIN_SUCCESS,
+  logedIn: true
+})
+
+const fetchLoginFailure = error => ({
+  type: types.FETCH_LOGIN_FAILURE,
+  error
+})
+
+export const loadLogin = (username, password) => (dispatch) => {
+  dispatch(fetchLoginRequest())
+  return fetch(
+    `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
+    {
+      method: 'POST',
+    }
+  )
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      }
+      response
+        .json()
+        .then((responseJson) => {
+          dispatch(fetchLoginFailure(responseJson.error.title))
+        })
+        .catch((error) => {
+          dispatch(fetchLoginFailure(error.message))
+        })
+      return null
+    })
+    .then((responseJson) => {
+      if (responseJson) {
+        dispatch(fetchLoginSuccess())
+      }
+    })
+    .catch((error) => {
+      dispatch(fetchLoginFailure(error.message))
     })
 }
