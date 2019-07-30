@@ -434,7 +434,7 @@ class ProfileLoginScreen extends Component {
     this.setState({isLoading: false})
     if (this.props.logedIn) {
       this.props.navigation.setParams({
-          headerLeft: <LogoutButton navigation={this.props.navigation} />,
+          headerRight: <LogoutButton navigation={this.props.navigation} />,
           header: undefined
       });
     }
