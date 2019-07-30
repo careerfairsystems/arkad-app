@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, SectionList, RefreshControl, Keyboard } from 'react-native'
+import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import Button from '../../components/Button'
 import LogoutButton from '../../containers/LogoutButton'
@@ -309,10 +309,12 @@ const styles = {
   listContainer: {
     width: '100%',
     height: '100%',
-    backgroundColor: global.arkadBlue
+    backgroundColor: '#fff'
   },
   welcomeContainer: {
-    marginVertical: 20
+    paddingVertical: 20,
+    borderBottomColor: '#4c4c4c',
+    borderBottomWidth: 1
   },
   outerContainer: {
    justifyContent: 'center',
@@ -333,31 +335,72 @@ const styles = {
    textAlign: 'center'
   },
   h2: {
-   fontSize: 30,
-   textAlign: 'center'
+   fontSize: 12,
+   textAlign: 'center',
+   color: global.arkadBlue,
+   marginTop: 18
   },
-  textInput: {
+  usernameInput: {
    height: 40,
    borderTopColor: '#000',
-   backgroundColor: '#c9c9c9',
+   backgroundColor: 'rgba(0, 43, 100, 0.2)',
    borderRadius: 8,
-   marginVertical: 10
+   marginTop: 30,
+   marginBottom: 10,
+   paddingLeft: 10
+  },
+  passwordInput: {
+   height: 40,
+   borderTopColor: '#000',
+   backgroundColor: 'rgba(0, 43, 100, 0.2)',
+   borderRadius: 8,
+   marginTop: 5,
+   marginBottom: 40,
+   paddingLeft: 10,
   },
   welcomeText: {
    fontSize: 30,
    textAlign: 'center',
-   color: '#fff',
+   color: global.arkadBlue,
    marginBottom: 10
   },
   infoText: {
    textAlign: 'center',
-   color: '#fff'
+   color: global.arkadBlue
   },
+  image: {
+    height: 160,
+    width: 165.6,
+    marginTop: 15
+  },
+  imageContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20
+  },
+  createAccountContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    height:'100%',
+    width:'100%',
+  },
+  createAccountView: {
+    height:'90%',
+    width:'90%',
+    backgroundColor: 'rgba(172, 214, 234, 0.98)',
+    borderRadius:10
+  },
+  createAccountText: {
+    fontSize: 14,
+    color: global.arkadBlue,
+    marginBottom: 8
+  }
 }
 
 
-const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, textInput,
-        welcomeText, infoText } = styles
+const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
+        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView } = styles
 
 class ProfileLoginScreen extends Component {
   constructor(props){
@@ -367,12 +410,13 @@ class ProfileLoginScreen extends Component {
       username: '',
       password: '',
       isLoading: false,
+      createAccount: false,
     }
   }
 
   componentDidMount() {
     this.props.navigation.setParams({
-        headerLeft: null
+        header: null,
     });
   }
 
@@ -383,12 +427,15 @@ class ProfileLoginScreen extends Component {
 
   async login() {
     await this.props.loadLogin(this.state.username, this.state.password)
-    this.setState({username:''})
-    this.setState({password:''})
+    this.setState({
+      username:'',
+      password:''
+    })
     this.setState({isLoading: false})
     if (this.props.logedIn) {
       this.props.navigation.setParams({
-          headerLeft: <LogoutButton navigation={this.props.navigation} />
+          headerLeft: <LogoutButton navigation={this.props.navigation} />,
+          header: undefined
       });
     }
   }
@@ -396,7 +443,7 @@ class ProfileLoginScreen extends Component {
   renderHeader(headerItem){
     return(
       <View style={{backgroundColor:'#000000'}}>
-      <Text style={styles.headerText}>{headerItem.section.key}</Text>
+        <Text style={styles.headerText}>{headerItem.section.key}</Text>
       </View>
     );
   }
@@ -437,36 +484,101 @@ class ProfileLoginScreen extends Component {
     )
   }
 
+  createAccountView() {
+    return(
+      <View style={createAccountContainer}>
+        <View style={createAccountView}>
+          <View style={{marginVertical: 20, marginHorizontal: 20}}>
+            <View style={{justifyContent: 'center',
+            alignItems: 'center', marginBottom:50}}>
+              <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
+                Welcome!
+              </Text>
+            </View>
+            <View>
+              <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                Student
+              </Text>
+              <Text style={createAccountText} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
+                <Text>Sign up</Text>
+                <Text style={{fontWeight:'bold'}}> here</Text>
+                <Text>.</Text>
+              </Text>
+            </View>
+            <View style={{marginTop: 30}}>
+              <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                Company
+              </Text>
+              <Text style={createAccountText}>
+                Ask a co-worker with an account to send you an invite.
+              </Text>
+            </View>
+          </View>
+          <View style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            bottom:0,
+          position: 'absolute',
+        width:'100%',
+      marginBottom:20}}>
+            <View style={{width:'40%'}}>
+              <Button title='Close'
+                      onPress={() => this.setState({createAccount: false})}
+                      showIcon={false}
+              />
+            </View>
+          </View>
+        </View>
+      </View>
+    )
+  }
+
   loginView() {
     return (
+      <View>
       <View style={outerContainer}>
         <View style={innerContainer}>
-          <Text style={h1}>
-            ARKAD
-          </Text>
-          <Text style={h2}>
-            -Login
-          </Text>
+          <View style={imageContainer}>
+            <Image
+              style={image}
+              source={require('../../../resources/img/arkad_logo.png')}
+            />
+          </View>
           <TextInput
             underlineColorAndroid={'transparent'}
-            style={textInput}
+            style={usernameInput}
             placeholder="Username"
             value={this.state.username}
-            onChangeText={(text) => this.setState({username:text})}
+            onChangeText={(text) => this.setState({username: text})}
           />
           <TextInput
             underlineColorAndroid={'transparent'}
-            style={textInput}
+            style={passwordInput}
             placeholder="Password"
             secureTextEntry={true}
             value={this.state.password}
-            onChangeText={(text) => this.setState({password:text})}
+            onChangeText={(text) => this.setState({password: text})}
           />
           <Button title='Login'
                   onPress={() => this.handlePress()}
                   loading={this.state.isLoading}
           />
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <TouchableOpacity style={{width:'35%'}} onPress={() => this.setState({createAccount: true})}>
+              <Text style={h2}>
+                Need an account?
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{width:'45%'}} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/forgot-password')}>
+              <Text style={h2}>
+                Forgot your password?
+              </Text>
+            </TouchableOpacity>
+          </View>
+
         </View>
+      </View>
+      { this.state.createAccount ? this.createAccountView() : null }
       </View>
     )
   }
