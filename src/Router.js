@@ -17,6 +17,7 @@ import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import ProfileScreenContainer from './containers/ProfileScreenContainer'
 import ProfileLoginScreen from './screens/Profile/ProfileLoginScreen'
+import StudentCardContainer from './containers/StudentCardContainer'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
@@ -39,6 +40,14 @@ const styles = {
     fontSize: 12,
     right: 0,
     color: global.arkadGray
+  },
+  qrButton: {
+    paddingHorizontal: 16,
+    paddingVertical: 8
+  },
+  qrText: {
+    fontSize: 16,
+    color: '#fff',
   }
 }
 
@@ -155,9 +164,17 @@ const MainStack = createBottomTabNavigator(
               ...navigationOptions,
               title: 'Profile',
               header: navigation.state.params ? navigation.state.params.header : null,
-              headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined
             })
           },
+          Detail: {
+            screen: StudentCardContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: navigation.state.params.item.name,
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined
+            })
+          }
         },
         {
           cardStyle: { backgroundColor: global.arkadGray }
@@ -172,7 +189,7 @@ const MainStack = createBottomTabNavigator(
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: 'About',
-              headerRight: <FaqButton navigation={navigation} />
+              headerRight: <FaqButton navigation={navigation} />,
             })
           },
           ArkadTeam: {
