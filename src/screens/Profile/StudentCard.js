@@ -22,8 +22,8 @@ const style = {
     backgroundColor: '#fff',
   },
   flipCardFront: {
-    height: '100%',
-    width: '100%',
+    height: '90%',
+    width: '85%',
     backgroundColor: '#fff',
     flex: 1,
     paddingTop: 20,
@@ -35,6 +35,7 @@ const style = {
     alignItems: 'center',
     height: '100%',
     width: '100%',
+    borderRadius: 20,
   },
   qrText: {
     textAlign: 'center',
@@ -92,16 +93,15 @@ class StudentCard extends Component {
     this.state = {
       flip: false,
     }
-    this.props.navigation.setParams({
-        headerRight: (
-          <View style={filterView}>
-            <TouchableOpacity onPress={() => this.setState({flip: !this.state.flip})}>
-              <Icon style={headerIcon} name='qrcode' size={20} color='#fff' />
-              <Text style={buttonText}>QRcode</Text>
-            </TouchableOpacity>
-          </View>),
-        header: undefined
-    });
+    // this.props.navigation.setParams({
+    //     headerRight: (
+    //       <View style={filterView}>
+    //         <TouchableOpacity onPress={() => this.setState({flip: !this.state.flip})}>
+    //           <Icon style={headerIcon} name='qrcode' size={20} color='#fff' />
+    //           <Text style={buttonText}>QRcode</Text>
+    //         </TouchableOpacity>
+    //       </View>),
+    // });
   }
 
   onStarRatingPress(rating) {
@@ -118,17 +118,17 @@ class StudentCard extends Component {
         flipVertical={false}
         friction={10}
         flip={this.state.flip}
-        clickable={true}>
+        clickable={false}>
           {/* Face Side */}
           <View style={flipCardFront}>
-            <View style={{flex: 1, flexDirection: 'row', width: '100%', paddingLeft:'2%', paddingTop: 0, height: '35%', marginLeft: 15}}>
-              <View style={{flex: 1, alignItems: 'center', width: '100%'}}>
+            <View style={{flex: 1, flexDirection: 'row', width: '100%', paddingLeft:'2%', paddingTop: 0, height: '35%', marginLeft: 15, borderRadius: 20,}}>
+              <View style={{flex: 1, alignItems: 'center', width: '100%', borderRadius: 20,}}>
                 <Image
                   style={cardImage}
                   source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
                 />
               </View>
-              <View style={{flex: 1, flexDirection: 'column', marginLeft: 0}}>
+              <View style={{flex: 1, flexDirection: 'column', marginLeft: 0, borderRadius: 20,}}>
                 <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
                   Börje Börjesson
                 </Text>
