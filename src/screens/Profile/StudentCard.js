@@ -6,9 +6,12 @@ import ActionSheet from 'react-native-actionsheet'
 import FlipCard from 'react-native-flip-card'
 import QRCode from 'react-native-qrcode'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import StarRating from 'react-native-star-rating'
 
 
 const style = {
+  starCount: 3.5,
+  isLoading: false,
   flipCard: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -22,8 +25,7 @@ const style = {
     height: '100%',
     width: '100%',
     backgroundColor: '#fff',
-    paddingRight: 100,
-    paddingLeft: 100,
+    flex: 1,
     paddingTop: 20,
     paddingBottom: 20,
     borderRadius: 20,
@@ -69,13 +71,13 @@ const style = {
   cardImage: {
     borderRadius: 100,
     top: 0,
-    right: 100,
+    right: 0,
     width: 150,
     height: 150,
   },
   profileText: {
-    top: '-30%',
-    left: 75,
+    top: 0,
+    left: 0,
     fontSize: 14,
     marginBottom: 10,
   },
@@ -102,6 +104,11 @@ class StudentCard extends Component {
     });
   }
 
+  onStarRatingPress(rating) {
+    this.setState({
+      starCount: rating
+    });
+  }
 
   render() {
     return(
@@ -114,23 +121,54 @@ class StudentCard extends Component {
         clickable={true}>
           {/* Face Side */}
           <View style={flipCardFront}>
-              <Image
-                style={cardImage}
-                source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
-              />
-              <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
-                Börje Börjesson
-              </Text>
-              <Text style={[profileText ,{fontWeight:'bold'}]}> here</Text>
-              <Text style={profileText}>
-                Computer Science
-              </Text>
-              <Text style={profileText}>
-                Year: 4
-              </Text>
-              <Text style={profileText}>
-                Master: Software Engineering
-              </Text>
+            <View style={{flex: 1, flexDirection: 'row', width: '100%', paddingLeft:'2%', paddingTop: 10, height: '35%', marginLeft: 15}}>
+              <View style={{flex: 1, alignItems: 'center', width: '100%'}}>
+                <Image
+                  style={cardImage}
+                  source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
+                />
+              </View>
+              <View style={{flex: 1, flexDirection: 'column', marginLeft: 0}}>
+                <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
+                  Börje Börjesson
+                </Text>
+                <Text style={profileText}>
+                  Computer Science
+                </Text>
+                <Text style={profileText}>
+                  Year: 4
+                </Text>
+                <Text style={profileText}>
+                  Master: Software Engineering
+                </Text>
+              </View>
+            </View>
+            <View style={{flex: 1, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center', margin: 10}}>
+              <View style={{flexDirection: 'column', width: '100%', padding: '4%', justifyContent: 'center', alignItems: 'center', height:'30%', paddingBottom: 80}}>
+                <Text style={{margin: 10}}> Rate this guy!</Text>
+                <StarRating
+                  disabled={false}
+                  maxStars={5}
+                  rating={this.state.starCount}
+                  selectedStar={(rating) => this.onStarRatingPress(rating)}
+                />
+              </View>
+              <View style={{flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', margin: 10, padding: '4%', height:'30%', marginBottom: 30}}>
+                <TextInput
+                  style={{width: '100%', height: 100, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', paddingTop: 3, paddingBottom: 3, borderRadius: 2}}
+                  onChangeText={(text) => this.setState({text})}
+                  value={this.state.text}
+                  placeholder="Write your comment here..."
+                  underlineColorAndroid="transparent"
+                />
+              </View>
+              <View style={{width: '100%', marginTop: 10, height:'20%', justifyContent: 'center'}}>
+                <Button title='Save'
+                        onPress={() => console.log("HJSAHEKSH")}
+                        loading={this.state.isLoading}
+                />
+              </View>
+            </View>
           </View>
           {/* Back Side */}
           <View style={flipCardBack}>

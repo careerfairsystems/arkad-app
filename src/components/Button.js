@@ -13,7 +13,8 @@ const styles = {
   button: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '100%'
   },
   text: {
     color: '#fff',
