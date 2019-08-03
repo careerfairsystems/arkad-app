@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import Button from '../../components/Button'
 import LogoutButton from '../../containers/LogoutButton'
 import StudentListItem from '../../components/listItems/StudentListItem'
-import SectionHeader from '../../components/SectionHeader'
 
 
 const studentList = [ {  key: '1',
@@ -428,73 +427,27 @@ class ProfileLoginScreen extends Component {
 
   async login() {
     await this.props.loadLogin(this.state.username, this.state.password, "")
-    this.checkIfStudentLoginIn()
+    this.checkLoginIn()
   }
 
-  checkIfStudentLoginIn() {
+  checkLoginIn() {
     if (this.props.typeLogedin == "student") {
-      this.props.navigation.navigate('Direct', studentList[0])
+      this.props.navigation.navigate('StudentLogin', studentList[0])
       this.setState({
         isLoading: false
       })
     } else {
+      this.props.navigation.navigate('CompanyLogin')
+      this.setState({
+        isLoading: false
+      })
       this.setState({
         username:'',
         password:'',
         logedIn: this.props.logedIn,
+        isLoading: false,
       })
-      this.setState({isLoading: false})
-      if (this.state.logedIn) {
-        this.props.navigation.setParams({
-            headerRight: <LogoutButton navigation={this.props.navigation} />,
-            header: undefined
-        });
-      }
     }
-  }
-
-  renderHeader(headerItem){
-    return(
-      <View style={{backgroundColor:'#000000'}}>
-        <Text style={styles.headerText}>{headerItem.section.key}</Text>
-      </View>
-    );
-  }
-
-  listView() {
-    if (studentList.length === 0) {
-      sections = [{ title: '', data: [] }]
-    } else {
-      sections = studentList.reduce((a, b) => {
-        const item = a
-        const firstLetter = b.name[0].toUpperCase()
-        if (item[firstLetter]) {
-          item[firstLetter].push(b)
-        } else {
-          item[firstLetter] = [b]
-        }
-        return item
-      }, {})
-      sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
-    }
-    return(
-      <View style={listContainer}>
-        <View style={welcomeContainer}>
-          <Text style={welcomeText}>
-            Välkommen Axis!
-          </Text>
-          <Text style={infoText}>
-            Nedan visas en lista på de studenter som ni har pratat med. Klicka på en student för att lägga till en kommentar eller betyg.
-          </Text>
-        </View>
-        <SectionList
-          style={{width:'100%'}}
-          renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} />}
-          sections={sections}
-          onScrollBeginDrag={() => Keyboard.dismiss()}
-        />
-      </View>
-    )
   }
 
   createAccountView() {
@@ -599,16 +552,7 @@ class ProfileLoginScreen extends Component {
   render() {
     return(
       <View>
-        { this.state.logedIn
-          ?
-            <View>
-              { this.listView() }
-            </View>
-          :
-            <View>
-              { this.loginView() }
-            </View>
-        }
+        { this.loginView() }
       </View>
     )
   }

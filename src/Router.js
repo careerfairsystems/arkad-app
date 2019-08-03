@@ -16,8 +16,8 @@ import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import ProfileScreenContainer from './containers/ProfileScreenContainer'
-import ProfileLoginScreen from './screens/Profile/ProfileLoginScreen'
 import StudentCardContainer from './containers/StudentCardContainer'
+import StudentListContainer from './containers/StudentListContainer'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
@@ -162,7 +162,7 @@ const MainStack = createBottomTabNavigator(
             screen: ProfileScreenContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: 'Profile',
+              title: 'Login',
               header: navigation.state.params ? navigation.state.params.header : null,
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined
             })
@@ -175,13 +175,22 @@ const MainStack = createBottomTabNavigator(
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
             })
           },
-          Direct: {
+          StudentLogin: {
             screen: StudentCardContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: navigation.state.params.name,
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
               headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined
+            })
+          },
+          CompanyLogin: {
+            screen: StudentListContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: 'Profile',
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
+              headerLeft: null
             })
           }
         },
