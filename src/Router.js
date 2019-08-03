@@ -171,7 +171,7 @@ const MainStack = createBottomTabNavigator(
             screen: StudentCardContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: navigation.state.params.name,
+              title: navigation.state.params.item.name,
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
             })
           },
