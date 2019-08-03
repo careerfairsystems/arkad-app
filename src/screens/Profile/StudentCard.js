@@ -7,6 +7,7 @@ import FlipCard from 'react-native-flip-card'
 import QRCode from 'react-native-qrcode'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import StarRating from 'react-native-star-rating'
+import LogoutButton from '../../containers/LogoutButton'
 
 
 const style = {
@@ -57,10 +58,10 @@ const style = {
     alignItems: 'center'
   },
   filterView: {
+    marginHorizontal: 16,
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
     width: 65,
     paddingLeft: 1
   },
@@ -82,6 +83,7 @@ const style = {
     fontSize: 14,
     marginBottom: 10,
   },
+  flip: false
 }
 
 const { container, flipCard, flipCardFront, flipCardBack, qrText, button, text, filterView, headerIcon, buttonText, cardImage, profileText } = style
@@ -92,16 +94,39 @@ class StudentCard extends Component {
     super(props)
     this.state = {
       flip: false,
+      starCount: 3.5,
+      isLoading: false,
+      student: false
     }
-    // this.props.navigation.setParams({
-    //     headerRight: (
-    //       <View style={filterView}>
-    //         <TouchableOpacity onPress={() => this.setState({flip: !this.state.flip})}>
-    //           <Icon style={headerIcon} name='qrcode' size={20} color='#fff' />
-    //           <Text style={buttonText}>QRcode</Text>
-    //         </TouchableOpacity>
-    //       </View>),
-    // });
+  }
+
+  componentDidMount() {
+    {this.props.typeLogedin == "student"
+      ? (this.props.navigation.setParams({
+          headerLeft: (
+            <View style={filterView}>
+              <TouchableOpacity onPress={() => this.setState({flip: !this.state.flip})}>
+                <Icon style={headerIcon} name='qrcode' size={20} color='#fff' />
+                <Text style={buttonText}>QRcode</Text>
+              </TouchableOpacity>
+            </View>),
+          headerRight: (
+            <LogoutButton navigation={this.props.navigation} />
+          )
+      })
+    )
+      : null
+    }
+    {this.props.typeLogedin == "student"
+      ? (this.setState({
+          student: true
+        })
+      )
+      : (this.setState({
+          student: false
+        })
+      )
+    }
   }
 
   onStarRatingPress(rating) {
@@ -118,7 +143,7 @@ class StudentCard extends Component {
         flipVertical={false}
         friction={10}
         flip={this.state.flip}
-        clickable={false}>
+        clickable={this.state.student}>
           {/* Face Side */}
           <View style={flipCardFront}>
             <View style={{flex: 1, flexDirection: 'row', width: '100%', paddingLeft:'2%', paddingTop: 0, height: '35%', marginLeft: 15, borderRadius: 20,}}>
@@ -178,7 +203,7 @@ class StudentCard extends Component {
             </Text>
             <QRCode
               value="www.google.se"
-              size={300}
+              size={200}
               bgColor='rgb(0, 43, 100)'
               fgColor='#fff'/>
           </View>
