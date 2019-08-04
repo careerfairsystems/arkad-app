@@ -17,11 +17,13 @@ import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import ProfileScreenContainer from './containers/ProfileScreenContainer'
 import ProfileLoginScreen from './screens/Profile/ProfileLoginScreen'
+import CameraScreen from './screens/Profile/CameraScreen'
 import StudentCardContainer from './containers/StudentCardContainer'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
 import LogoutButton from './containers/LogoutButton'
+import CameraButton from './containers/CameraButton'
 
 const styles = {
   headerIcon: {
@@ -173,6 +175,13 @@ const MainStack = createBottomTabNavigator(
               ...navigationOptions,
               title: navigation.state.params.item.name,
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined
+            })
+          },
+          CameraScreen: {
+            screen: CameraScreen,
+            navigationOptions: () => ({
+              ...navigationOptions,
+              title: 'Camera',
             })
           }
         },
