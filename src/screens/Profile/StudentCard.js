@@ -192,11 +192,12 @@ class StudentCard extends Component {
               </View>
               <View style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 20}}>
                 <TextInput
-                  style={{width: '100%', height: 60, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8}}
+                  style={{width: '100%', height: 60, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4}}
                   onChangeText={(text) => this.setState({text})}
                   value={this.state.text}
                   placeholder="Write your comment here..."
                   underlineColorAndroid="transparent"
+                  multiline = {true}
                 />
               </View>
               <View style={{flex: 14, width: '100%', justifyContent: 'center'}}>
