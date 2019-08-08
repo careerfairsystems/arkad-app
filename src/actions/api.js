@@ -96,9 +96,10 @@ const fetchLoginRequest = () => ({
   type: types.FETCH_LOGIN_REQUEST
 })
 
-const fetchLoginSuccess = () => ({
+const fetchLoginSuccess = (typeLogedin) => ({
   type: types.FETCH_LOGIN_SUCCESS,
-  logedIn: true
+  logedIn: true,
+  typeLogedin: typeLogedin
 })
 
 const fetchLoginFailure = error => ({
@@ -106,7 +107,7 @@ const fetchLoginFailure = error => ({
   error
 })
 
-export const loadLogin = (username, password) => (dispatch) => {
+export const loadLogin = (username, password, type) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
     // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
@@ -131,7 +132,7 @@ export const loadLogin = (username, password) => (dispatch) => {
     })
     .then((responseJson) => {
       if (responseJson) {
-        dispatch(fetchLoginSuccess())
+        dispatch(fetchLoginSuccess(type))
       }
     })
     .catch((error) => {

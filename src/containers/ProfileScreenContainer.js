@@ -7,7 +7,8 @@ import ProfileLoginScreen from '../screens/Profile/ProfileLoginScreen'
 
 
 const mapStateToProps = state => ({
-  logedIn: state.apiReducer.logedIn
+  logedIn: state.apiReducer.logedIn,
+  typeLogedin: state.apiReducer.typeLogedin
 })
 
 function mapDispatchToProps(dispatch) {
