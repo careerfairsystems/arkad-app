@@ -259,7 +259,7 @@ const MainStack = createBottomTabNavigator(
         activeTintColor: global.arkadBlue,
         style: {
           borderTopWidth: 2,
-          borderTopColor: global.arkadBlue
+          borderTopColor: global.arkadBlue,
         }
       }
     })

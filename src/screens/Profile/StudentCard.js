@@ -18,18 +18,29 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-    margin: 20,
     height: '100%',
     width: '100%',
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
+
   },
   flipCardFront: {
     alignItems: 'center',
-    height: '90%',
+    height: '100%',
     width: '90%',
     backgroundColor: '#fff',
     flex: 1,
-    borderRadius: 20,
+
+    borderRadius: 8,
+    margin: "5%",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 9,
+    },
+    shadowOpacity: 0.50,
+    shadowRadius: 12.35,
+
+    elevation: 19,
   },
   flipCardBack: {
     justifyContent: 'center',
@@ -37,7 +48,18 @@ const style = {
     height: '100%',
     width: "90%",
     flex: 1,
-    borderRadius: 20,
+    borderRadius: 8,
+    backgroundColor: '#fff',
+    margin: "5%",
+    shadowColor: "#000",
+    shadowOffset: {
+    width: 0,
+    height: 9,
+    },
+    shadowOpacity: 0.50,
+    shadowRadius: 12.35,
+
+    elevation: 19,
   },
   qrText: {
     textAlign: 'center',
@@ -182,7 +204,7 @@ class StudentCard extends Component {
           {/* Back Side */}
           <View style={flipCardBack}>
           <View style={{flex: 1, flexDirection: 'row', width: '100%'}}>
-          <View style={{flex: 1, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+          <View style={{flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
             <Text style={qrText}>
               Your personal QR-code.
             </Text>
