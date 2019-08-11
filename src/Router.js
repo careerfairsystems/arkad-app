@@ -174,7 +174,16 @@ const MainStack = createBottomTabNavigator(
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: navigation.state.params.item.name,
-              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
+            })
+          },
+          Direct: {
+            screen: StudentCardContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: navigation.state.params.name,
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
+              headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined
             })
           },
           CameraScreen: {

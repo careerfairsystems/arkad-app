@@ -419,13 +419,14 @@ class ProfileLoginScreen extends Component {
       password: '',
       isLoading: false,
       createAccount: false,
+      logedIn: false,
     }
   }
 
   componentDidMount() {
     this.props.navigation.setParams({
         header: null,
-    });
+    })
   }
 
   handlePress() {
@@ -434,21 +435,33 @@ class ProfileLoginScreen extends Component {
   }
 
   async login() {
-    await this.props.loadLogin(this.state.username, this.state.password)
-    this.setState({
-      username:'',
-      password:''
-    })
-    this.setState({isLoading: false})
-    if (this.props.logedIn) {
-      this.props.navigation.setParams({
-          headerRight: (
+    await this.props.loadLogin(this.state.username, this.state.password, "")
+    this.checkIfStudentLoginIn()
+  }
+
+  checkIfStudentLoginIn() {
+    if (this.props.typeLogedin == "student") {
+      this.props.navigation.navigate('Direct', studentList[0])
+      this.setState({
+        isLoading: false
+      })
+    } else {
+      this.setState({
+        username:'',
+        password:'',
+        logedIn: this.props.logedIn,
+      })
+      this.setState({isLoading: false})
+      if (this.props.logedIn) {
+        this.props.navigation.setParams({
+            headerRight: (
             <View style={headerRightView}>
               <LogoutButton navigation={this.props.navigation} />
               <CameraButton navigation={this.props.navigation} />
             </View>),
           header: undefined
-      });
+        });
+      }
     }
   }
 
