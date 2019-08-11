@@ -1,17 +1,17 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import StudentCard from '../screens/Profile/StudentCard'
+import StudentList from '../screens/Profile/StudentList'
 
 
 const mapStateToProps = state => ({
-  typeLogedin: state.apiReducer.typeLogedin
+  logedIn: state.apiReducer.logedIn
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ }, dispatch)
+  return bindActionCreators({  }, dispatch)
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(StudentCard)
+)(StudentList)

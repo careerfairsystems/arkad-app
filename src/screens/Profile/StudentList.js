@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
-import Button from '../../components/Button'
-import LogoutButton from '../../containers/LogoutButton'
 import StudentListItem from '../../components/listItems/StudentListItem'
+import LogoutButton from '../../containers/LogoutButton'
 
 
 const studentList = [ {  key: '1',
@@ -306,103 +305,102 @@ const studentList = [ {  key: '1',
 
 const styles = {
   listContainer: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#fff'
-  },
-  welcomeContainer: {
-    paddingVertical: 20,
-    borderBottomColor: '#4c4c4c',
-    borderBottomWidth: 1
-  },
-  outerContainer: {
-   justifyContent: 'center',
-   alignItems: 'center',
    width: '100%',
    height: '100%',
    backgroundColor: '#fff'
   },
+  welcomeContainer: {
+   paddingVertical: 20,
+   borderBottomColor: '#4c4c4c',
+   borderBottomWidth: 1
+  },
+  outerContainer: {
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  height: '100%',
+  backgroundColor: '#fff'
+  },
   innerContainer: {
-   width: '80%'
+  width: '80%'
   },
   loginBtn: {
-   width: '50%',
-   color: '#000'
+  width: '50%',
+  color: '#000'
   },
   h1: {
-   fontSize: 70,
-   textAlign: 'center'
+  fontSize: 70,
+  textAlign: 'center'
   },
   h2: {
-   fontSize: 12,
-   textAlign: 'center',
-   color: global.arkadBlue,
-   marginTop: 18
+  fontSize: 12,
+  textAlign: 'center',
+  color: global.arkadBlue,
+  marginTop: 18
   },
   usernameInput: {
-   height: 40,
-   borderTopColor: '#000',
-   backgroundColor: 'rgba(0, 43, 100, 0.2)',
-   borderRadius: 8,
-   marginTop: 30,
-   marginBottom: 10,
-   paddingLeft: 10
+  height: 40,
+  borderTopColor: '#000',
+  backgroundColor: 'rgba(0, 43, 100, 0.2)',
+  borderRadius: 8,
+  marginTop: 30,
+  marginBottom: 10,
+  paddingLeft: 10
   },
   passwordInput: {
-   height: 40,
-   borderTopColor: '#000',
-   backgroundColor: 'rgba(0, 43, 100, 0.2)',
-   borderRadius: 8,
-   marginTop: 5,
-   marginBottom: 40,
-   paddingLeft: 10,
+  height: 40,
+  borderTopColor: '#000',
+  backgroundColor: 'rgba(0, 43, 100, 0.2)',
+  borderRadius: 8,
+  marginTop: 5,
+  marginBottom: 40,
+  paddingLeft: 10,
   },
   welcomeText: {
-   fontSize: 30,
-   textAlign: 'center',
-   color: global.arkadBlue,
-   marginBottom: 10
+  fontSize: 30,
+  textAlign: 'center',
+  color: global.arkadBlue,
+  marginBottom: 10
   },
   infoText: {
-   textAlign: 'center',
-   color: global.arkadBlue
+  textAlign: 'center',
+  color: global.arkadBlue
   },
   image: {
-    height: 160,
-    width: 165.6,
-    marginTop: 15
+   height: 160,
+   width: 165.6,
+   marginTop: 15
   },
   imageContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 20
+   justifyContent: 'center',
+   alignItems: 'center',
+   marginBottom: 20
   },
   createAccountContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    height:'100%',
-    width:'100%',
+   justifyContent: 'center',
+   alignItems: 'center',
+   position: 'absolute',
+   height:'100%',
+   width:'100%',
   },
   createAccountView: {
-    height:'90%',
-    width:'90%',
-    backgroundColor: 'rgba(172, 214, 234, 0.98)',
-    borderRadius:10
+   height:'90%',
+   width:'90%',
+   backgroundColor: 'rgba(172, 214, 234, 0.98)',
+   borderRadius:10
   },
   createAccountText: {
-    fontSize: 14,
-    color: global.arkadBlue,
-    marginBottom: 8
+   fontSize: 14,
+   color: global.arkadBlue,
+   marginBottom: 8
   }
 }
-
 
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
         welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView } = styles
 
-class ProfileLoginScreen extends Component {
-  constructor(props){
+class StudentList extends Component {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -416,150 +414,45 @@ class ProfileLoginScreen extends Component {
 
   componentDidMount() {
     this.props.navigation.setParams({
-        header: null,
+        headerRight: <LogoutButton navigation={this.props.navigation} />,
     })
   }
 
-  handlePress() {
-    this.setState({isLoading: true})
-    this.login()
-  }
-
-  async login() {
-    await this.props.loadLogin(this.state.username, this.state.password, "student")
-    this.checkLoginIn()
-  }
-
-  checkLoginIn() {
-    if (this.props.typeLogedin == "student") {
-      this.props.navigation.navigate('StudentLogin', studentList[0])
-      this.setState({
-        isLoading: false
-      })
-    } else {
-      this.props.navigation.navigate('CompanyLogin')
-      this.setState({
-        isLoading: false
-      })
-      this.setState({
-        username:'',
-        password:'',
-        logedIn: this.props.logedIn,
-        isLoading: false,
-      })
-    }
-  }
-
-  createAccountView() {
-    return(
-      <View style={createAccountContainer}>
-        <View style={createAccountView}>
-          <View style={{marginVertical: 20, marginHorizontal: 20}}>
-            <View style={{justifyContent: 'center',
-            alignItems: 'center', marginBottom:50}}>
-              <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
-                Welcome!
-              </Text>
-            </View>
-            <View>
-              <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
-                Student
-              </Text>
-              <Text style={createAccountText} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
-                <Text>Sign up</Text>
-                <Text style={{fontWeight:'bold'}}> here</Text>
-                <Text>.</Text>
-              </Text>
-            </View>
-            <View style={{marginTop: 30}}>
-              <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
-                Company
-              </Text>
-              <Text style={createAccountText}>
-                Ask a co-worker with an account to send you an invite.
-              </Text>
-            </View>
-          </View>
-          <View style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            bottom:0,
-          position: 'absolute',
-        width:'100%',
-      marginBottom:20}}>
-            <View style={{width:'40%'}}>
-              <Button title='Close'
-                      onPress={() => this.setState({createAccount: false})}
-                      showIcon={false}
-              />
-            </View>
-          </View>
-        </View>
-      </View>
-    )
-  }
-
-  loginView() {
-    return (
-      <View>
-      <View style={outerContainer}>
-        <View style={innerContainer}>
-          <View style={imageContainer}>
-            <Image
-              style={image}
-              source={require('../../../resources/img/arkad_logo.png')}
-            />
-          </View>
-          <TextInput
-            underlineColorAndroid={'transparent'}
-            style={usernameInput}
-            placeholder="Username"
-            value={this.state.username}
-            onChangeText={(text) => this.setState({username: text})}
-          />
-          <TextInput
-            underlineColorAndroid={'transparent'}
-            style={passwordInput}
-            placeholder="Password"
-            secureTextEntry={true}
-            value={this.state.password}
-            onChangeText={(text) => this.setState({password: text})}
-          />
-          <Button title='Login'
-                  onPress={() => this.handlePress()}
-                  loading={this.state.isLoading}
-          />
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <TouchableOpacity style={{width:'35%'}} onPress={() => this.setState({createAccount: true})}>
-              <Text style={h2}>
-                Need an account?
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={{width:'45%'}} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/forgot-password')}>
-              <Text style={h2}>
-                Forgot your password?
-              </Text>
-            </TouchableOpacity>
-          </View>
-
-        </View>
-      </View>
-      { this.state.createAccount ? this.createAccountView() : null }
-      </View>
-    )
-  }
-
   render() {
+    if (studentList.length === 0) {
+      sections = [{ title: '', data: [] }]
+    } else {
+      sections = studentList.reduce((a, b) => {
+        const item = a
+        const firstLetter = b.name[0].toUpperCase()
+        if (item[firstLetter]) {
+          item[firstLetter].push(b)
+        } else {
+          item[firstLetter] = [b]
+        }
+        return item
+      }, {})
+      sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
+    }
     return(
-      <View>
-        { this.loginView() }
+      <View style={listContainer}>
+        <View style={welcomeContainer}>
+          <Text style={welcomeText}>
+            Välkommen Axis!
+          </Text>
+          <Text style={infoText}>
+            Nedan visas en lista på de studenter som ni har pratat med. Klicka på en student för att lägga till en kommentar eller betyg.
+          </Text>
+        </View>
+        <SectionList
+          style={{width:'100%'}}
+          renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} />}
+          sections={sections}
+          onScrollBeginDrag={() => Keyboard.dismiss()}
+        />
       </View>
     )
   }
 }
 
-ProfileLoginScreen.propTypes = {
-  navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired
-}
-
-export default ProfileLoginScreen
+export default StudentList
