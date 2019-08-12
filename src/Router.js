@@ -237,6 +237,7 @@ const MainStack = createBottomTabNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
+      tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'CameraScreen' ? false : true,
       // Disable unnecessary eslint warning
       // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ tintColor }) => {
