@@ -18,29 +18,53 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-    margin: 20,
     height: '100%',
-    backgroundColor: '#fff',
+    width: '100%',
+    backgroundColor: 'transparent',
+
   },
   flipCardFront: {
     alignItems: 'center',
-    height: '90%',
-    width: '95%',
+    height: '100%',
+    width: '90%',
     backgroundColor: '#fff',
     flex: 1,
-    borderRadius: 20,
+
+    borderRadius: 8,
+    margin: "5%",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 9,
+    },
+    shadowOpacity: 0.50,
+    shadowRadius: 12.35,
+
+    elevation: 19,
   },
   flipCardBack: {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
-    width: '100%',
-    borderRadius: 20,
+    width: "90%",
+    flex: 1,
+    borderRadius: 8,
+    backgroundColor: '#fff',
+    margin: "5%",
+    shadowColor: "#000",
+    shadowOffset: {
+    width: 0,
+    height: 9,
+    },
+    shadowOpacity: 0.50,
+    shadowRadius: 12.35,
+
+    elevation: 19,
   },
   qrText: {
     textAlign: 'center',
     fontSize: 14,
-    width: '70%',
+    width: '100%',
     marginBottom: 20,
     color: global.arkadBlue
   },
@@ -133,7 +157,73 @@ class StudentCard extends Component {
     });
   }
 
-  render() {
+  studentLogin() {
+    return(
+        <FlipCard
+        style={[flipCard, {width:"100%"}]}
+        flipHorizontal={true}
+        flipVertical={false}
+        friction={5}
+        flip={this.state.flip}
+        clickable={this.state.student}>
+          {/* Face Side */}
+          <View style={flipCardFront}>
+            <View style={{flex: 3, flexDirection: 'row', width: '100%'}}>
+              <View style={{flex: 1, alignItems: 'center', width: '100%', justifyContent: 'center'}}>
+                <Image
+                  style={cardImage}
+                  source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
+                />
+              </View>
+              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight:'5%'}}>
+                <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
+                  Börje Börjesson
+                </Text>
+                <Text style={profileText}>
+                  Computer Science
+                </Text>
+                <Text style={profileText}>
+                  Year: 4
+                </Text>
+                <Text style={profileText}>
+                  Master: Software Engineering
+                </Text>
+                <Text style={profileText}>
+                  Interested in: Summerjob, thesis, internship
+                </Text>
+              </View>
+            </View>
+            <View style={{flex: 4, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+              <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
+                <TouchableOpacity onPress={() => openUrl(url)}>
+                  <Icon name="address-card" size={25} color="#000" />
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+          {/* Back Side */}
+          <View style={flipCardBack}>
+          <View style={{flex: 1, flexDirection: 'row', width: '100%'}}>
+          <View style={{flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+            <Text style={qrText}>
+              Your personal QR-code.
+            </Text>
+            <Text style={qrText}>
+              Go share it with your favourite companies!
+            </Text>
+            <QRCode
+              value="www.google.se"
+              size={200}
+              bgColor='rgb(0, 43, 100)'
+              fgColor='#fff'/>
+              </View>
+              </View>
+          </View>
+        </FlipCard>
+    )
+  }
+
+  companyLogin() {
     return(
         <FlipCard
         style={flipCard}
@@ -151,7 +241,7 @@ class StudentCard extends Component {
                   source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
                 />
               </View>
-              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
+              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight: '5%'}}>
                 <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
                   Börje Börjesson
                 </Text>
@@ -181,7 +271,6 @@ class StudentCard extends Component {
                 </View>
               </View>
               <View style={{flex: 9, flexDirection: 'column', width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
-
                 <StarRating
                   disabled={false}
                   maxStars={5}
@@ -223,7 +312,17 @@ class StudentCard extends Component {
               fgColor='#fff'/>
           </View>
         </FlipCard>
+    )
+  }
 
+  render() {
+    return(
+      <View style={{alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+        {this.props.typeLogedin == "student"
+         ? this.studentLogin()
+         : this.companyLogin()
+        }
+     </View>
     )
   }
 }

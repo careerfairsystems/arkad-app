@@ -310,16 +310,25 @@ const styles = {
    backgroundColor: '#fff'
   },
   welcomeContainer: {
-   paddingVertical: 20,
-   borderBottomColor: '#4c4c4c',
-   borderBottomWidth: 1
+    paddingVertical: 20,
+    borderBottomColor: '#4c4c4c',
+    borderBottomWidth: 1
   },
   outerContainer: {
-  justifyContent: 'center',
-  alignItems: 'center',
-  width: '100%',
-  height: '100%',
-  backgroundColor: '#fff'
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#fff',
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+    	height: 9,
+    },
+    shadowOpacity: 0.50,
+    shadowRadius: 12.35,
+
+    elevation: 19,
   },
   innerContainer: {
   width: '80%'
@@ -360,7 +369,6 @@ const styles = {
   fontSize: 30,
   textAlign: 'center',
   color: global.arkadBlue,
-  marginBottom: 10
   },
   infoText: {
   textAlign: 'center',
@@ -439,9 +447,6 @@ class StudentList extends Component {
         <View style={welcomeContainer}>
           <Text style={welcomeText}>
             Välkommen Axis!
-          </Text>
-          <Text style={infoText}>
-            Nedan visas en lista på de studenter som ni har pratat med. Klicka på en student för att lägga till en kommentar eller betyg.
           </Text>
         </View>
         <SectionList
