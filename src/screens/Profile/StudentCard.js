@@ -175,7 +175,7 @@ class StudentCard extends Component {
                   source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
                 />
               </View>
-              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
+              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight:'5%'}}>
                 <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
                   Börje Börjesson
                 </Text>
@@ -241,7 +241,7 @@ class StudentCard extends Component {
                   source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
                 />
               </View>
-              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
+              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight: '5%'}}>
                 <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
                   Börje Börjesson
                 </Text>

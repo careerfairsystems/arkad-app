@@ -426,7 +426,7 @@ class ProfileLoginScreen extends Component {
   }
 
   async login() {
-    await this.props.loadLogin(this.state.username, this.state.password, "")
+    await this.props.loadLogin(this.state.username, this.state.password, "student")
     this.checkLoginIn()
   }
 

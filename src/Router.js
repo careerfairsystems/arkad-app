@@ -271,7 +271,7 @@ const RootStack = createStackNavigator(
     Main: {
       screen: MainStack,
       navigationOptions: {
-        header: null
+        header: null,
       }
     },
     Filter: {
