@@ -8,6 +8,7 @@ import QRCode from 'react-native-qrcode'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import StarRating from 'react-native-star-rating'
 import LogoutButton from '../../containers/LogoutButton'
+import LinkedInButton from '../../components/LinkedInButton'
 
 
 const style = {
@@ -19,16 +20,14 @@ const style = {
     borderRadius: 8,
     margin: 20,
     height: '100%',
-    padding: 0,
     backgroundColor: '#fff',
   },
   flipCardFront: {
+    alignItems: 'center',
     height: '90%',
-    width: '85%',
+    width: '95%',
     backgroundColor: '#fff',
     flex: 1,
-    paddingTop: 20,
-    paddingBottom: 20,
     borderRadius: 20,
   },
   flipCardBack: {
@@ -40,9 +39,9 @@ const style = {
   },
   qrText: {
     textAlign: 'center',
-    fontSize: 20,
-    width: '100%',
-    marginBottom: 40,
+    fontSize: 14,
+    width: '70%',
+    marginBottom: 20,
     color: global.arkadBlue
   },
   button: {
@@ -71,17 +70,16 @@ const style = {
     color: global.arkadGray
   },
   cardImage: {
-    borderRadius: 100,
     top: 0,
     right: 0,
-    width: 150,
-    height: 150,
+    width: 125,
+    height: 125,
   },
   profileText: {
     top: 0,
     left: 0,
-    fontSize: 14,
-    marginBottom: 10,
+    fontSize: 12,
+    marginBottom: 6,
   },
   flip: false
 }
@@ -146,14 +144,14 @@ class StudentCard extends Component {
         clickable={this.state.student}>
           {/* Face Side */}
           <View style={flipCardFront}>
-            <View style={{flex: 1, flexDirection: 'row', width: '100%', paddingLeft:'2%', paddingTop: 0, height: '35%', marginLeft: 15, borderRadius: 20,}}>
-              <View style={{flex: 1, alignItems: 'center', width: '100%', borderRadius: 20,}}>
+            <View style={{flex: 3, flexDirection: 'row', width: '100%'}}>
+              <View style={{flex: 1, alignItems: 'center', width: '100%', justifyContent: 'center'}}>
                 <Image
                   style={cardImage}
                   source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
                 />
               </View>
-              <View style={{flex: 1, flexDirection: 'column', marginLeft: 0, borderRadius: 20,}}>
+              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center'}}>
                 <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
                   Börje Börjesson
                 </Text>
@@ -166,29 +164,43 @@ class StudentCard extends Component {
                 <Text style={profileText}>
                   Master: Software Engineering
                 </Text>
+                <Text style={profileText}>
+                  Interested in: Summerjob, thesis, internship
+                </Text>
               </View>
             </View>
-            <View style={{flex: 1, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center', margin: 10}}>
-              <View style={{flexDirection: 'column', width: '100%', padding: '4%', justifyContent: 'center', alignItems: 'center', height:'30%', paddingBottom: 80}}>
-                <Text style={{margin: 10}}> Rate this guy!</Text>
+            <View style={{flex: 4, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+              <View style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-end', paddingRight: 10}}>
+                  <LinkedInButton url={"https://www.google.com"} />
+                </View>
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
+                  <TouchableOpacity onPress={() => openUrl(url)}>
+                    <Icon name="address-card" size={25} color="#000" />
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={{flex: 9, flexDirection: 'column', width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
+
                 <StarRating
                   disabled={false}
                   maxStars={5}
                   rating={this.state.starCount}
                   selectedStar={(rating) => this.onStarRatingPress(rating)}
-                  starSize={58}
+                  starSize={32}
                 />
               </View>
-              <View style={{flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', margin: 10, padding: '4%', height:'30%', marginBottom: 30}}>
+              <View style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 20}}>
                 <TextInput
-                  style={{width: '100%', height: 100, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', paddingTop: 3, paddingBottom: 3, borderRadius: 2}}
+                  style={{width: '100%', height: 60, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4}}
                   onChangeText={(text) => this.setState({text})}
                   value={this.state.text}
                   placeholder="Write your comment here..."
                   underlineColorAndroid="transparent"
+                  multiline = {true}
                 />
               </View>
-              <View style={{width: '100%', marginTop: 10, height:'20%', justifyContent: 'center'}}>
+              <View style={{flex: 14, width: '100%', justifyContent: 'center'}}>
                 <Button title='Save'
                         onPress={() => console.log("HJSAHEKSH")}
                         loading={this.state.isLoading}
@@ -199,7 +211,10 @@ class StudentCard extends Component {
           {/* Back Side */}
           <View style={flipCardBack}>
             <Text style={qrText}>
-              Your personal QR-code. Use it well!
+              Your personal QR-code.
+            </Text>
+            <Text style={qrText}>
+              Go share it with your favourit companies!
             </Text>
             <QRCode
               value="www.google.se"
