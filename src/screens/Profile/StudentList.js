@@ -415,8 +415,12 @@ class StudentList extends Component {
 
   componentDidMount() {
     this.props.navigation.setParams({
-        headerRight: (<LogoutButton navigation={this.props.navigation} />
-          <CameraButton navigation={this.props.navigation} />)
+        headerRight: (
+          <View style={{flex: 1, flexDirection: 'row'}}>
+            <CameraButton navigation={this.props.navigation} />
+            <LogoutButton navigation={this.props.navigation} />
+          </View>
+        )
     })
   }
 
