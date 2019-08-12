@@ -367,7 +367,6 @@ const apiReducer = (state = initialState, action) => {
         error: action.error
       }
     case types.FETCH_LOGIN_REQUEST:
-      console.log("REQUEST")
       return {
         ...state,
         logedIn: false,
@@ -375,7 +374,6 @@ const apiReducer = (state = initialState, action) => {
         error: ''
       }
     case types.FETCH_LOGIN_SUCCESS:
-      console.log("SUCCESS")
       return {
         ...state,
         typeLogedin: action.typeLogedin,

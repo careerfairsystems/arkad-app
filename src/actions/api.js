@@ -139,3 +139,50 @@ export const loadLogin = (username, password, type) => (dispatch) => {
       dispatch(fetchLoginFailure(error.message))
     })
 }
+
+const fetchCommentStudentRequest = () => ({
+  type: types.FETCH_COMMENT_STUDENT_REQUEST
+})
+
+const fetchCommentStudentSuccess = (typeLogedin) => ({
+  type: types.FETCH_COMMENT_STUDENT_SUCCESS,
+  logedIn: true,
+  typeLogedin: typeLogedin
+})
+
+const fetchCommentStudentFailure = error => ({
+  type: types.FETCH_COMMENT_STUDENT_FAILURE,
+  error
+})
+
+export const commentStudent = (student_id) => (dispatch) => {
+  dispatch(fetchCommentStudentRequest())
+  return fetch(
+    `https://arkad-nexpo.herokuapp.com/api/me/company/comments/student_id`,
+    {
+      method: 'POST',
+    }
+  )
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      }
+      response
+        .json()
+        .then((responseJson) => {
+          dispatch(fetchCommentStudentFailure(responseJson.error.title))
+        })
+        .catch((error) => {
+          dispatch(fetchCommentStudentFailure(error.message))
+        })
+      return null
+    })
+    .then((responseJson) => {
+      if (responseJson) {
+        dispatch(fetchCommentStudentSuccess(type))
+      }
+    })
+    .catch((error) => {
+      dispatch(fetchCommentStudentFailure(error.message))
+    })
+}
