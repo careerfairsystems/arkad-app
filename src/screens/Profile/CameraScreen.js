@@ -11,34 +11,6 @@ class CameraScreen extends Component {
 
 }
 
-componentDidMount = () => {
-  //Checking for the permission just after component loaded
-   async function requestCameraPermission() {
-     try {
-       const granted = await PermissionsAndroid.request(
-         PermissionsAndroid.PERMISSIONS.CAMERA,{
-           'title': 'AndoridPermissionExample App Camera Permission',
-           'message': 'AndoridPermissionExample App needs access to your camera '
-         }
-       )
-       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-         //To Check, If Permission is granted
-         alert("You can use the CAMERA");
-       } else {
-         alert("CAMERA permission denied");
-       }
-     } catch (err) {
-       alert("err",err);
-       console.warn(err)
-     }
-   }
-   if (Platform.OS === 'android') {
-       //Calling the permission function
-       requestCameraPermission();
-   }else{
-       alert('IOS device found');
-   }
-}
 
 render() {
   return( <CameraKitCameraScreen
