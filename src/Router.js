@@ -16,12 +16,14 @@ import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import ProfileScreenContainer from './containers/ProfileScreenContainer'
+import CameraScreen from './screens/Profile/CameraScreen'
 import StudentCardContainer from './containers/StudentCardContainer'
 import StudentListContainer from './containers/StudentListContainer'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
 import LogoutButton from './containers/LogoutButton'
+import CameraButton from './containers/CameraButton'
 
 const styles = {
   headerIcon: {
@@ -192,6 +194,13 @@ const MainStack = createBottomTabNavigator(
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
               headerLeft: null
             })
+          },
+          CameraScreen: {
+            screen: CameraScreen,
+            navigationOptions: () => ({
+              ...navigationOptions,
+              title: 'Camera',
+            })
           }
         },
         {
@@ -237,6 +246,7 @@ const MainStack = createBottomTabNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
+      tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'CameraScreen' ? false : true,
       // Disable unnecessary eslint warning
       // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ tintColor }) => {

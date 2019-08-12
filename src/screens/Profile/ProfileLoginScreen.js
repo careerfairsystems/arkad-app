@@ -3,6 +3,7 @@ import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Li
 import PropTypes from 'prop-types'
 import Button from '../../components/Button'
 import LogoutButton from '../../containers/LogoutButton'
+
 import StudentListItem from '../../components/listItems/StudentListItem'
 
 
@@ -390,6 +391,13 @@ const styles = {
     backgroundColor: 'rgba(172, 214, 234, 0.98)',
     borderRadius:10
   },
+  headerRightView: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    paddingLeft: 1
+  },
   createAccountText: {
     fontSize: 14,
     color: global.arkadBlue,
@@ -399,7 +407,7 @@ const styles = {
 
 
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
-        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView } = styles
+        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, headerRightView } = styles
 
 class ProfileLoginScreen extends Component {
   constructor(props){
@@ -426,7 +434,7 @@ class ProfileLoginScreen extends Component {
   }
 
   async login() {
-    await this.props.loadLogin(this.state.username, this.state.password, "student")
+    await this.props.loadLogin(this.state.username, this.state.password, "")
     this.checkLoginIn()
   }
 
