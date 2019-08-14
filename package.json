@@ -26,7 +26,7 @@
     "react-native-qrcode": "^0.2.7",
     "react-native-sectioned-multi-select": "^0.5.2",
     "react-native-star-rating": "^1.1.0",
-    "react-native-svg": "github:tovesson/react-native-svg",
+    "react-native-svg": "^9.3.3",
     "react-native-vector-icons": "^5.0.0",
     "react-navigation": "^2.9.3",
     "react-rater": "^5.1.0",
@@ -47,8 +47,8 @@
     "metro-react-native-babel-preset": "^0.53.0",
     "react-test-renderer": "16.8.3"
   },
-"jest": {
-"preset": "react-native"
+  "jest": {
+    "preset": "react-native"
   },
   "rnpm": {
     "assets": [
