@@ -11,7 +11,7 @@ const styles = {
     paddingHorizontal: 16,
     borderBottomWidth: 1,
     backgroundColor: '#fff',
-    borderColor: global.separatorColor,
+    borderColor: global.separatorColor
   }
 }
 

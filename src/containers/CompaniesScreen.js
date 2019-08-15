@@ -6,9 +6,6 @@ import { toggleShowFavorites, searchCompany } from '../actions/company'
 import CompaniesScreen from '../screens/Companies/CompaniesScreen'
 
 const filterCategories = (items, desiredProgramme, weOffer, industry, desiredDegree) => {
-  console.log(items)
-  console.log(desiredProgramme)
-  console.log("COMPANY ITEM")
   let companies = items
   companies = companies.filter(
     item => (desiredProgramme.length !== 0

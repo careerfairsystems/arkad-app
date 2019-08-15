@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  View, SectionList, RefreshControl, TextInput, Keyboard
+  View, SectionList, RefreshControl, TextInput, Keyboard, Text
 } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -38,6 +38,30 @@ const styles = {
     marginRight: 8,
     borderBottomRightRadius: 8,
     borderTopRightRadius: 8
+  },
+  constructionContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 43, 100, 0.9)',
+    flex: 1,
+    paddingLeft: 20,
+    paddingRight: 20
+  },
+  constructionText: {
+    textAlign: 'center',
+    color: '#fff',
+    fontSize: 36,
+    paddingRight: 20,
+    paddingLeft: 20,
+    fontWeight: '500'
+  },
+  infoText: {
+    textAlign: 'center',
+    color: '#fff',
+    fontSize: 14,
+    paddingRight: 20,
+    paddingLeft: 20,
+    fontWeight: '400'
   }
 }
 
@@ -73,7 +97,7 @@ const renderSearchField = (
   </View>
 )
 
-const { content } = styles
+const { content, constructionText, constructionContainer, infoText } = styles
 const CompaniesScreen = ({
   navigation,
   companyList,
@@ -100,33 +124,57 @@ const CompaniesScreen = ({
     }, {})
     sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
   }
-  console.log(sections)
-  return (
-    <View style={content}>
-      <ClearAllFiltersButtonContainer />
-      <SectionList
-        refreshControl={(
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={() => {
-              loadCompanies()
-            }}
-          />
-)}
-        ListHeaderComponent={renderSearchField(
-          companyList,
-          searchText,
-          showFavorites,
-          toggleShowFavorites,
-          searchCompany
-        )}
-        renderItem={({ item }) => <CompanyListItem navigation={navigation} company={item} />}
-        renderSectionHeader={({ section: { title } }) => <SectionHeader title={title} />}
-        sections={sections}
-        onScrollBeginDrag={() => Keyboard.dismiss()}
-      />
-    </View>
-  )
+  if (!checkDate()) {
+    return (
+      <View style={constructionContainer}>
+        <Text style={constructionText}>Waiting for companies</Text>
+        <Text style={infoText}>
+          When the career fair approaches, the companies that will attend
+          to the fair will be visible here!
+        </Text>
+      </View>
+    )
+  } else {
+    return (
+      <View style={content}>
+        <ClearAllFiltersButtonContainer />
+        <SectionList
+          refreshControl={(
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={() => {
+                loadCompanies()
+              }}
+            />
+          )}
+          ListHeaderComponent={renderSearchField(
+            companyList,
+            searchText,
+            showFavorites,
+            toggleShowFavorites,
+            searchCompany
+          )}
+          renderItem={({ item }) => <CompanyListItem navigation={navigation} company={item} />}
+          renderSectionHeader={({ section: { title } }) => <SectionHeader title={title} />}
+          sections={sections}
+          onScrollBeginDrag={() => Keyboard.dismiss()}
+        />
+      </View>
+    )
+  }
+}
+
+function checkDate() {
+  var startDate = new Date("11/13/2019");
+  var todaysDate = new Date();
+  console.log(startDate)
+  console.log(todaysDate)
+
+  if(startDate.setHours(0,0,0,0) <= todaysDate.setHours(0,0,0,0)) {
+      return true
+  } else {
+    return false
+  }
 }
 
 CompaniesScreen.propTypes = {

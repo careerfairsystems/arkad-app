@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, Text, View } from 'react-native'
+import { TouchableOpacity, Dimensions } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
@@ -15,56 +15,47 @@ import CompanyDetailsScreenContainer from './containers/CompanyDetailsScreen'
 import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
-import ProfileScreenContainer from './containers/ProfileScreenContainer'
-import CameraScreen from './screens/Profile/CameraScreen'
-import StudentCardContainer from './containers/StudentCardContainer'
-import StudentListContainer from './containers/StudentListContainer'
 import AboutScreenContainer from './containers/AboutScreen'
+import CountdownScreen from './screens/Countdown/CountdownScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
-import LogoutButton from './containers/LogoutButton'
-import CameraButton from './containers/CameraButton'
 import './../global'
 
 const styles = {
-  headerIcon: {
-    paddingHorizontal: 14,
-    alignItems: 'center'
-  },
-  filterView: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    width: 120,
-    paddingLeft: 1
-  },
-  buttonText: {
-    fontSize: 12,
-    right: 0,
-    color: global.arkadGray
-  },
-  qrButton: {
-    paddingHorizontal: 16,
-    paddingVertical: 8
-  },
-  qrText: {
-    fontSize: 16,
-    color: '#fff',
-  }
+  headerIcon: { paddingHorizontal: 14 }
 }
 
 const navigationOptions = {
   headerStyle: {
-    backgroundColor: global.arkadBlue
+    backgroundColor: global.arkadBlue,
+    borderBottomWidth: 0,
   },
-  headerTintColor: '#fff'
+  headerTintColor: '#fff',
 }
 
 const ArkadIcon = createIconSetFromFontello(fontelloConfig)
 
 const MainStack = createBottomTabNavigator(
   {
+    Countdown: {
+      screen: createStackNavigator(
+        {
+          Countdown: {
+            screen: CountdownScreen,
+            navigationOptions: {
+              header: null,
+            }
+          }
+        },
+        {
+          cardStyle: {
+            backgroundColor: global.arkadGray,
+            shadowColor: 'transparent',
+            elevation: 0,
+          }
+        }
+      )
+    },
     Map: {
       screen: createStackNavigator(
         {
@@ -72,26 +63,34 @@ const MainStack = createBottomTabNavigator(
             screen: MapScreen,
             navigationOptions: {
               ...navigationOptions,
-              headerTitle: <SubtitleHeader title="The ARKAD area" subtitle="Click on a building" />
+              title: 'The ARKAD area',
+              headerTitleStyle : {width : Dimensions.get('window').width}
+//              headerTitle: <SubtitleHeader title="The ARKAD area" subtitle="Click on a building" />
             }
           },
           House: {
             screen: HouseScreenContainer,
             navigationOptions: {
               ...navigationOptions,
-              headerTitle: <MapActionSheet />
+              headerTitle: <MapActionSheet />,
+              headerTitleStyle : {width : Dimensions.get('window').width}
             }
           },
           CompanyDetails: {
             screen: CompanyDetailsScreenContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: navigation.state.params.item.name
+              title: navigation.state.params.item.name,
+              headerTitleStyle : {width : Dimensions.get('window').width}
             })
           }
         },
         {
-          cardStyle: { backgroundColor: global.arkadGray }
+          cardStyle: {
+            backgroundColor: global.arkadGray,
+            shadowColor: 'transparent',
+            elevation: 0,
+          }
         }
       )
     },
@@ -103,35 +102,33 @@ const MainStack = createBottomTabNavigator(
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: 'Companies',
-              headerRight: (
-                <View style={styles.filterView}>
-                  <View>
-                    <ShowFavoritesButton />
-                    <Text style={styles.buttonText}>Favorites</Text>
-                  </View>
-                  <View style={styles.filterView}>
-                    <TouchableOpacity
-                      style={styles.headerIcon}
-                      onPress={() => navigation.navigate('Filter')}
-                    >
-                      <Icon name="filter" size={21} color="#fff" />
-                      <Text style={styles.buttonText}>Filter</Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              )
+              headerTitleStyle : {width : Dimensions.get('window').width}
+              // headerRight: (
+              //   <TouchableOpacity
+              //     style={styles.headerIcon}
+              //     onPress={() => navigation.navigate('Filter')}
+              //   >
+              //     <Icon name="filter" size={24} color="#fff" />
+              //   </TouchableOpacity>
+              // ),
+              // headerLeft: <ShowFavoritesButton />
             })
           },
           Detail: {
             screen: CompanyDetailsScreenContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: navigation.state.params.item.name
+              title: navigation.state.params.item.name,
+              headerTitleStyle : {width : Dimensions.get('window').width}
             })
           }
         },
         {
-          cardStyle: { backgroundColor: global.arkadGray }
+          cardStyle: {
+            backgroundColor: global.arkadGray,
+            shadowColor: 'transparent',
+            elevation: 0,
+          }
         }
       )
     },
@@ -142,70 +139,25 @@ const MainStack = createBottomTabNavigator(
             screen: EventsScreenContainer,
             navigationOptions: {
               ...navigationOptions,
-              title: 'Events'
+              title: 'Events',
+              headerTitleStyle : {width : Dimensions.get('window').width}
             }
           },
           Detail: {
             screen: EventDetailsScreen,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: navigation.state.params.item.name
-            })
-          }
-        },
-        {
-          cardStyle: { backgroundColor: global.arkadGray }
-        }
-      )
-    },
-    Profile: {
-      screen: createStackNavigator(
-        {
-          ProfileStack: {
-            screen: ProfileScreenContainer,
-            navigationOptions: ({ navigation }) => ({
-              ...navigationOptions,
-              title: 'Login',
-              header: navigation.state.params ? navigation.state.params.header : null,
-              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined
-            })
-          },
-          Detail: {
-            screen: StudentCardContainer,
-            navigationOptions: ({ navigation }) => ({
-              ...navigationOptions,
               title: navigation.state.params.item.name,
-              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
-            })
-          },
-          StudentLogin: {
-            screen: StudentCardContainer,
-            navigationOptions: ({ navigation }) => ({
-              ...navigationOptions,
-              title: navigation.state.params.name,
-              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
-              headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined
-            })
-          },
-          CompanyLogin: {
-            screen: StudentListContainer,
-            navigationOptions: ({ navigation }) => ({
-              ...navigationOptions,
-              title: 'Profile',
-              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
-              headerLeft: null
-            })
-          },
-          CameraScreen: {
-            screen: CameraScreen,
-            navigationOptions: () => ({
-              ...navigationOptions,
-              title: 'Camera',
+              headerTitleStyle : {width : Dimensions.get('window').width}
             })
           }
         },
         {
-          cardStyle: { backgroundColor: global.arkadGray }
+          cardStyle: {
+            backgroundColor: global.arkadGray,
+            shadowColor: 'transparent',
+            elevation: 0,
+          }
         }
       )
     },
@@ -217,14 +169,16 @@ const MainStack = createBottomTabNavigator(
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: 'About',
-              headerRight: <FaqButton navigation={navigation} />,
+              headerTitleStyle : {width : Dimensions.get('window').width}
+//              headerRight: <FaqButton navigation={navigation} />
             })
           },
           ArkadTeam: {
             screen: ArkadTeamScreenContainer,
             navigationOptions: () => ({
               ...navigationOptions,
-              title: 'The ARKAD team'
+              title: 'The ARKAD team',
+              headerTitleStyle : {width : Dimensions.get('window').width}
             })
           },
           Faq: {
@@ -232,6 +186,7 @@ const MainStack = createBottomTabNavigator(
             navigationOptions: () => ({
               ...navigationOptions,
               title: 'FAQ',
+              headerTitleStyle : {width : Dimensions.get('window').width},
               headerStyle: {
                 ...navigationOptions.headerStyle,
                 borderBottomWidth: 0
@@ -240,27 +195,30 @@ const MainStack = createBottomTabNavigator(
           }
         },
         {
-          cardStyle: { backgroundColor: global.arkadGray }
+          cardStyle: {
+            backgroundColor: global.arkadGray,
+            shadowColor: 'transparent',
+            elevation: 0,
+          }
         }
       )
     }
   },
   {
     navigationOptions: ({ navigation }) => ({
-      tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'CameraScreen' ? false : true,
       // Disable unnecessary eslint warning
       // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state
         let iconName
-        if (routeName === 'Map') {
+        if (routeName === 'Countdown') {
+          iconName = 'calendar'
+        } else if (routeName === 'Map') {
           iconName = 'map-o'
         } else if (routeName === 'Companies') {
           iconName = 'briefcase'
         } else if (routeName === 'Events') {
           iconName = 'calendar-check-o'
-        } else if (routeName === 'Profile') {
-          iconName = 'user'
         } else if (routeName === 'About') {
           return <ArkadIcon name="arkadlogo" size={26} color={tintColor} />
         }
@@ -271,6 +229,7 @@ const MainStack = createBottomTabNavigator(
         style: {
           borderTopWidth: 2,
           borderTopColor: global.arkadBlue,
+          backgroundColor: '#fff',
         }
       }
     })
@@ -282,7 +241,7 @@ const RootStack = createStackNavigator(
     Main: {
       screen: MainStack,
       navigationOptions: {
-        header: null,
+        header: null
       }
     },
     Filter: {
@@ -290,6 +249,7 @@ const RootStack = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         ...navigationOptions,
         title: 'Filter',
+        headerTitleStyle : {width : Dimensions.get('window').width},
         headerLeft: null,
         headerRight: (
           <TouchableOpacity style={styles.headerIcon} onPress={() => navigation.goBack()}>
@@ -301,7 +261,11 @@ const RootStack = createStackNavigator(
   },
   {
     mode: 'modal',
-    cardStyle: { backgroundColor: global.arkadGray }
+    cardStyle: {
+      backgroundColor: global.arkadGray,
+      shadowColor: 'transparent',
+      elevation: 0,
+    }
   }
 )
 
