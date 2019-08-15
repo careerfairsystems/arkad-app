@@ -24,6 +24,7 @@ import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
 import LogoutButton from './containers/LogoutButton'
 import CameraButton from './containers/CameraButton'
+import './../global'
 
 const styles = {
   headerIcon: {
