@@ -23,6 +23,7 @@
     "react-native-fabric": "^0.5.2",
     "react-native-flip-card": "^3.5.5",
     "react-native-flip-view": "^1.0.5",
+    "react-native-modal": "^11.3.1",
     "react-native-qrcode": "^0.2.7",
     "react-native-sectioned-multi-select": "^0.5.2",
     "react-native-star-rating": "^1.1.0",
