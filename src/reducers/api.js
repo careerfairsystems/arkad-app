@@ -396,7 +396,8 @@ const apiReducer = (state = initialState, action) => {
       )
     case types.FETCH_COMMENT_STUDENT_REQUEST:
       Alert.alert(
-        'FETCH COMMENT RATING REQUEST',
+        'Failed!',
+        'Fetch comment student request',
         [
           {text: 'OK'},
         ],
@@ -420,7 +421,8 @@ const apiReducer = (state = initialState, action) => {
       }
     case types.FETCH_BLIPS_REQUEST:
       Alert.alert(
-        'FETCH BLIPS REQUEST',
+        'Failed!',
+        'Fetch blip request',
         [
           {text: 'OK'},
         ],
@@ -442,9 +444,35 @@ const apiReducer = (state = initialState, action) => {
         loading: false,
         error: action.error
       }
+    case types.FETCH_REMOVE_BLIPPED_STUDENT_REQUEST:
+      Alert.alert(
+        'Failed!',
+        'Fetch remove blipped student request',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      )
+      return {
+        ...state,
+        loading: true,
+      }
+    case types.FETCH_REMOVE_BLIPPED_STUDENT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        blips: action.blips,
+      }
+    case types.FETCH_REMOVE_BLIPPED_STUDENT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error
+      }
     case types.FETCH_STUDENT_INFO_REQUEST:
       Alert.alert(
-        'FETCH STUDENT INFO REQUEST',
+        'Failed!',
+        'Fetch student info request',
         [
           {text: 'OK'},
         ],
@@ -468,7 +496,8 @@ const apiReducer = (state = initialState, action) => {
       }
     case types.FETCH_COMPANY_REPRESENTATIVES_REQUEST:
       Alert.alert(
-        'FETCH COMPANY REPRESENTATIVES REQUEST',
+        'Failed!',
+        'Fetch company represtentatives request',
         [
           {text: 'OK'},
         ],

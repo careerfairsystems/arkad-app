@@ -5,9 +5,11 @@ import Button from '../../components/Button'
 import ActionSheet from 'react-native-actionsheet'
 import FlipCard from 'react-native-flip-card'
 import QRCode from 'react-native-qrcode'
+import Modal from "react-native-modal"
 import Icon from 'react-native-vector-icons/FontAwesome'
 import StarRating from 'react-native-star-rating'
 import LogoutButton from '../../containers/LogoutButton'
+import RemoveButton from '../../containers/RemoveButton'
 import LinkedInButton from '../../components/LinkedInButton'
 
 
@@ -70,7 +72,9 @@ const style = {
   },
   button: {
     paddingHorizontal: 16,
-    paddingVertical: 8
+    paddingVertical: 8,
+    backgroundColor: global.arkadBlue,
+    borderRadius: 8,
   },
   text: {
     fontSize: 16,
@@ -105,10 +109,14 @@ const style = {
     fontSize: 12,
     marginBottom: 6,
   },
-  flip: false
+  flip: false,
+  modalText: {
+    fontSize: 16,
+    color: '#fff'
+  }
 }
 
-const { container, flipCard, flipCardFront, flipCardBack, qrText, button, text, filterView, headerIcon, buttonText, cardImage, profileText } = style
+const { container, flipCard, flipCardFront, flipCardBack, qrText, button, text, filterView, headerIcon, buttonText, cardImage, profileText, modalText } = style
 
 class StudentCard extends Component {
 
@@ -116,9 +124,10 @@ class StudentCard extends Component {
     super(props)
     this.state = {
       flip: false,
-      starCount: 3.5,
+      starCount: 3,
       isLoading: false,
-      student: false
+      student: false,
+      showModal: false,
     }
   }
 
@@ -137,7 +146,13 @@ class StudentCard extends Component {
           )
       })
     )
-      : null
+      : (this.props.navigation.setParams({
+          headerRight: (
+            <TouchableOpacity style={button} onPress={() => this.toggleModal()}>
+              <Text style={text}>Remove</Text>
+            </TouchableOpacity>
+          )
+      }))
     }
     {this.props.typeLogedin == "student"
       ? (this.setState({
@@ -155,6 +170,10 @@ class StudentCard extends Component {
     this.setState({
       starCount: rating
     });
+  }
+
+  toggleModal() {
+    this.setState({ showModal: !this.state.showModal });
   }
 
   studentLogin() {
@@ -279,7 +298,7 @@ class StudentCard extends Component {
                   starSize={32}
                 />
               </View>
-              <View style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: 20}}>
+              <View style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: '8%'}}>
                 <TextInput
                   style={{width: '100%', height: 60, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4}}
                   onChangeText={(text) => this.setState({text})}
@@ -315,6 +334,36 @@ class StudentCard extends Component {
     )
   }
 
+  removeView() {
+    return(
+      <View>
+        <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '20%'}}>
+          <View style={{ borderRadius: 8, backgroundColor: '#fff', flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+            <View style={{flex: 3, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+              <Text>Are you sure you want to remove this student?</Text>
+            </View>
+            <View style={{flex: 6, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+              <Image
+                style={cardImage}
+                source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
+              />
+            </View>
+            <View style={{flex: 2, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
+              <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+                <TouchableOpacity style={button} onPress={() => this.toggleModal()}>
+                  <Text style={modalText}>Close</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+                <RemoveButton navigation={this.props.navigation} />
+              </View>
+            </View>
+          </View>
+        </Modal>
+      </View>
+    )
+  }
+
   render() {
     return(
       <View style={{alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
@@ -322,7 +371,8 @@ class StudentCard extends Component {
          ? this.studentLogin()
          : this.companyLogin()
         }
-     </View>
+        { this.removeView() }
+      </View>
     )
   }
 }

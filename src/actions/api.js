@@ -154,10 +154,10 @@ const fetchCommentStudentFailure = error => ({
   error
 })
 
-export const commentRateStudent = (student_id, rating, comment) => (dispatch) => {
+export const commentRateStudent = (studentId, rating, comment) => (dispatch) => {
   dispatch(fetchCommentStudentRequest())
   return fetch(
-    `https://arkad-nexpo.herokuapp.com/api/me/company/comments/${student_id}?rating=${rating}&comment=${comment}`,
+    `https://arkad-nexpo.herokuapp.com/api/me/company/comments/${studentId}?rating=${rating}&comment=${comment}`,
     {
       method: 'POST',
     }
@@ -186,7 +186,7 @@ export const commentRateStudent = (student_id, rating, comment) => (dispatch) =>
     })
 }
 
-const fetchBlipstRequest = () => ({
+const fetchBlipsRequest = () => ({
   type: types.FETCH_BLIPS_REQUEST
 })
 
@@ -200,8 +200,8 @@ const fetchBlipsFailure = error => ({
   error
 })
 
-export const getBlips = (student_id, rating, comment) => (dispatch) => {
-  dispatch(fetchBlipstRequest())
+export const getBlips = () => (dispatch) => {
+  dispatch(fetchBlipsRequest())
   return fetch(
     `https://arkad-nexpo.herokuapp.com/api/me/company/blips`,
     {
@@ -229,6 +229,52 @@ export const getBlips = (student_id, rating, comment) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(fetchBlipsFailure(error.message))
+    })
+}
+
+const fetchRemoveBlippedStudentRequest = () => ({
+  type: types.FETCH_REMOVE_BLIPPED_STUDENT_REQUEST
+})
+
+const fetchRemoveBlippedStudentSuccess = (data) => ({
+  type: types.FETCH_REMOVE_BLIPPED_STUDENT_SUCCESS,
+  blips: data,
+})
+
+const fetchRemoveBlippedStudentFailure = error => ({
+  type: types.FETCH_REMOVE_BLIPPED_STUDENT_FAILURE,
+  error
+})
+
+export const removeBlippedStudent = (studentId) => (dispatch) => {
+  dispatch(fetchRemoveBlippedStudentRequest())
+  return fetch(
+    `https://arkad-nexpo.herokuapp.com/api/me/company/blips/${studentId}`,
+    {
+      method: 'DELETE',
+    }
+  )
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      }
+      response
+        .json()
+        .then((responseJson) => {
+          dispatch(fetchRemoveBlippedStudentFailure(responseJson.error.title))
+        })
+        .catch((error) => {
+          dispatch(fetchRemoveBlippedStudentFailure(error.message))
+        })
+      return null
+    })
+    .then((responseJson) => {
+      if (responseJson) {
+        dispatch(fetchRemoveBlippedStudentSuccess(responseJson.results))
+      }
+    })
+    .catch((error) => {
+      dispatch(fetchRemoveBlippedStudentFailure(error.message))
     })
 }
 

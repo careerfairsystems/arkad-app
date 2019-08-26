@@ -4,7 +4,7 @@ import StudentCard from '../screens/Profile/StudentCard'
 
 
 const mapStateToProps = state => ({
-  typeLogedin: state.apiReducer.typeLogedin
+
 })
 
 function mapDispatchToProps(dispatch) {
