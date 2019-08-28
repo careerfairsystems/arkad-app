@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import StudentListItem from '../../components/listItems/StudentListItem'
 import LogoutButton from '../../containers/LogoutButton'
 import CameraButton from '../../containers/CameraButton'
+import Button from '../../components/Button'
+import Modal from "react-native-modal"
 
 
 const studentList = [ {  key: '1',
@@ -402,11 +404,21 @@ const styles = {
    fontSize: 14,
    color: global.arkadBlue,
    marginBottom: 8
+  },
+  button: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: global.arkadBlue,
+    borderRadius: 8,
+  },
+  text: {
+    fontSize: 16,
+    color: '#fff'
   }
 }
 
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
-        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView } = styles
+        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, button, text } = styles
 
 class StudentList extends Component {
   constructor(props) {
@@ -418,6 +430,7 @@ class StudentList extends Component {
       isLoading: false,
       createAccount: false,
       logedIn: false,
+      showModal: false,
     }
   }
 
@@ -426,6 +439,9 @@ class StudentList extends Component {
         headerRight: (
           <View style={{flex: 1, flexDirection: 'row'}}>
             <CameraButton navigation={this.props.navigation} />
+            <TouchableOpacity style={button} onPress={() => this.toggleModal()}>
+              <Text style={text}>Help</Text>
+            </TouchableOpacity>
             <LogoutButton navigation={this.props.navigation} />
           </View>
         )
@@ -461,9 +477,72 @@ class StudentList extends Component {
           sections={sections}
           onScrollBeginDrag={() => Keyboard.dismiss()}
         />
+        { this.HelpView() }
+      </View>
+    )
+  }
+
+  toggleModal() {
+    this.setState({ showModal: !this.state.showModal });
+  }
+
+  HelpView() {
+    return(
+      <View>
+        <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
+          <View style={createAccountContainer}>
+            <View style={createAccountView}>
+              <View style={{marginVertical: 20, marginHorizontal: 20}}>
+                <View style={{justifyContent: 'center',
+                alignItems: 'center', marginBottom:50}}>
+                  <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
+                    Need help?
+                  </Text>
+                </View>
+                <View>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Student
+                  </Text>
+                  <Text style={createAccountText} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
+                    <Text>Sign up</Text>
+                    <Text style={{fontWeight:'bold'}}> here</Text>
+                    <Text>.</Text>
+                  </Text>
+                </View>
+                <View style={{marginTop: 30}}>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Company Host Contact detail
+                  </Text>
+                  <Text style={createAccountText}>
+                  Company hosts will help you before and during the during the fair. Need to get in touch with your host? below are the details
+                  Name:
+                  Phone:
+                  Email:
+                  </Text>
+                </View>
+              </View>
+              <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                bottom:0,
+              position: 'absolute',
+            width:'100%',
+          marginBottom:20}}>
+                <View style={{width:'40%'}}>
+                  <Button title='Close'
+                          onPress={() => this.toggleModal()}
+                          showIcon={false}
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+        </Modal>
       </View>
     )
   }
 }
+
+
 
 export default StudentList
