@@ -414,11 +414,24 @@ const styles = {
   text: {
     fontSize: 16,
     color: '#fff'
+  },
+  helpContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    height:'100%',
+    width:'100%',
+  },
+  helpView: {
+    height:'90%',
+    width:'90%',
+    backgroundColor: '#fff',
+    borderRadius:10
   }
 }
 
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
-        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, button, text } = styles
+        welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
 class StudentList extends Component {
   constructor(props) {
@@ -486,12 +499,17 @@ class StudentList extends Component {
     this.setState({ showModal: !this.state.showModal });
   }
 
+  gotoFAQ() {
+    this.toggleModal()
+    this.props.navigation.navigate('FAQ')
+  }
+
   HelpView() {
     return(
       <View>
         <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
-          <View style={createAccountContainer}>
-            <View style={createAccountView}>
+          <View style={helpContainer}>
+            <View style={helpView}>
               <View style={{marginVertical: 20, marginHorizontal: 20}}>
                 <View style={{justifyContent: 'center',
                 alignItems: 'center', marginBottom:50}}>
@@ -501,23 +519,30 @@ class StudentList extends Component {
                 </View>
                 <View>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
-                    Student
+                    Scanning system
                   </Text>
-                  <Text style={createAccountText} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
-                    <Text>Sign up</Text>
-                    <Text style={{fontWeight:'bold'}}> here</Text>
+                  <Text style={createAccountText} >
+                    <Text>Want to learn how the scanning system works? You can find the manual at {"\n"}</Text>
+                    <Text style={{fontWeight:'bold'}} onPress={() => Linking.openURL('https://www.arkadtlth.se/scan')}> www.arkadtlth.se/scan</Text>
                     <Text>.</Text>
                   </Text>
                 </View>
                 <View style={{marginTop: 30}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
-                    Company Host Contact detail
+                    Company Host
                   </Text>
                   <Text style={createAccountText}>
-                  Company hosts will help you before and during the during the fair. Need to get in touch with your host? below are the details
-                  Name:
-                  Phone:
-                  Email:
+                  Need to get in touch with your company host? Below are the contact details
+                  </Text>
+                  <Text style={createAccountText}>Name {"\n"}Phone {"\n"}Email </Text>
+                </View>
+                <View style={{marginTop: 30}}>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Other questions
+                  </Text>
+                  <Text style={createAccountText}>
+                    <Text>Check out our FAQ </Text>
+                    <Text style={{fontWeight:'bold'}} onPress={() => this.gotoFAQ()}> here</Text>
                   </Text>
                 </View>
               </View>
