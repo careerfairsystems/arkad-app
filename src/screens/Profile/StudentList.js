@@ -501,7 +501,7 @@ class StudentList extends Component {
 
   gotoFAQ() {
     this.toggleModal()
-    this.props.navigation.navigate('FAQ')
+    this.props.navigation.navigate('Faq')
   }
 
   HelpView() {
