@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
+import Modal from "react-native-modal"
 import Button from '../../components/Button'
 import LogoutButton from '../../containers/LogoutButton'
 
@@ -388,7 +389,7 @@ const styles = {
   createAccountView: {
     height:'90%',
     width:'90%',
-    backgroundColor: 'rgba(172, 214, 234, 0.98)',
+    backgroundColor: '#fff',
     borderRadius:10
   },
   headerRightView: {
@@ -419,6 +420,7 @@ class ProfileLoginScreen extends Component {
       isLoading: false,
       createAccount: false,
       logedIn: false,
+      showModal: false,
     }
   }
 
@@ -434,7 +436,7 @@ class ProfileLoginScreen extends Component {
   }
 
   async login() {
-    await this.props.loadLogin(this.state.username, this.state.password, "")
+    await this.props.loadLogin(this.state.username, this.state.password, "student")
     this.checkLoginIn()
   }
 
@@ -458,51 +460,59 @@ class ProfileLoginScreen extends Component {
     }
   }
 
+  toggleModal() {
+    this.setState({ showModal: !this.state.showModal });
+  }
+
   createAccountView() {
     return(
-      <View style={createAccountContainer}>
-        <View style={createAccountView}>
-          <View style={{marginVertical: 20, marginHorizontal: 20}}>
-            <View style={{justifyContent: 'center',
-            alignItems: 'center', marginBottom:50}}>
-              <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
-                Welcome!
-              </Text>
-            </View>
-            <View>
-              <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
-                Student
-              </Text>
-              <Text style={createAccountText} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
-                <Text>Sign up</Text>
-                <Text style={{fontWeight:'bold'}}> here</Text>
-                <Text>.</Text>
-              </Text>
-            </View>
-            <View style={{marginTop: 30}}>
-              <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
-                Company
-              </Text>
-              <Text style={createAccountText}>
-                Ask a co-worker with an account to send you an invite.
-              </Text>
+      <View>
+        <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
+          <View style={createAccountContainer}>
+            <View style={createAccountView}>
+              <View style={{marginVertical: 20, marginHorizontal: 20}}>
+                <View style={{justifyContent: 'center',
+                alignItems: 'center', marginBottom:50}}>
+                  <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
+                    Need an account?
+                  </Text>
+                </View>
+                <View>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Student
+                  </Text>
+                  <Text style={createAccountText} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
+                    <Text>Sign up</Text>
+                    <Text style={{fontWeight:'bold'}}> here</Text>
+                    <Text>.</Text>
+                  </Text>
+                </View>
+                <View style={{marginTop: 30}}>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Company
+                  </Text>
+                  <Text style={createAccountText}>
+                    Ask a co-worker with an account to send you an invite.
+                  </Text>
+                </View>
+              </View>
+              <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                bottom:0,
+              position: 'absolute',
+            width:'100%',
+          marginBottom:20}}>
+                <View style={{width:'40%'}}>
+                  <Button title='Close'
+                          onPress={() => this.toggleModal()}
+                          showIcon={false}
+                  />
+                </View>
+              </View>
             </View>
           </View>
-          <View style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            bottom:0,
-          position: 'absolute',
-        width:'100%',
-      marginBottom:20}}>
-            <View style={{width:'40%'}}>
-              <Button title='Close'
-                      onPress={() => this.setState({createAccount: false})}
-                      showIcon={false}
-              />
-            </View>
-          </View>
-        </View>
+        </Modal>
       </View>
     )
   }
@@ -538,7 +548,7 @@ class ProfileLoginScreen extends Component {
                   loading={this.state.isLoading}
           />
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <TouchableOpacity style={{width:'35%'}} onPress={() => this.setState({createAccount: true})}>
+            <TouchableOpacity style={{width:'35%'}} onPress={() => this.toggleModal()}>
               <Text style={h2}>
                 Need an account?
               </Text>
@@ -552,7 +562,7 @@ class ProfileLoginScreen extends Component {
 
         </View>
       </View>
-      { this.state.createAccount ? this.createAccountView() : null }
+      { this.createAccountView() }
       </View>
     )
   }
