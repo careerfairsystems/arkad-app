@@ -5,7 +5,7 @@ import DescriptionText from './DescriptionText'
 
 const TextArraySection = ({ title, descriptionArray }) => (descriptionArray.length !== 0 ? (
   <Section title={title}>
-    <DescriptionText description={descriptionArray.join(', ')} />
+    <DescriptionText description={descriptionArray.join('\n')} />
   </Section>
 ) : null)
 

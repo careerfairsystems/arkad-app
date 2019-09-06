@@ -474,7 +474,7 @@ class ProfileLoginScreen extends Component {
                 <View style={{justifyContent: 'center',
                 alignItems: 'center', marginBottom:50}}>
                   <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
-                    Welcome!
+                    Need an account?
                   </Text>
                 </View>
                 <View>
