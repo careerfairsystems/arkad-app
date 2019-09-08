@@ -777,7 +777,8 @@ const initialState = {
             key: '0',
             question: 'What educations are there on LTH?',
             answer:
-              'LTH offers a lot of different engineering and architecture educations. For a list of all educations follow the link below http://www.lth.se/utbildning/ .'
+              'LTH offers a lot of different engineering and architecture educations. For a list of all educations follow the link below.',
+            links: 'http://www.lth.se/utbildning/'
           },
           {
             key: '1',

@@ -1,7 +1,6 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, Text, View } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
-// all icons can be viewed at https://oblador.github.io/react-native-vector-icons/
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import fontelloConfig from '../selection.json'
@@ -16,12 +15,42 @@ import CompanyDetailsScreenContainer from './containers/CompanyDetailsScreen'
 import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
+import ProfileScreenContainer from './containers/ProfileScreenContainer'
+import CameraScreen from './screens/Profile/CameraScreen'
+import StudentCardContainer from './containers/StudentCardContainer'
+import StudentListContainer from './containers/StudentListContainer'
 import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
+import LogoutButton from './containers/LogoutButton'
+import CameraButton from './containers/CameraButton'
 
 const styles = {
-  headerIcon: { paddingHorizontal: 14 }
+  headerIcon: {
+    paddingHorizontal: 14,
+    alignItems: 'center'
+  },
+  filterView: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    width: 120,
+    paddingLeft: 1
+  },
+  buttonText: {
+    fontSize: 12,
+    right: 0,
+    color: global.arkadGray
+  },
+  qrButton: {
+    paddingHorizontal: 16,
+    paddingVertical: 8
+  },
+  qrText: {
+    fontSize: 16,
+    color: '#fff',
+  }
 }
 
 const navigationOptions = {
@@ -74,14 +103,22 @@ const MainStack = createBottomTabNavigator(
               ...navigationOptions,
               title: 'Companies',
               headerRight: (
-                <TouchableOpacity
-                  style={styles.headerIcon}
-                  onPress={() => navigation.navigate('Filter')}
-                >
-                  <Icon name="filter" size={24} color="#fff" />
-                </TouchableOpacity>
-              ),
-              headerLeft: <ShowFavoritesButton />
+                <View style={styles.filterView}>
+                  <View>
+                    <ShowFavoritesButton />
+                    <Text style={styles.buttonText}>Favorites</Text>
+                  </View>
+                  <View style={styles.filterView}>
+                    <TouchableOpacity
+                      style={styles.headerIcon}
+                      onPress={() => navigation.navigate('Filter')}
+                    >
+                      <Icon name="filter" size={21} color="#fff" />
+                      <Text style={styles.buttonText}>Filter</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              )
             })
           },
           Detail: {
@@ -120,6 +157,57 @@ const MainStack = createBottomTabNavigator(
         }
       )
     },
+    Profile: {
+      screen: createStackNavigator(
+        {
+          ProfileStack: {
+            screen: ProfileScreenContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: 'Login',
+              header: navigation.state.params ? navigation.state.params.header : null,
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined
+            })
+          },
+          Detail: {
+            screen: StudentCardContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: navigation.state.params.item.name,
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
+            })
+          },
+          StudentLogin: {
+            screen: StudentCardContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: navigation.state.params.name,
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
+              headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined
+            })
+          },
+          CompanyLogin: {
+            screen: StudentListContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: 'Profile',
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
+              headerLeft: null
+            })
+          },
+          CameraScreen: {
+            screen: CameraScreen,
+            navigationOptions: () => ({
+              ...navigationOptions,
+              title: 'Camera',
+            })
+          }
+        },
+        {
+          cardStyle: { backgroundColor: global.arkadGray }
+        }
+      )
+    },
     About: {
       screen: createStackNavigator(
         {
@@ -128,7 +216,7 @@ const MainStack = createBottomTabNavigator(
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: 'About',
-//              headerRight: <FaqButton navigation={navigation} />
+              headerRight: <FaqButton navigation={navigation} />,
             })
           },
           ArkadTeam: {
@@ -158,6 +246,7 @@ const MainStack = createBottomTabNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
+      tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'CameraScreen' ? false : true,
       // Disable unnecessary eslint warning
       // eslint-disable-next-line react/prop-types
       tabBarIcon: ({ tintColor }) => {
@@ -180,7 +269,7 @@ const MainStack = createBottomTabNavigator(
         activeTintColor: global.arkadBlue,
         style: {
           borderTopWidth: 2,
-          borderTopColor: global.arkadBlue
+          borderTopColor: global.arkadBlue,
         }
       }
     })
@@ -192,7 +281,7 @@ const RootStack = createStackNavigator(
     Main: {
       screen: MainStack,
       navigationOptions: {
-        header: null
+        header: null,
       }
     },
     Filter: {

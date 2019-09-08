@@ -3,12 +3,18 @@ import * as types from '../actions/types'
 
 const initialState = {
   items: [],
+  logedIn: false,
   maps: [],
   filters: {},
   notUpdated: [],
   loading: false,
   error: '',
-  updated: 0
+  updated: 0,
+  typeLogedin: "",
+  comment: [],
+  blips: [],
+  studentInfo: [],
+  companyRepresentatives: [],
 }
 
 const stringCleaner = string => (string ? string.toString().trim() : '')
@@ -361,6 +367,168 @@ const apiReducer = (state = initialState, action) => {
       Alert.alert(action.error)
       return {
         ...state,
+        loading: false,
+        error: action.error
+      }
+    case types.FETCH_LOGIN_REQUEST:
+      return {
+        ...state,
+        logedIn: false,
+        loading: true,
+        error: ''
+      }
+    case types.FETCH_LOGIN_SUCCESS:
+      return {
+        ...state,
+        typeLogedin: action.typeLogedin,
+        logedIn: true,
+        loading: false,
+        updated: Math.floor(Date.now() / 1000)
+      }
+    case types.FETCH_LOGIN_FAILURE:
+      Alert.alert(
+        'Login failed!',
+        'Wrong username or password.',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      )
+    case types.FETCH_COMMENT_STUDENT_REQUEST:
+      Alert.alert(
+        'Failed!',
+        'Fetch comment student request',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      )
+      return {
+        ...state,
+        loading: true,
+      }
+    case types.FETCH_COMMENT_STUDENT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        comment: action.comment,
+      }
+    case types.FETCH_COMMENT_STUDENT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error
+      }
+    case types.FETCH_BLIPS_REQUEST:
+      Alert.alert(
+        'Failed!',
+        'Fetch blip request',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      )
+      return {
+        ...state,
+        loading: true,
+      }
+    case types.FETCH_BLIPS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        blips: action.blips,
+      }
+    case types.FETCH_BLIPS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error
+      }
+    case types.FETCH_REMOVE_BLIPPED_STUDENT_REQUEST:
+      Alert.alert(
+        'Failed!',
+        'Fetch remove blipped student request',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      )
+      return {
+        ...state,
+        loading: true,
+      }
+    case types.FETCH_REMOVE_BLIPPED_STUDENT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        blips: action.blips,
+      }
+    case types.FETCH_REMOVE_BLIPPED_STUDENT_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error
+      }
+    case types.FETCH_STUDENT_INFO_REQUEST:
+      Alert.alert(
+        'Failed!',
+        'Fetch student info request',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      )
+      return {
+        ...state,
+        loading: true,
+      }
+    case types.FETCH_STUDENT_INFO_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        studentInfo: action.studentInfo,
+      }
+    case types.FETCH_STUDENT_INFO_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error
+      }
+    case types.FETCH_COMPANY_REPRESENTATIVES_REQUEST:
+      Alert.alert(
+        'Failed!',
+        'Fetch company represtentatives request',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      )
+      return {
+        ...state,
+        loading: true,
+      }
+    case types.FETCH_COMPANY_REPRESENTATIVES_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        companyRepresentatives: action.companyRepresentatives,
+      }
+    case types.FETCH_COMPANY_REPRESENTATIVES_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error
+      }
+    case types.LOGOUT:
+      return {
+        ...state,
+        logedIn: false,
+        loading: false,
+        updated: Math.floor(Date.now() / 1000)
+      }
+      return {
+        ...state,
+        logedIn: false,
         loading: false,
         error: action.error
       }
