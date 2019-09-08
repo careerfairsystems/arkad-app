@@ -512,7 +512,7 @@ class StudentList extends Component {
             <View style={helpView}>
               <View style={{marginVertical: 20, marginHorizontal: 20}}>
                 <View style={{justifyContent: 'center',
-                alignItems: 'center', marginBottom:50}}>
+                alignItems: 'center', marginBottom:20}}>
                   <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
                     Need help?
                   </Text>
@@ -527,7 +527,7 @@ class StudentList extends Component {
                     <Text>.</Text>
                   </Text>
                 </View>
-                <View style={{marginTop: 30}}>
+                <View style={{marginTop: 15}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Company Host
                   </Text>
@@ -535,8 +535,11 @@ class StudentList extends Component {
                   Need to get in touch with your company host? Below are the contact details
                   </Text>
                   <Text style={createAccountText}>Name {"\n"}Phone {"\n"}Email </Text>
+                  <Text style={createAccountText}>
+                  If you need help during the fair and can't reach your host, contact your closest Infodesk.
+                  </Text>
                 </View>
-                <View style={{marginTop: 30}}>
+                <View style={{marginTop: 15}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Other questions
                   </Text>
