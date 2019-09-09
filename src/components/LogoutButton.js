@@ -1,10 +1,20 @@
 import React from 'react'
 import { TouchableOpacity, Text } from 'react-native'
 import PropTypes from 'prop-types'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 const styles = {
   button: { paddingHorizontal: 16, paddingVertical: 8 },
-  text: { fontSize: 16, color: '#fff' }
+  text: { fontSize: 16, color: '#fff' },
+  headerIcon: {
+    paddingHorizontal: 14,
+    alignItems: 'center'
+  },
+  buttonText: {
+    fontSize: 12,
+    right: 0,
+    color: global.arkadGray
+  },
 }
 
 function logout(navigation, loadLogout) {
@@ -16,10 +26,11 @@ function logout(navigation, loadLogout) {
   });
 }
 
-const { button, text } = styles
+const { button, text, headerIcon, buttonText } = styles
 const LogoutButton = ({ navigation, loadLogout }) => (
   <TouchableOpacity style={button} onPress={() => logout(navigation, loadLogout)}>
-    <Text style={text}>Logout</Text>
+    <Icon style={headerIcon} name='sign-out' size={21} color='#fff' />
+    <Text style={buttonText}>Logout</Text>
   </TouchableOpacity>
 )
 
