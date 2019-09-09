@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Modal from "react-native-modal"
 import Button from '../../components/Button'
 import LogoutButton from '../../containers/LogoutButton'
+import HrefButton from '../../components/HrefButton'
 
 import StudentListItem from '../../components/listItems/StudentListItem'
 
@@ -436,7 +437,7 @@ class ProfileLoginScreen extends Component {
   }
 
   async login() {
-    await this.props.loadLogin(this.state.username, this.state.password, "student")
+    await this.props.loadLogin(this.state.username, this.state.password, "")
     this.checkLoginIn()
   }
 
@@ -481,11 +482,8 @@ class ProfileLoginScreen extends Component {
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Student
                   </Text>
-                  <Text style={createAccountText} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
-                    <Text>Sign up</Text>
-                    <Text style={{fontWeight:'bold'}}> here</Text>
-                    <Text>.</Text>
-                  </Text>
+                  <HrefButton buttonText='Sign up here' buttonLink='http://google.com'>
+                  </HrefButton>
                 </View>
                 <View style={{marginTop: 30}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
