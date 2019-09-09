@@ -35,4 +35,9 @@ const HrefButton = ({buttonText, buttonLink}) => {
   )
 }
 
+HrefButton.propTypes ={
+  buttonText: PropTypes.string.isRequired,
+  buttonLink: PropTypes.string.isRequired
+}
+
 export default HrefButton
