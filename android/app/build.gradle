@@ -212,8 +212,6 @@ android {
 }
 
 dependencies {
-    implementation project(':react-native-svg')
-    implementation project(':react-native-fabric')
     implementation project(':react-native-vector-icons')
     implementation project(':rncamerakit')
     implementation fileTree(dir: "libs", include: ["*.jar"])
