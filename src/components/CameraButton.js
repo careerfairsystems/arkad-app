@@ -1,17 +1,37 @@
 import React from 'react'
 import {View, TouchableOpacity, Text, StyleSheet, PermissionsAndroid, Alert,Platform } from 'react-native';
 import PropTypes from 'prop-types'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 const styles = {
-  button: { paddingHorizontal: 16, paddingVertical: 8 },
-  text: { fontSize: 16, color: '#fff' }
+  container: {
+    position: 'absolute',
+    bottom: 30,
+    right: 30,
+  },
+  button: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: global.arkadBlue,
+    borderRadius: 80,
+    width: 70,
+    height: 70,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 16,
+    color: '#fff'
+  }
 }
 
-const { button, text } = styles
+const { container, button, text } = styles
 const CameraButton = ({ navigation }) => (
-  <TouchableOpacity style={button} onPress={() => checkPermission(navigation)}>
-    <Text style={text}>Camera</Text>
-  </TouchableOpacity>
+  <View style={container}>
+    <TouchableOpacity style={button} onPress={() => checkPermission(navigation)}>
+      <Icon name="plus" size={35} color="#fff" />
+    </TouchableOpacity>
+  </View>
 )
 
 //This is what happens after a student is scanned
