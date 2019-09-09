@@ -3,7 +3,7 @@ import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Li
 import PropTypes from 'prop-types'
 import StudentListItem from '../../components/listItems/StudentListItem'
 import LogoutButton from '../../containers/LogoutButton'
-import CameraButton from '../../containers/CameraButton'
+import CameraButton from '../../components/CameraButton'
 
 
 const studentList = [ {  key: '1',
@@ -425,7 +425,6 @@ class StudentList extends Component {
     this.props.navigation.setParams({
         headerRight: (
           <View style={{flex: 1, flexDirection: 'row'}}>
-            <CameraButton navigation={this.props.navigation} />
             <LogoutButton navigation={this.props.navigation} />
           </View>
         )
@@ -461,6 +460,7 @@ class StudentList extends Component {
           sections={sections}
           onScrollBeginDrag={() => Keyboard.dismiss()}
         />
+        <CameraButton navigation={this.props.navigation} />
       </View>
     )
   }
