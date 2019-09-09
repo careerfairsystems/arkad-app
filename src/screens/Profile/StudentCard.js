@@ -134,11 +134,7 @@ class StudentCard extends Component {
   componentDidMount() {
     {this.props.typeLogedin == "student"
       ? (this.props.navigation.setParams({
-          headerLeft: (
-            <View style={filterView}>
-              <TouchableOpacity onPress={() => this.setState({flip: !this.state.flip})}>
-              </TouchableOpacity>
-            </View>),
+          headerLeft: (null),
           headerRight: (
             <LogoutButton navigation={this.props.navigation} />
           )
