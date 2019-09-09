@@ -137,8 +137,6 @@ class StudentCard extends Component {
           headerLeft: (
             <View style={filterView}>
               <TouchableOpacity onPress={() => this.setState({flip: !this.state.flip})}>
-                <Icon style={headerIcon} name='qrcode' size={20} color='#fff' />
-                <Text style={buttonText}>QRcode</Text>
               </TouchableOpacity>
             </View>),
           headerRight: (
