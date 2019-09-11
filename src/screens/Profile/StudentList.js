@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity, ScrollView } from 'react-native'
 import PropTypes from 'prop-types'
 import StudentListItem from '../../components/listItems/StudentListItem'
 import LogoutButton from '../../containers/LogoutButton'
@@ -510,6 +510,7 @@ class StudentList extends Component {
         <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
           <View style={helpContainer}>
             <View style={helpView}>
+            <ScrollView >
               <View style={{marginVertical: 20, marginHorizontal: 20}}>
                 <View style={{justifyContent: 'center',
                 alignItems: 'center', marginBottom:20}}>
@@ -539,7 +540,7 @@ class StudentList extends Component {
                   If you need help during the fair and can't reach your host, contact your closest Infodesk.
                   </Text>
                 </View>
-                <View style={{marginTop: 15}}>
+                <View style={{marginTop: 15, marginBottom:50}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Other questions
                   </Text>
@@ -563,6 +564,7 @@ class StudentList extends Component {
                   />
                 </View>
               </View>
+              </ScrollView>
             </View>
           </View>
         </Modal>
