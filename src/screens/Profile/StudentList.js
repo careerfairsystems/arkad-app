@@ -3,9 +3,9 @@ import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Li
 import PropTypes from 'prop-types'
 import StudentListItem from '../../components/listItems/StudentListItem'
 import LogoutButton from '../../containers/LogoutButton'
-import CameraButton from '../../containers/CameraButton'
-import Button from '../../components/Button'
+import CameraButton from '../../components/CameraButton'
 import Modal from "react-native-modal"
+import Button from '../../components/Button'
 
 
 const studentList = [ {  key: '1',
@@ -451,7 +451,6 @@ class StudentList extends Component {
     this.props.navigation.setParams({
         headerRight: (
           <View style={{flex: 1, flexDirection: 'row'}}>
-            <CameraButton navigation={this.props.navigation} />
             <TouchableOpacity style={button} onPress={() => this.toggleModal()}>
               <Text style={text}>Help</Text>
             </TouchableOpacity>
@@ -490,6 +489,7 @@ class StudentList extends Component {
           sections={sections}
           onScrollBeginDrag={() => Keyboard.dismiss()}
         />
+        <CameraButton navigation={this.props.navigation} />
         { this.HelpView() }
       </View>
     )
