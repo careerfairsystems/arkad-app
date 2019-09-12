@@ -492,7 +492,11 @@ class ProfileLoginScreen extends Component {
                     Company
                   </Text>
                   <Text style={createAccountText}>
-                    Ask a co-worker with an account to send you an invite.
+                    Check if any of your co-workers has been invited,
+                    if so they can invite you. If none of your co-workers
+                    has been invited email it.arkad@box.tlth.se.
+                    More info on
+                    www.arkadtlthe.se/scan
                   </Text>
                 </View>
               </View>
