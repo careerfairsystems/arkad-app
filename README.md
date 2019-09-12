@@ -72,4 +72,3 @@ const zoom = width / 600
 5. Replace `<Svg viewBox="0 0 600 800" {...props}>` and `</Svg>` with `<SvgPanZoom canvasHeight={800} canvasWidth={600} minScale={0.5} initialZoom={zoom}>` and `</SvgPanZoom>`.
 6. Make sure that the SvgPanZoom-component is placed within a `<View>` component with width and height set to 100% (important!).
 7. Enjoy!
-
