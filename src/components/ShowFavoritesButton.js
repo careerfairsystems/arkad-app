@@ -2,6 +2,7 @@ import React from 'react'
 import { TouchableOpacity, View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import './../../global'
 
 const notFavIcon = <Icon name="heart-o" size={21} color="#fff" />
 const favIcon = <Icon name="heart" size={21} color="#fff" />

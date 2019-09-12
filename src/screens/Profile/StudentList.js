@@ -485,7 +485,7 @@ class StudentList extends Component {
         </View>
         <SectionList
           style={{width:'100%'}}
-          renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} />}
+          renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} userType="DetailStudent"/>}
           sections={sections}
           onScrollBeginDrag={() => Keyboard.dismiss()}
         />
