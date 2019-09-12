@@ -42,7 +42,7 @@ const SelectableStudentListItem = ({ children, navigation, item, userType }) => 
             rating={3.5}
             starSize={12}
           />
-          <SelectStudentButton navigation={navigation}/>
+          <SelectStudentButton navigation={navigation} item={item} userType={userType}/>
         </View>
       </HighListItem>
     </View>
