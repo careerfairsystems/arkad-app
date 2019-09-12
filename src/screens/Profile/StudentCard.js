@@ -373,7 +373,12 @@ class StudentCard extends Component {
                 </TouchableOpacity>
               </View>
             </View>
-            <View style={{flex: 5, width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: 'pink'}}>
+            <View style={{flex: 5, width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: global.arkadGray}}>
+              <View style={{height: '12%', alignItems: 'center', justifyContent: 'center'}}>
+                <Text>
+                Your scanned companies
+                </Text>
+              </View>
               <SectionList
                 style={{width: test * .9}}
                 renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} />}
