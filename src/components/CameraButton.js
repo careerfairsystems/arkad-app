@@ -18,6 +18,15 @@ const styles = {
     height: 70,
     alignItems: 'center',
     justifyContent: 'center',
+    shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 8,
+},
+shadowOpacity: 0.44,
+shadowRadius: 10.32,
+
+elevation: 16,
   },
   text: {
     fontSize: 16,
@@ -29,7 +38,7 @@ const { container, button, text } = styles
 const CameraButton = ({ navigation }) => (
   <View style={container}>
     <TouchableOpacity style={button} onPress={() => checkPermission(navigation)}>
-      <Icon name="plus" size={35} color="#fff" />
+      <Icon name="plus" size={30} color="#fff" />
     </TouchableOpacity>
   </View>
 )
