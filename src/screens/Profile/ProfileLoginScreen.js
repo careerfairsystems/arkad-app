@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 import Modal from "react-native-modal"
 import Button from '../../components/Button'
 import LogoutButton from '../../containers/LogoutButton'
-
 import StudentListItem from '../../components/listItems/StudentListItem'
+import StudentCard from './StudentCard'
+import StudentList from './StudentList'
 
 
 const studentList = [ {  key: '1',
