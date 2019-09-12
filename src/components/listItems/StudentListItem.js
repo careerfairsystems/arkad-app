@@ -10,9 +10,9 @@ const styles = {
 }
 
 const { title } = styles
-const StudentListItem = ({ navigation, student }) => {
+const StudentListItem = ({ navigation, student, userType }) => {
   return (
-    <SelectableStudentListItem navigation={navigation} item={student}>
+    <SelectableStudentListItem navigation={navigation} item={student} userType={userType}>
       <Text style={title}>{student.name}</Text>
     </SelectableStudentListItem>
   )

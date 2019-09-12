@@ -17,7 +17,7 @@ const App = () => (
   <Provider store={store}>
     <Fragment>
       <SafeAreaView style={{ flex:0, backgroundColor: global.arkadBlue }} forceInset={{'top': 'never'}}/>
-      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }} forceInset={{'top': 'never'}}>
         <PersistGate loading={<LoadingView />} persistor={persistor}>
           <AppStateHandlerContainer />
           <StatusBar barStyle="light-content" />

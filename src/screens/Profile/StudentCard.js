@@ -375,7 +375,7 @@ class StudentCard extends Component {
               </View>
               <SectionList
                 style={{width: test * .9}}
-                renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} />}
+                renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} userType="DetailCompany"/>}
                 sections={sections}
                 onScrollBeginDrag={() => Keyboard.dismiss()}
               />
