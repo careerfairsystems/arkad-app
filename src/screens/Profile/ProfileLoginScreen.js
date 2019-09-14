@@ -441,7 +441,7 @@ class ProfileLoginScreen extends Component {
   }
 
   checkLoginIn() {
-    if (this.props.typeLogedin == "student") {
+    if (this.props.typeLogedin == "") {
       this.props.navigation.navigate('StudentLogin', studentList[0])
       this.setState({
         isLoading: false

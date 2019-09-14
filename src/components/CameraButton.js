@@ -1,7 +1,9 @@
 import React from 'react'
-import {View, TouchableOpacity, Text, StyleSheet, PermissionsAndroid, Alert,Platform } from 'react-native';
+import {View, TouchableOpacity, Text, StyleSheet, PermissionsAndroid, Alert,Platform } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import Permissions from 'react-native-permissions'
+import AsyncStorage from '@react-native-community/async-storage'
 
 const styles = {
   container: {
@@ -37,7 +39,7 @@ const styles = {
 const { container, button, text } = styles
 const CameraButton = ({ navigation }) => (
   <View style={container}>
-    <TouchableOpacity style={button} onPress={() => checkPermission(navigation)}>
+    <TouchableOpacity style={button} onPress={() => alertForPhotosPermission() }>
       <Icon name="plus" size={30} color="#fff" />
     </TouchableOpacity>
   </View>
@@ -73,6 +75,29 @@ function checkPermission(navigation) {
   }
 
 }
+
+function reqPermissions () {
+  Permissions.request('camera')
+  
+}
+
+function alertForPhotosPermission() {
+  Alert.alert(
+    'Can we access your photos?',
+    'We need access so you can set your profile pic',
+    [
+      {
+        text: 'No way',
+        onPress: () => console.log('Permission denied'),
+        style: 'cancel',
+      },
+      true
+        ? {text: 'OK', onPress: this.reqPermissions}
+        : {text: 'Open Settings', onPress: Permissions.openSettings},
+    ],
+  )
+}
+
 
 CameraButton.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired
