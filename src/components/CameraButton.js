@@ -39,7 +39,7 @@ const styles = {
 const { container, button, text } = styles
 const CameraButton = ({ navigation }) => (
   <View style={container}>
-    <TouchableOpacity style={button} onPress={() => alertForPhotosPermission() }>
+    <TouchableOpacity style={button} onPress={() => alertForPhotosPermission(navigation) }>
       <Icon name="plus" size={30} color="#fff" />
     </TouchableOpacity>
   </View>
@@ -76,12 +76,12 @@ function checkPermission(navigation) {
 
 }
 
-function reqPermissions () {
+async function reqPermissions(navigation) {
   Permissions.request('camera')
-  
+  navigation.navigate('CameraScreen')
 }
 
-function alertForPhotosPermission() {
+function alertForPhotosPermission(navigation) {
   Alert.alert(
     'Can we access your photos?',
     'We need access so you can set your profile pic',
@@ -92,7 +92,7 @@ function alertForPhotosPermission() {
         style: 'cancel',
       },
       true
-        ? {text: 'OK', onPress: this.reqPermissions}
+        ? {text: 'OK', onPress: () => reqPermissions(navigation) }
         : {text: 'Open Settings', onPress: Permissions.openSettings},
     ],
   )
