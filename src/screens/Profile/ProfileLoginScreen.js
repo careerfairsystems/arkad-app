@@ -492,10 +492,13 @@ class ProfileLoginScreen extends Component {
                   <Text style={createAccountText}>
                     Check if any of your co-workers has been invited,
                     if so they can invite you. If none of your co-workers
-                    has been invited email it.arkad@box.tlth.se.
-                    More info on
-                    www.arkadtlthe.se/scan
+                    has been invited email 
                   </Text>
+                  <HrefButton buttonLink='mailto:it.arkad@box.tlth.se' buttonText='it.arkad@box.tlth.se'></HrefButton>
+                  <Text style={createAccountText}>
+                    More info on
+                  </Text>
+                  <HrefButton buttonLink='www.arkadtlthe.se/scan' buttonText='www.arkadtlthe.se/scan'></HrefButton>
                 </View>
               </View>
               <View style={{
