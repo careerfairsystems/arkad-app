@@ -23,20 +23,19 @@ import AboutScreenContainer from './containers/AboutScreen'
 import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
 import LogoutButton from './containers/LogoutButton'
-import CameraButton from './containers/CameraButton'
+import CameraButton from './components/CameraButton'
 
 const styles = {
   headerIcon: {
-    paddingHorizontal: 14,
     alignItems: 'center'
   },
   filterView: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    width: 120,
-    paddingLeft: 1
+    justifyContent: 'center',
+    paddingHorizontal: 8,
+    paddingVertical: 8,
   },
   buttonText: {
     fontSize: 12,
@@ -106,7 +105,6 @@ const MainStack = createBottomTabNavigator(
                 <View style={styles.filterView}>
                   <View>
                     <ShowFavoritesButton />
-                    <Text style={styles.buttonText}>Favorites</Text>
                   </View>
                   <View style={styles.filterView}>
                     <TouchableOpacity
@@ -169,8 +167,16 @@ const MainStack = createBottomTabNavigator(
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined
             })
           },
-          Detail: {
+          DetailStudent: {
             screen: StudentCardContainer,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: navigation.state.params.item.name,
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
+            })
+          },
+          DetailCompany: {
+            screen: CompanyDetailsScreenContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: navigation.state.params.item.name,

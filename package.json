@@ -14,12 +14,13 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "prop-types": "^15.6.2",
-    "react": "16.4.1",
-    "react-native": "^0.55.4",
+    "react": "16.8.3",
+    "react-native": "^0.59.0",
     "react-native-actionsheet": "^2.4.2",
     "react-native-base64": "0.0.2",
     "react-native-camera-kit": "^8.0.1",
     "react-native-card-flip": "^1.0.4",
+    "react-native-expo-viewport-units": "0.0.8",
     "react-native-fabric": "^0.5.2",
     "react-native-flip-card": "^3.5.5",
     "react-native-flip-view": "^1.0.5",
@@ -27,8 +28,9 @@
     "react-native-qrcode": "^0.2.7",
     "react-native-sectioned-multi-select": "^0.5.2",
     "react-native-star-rating": "^1.1.0",
-    "react-native-svg": "github:tovesson/react-native-svg",
+    "react-native-svg": "^9.3.3",
     "react-native-vector-icons": "^5.0.0",
+    "react-native-viewport-units": "0.0.5",
     "react-navigation": "^2.9.3",
     "react-rater": "^5.1.0",
     "react-redux": "^5.0.7",
@@ -41,7 +43,15 @@
     "babel-eslint": "^8.2.6",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
-    "react-test-renderer": "16.4.1"
+    "@babel/core": "^7.3.4",
+    "@babel/runtime": "^7.3.4",
+    "babel-jest": "^24.4.0",
+    "jest": "^24.4.0",
+    "metro-react-native-babel-preset": "^0.53.0",
+    "react-test-renderer": "16.8.3"
+  },
+  "jest": {
+    "preset": "react-native"
   },
   "rnpm": {
     "assets": [
