@@ -5,8 +5,6 @@ import Modal from "react-native-modal"
 import Button from '../../components/Button'
 import LogoutButton from '../../containers/LogoutButton'
 import StudentListItem from '../../components/listItems/StudentListItem'
-import StudentCard from './StudentCard'
-import StudentList from './StudentList'
 
 
 const studentList = [ {  key: '1',
@@ -422,6 +420,10 @@ class ProfileLoginScreen extends Component {
       createAccount: false,
       logedIn: false,
       showModal: false,
+      flip: false,
+      starCount: 3,
+      student: false,
+      showModal: false,
     }
   }
 
@@ -429,6 +431,16 @@ class ProfileLoginScreen extends Component {
     this.props.navigation.setParams({
         header: null,
     })
+    {this.props.typeLogedin == "student"
+      ? (this.setState({
+          student: true
+        })
+      )
+      : (this.setState({
+          student: false
+        })
+      )
+    }
   }
 
   handlePress() {
@@ -443,7 +455,7 @@ class ProfileLoginScreen extends Component {
 
   checkLoginIn() {
     if (this.props.typeLogedin == "student") {
-      this.props.navigation.navigate('StudentLogin', studentList[0])
+      // this.props.navigation.navigate('StudentLogin', studentList[0])
       this.setState({
         isLoading: false
       })
@@ -572,10 +584,19 @@ class ProfileLoginScreen extends Component {
     )
   }
 
+  loadHome() {
+    // if (this.props.typeLogedin == 'student') {
+    if (true) {
+      return <StudentCard />
+    } else {
+      return <StudentListContainer />
+    }
+  }
+
   render() {
     return(
       <View>
-        { this.loginView() }
+        { this.state.logedIn ? this.loginView() : this.loadHome()}
       </View>
     )
   }
