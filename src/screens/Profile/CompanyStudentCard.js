@@ -308,101 +308,6 @@ class StudentCard extends Component {
     this.setState({ showModal: !this.state.showModal });
   }
 
-  studentLogin() {
-    var test = Dimensions.get('window').width
-    if (studentCompanyList.length === 0) {
-      sections = [{ title: '', data: [] }]
-    } else {
-      sections = studentCompanyList.reduce((a, b) => {
-        const item = a
-        const firstLetter = b.name[0].toUpperCase()
-        if (item[firstLetter]) {
-          item[firstLetter].push(b)
-        } else {
-          item[firstLetter] = [b]
-        }
-        return item
-      }, {})
-      sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
-    }
-    return(
-        <FlipCard
-        style={[flipCard, {width:"100%"}]}
-        flipHorizontal={true}
-        flipVertical={false}
-        friction={5}
-        flip={this.state.flip}
-        clickable={this.state.student}>
-          {/* Face Side */}
-          <View style={flipCardFront}>
-            <View style={{flex: 4, flexDirection: 'row', width: '100%'}}>
-              <View style={{flex: 1, alignItems: 'center', width: '100%', justifyContent: 'center'}}>
-                <Image
-                  style={cardImage}
-                  source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
-                />
-              </View>
-              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight:'5%'}}>
-                <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
-                  Börje Börjesson
-                </Text>
-                <Text style={profileText}>
-                  Computer Science
-                </Text>
-                <Text style={profileText}>
-                  Year: 4
-                </Text>
-                <Text style={profileText}>
-                  Master: Software Engineering
-                </Text>
-                <Text style={profileText}>
-                  Interested in: Summerjob, thesis, internship
-                </Text>
-              </View>
-            </View>
-            <View style={{flex: 1, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
-              <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
-                <TouchableOpacity onPress={() => openUrl(url)}>
-                  <Icon name="address-card" size={25} color="#000" />
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={{flex: 5, width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: global.arkadGray}}>
-              <View style={{height: '12%', alignItems: 'center', justifyContent: 'center'}}>
-                <Text>
-                Your scanned companies
-                </Text>
-              </View>
-              <SectionList
-                style={{width: test * .9}}
-                renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} userType="DetailCompany"/>}
-                sections={sections}
-                onScrollBeginDrag={() => Keyboard.dismiss()}
-              />
-            </View>
-          </View>
-          {/* Back Side */}
-          <View style={flipCardBack}>
-          <View style={{flex: 1, flexDirection: 'row', width: '100%'}}>
-          <View style={{flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
-            <Text style={qrText}>
-              Your personal QR-code.
-            </Text>
-            <Text style={qrText}>
-              Go share it with your favourite companies!
-            </Text>
-            <QRCode
-              value="www.google.se"
-              size={200}
-              bgColor='rgb(0, 43, 100)'
-              fgColor='#fff'/>
-              </View>
-              </View>
-          </View>
-        </FlipCard>
-    )
-  }
-
   companyLogin() {
     return(
         <FlipCard
@@ -528,10 +433,7 @@ class StudentCard extends Component {
   render() {
     return(
       <View style={{alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-        {this.props.typeLogedin == "student"
-         ? this.studentLogin()
-         : this.companyLogin()
-        }
+        { this.companyLogin() }
         { this.removeView() }
       </View>
     )
