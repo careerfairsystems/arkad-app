@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import StudentCard from '../components/StudentCard'
+import StudentCard from '../screens/Profile/CompanyStudentCard'
 
 
 const mapStateToProps = state => ({

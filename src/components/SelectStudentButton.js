@@ -11,8 +11,8 @@ const styles = {
 }
 
 const { button, text } = styles
-const SelectStudentButton = ({ navigation }) => (
-  <TouchableOpacity onPress={() => navigation.navigate('Faq')}>
+const SelectStudentButton = ({ navigation, item, userType }) => (
+  <TouchableOpacity onPress={() => navigation.navigate(userType, {item})}>
     <Icon style={button} name="angle-right" size={25} color="#000" />
   </TouchableOpacity>
 )

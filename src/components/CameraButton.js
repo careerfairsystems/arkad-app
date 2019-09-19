@@ -83,8 +83,8 @@ async function reqPermissions(navigation) {
 
 function alertForPhotosPermission(navigation) {
   Alert.alert(
-    'Can we access your photos?',
-    'We need access so you can set your profile pic',
+    'Can we access your Camera?',
+    'We need access to scan student QR-Codes',
     [
       {
         text: 'No way',

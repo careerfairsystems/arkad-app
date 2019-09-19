@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity, ScrollView } from 'react-native'
 import PropTypes from 'prop-types'
 import Modal from "react-native-modal"
 import Button from '../../components/Button'
 import LogoutButton from '../../containers/LogoutButton'
-
 import StudentListItem from '../../components/listItems/StudentListItem'
+import StudentCard from '../../containers/StudentCardContainer'
+import StudentList from '../../containers/StudentListContainer'
+import RemoveButton from '../../containers/RemoveButton'
 
 
 const studentList = [ {  key: '1',
@@ -73,7 +75,7 @@ const studentList = [ {  key: '1',
                          twitterUrl: '',
                          youTubeUrl: ''
                        },
-                       { key: '2',
+                       { key: '20',
                          name: 'Torbjörn Olofmeister',
                          about: 'Our goal is simple. We want to be your first choice for value-adding vegetable oil solutions. Regardless if you are a customer, employee, or supplier. AAK has employees in more than 25 countries. We have 20 production facilities and customization plants across the world and a global procurement and sales organization. Organic growth, investments in production facilities, and selective acquisitions are expanding that global presence. AAK strives to be an attractive employer with a high-performance organization with people carrying AAK forward. Join us on an exciting journey.',
                          didYouKnow: 'At AAK, sustainable development is fundamental to our business. Social and environmental responsibility, hand in hand with financial growth, is key to our continued development and future success. This is what we mean by sustainable growth.',
@@ -106,7 +108,7 @@ const studentList = [ {  key: '1',
                          twitterUrl: '',
                          youTubeUrl: ''
                        },
-                       { key: '2',
+                       { key: '21',
                          name: 'Olof Olofmeister',
                          about: 'Our goal is simple. We want to be your first choice for value-adding vegetable oil solutions. Regardless if you are a customer, employee, or supplier. AAK has employees in more than 25 countries. We have 20 production facilities and customization plants across the world and a global procurement and sales organization. Organic growth, investments in production facilities, and selective acquisitions are expanding that global presence. AAK strives to be an attractive employer with a high-performance organization with people carrying AAK forward. Join us on an exciting journey.',
                          didYouKnow: 'At AAK, sustainable development is fundamental to our business. Social and environmental responsibility, hand in hand with financial growth, is key to our continued development and future success. This is what we mean by sustainable growth.',
@@ -139,7 +141,7 @@ const studentList = [ {  key: '1',
                          twitterUrl: '',
                          youTubeUrl: ''
                        },
-                       { key: '2',
+                       { key: '22',
                          name: 'Gjert Olofmeister',
                          about: 'Our goal is simple. We want to be your first choice for value-adding vegetable oil solutions. Regardless if you are a customer, employee, or supplier. AAK has employees in more than 25 countries. We have 20 production facilities and customization plants across the world and a global procurement and sales organization. Organic growth, investments in production facilities, and selective acquisitions are expanding that global presence. AAK strives to be an attractive employer with a high-performance organization with people carrying AAK forward. Join us on an exciting journey.',
                          didYouKnow: 'At AAK, sustainable development is fundamental to our business. Social and environmental responsibility, hand in hand with financial growth, is key to our continued development and future success. This is what we mean by sustainable growth.',
@@ -172,7 +174,7 @@ const studentList = [ {  key: '1',
                          twitterUrl: '',
                          youTubeUrl: ''
                        },
-                       { key: '2',
+                       { key: '23',
                          name: 'Clas Olofmeister',
                          about: 'Our goal is simple. We want to be your first choice for value-adding vegetable oil solutions. Regardless if you are a customer, employee, or supplier. AAK has employees in more than 25 countries. We have 20 production facilities and customization plants across the world and a global procurement and sales organization. Organic growth, investments in production facilities, and selective acquisitions are expanding that global presence. AAK strives to be an attractive employer with a high-performance organization with people carrying AAK forward. Join us on an exciting journey.',
                          didYouKnow: 'At AAK, sustainable development is fundamental to our business. Social and environmental responsibility, hand in hand with financial growth, is key to our continued development and future success. This is what we mean by sustainable growth.',
@@ -205,7 +207,7 @@ const studentList = [ {  key: '1',
                          twitterUrl: '',
                          youTubeUrl: ''
                        },
-                       { key: '2',
+                       { key: '24',
                          name: 'Björn Olofmeister',
                          about: 'Our goal is simple. We want to be your first choice for value-adding vegetable oil solutions. Regardless if you are a customer, employee, or supplier. AAK has employees in more than 25 countries. We have 20 production facilities and customization plants across the world and a global procurement and sales organization. Organic growth, investments in production facilities, and selective acquisitions are expanding that global presence. AAK strives to be an attractive employer with a high-performance organization with people carrying AAK forward. Join us on an exciting journey.',
                          didYouKnow: 'At AAK, sustainable development is fundamental to our business. Social and environmental responsibility, hand in hand with financial growth, is key to our continued development and future success. This is what we mean by sustainable growth.',
@@ -238,7 +240,7 @@ const studentList = [ {  key: '1',
                          twitterUrl: '',
                          youTubeUrl: ''
                        },
-                       { key: '2',
+                       { key: '25',
                          name: 'Artur Olofmeister',
                          about: 'Our goal is simple. We want to be your first choice for value-adding vegetable oil solutions. Regardless if you are a customer, employee, or supplier. AAK has employees in more than 25 countries. We have 20 production facilities and customization plants across the world and a global procurement and sales organization. Organic growth, investments in production facilities, and selective acquisitions are expanding that global presence. AAK strives to be an attractive employer with a high-performance organization with people carrying AAK forward. Join us on an exciting journey.',
                          didYouKnow: 'At AAK, sustainable development is fundamental to our business. Social and environmental responsibility, hand in hand with financial growth, is key to our continued development and future success. This is what we mean by sustainable growth.',
@@ -271,7 +273,7 @@ const studentList = [ {  key: '1',
                          twitterUrl: '',
                          youTubeUrl: ''
                        },
-                       { key: '2',
+                       { key: '26',
                          name: 'Kjell Olofmeister',
                          about: 'Our goal is simple. We want to be your first choice for value-adding vegetable oil solutions. Regardless if you are a customer, employee, or supplier. AAK has employees in more than 25 countries. We have 20 production facilities and customization plants across the world and a global procurement and sales organization. Organic growth, investments in production facilities, and selective acquisitions are expanding that global presence. AAK strives to be an attractive employer with a high-performance organization with people carrying AAK forward. Join us on an exciting journey.',
                          didYouKnow: 'At AAK, sustainable development is fundamental to our business. Social and environmental responsibility, hand in hand with financial growth, is key to our continued development and future success. This is what we mean by sustainable growth.',
@@ -403,12 +405,45 @@ const styles = {
     fontSize: 14,
     color: global.arkadBlue,
     marginBottom: 8
-  }
+  },
+  modalText: {
+    fontSize: 16,
+    color: '#fff'
+  },
+  cardImage: {
+    top: 0,
+    right: 0,
+    width: 125,
+    height: 125,
+  },
+  button: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    backgroundColor: global.arkadBlue,
+    borderRadius: 8,
+  },
+  helpContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    height:'100%',
+    width:'100%',
+  },
+  helpView: {
+    height:'90%',
+    width:'90%',
+    backgroundColor: '#fff',
+    borderRadius:10
+  },
+  text: {
+    fontSize: 16,
+    color: '#fff'
+  },
 }
 
 
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
-        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, headerRightView } = styles
+        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, headerRightView, modalText, cardImage, button, helpView, helpContainer, text } = styles
 
 class ProfileLoginScreen extends Component {
   constructor(props){
@@ -420,7 +455,10 @@ class ProfileLoginScreen extends Component {
       isLoading: false,
       createAccount: false,
       logedIn: false,
-      showModal: false,
+      showRemoveModal: false,
+      showCreateAccountModal: false,
+      showHelpModal: false,
+      student: false,
     }
   }
 
@@ -428,6 +466,16 @@ class ProfileLoginScreen extends Component {
     this.props.navigation.setParams({
         header: null,
     })
+    {this.props.typeLogedin == "student"
+      ? (this.setState({
+          student: true
+        })
+      )
+      : (this.setState({
+          student: false
+        })
+      )
+    }
   }
 
   handlePress() {
@@ -436,38 +484,56 @@ class ProfileLoginScreen extends Component {
   }
 
   async login() {
-    await this.props.loadLogin(this.state.username, this.state.password, "student")
+    await this.props.loadLogin(this.state.username, this.state.password, "")
     this.checkLoginIn()
   }
 
   checkLoginIn() {
-    if (this.props.typeLogedin == "") {
-      this.props.navigation.navigate('StudentLogin', studentList[0])
-      this.setState({
-        isLoading: false
+    if (this.props.typeLogedin == 'student') {
+      this.props.navigation.setParams({
+          header: undefined,
+          headerRight: (
+            <LogoutButton navigation={this.props.navigation} />
+          )
       })
     } else {
-      this.props.navigation.navigate('CompanyLogin')
-      this.setState({
-        isLoading: false
-      })
-      this.setState({
-        username:'',
-        password:'',
-        logedIn: this.props.logedIn,
-        isLoading: false,
+      this.props.navigation.setParams({
+          header: undefined,
+          headerRight: (
+            <View style={{flex: 1, flexDirection: 'row'}}>
+              <TouchableOpacity style={button} onPress={() => this.toggleHelpModal()}>
+                <Text style={text}>Help</Text>
+              </TouchableOpacity>
+              <LogoutButton navigation={this.props.navigation} />
+            </View>
+          )
       })
     }
+    this.setState({
+      isLoading: false,
+      username:'',
+      password:'',
+      logedIn: this.props.logedIn,
+      isLoading: false,
+    })
   }
 
-  toggleModal() {
-    this.setState({ showModal: !this.state.showModal });
+  toggleCreateAccountModal() {
+    this.setState({ showCreateAccountModal: !this.state.showCreateAccountModal });
+  }
+
+  toggleRemoveModal() {
+    this.setState({ showRemoveModal: !this.state.showRemoveModal });
+  }
+
+  toggleHelpModal() {
+    this.setState({ showHelpModal: !this.state.showHelpModal });
   }
 
   createAccountView() {
     return(
       <View>
-        <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
+        <Modal onBackdropPress={() => this.setState({ showCreateAccountModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showCreateAccountModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
           <View style={createAccountContainer}>
             <View style={createAccountView}>
               <View style={{marginVertical: 20, marginHorizontal: 20}}>
@@ -509,7 +575,7 @@ class ProfileLoginScreen extends Component {
           marginBottom:20}}>
                 <View style={{width:'40%'}}>
                   <Button title='Close'
-                          onPress={() => this.toggleModal()}
+                          onPress={() => this.toggleCreateAccountModal()}
                           showIcon={false}
                   />
                 </View>
@@ -552,7 +618,7 @@ class ProfileLoginScreen extends Component {
                   loading={this.state.isLoading}
           />
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <TouchableOpacity style={{width:'35%'}} onPress={() => this.toggleModal()}>
+            <TouchableOpacity style={{width:'35%'}} onPress={() => this.toggleCreateAccountModal()}>
               <Text style={h2}>
                 Need an account?
               </Text>
@@ -571,10 +637,92 @@ class ProfileLoginScreen extends Component {
     )
   }
 
+  gotoFAQ() {
+    this.toggleModal()
+    this.props.navigation.navigate('Faq')
+  }
+
+  helpView() {
+    return(
+      <View>
+        <Modal onBackdropPress={() => this.setState({ showHelpModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showHelpModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
+          <View style={helpContainer}>
+            <View style={helpView}>
+            <ScrollView >
+              <View style={{marginVertical: 20, marginHorizontal: 20}}>
+                <View style={{justifyContent: 'center',
+                alignItems: 'center', marginBottom:20}}>
+                  <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
+                    Need help?
+                  </Text>
+                </View>
+                <View>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Scanning system
+                  </Text>
+                  <Text style={createAccountText} >
+                    <Text>Want to learn how the scanning system works? You can find the manual at {"\n"}</Text>
+                    <Text style={{fontWeight:'bold'}} onPress={() => Linking.openURL('https://www.arkadtlth.se/scan')}> www.arkadtlth.se/scan</Text>
+                    <Text>.</Text>
+                  </Text>
+                </View>
+                <View style={{marginTop: 15}}>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Company Host
+                  </Text>
+                  <Text style={createAccountText}>
+                  Need to get in touch with your company host? Below are the contact details
+                  </Text>
+                  <Text style={createAccountText}>Name {"\n"}Phone {"\n"}Email </Text>
+                  <Text style={createAccountText}>
+                  If you need help during the fair and can't reach your host, contact your closest Infodesk.
+                  </Text>
+                </View>
+                <View style={{marginTop: 15, marginBottom:50}}>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Other questions
+                  </Text>
+                  <Text style={createAccountText}>
+                    <Text>Check out our FAQ </Text>
+                    <Text style={{fontWeight:'bold'}} onPress={() => this.gotoFAQ()}> here</Text>
+                  </Text>
+                </View>
+              </View>
+              <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                bottom:0,
+              position: 'absolute',
+            width:'100%',
+          marginBottom:20}}>
+                <View style={{width:'40%'}}>
+                  <Button title='Close'
+                          onPress={() => this.toggleHelpModal()}
+                          showIcon={false}
+                  />
+                </View>
+              </View>
+              </ScrollView>
+            </View>
+          </View>
+        </Modal>
+      </View>
+    )
+  }
+
+  loadHome() {
+    if (this.props.typeLogedin == 'student') {
+      return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.typeLogedin}/>
+    } else {
+      return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.state.isLoding} />
+    }
+  }
+
   render() {
     return(
       <View>
-        { this.loginView() }
+        { !this.props.logedIn ? this.loginView() : this.loadHome()}
+        { this.helpView() }
       </View>
     )
   }
