@@ -710,36 +710,6 @@ class ProfileLoginScreen extends Component {
     )
   }
 
-  // removeView() {
-  //   return(
-  //     <View>
-  //       <Modal onBackdropPress={() => this.setState({ showRemoveModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showRemoveModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '20%'}}>
-  //         <View style={{ borderRadius: 8, backgroundColor: '#fff', flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-  //           <View style={{flex: 3, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-  //             <Text>Are you sure you want to remove this student?</Text>
-  //           </View>
-  //           <View style={{flex: 6, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-  //             <Image
-  //               style={cardImage}
-  //               source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
-  //             />
-  //           </View>
-  //           <View style={{flex: 2, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
-  //             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-  //               <RemoveButton navigation={this.props.navigation} />
-  //             </View>
-  //             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-  //               <TouchableOpacity style={button} onPress={() => this.toggleRemoveModal()}>
-  //                 <Text style={modalText}>Close</Text>
-  //               </TouchableOpacity>
-  //             </View>
-  //           </View>
-  //         </View>
-  //       </Modal>
-  //     </View>
-  //   )
-  // }
-
   loadHome() {
     if (this.props.typeLogedin == 'student') {
       return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.typeLogedin}/>
