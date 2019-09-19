@@ -129,7 +129,7 @@ android {
         applicationId "com.arkad_app_2018"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 5
+        versionCode 16
         versionName "1.1"
         ndk {
             abiFilters "armeabi-v7a", "x86"
