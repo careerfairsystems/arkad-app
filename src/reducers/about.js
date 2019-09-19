@@ -17,56 +17,56 @@ const initialState = {
           key: '0',
           name: 'Nicolas Munke Cilano',
           role: 'Project Manager',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require(`../../resources/img/arkadTeam/default.png`),
           linkedInUrl: 'https://www.linkedin.com/in/nicolas-munke-cilano/'
         },
         {
           key: '1',
           name: 'Daniel Tovesson',
           role: 'Head of IT',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Daniel_Tovesson.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/danieltovesson/'
         },
         {
           key: '2',
           name: 'Madeleine Arkenius',
           role: 'Head of Marketing and Communication',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Madeleine_Arkenius.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/madeleine-arkenius-60a34117a/'
         },
         {
           key: '3',
           name: 'Martin Andersson-Plyming',
           role: 'Head of Fair and Logistics',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Martin_Andersson-Plyming.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/mvap/'
         },
         {
           key: '4',
           name: 'Matilda Holmberg',
           role: 'Head of Gasque and Event',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Matilda_Holmberg.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/matilda-holmberg-a595a217a/'
         },
         {
           key: '5',
           name: 'Filippa Melin',
           role: 'Art Director',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Filippa_Melin.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/filippa-melin-b2673713b/'
         },
         {
           key: '6',
           name: 'Max Granvik',
           role: 'Business Manager',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Max_Granvik.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/max-granvik-44159370/'
         },
         {
           key: '7',
           name: 'Yusuf Qasem',
           role: 'Business Manager',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Yusuf_Qasem.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/yusuf-qasem-15a17315b/'
         },
         {
@@ -80,49 +80,49 @@ const initialState = {
           key: '9',
           name: 'Alexander Mjöberg',
           role: 'External Systems Manager',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Alexander_Mjöberg.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/alexander-mj%C3%B6berg/'
         },
         {
           key: '10',
           name: 'Emma Sandin',
           role: 'Gasque Manager',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Emma_Sandin.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/emma-sandin-8213a6188/'
         },
         {
           key: '11',
           name: 'Johan Ternerot',
           role: 'Information Manager',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Johan_Ternerot.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/johan-ternerot-852102183/'
         },
         {
           key: '12',
           name: 'Viktor Claesson',
           role: 'Internal Systems Manager',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Viktor_Claesson.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/viktor-claesson-26a666129/'
         },
         {
           key: '13',
           name: 'Martin Olsson',
           role: 'Premises Manager',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Martin_Olsson.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/martin-olsson-/'
         },
         {
           key: '14',
           name: 'Milda Grikainyte',
           role: 'Premises Manager',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Milda_Grikainyte.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/milda-grikainyte-3624a5141/'
         },
         {
           key: '15',
           name: 'Johan Ravnborg',
           role: 'Recruitment Manager',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Johan_Ravnborg.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/johan-ravnborg-69267617b/'
         },
         {
@@ -148,7 +148,7 @@ const initialState = {
           key: '1',
           name: 'Fritjof Bengtsson',
           role: 'IT Developer',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Fritjof_Bengtsson.jpg'),
           linkedInUrl: 'https://www.linkedin.com/in/fritjofbengtsson/'
         },
         {

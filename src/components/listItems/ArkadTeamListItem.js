@@ -19,6 +19,8 @@ const styles = {
   subtitle: { flex: 1, fontSize: 14, color: global.subtitleColor }
 }
 
+
+
 const {
   image, infoContainer, title, subtitle
 } = styles
