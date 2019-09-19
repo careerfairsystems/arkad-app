@@ -62,7 +62,7 @@ const navigationOptions = {
 const ArkadIcon = createIconSetFromFontello(fontelloConfig)
 
 const MainStack = createBottomTabNavigator(
-  
+
   {
     Events: {
       screen: createStackNavigator(
@@ -234,6 +234,7 @@ const MainStack = createBottomTabNavigator(
     }
   },
   {
+    initialRouteName: 'Companies',
     navigationOptions: ({ navigation }) => ({
       tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'CameraScreen' ? false : true,
       // Disable unnecessary eslint warning
