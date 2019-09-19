@@ -482,8 +482,8 @@ class ProfileLoginScreen extends Component {
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Student
                   </Text>
-                  <HrefButton buttonText='Sign up here' buttonLink='http://google.com'>
-                  </HrefButton>
+                  <Button title='Sign up here' onPress={() => Linking.openURL('TODO')}>
+                  </Button>
                 </View>
                 <View style={{marginTop: 30}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>

@@ -12,8 +12,8 @@ const styles = {
   },
   button: {
     flexDirection: 'row',
-//    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     width: '100%'
   },
   text: {
@@ -25,13 +25,13 @@ const styles = {
 const { container, button, text } = styles
 const HrefButton = ({buttonText, buttonLink}) => {
   return (
-    <View style={button}>
-      <TouchableOpacity style={container} onPress={() => Linking.openURL(buttonLink)}>
+    <TouchableOpacity style={container} onPress={() => Linking.openURL(buttonLink)}>
+      <View style={button}>
         <Text style={text}>
           {buttonText}
         </Text>
-      </TouchableOpacity>
-    </View>
+      </View>
+    </TouchableOpacity>
   )
 }
 

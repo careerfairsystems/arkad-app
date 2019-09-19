@@ -522,11 +522,8 @@ class StudentList extends Component {
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Scanning system
                   </Text>
-                  <Text style={createAccountText} >
-                    <Text>Want to learn how the scanning system works? You can find the manual at {"\n"}</Text>
-                    <Text style={{fontWeight:'bold'}} onPress={() => Linking.openURL('https://www.arkadtlth.se/scan')}> www.arkadtlth.se/scan</Text>
-                    <Text>.</Text>
-                  </Text>
+                  <Text style={createAccountText}>Want to learn how the scanning system works? You can find the manual at {"\n"}</Text>
+                  <Button title='www.arkadtlth.se/scan' onPress={() => Linking.openURL('www.arkadtlth.se/scan')}></Button>
                 </View>
                 <View style={{marginTop: 15}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
@@ -544,10 +541,7 @@ class StudentList extends Component {
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Other questions
                   </Text>
-                  <Text style={createAccountText}>
-                    <Text>Check out our FAQ </Text>
-                    <Text style={{fontWeight:'bold'}} onPress={() => this.gotoFAQ()}> here</Text>
-                  </Text>
+                  <Button title='Check out our FAQ' onPress={() => this.gotoFAQ()}></Button>
                 </View>
               </View>
               <View style={{
