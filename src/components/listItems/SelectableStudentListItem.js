@@ -23,6 +23,16 @@ const styles = {
 
 const { image, viewLeft, viewRight } = styles
 
+const starRating = (
+  <StarRating
+    fullStarColor={'#fab700'}
+    disabled={false}
+    maxStars={5}
+    rating={3.5}
+    starSize={12}
+  />
+)
+
 const SelectableStudentListItem = ({ children, navigation, item, userType }) => (
   <TouchableHighlight
     underlayColor={global.rowSelectionColor}
@@ -34,14 +44,12 @@ const SelectableStudentListItem = ({ children, navigation, item, userType }) => 
           <Image style={image} source={require('../../../resources/img/arkadTeam/IMG_3798.jpg')} />
         </View>
         {children}
+
         <View style={viewRight}>
-          <StarRating
-            fullStarColor={'#fab700'}
-            disabled={false}
-            maxStars={5}
-            rating={3.5}
-            starSize={12}
-          />
+          { userType == 'DetailCompany'
+            ? null
+            : starRating
+          }
           <SelectStudentButton navigation={navigation} item={item} userType={userType}/>
         </View>
       </HighListItem>
