@@ -281,7 +281,8 @@ class StudentCard extends Component {
       : (this.props.navigation.setParams({
           headerRight: (
             <TouchableOpacity style={button} onPress={() => this.toggleModal()}>
-              <Text style={text}>Remove</Text>
+              <Icon style ={headerIcon} name='trash' size={21} color='#fff'/>
+              <Text style={buttonText}>Remove</Text>
             </TouchableOpacity>
           )
       }))

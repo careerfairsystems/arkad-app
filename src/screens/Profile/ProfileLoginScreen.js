@@ -4,10 +4,12 @@ import PropTypes from 'prop-types'
 import Modal from "react-native-modal"
 import Button from '../../components/Button'
 import LogoutButton from '../../containers/LogoutButton'
+import HrefButton from '../../components/HrefButton'
 import StudentListItem from '../../components/listItems/StudentListItem'
 import StudentCard from '../../containers/StudentCardContainer'
 import StudentList from '../../containers/StudentListContainer'
 import RemoveButton from '../../containers/RemoveButton'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 
 const studentList = [ {  key: '1',
@@ -418,9 +420,12 @@ const styles = {
   },
   button: {
     paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: global.arkadBlue,
-    borderRadius: 8,
+    paddingVertical: 8
+  },
+  buttonText: {
+    right: 0,
+    fontSize: 12,
+    color: global.arkadGray
   },
   helpContainer: {
     justifyContent: 'center',
@@ -439,10 +444,14 @@ const styles = {
     fontSize: 16,
     color: '#fff'
   },
+  headerIcon: {
+  paddingHorizontal: 7,
+  alignItems: 'center'
+  },
 }
 
 
-const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
+const { header, buttonText, headerIcon, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
         welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, headerRightView, modalText, cardImage, button, helpView, helpContainer, text } = styles
 
 class ProfileLoginScreen extends Component {
@@ -502,7 +511,8 @@ class ProfileLoginScreen extends Component {
           headerRight: (
             <View style={{flex: 1, flexDirection: 'row'}}>
               <TouchableOpacity style={button} onPress={() => this.toggleHelpModal()}>
-                <Text style={text}>Help</Text>
+                <Icon style={headerIcon} name='question' size={21} color='#fff'/>
+                <Text style={buttonText}>Help</Text>
               </TouchableOpacity>
               <LogoutButton navigation={this.props.navigation} />
             </View>
@@ -547,11 +557,8 @@ class ProfileLoginScreen extends Component {
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Student
                   </Text>
-                  <Text style={createAccountText} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
-                    <Text>Sign up</Text>
-                    <Text style={{fontWeight:'bold'}}> here</Text>
-                    <Text>.</Text>
-                  </Text>
+                  <HrefButton buttonText='Sign up here' buttonLink='https://arkad-nexpo.herokuapp.com/signup'>
+                  </HrefButton>
                 </View>
                 <View style={{marginTop: 30}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
