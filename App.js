@@ -1,5 +1,5 @@
-import React from 'react'
-import { StatusBar } from 'react-native'
+import React, { Fragment } from 'react'
+import { StatusBar, SafeAreaView } from 'react-native'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
@@ -15,11 +15,16 @@ const persistor = persistStore(store)
 
 const App = () => (
   <Provider store={store}>
-    <PersistGate loading={<LoadingView />} persistor={persistor}>
-      <AppStateHandlerContainer />
-      <StatusBar barStyle="light-content" />
-      <Router />
-    </PersistGate>
+    <Fragment>
+      <SafeAreaView style={{ flex:0, backgroundColor: global.arkadBlue }} forceInset={{'top': 'never'}}/>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }} forceInset={{'top': 'never'}}>
+        <PersistGate loading={<LoadingView />} persistor={persistor}>
+          <AppStateHandlerContainer />
+          <StatusBar barStyle="light-content" />
+          <Router />
+        </PersistGate>
+      </SafeAreaView>
+    </Fragment>
   </Provider>
 )
 

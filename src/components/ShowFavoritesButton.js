@@ -1,13 +1,29 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import './../../global'
 
 const notFavIcon = <Icon name="heart-o" size={21} color="#fff" />
 const favIcon = <Icon name="heart" size={21} color="#fff" />
 
 const styles = {
-  headerIcon: { paddingHorizontal: 14 }
+  favoriteView: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  buttonText: {
+    fontSize: 12,
+    right: 0,
+    color: global.arkadGray
+  },
+  headerIcon: {
+    alignItems: 'center'
+  },
 }
 
 const ShowFavoritesButton = ({
@@ -16,18 +32,21 @@ const ShowFavoritesButton = ({
   searchCompany,
   clearCompanyFilter
 }) => (
-  <TouchableOpacity
-    style={styles.headerIcon}
-    onPress={() => {
-      if (!showFavorites) {
-        searchCompany('')
-        clearCompanyFilter()
-      }
-      toggleShowFavorites()
-    }}
-  >
-    {showFavorites ? favIcon : notFavIcon}
-  </TouchableOpacity>
+  <View style={styles.favoriteView}>
+    <TouchableOpacity
+      style={styles.headerIcon}
+      onPress={() => {
+        if (!showFavorites) {
+          searchCompany('')
+          clearCompanyFilter()
+        }
+        toggleShowFavorites()
+      }}
+    >
+      {showFavorites ? favIcon : notFavIcon}
+      <Text style={styles.buttonText}>Favorites</Text>
+    </TouchableOpacity>
+  </View>
 )
 
 ShowFavoritesButton.propTypes = {

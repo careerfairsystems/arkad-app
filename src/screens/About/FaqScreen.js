@@ -37,8 +37,8 @@ const styles = {
     borderBottomWidth: 1,
     borderColor: global.separatorColor
   },
-  questionText: { fontSize: 14, fontWeight: 'bold' },
-  answerText: { fontSize: 12 },
+  questionText: { fontSize: 16, fontWeight: 'bold' },
+  answerText: { fontSize: 14 },
   urlText: { color: global.arkadBlue }
 }
 

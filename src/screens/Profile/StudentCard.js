@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, Keyboard, Image, SectionList, RefreshControl, Dimensions } from 'react-native'
 import PropTypes from 'prop-types'
 import Button from '../../components/Button'
 import ActionSheet from 'react-native-actionsheet'
@@ -11,6 +11,8 @@ import StarRating from 'react-native-star-rating'
 import LogoutButton from '../../containers/LogoutButton'
 import RemoveButton from '../../containers/RemoveButton'
 import LinkedInButton from '../../components/LinkedInButton'
+import StudentListItem from '../../components/listItems/StudentListItem'
+import SectionHeader from '../../components/SectionHeader'
 
 
 const style = {
@@ -31,7 +33,6 @@ const style = {
     width: '90%',
     backgroundColor: '#fff',
     flex: 1,
-
     borderRadius: 8,
     margin: "5%",
     shadowColor: "#000",
@@ -116,6 +117,143 @@ const style = {
   }
 }
 
+const studentCompanyList = [ { key: '1010146733143312',
+                                  name: '3Shape',
+                                  about: '3Shape creates 3D scanning and CAD/CAM software solutions - award winning technology that enables healthcare professionals to treat more people, more effectively and with improved care. We use and create the latest technology, and always push to do things smarter. \n\nWe’re constantly on the lookout for talented developers who thrive on daily challenges. We believe that the best results are achieved by empowering the people closest to the action. Our agile teams employ the market’s state-of-the-art components, sensors and tools to create real-time 3D solutions for treatment and manufacturing.',
+                                  didYouKnow: 'Two students founded 3Shape in 2000: One was an engineering student the other one a business student. Together, natural born entrepreneurs. Today, we are more than 1,500 employees, and many live in Sweden and commute to our headquarters in central Copenhagen daily.',
+                                  employees: { local: '', global: '1100' },
+                                  weOffer:
+                                   [ 'Thesis',
+                                     'Part-time job',
+                                     'Internships',
+                                     'Foreign Opportunities' ],
+                                  desiredProgramme:
+                                   [ 'Computer Science and Engineering',
+                                     'Electrical Engineering',
+                                     'Mechanical Engineering' ],
+                                  desiredDegree:
+                                   [ 'Bachelor’s degree (180 ECTS)',
+                                     'Master’s degree (300 ECTS)',
+                                     'Ph.D' ],
+                                  industry: [ 'Data and IT', 'Medical Techniques' ],
+                                  contact:
+                                   { name: 'Kirsti Sørensen',
+                                     title: 'Employer branding consultant',
+                                     email: 'kirsti.soerensen@3shape.com',
+                                     phone: '+4528553480' },
+                                  map: 'E-huset',
+                                  boothNumber: 134,
+                                  logotypeUrl: 'https://storage.googleapis.com/jexpo-arkad/1010400914427800_large_000.png',
+                                  brochureUrl: 'http://storage.googleapis.com/jexpo-arkad/1010451420069389.pdf',
+                                  websiteUrl: 'http://www.3shape.com/careers',
+                                  linkedInUrl: '',
+                                  facebookUrl: '',
+                                  twitterUrl: 'https://twitter.com/3Shape',
+                                  youTubeUrl: '' } ,
+                                 { key: '1010146733143312',
+                                    name: '3Shape',
+                                    about: '3Shape creates 3D scanning and CAD/CAM software solutions - award winning technology that enables healthcare professionals to treat more people, more effectively and with improved care. We use and create the latest technology, and always push to do things smarter. \n\nWe’re constantly on the lookout for talented developers who thrive on daily challenges. We believe that the best results are achieved by empowering the people closest to the action. Our agile teams employ the market’s state-of-the-art components, sensors and tools to create real-time 3D solutions for treatment and manufacturing.',
+                                    didYouKnow: 'Two students founded 3Shape in 2000: One was an engineering student the other one a business student. Together, natural born entrepreneurs. Today, we are more than 1,500 employees, and many live in Sweden and commute to our headquarters in central Copenhagen daily.',
+                                    employees: { local: '', global: '1100' },
+                                    weOffer:
+                                     [ 'Thesis',
+                                       'Part-time job',
+                                       'Internships',
+                                       'Foreign Opportunities' ],
+                                    desiredProgramme:
+                                     [ 'Computer Science and Engineering',
+                                       'Electrical Engineering',
+                                       'Mechanical Engineering' ],
+                                    desiredDegree:
+                                     [ 'Bachelor’s degree (180 ECTS)',
+                                       'Master’s degree (300 ECTS)',
+                                       'Ph.D' ],
+                                    industry: [ 'Data and IT', 'Medical Techniques' ],
+                                    contact:
+                                     { name: 'Kirsti Sørensen',
+                                       title: 'Employer branding consultant',
+                                       email: 'kirsti.soerensen@3shape.com',
+                                       phone: '+4528553480' },
+                                    map: 'E-huset',
+                                    boothNumber: 134,
+                                    logotypeUrl: 'https://storage.googleapis.com/jexpo-arkad/1010400914427800_large_000.png',
+                                    brochureUrl: 'http://storage.googleapis.com/jexpo-arkad/1010451420069389.pdf',
+                                    websiteUrl: 'http://www.3shape.com/careers',
+                                    linkedInUrl: '',
+                                    facebookUrl: '',
+                                    twitterUrl: 'https://twitter.com/3Shape',
+                                    youTubeUrl: ''
+                                  },
+                                  {
+                                    key: '1010146733143312',
+                                     name: '3Shape',
+                                     about: '3Shape creates 3D scanning and CAD/CAM software solutions - award winning technology that enables healthcare professionals to treat more people, more effectively and with improved care. We use and create the latest technology, and always push to do things smarter. \n\nWe’re constantly on the lookout for talented developers who thrive on daily challenges. We believe that the best results are achieved by empowering the people closest to the action. Our agile teams employ the market’s state-of-the-art components, sensors and tools to create real-time 3D solutions for treatment and manufacturing.',
+                                     didYouKnow: 'Two students founded 3Shape in 2000: One was an engineering student the other one a business student. Together, natural born entrepreneurs. Today, we are more than 1,500 employees, and many live in Sweden and commute to our headquarters in central Copenhagen daily.',
+                                     employees: { local: '', global: '1100' },
+                                     weOffer:
+                                      [ 'Thesis',
+                                        'Part-time job',
+                                        'Internships',
+                                        'Foreign Opportunities' ],
+                                     desiredProgramme:
+                                      [ 'Computer Science and Engineering',
+                                        'Electrical Engineering',
+                                        'Mechanical Engineering' ],
+                                     desiredDegree:
+                                      [ 'Bachelor’s degree (180 ECTS)',
+                                        'Master’s degree (300 ECTS)',
+                                        'Ph.D' ],
+                                     industry: [ 'Data and IT', 'Medical Techniques' ],
+                                     contact:
+                                      { name: 'Kirsti Sørensen',
+                                        title: 'Employer branding consultant',
+                                        email: 'kirsti.soerensen@3shape.com',
+                                        phone: '+4528553480' },
+                                     map: 'E-huset',
+                                     boothNumber: 134,
+                                     logotypeUrl: 'https://storage.googleapis.com/jexpo-arkad/1010400914427800_large_000.png',
+                                     brochureUrl: 'http://storage.googleapis.com/jexpo-arkad/1010451420069389.pdf',
+                                     websiteUrl: 'http://www.3shape.com/careers',
+                                     linkedInUrl: '',
+                                     facebookUrl: '',
+                                     twitterUrl: 'https://twitter.com/3Shape',
+                                     youTubeUrl: '' },
+                                     { key: '1010146733143312',
+                                        name: '3Shape',
+                                        about: '3Shape creates 3D scanning and CAD/CAM software solutions - award winning technology that enables healthcare professionals to treat more people, more effectively and with improved care. We use and create the latest technology, and always push to do things smarter. \n\nWe’re constantly on the lookout for talented developers who thrive on daily challenges. We believe that the best results are achieved by empowering the people closest to the action. Our agile teams employ the market’s state-of-the-art components, sensors and tools to create real-time 3D solutions for treatment and manufacturing.',
+                                        didYouKnow: 'Two students founded 3Shape in 2000: One was an engineering student the other one a business student. Together, natural born entrepreneurs. Today, we are more than 1,500 employees, and many live in Sweden and commute to our headquarters in central Copenhagen daily.',
+                                        employees: { local: '', global: '1100' },
+                                        weOffer:
+                                         [ 'Thesis',
+                                           'Part-time job',
+                                           'Internships',
+                                           'Foreign Opportunities' ],
+                                        desiredProgramme:
+                                         [ 'Computer Science and Engineering',
+                                           'Electrical Engineering',
+                                           'Mechanical Engineering' ],
+                                        desiredDegree:
+                                         [ 'Bachelor’s degree (180 ECTS)',
+                                           'Master’s degree (300 ECTS)',
+                                           'Ph.D' ],
+                                        industry: [ 'Data and IT', 'Medical Techniques' ],
+                                        contact:
+                                         { name: 'Kirsti Sørensen',
+                                           title: 'Employer branding consultant',
+                                           email: 'kirsti.soerensen@3shape.com',
+                                           phone: '+4528553480' },
+                                        map: 'E-huset',
+                                        boothNumber: 134,
+                                        logotypeUrl: 'https://storage.googleapis.com/jexpo-arkad/1010400914427800_large_000.png',
+                                        brochureUrl: 'http://storage.googleapis.com/jexpo-arkad/1010451420069389.pdf',
+                                        websiteUrl: 'http://www.3shape.com/careers',
+                                        linkedInUrl: '',
+                                        facebookUrl: '',
+                                        twitterUrl: 'https://twitter.com/3Shape',
+                                        youTubeUrl: '' },
+                                      ]
+
+
 const { container, flipCard, flipCardFront, flipCardBack, qrText, button, text, filterView, headerIcon, buttonText, cardImage, profileText, modalText } = style
 
 class StudentCard extends Component {
@@ -134,13 +272,7 @@ class StudentCard extends Component {
   componentDidMount() {
     {this.props.typeLogedin == "student"
       ? (this.props.navigation.setParams({
-          headerLeft: (
-            <View style={filterView}>
-              <TouchableOpacity onPress={() => this.setState({flip: !this.state.flip})}>
-                <Icon style={headerIcon} name='qrcode' size={20} color='#fff' />
-                <Text style={buttonText}>QRcode</Text>
-              </TouchableOpacity>
-            </View>),
+          headerLeft: (null),
           headerRight: (
             <LogoutButton navigation={this.props.navigation} />
           )
@@ -178,6 +310,22 @@ class StudentCard extends Component {
   }
 
   studentLogin() {
+    var test = Dimensions.get('window').width
+    if (studentCompanyList.length === 0) {
+      sections = [{ title: '', data: [] }]
+    } else {
+      sections = studentCompanyList.reduce((a, b) => {
+        const item = a
+        const firstLetter = b.name[0].toUpperCase()
+        if (item[firstLetter]) {
+          item[firstLetter].push(b)
+        } else {
+          item[firstLetter] = [b]
+        }
+        return item
+      }, {})
+      sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
+    }
     return(
         <FlipCard
         style={[flipCard, {width:"100%"}]}
@@ -188,7 +336,7 @@ class StudentCard extends Component {
         clickable={this.state.student}>
           {/* Face Side */}
           <View style={flipCardFront}>
-            <View style={{flex: 3, flexDirection: 'row', width: '100%'}}>
+            <View style={{flex: 4, flexDirection: 'row', width: '100%'}}>
               <View style={{flex: 1, alignItems: 'center', width: '100%', justifyContent: 'center'}}>
                 <Image
                   style={cardImage}
@@ -213,12 +361,25 @@ class StudentCard extends Component {
                 </Text>
               </View>
             </View>
-            <View style={{flex: 4, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{flex: 1, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
               <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
                 <TouchableOpacity onPress={() => openUrl(url)}>
                   <Icon name="address-card" size={25} color="#000" />
                 </TouchableOpacity>
               </View>
+            </View>
+            <View style={{flex: 5, width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: global.arkadGray}}>
+              <View style={{height: '12%', alignItems: 'center', justifyContent: 'center'}}>
+                <Text>
+                Your scanned companies
+                </Text>
+              </View>
+              <SectionList
+                style={{width: test * .9}}
+                renderItem={({ item, index, section }) => <StudentListItem navigation={this.props.navigation} student={item} userType="DetailCompany"/>}
+                sections={sections}
+                onScrollBeginDrag={() => Keyboard.dismiss()}
+              />
             </View>
           </View>
           {/* Back Side */}

@@ -3,6 +3,7 @@ import { TouchableHighlight, View, Image, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import HighListItem from './HighListItem'
 import SelectStudentButton from '../SelectStudentButton'
+import StarRating from 'react-native-star-rating'
 
 const styles = {
   image: {
@@ -16,15 +17,16 @@ const styles = {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-end',
+    alignItems: 'center',
   }
 }
 
 const { image, viewLeft, viewRight } = styles
 
-const SelectableStudentListItem = ({ children, navigation, item }) => (
+const SelectableStudentListItem = ({ children, navigation, item, userType }) => (
   <TouchableHighlight
     underlayColor={global.rowSelectionColor}
-    onPress={() => navigation.navigate('Detail', { item })}
+    onPress={() => navigation.navigate(userType, { item })}
   >
     <View>
       <HighListItem>
@@ -33,7 +35,14 @@ const SelectableStudentListItem = ({ children, navigation, item }) => (
         </View>
         {children}
         <View style={viewRight}>
-          <SelectStudentButton navigation={navigation}/>
+          <StarRating
+            fullStarColor={'#fab700'}
+            disabled={false}
+            maxStars={5}
+            rating={3.5}
+            starSize={12}
+          />
+          <SelectStudentButton navigation={navigation} item={item} userType={userType}/>
         </View>
       </HighListItem>
     </View>
