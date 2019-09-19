@@ -62,7 +62,31 @@ const navigationOptions = {
 const ArkadIcon = createIconSetFromFontello(fontelloConfig)
 
 const MainStack = createBottomTabNavigator(
+  
   {
+    Events: {
+      screen: createStackNavigator(
+        {
+          EventStack: {
+            screen: EventsScreenContainer,
+            navigationOptions: {
+              ...navigationOptions,
+              title: 'Events'
+            }
+          },
+          Detail: {
+            screen: EventDetailsScreen,
+            navigationOptions: ({ navigation }) => ({
+              ...navigationOptions,
+              title: navigation.state.params.item.name
+            })
+          }
+        },
+        {
+          cardStyle: { backgroundColor: global.arkadGray }
+        }
+      )
+    },
     Map: {
       screen: createStackNavigator(
         {
@@ -121,29 +145,6 @@ const MainStack = createBottomTabNavigator(
           },
           Detail: {
             screen: CompanyDetailsScreenContainer,
-            navigationOptions: ({ navigation }) => ({
-              ...navigationOptions,
-              title: navigation.state.params.item.name
-            })
-          }
-        },
-        {
-          cardStyle: { backgroundColor: global.arkadGray }
-        }
-      )
-    },
-    Events: {
-      screen: createStackNavigator(
-        {
-          EventStack: {
-            screen: EventsScreenContainer,
-            navigationOptions: {
-              ...navigationOptions,
-              title: 'Events'
-            }
-          },
-          Detail: {
-            screen: EventDetailsScreen,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
               title: navigation.state.params.item.name
