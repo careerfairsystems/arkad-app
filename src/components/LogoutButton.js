@@ -5,7 +5,6 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 const styles = {
   button: { paddingHorizontal: 16, paddingVertical: 8 },
-  text: { fontSize: 16, color: '#fff' },
   headerIcon: {
     paddingHorizontal: 14,
     alignItems: 'center'
@@ -26,7 +25,7 @@ function logout(navigation, loadLogout) {
   });
 }
 
-const { button, text, headerIcon, buttonText } = styles
+const { button, headerIcon, buttonText } = styles
 const LogoutButton = ({ navigation, loadLogout }) => (
   <TouchableOpacity style={button} onPress={() => logout(navigation, loadLogout)}>
     <Icon style={headerIcon} name='sign-out' size={21} color='#fff' />

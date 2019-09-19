@@ -6,7 +6,7 @@ import LogoutButton from '../../containers/LogoutButton'
 import CameraButton from '../../components/CameraButton'
 import Modal from "react-native-modal"
 import Button from '../../components/Button'
-
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 const studentList = [ {  key: '1',
                          name: 'Arvid Pilhall',
@@ -405,15 +405,22 @@ const styles = {
    color: global.arkadBlue,
    marginBottom: 8
   },
-  button: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: global.arkadBlue,
-    borderRadius: 8,
+  button: { 
+    paddingHorizontal: 16, 
+    paddingVertical: 8 
+  },
+  buttonText: {
+    right: 0,
+    fontSize: 12,
+    color: global.arkadGray
   },
   text: {
     fontSize: 16,
     color: '#fff'
+  },
+  headerIcon: {
+    paddingHorizontal: 7,
+    alignItems: 'center'
   },
   helpContainer: {
     justifyContent: 'center',
@@ -430,7 +437,7 @@ const styles = {
   }
 }
 
-const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
+const { header, buttonText, headerIcon, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
         welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
 class StudentList extends Component {
@@ -452,7 +459,8 @@ class StudentList extends Component {
         headerRight: (
           <View style={{flex: 1, flexDirection: 'row'}}>
             <TouchableOpacity style={button} onPress={() => this.toggleModal()}>
-              <Text style={text}>Help</Text>
+              <Icon style={headerIcon} name='question' size={21} color='#fff'/>
+              <Text style={buttonText}>Help</Text>
             </TouchableOpacity>
             <LogoutButton navigation={this.props.navigation} />
           </View>
