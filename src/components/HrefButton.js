@@ -12,7 +12,7 @@ const styles = {
   },
   button: {
     flexDirection: 'row',
-//    justifyContent: 'center',
+    justifyContent: 'center',
     alignItems: 'center',
     width: '100%'
   },
