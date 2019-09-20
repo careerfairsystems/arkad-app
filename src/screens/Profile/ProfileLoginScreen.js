@@ -557,8 +557,8 @@ class ProfileLoginScreen extends Component {
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Student
                   </Text>
-                  <HrefButton buttonText='Sign up here' buttonLink='https://arkad-nexpo.herokuapp.com/signup'>
-                  </HrefButton>
+                  <Button title='Sign up here' onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
+                  </Button>
                 </View>
                 <View style={{marginTop: 30}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
@@ -566,11 +566,17 @@ class ProfileLoginScreen extends Component {
                   </Text>
                   <Text style={createAccountText}>
                     Check if any of your co-workers has been invited,
-                    if so they can invite you. If none of your co-workers
-                    has been invited email it.arkad@box.tlth.se.
-                    More info on
-                    www.arkadtlthe.se/scan
-                  </Text>
+                    if so they can invite you. The way this should work is described on
+                    </Text>
+                    <View style={{marginBottom: 15}}>
+                    <HrefButton buttonLink='www.arkadtlth.se/scan' buttonText='www.arkadtlth.se/scan' ></HrefButton>
+                    </View>
+                    <Text style={createAccountText}>
+                    If none of your co-workers has been invited email
+                    </Text>
+                    <View style={{marginBottom: 15}}>
+                    <HrefButton buttonLink='mailto:external_it.arkad@tlth.se' buttonText='external_it.arkad@tlth.se'></HrefButton>
+                    </View>
                 </View>
               </View>
               <View style={{
@@ -668,10 +674,9 @@ class ProfileLoginScreen extends Component {
                     Scanning system
                   </Text>
                   <Text style={createAccountText} >
-                    <Text>Want to learn how the scanning system works? You can find the manual at {"\n"}</Text>
-                    <Text style={{fontWeight:'bold'}} onPress={() => Linking.openURL('https://www.arkadtlth.se/scan')}> www.arkadtlth.se/scan</Text>
-                    <Text>.</Text>
+                    <Text>Want to learn how the scanning system works? You can find the manual at</Text>
                   </Text>
+                  <Button title='www.arkadtlth.se/scan' onPress={() => Linking.openURL('www.arkadtlth.se/scan')}></Button>
                 </View>
                 <View style={{marginTop: 15}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
@@ -685,14 +690,11 @@ class ProfileLoginScreen extends Component {
                   If you need help during the fair and can't reach your host, contact your closest Infodesk.
                   </Text>
                 </View>
-                <View style={{marginTop: 15, marginBottom:50}}>
+                <View style={{marginTop: 15, marginBottom:60}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Other questions
                   </Text>
-                  <Text style={createAccountText}>
-                    <Text>Check out our FAQ </Text>
-                    <Text style={{fontWeight:'bold'}} onPress={() => this.gotoFAQ()}> here</Text>
-                  </Text>
+                  <Button title='Goto FAQ' onPress={() => this.gotoFAQ()}></Button>
                 </View>
               </View>
               <View style={{
