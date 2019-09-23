@@ -351,7 +351,7 @@ const styles = {
    borderTopColor: '#000',
    backgroundColor: 'rgba(0, 43, 100, 0.2)',
    borderRadius: 8,
-   marginTop: 30,
+   marginTop: 10,
    marginBottom: 10,
    paddingLeft: 10
   },
@@ -611,6 +611,7 @@ class ProfileLoginScreen extends Component {
               style={image}
               source={require('../../../resources/img/arkad_logo.png')}
             />
+            <Text style={{fontStyle: 'italic', marginTop: 20, fontSize: 22 }}> Scanning System </Text>
           </View>
           <TextInput
             underlineColorAndroid={'transparent'}
@@ -652,7 +653,7 @@ class ProfileLoginScreen extends Component {
   }
 
   gotoFAQ() {
-    this.toggleModal()
+    this.toggleHelpModal()
     this.props.navigation.navigate('Faq')
   }
 
@@ -706,7 +707,7 @@ class ProfileLoginScreen extends Component {
             width:'100%',
           marginBottom:20}}>
                 <View style={{width:'40%'}}>
-                  <CloseButton 
+                  <CloseButton
                           title='Close'
                           onPress={() => this.toggleHelpModal()}
                           showIcon={false}
