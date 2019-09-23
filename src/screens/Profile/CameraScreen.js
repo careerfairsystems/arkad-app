@@ -15,7 +15,7 @@ class CameraScreen extends Component {
 render() {
   return( <CameraKitCameraScreen
   scanBarcode={true}
-  laserColor={"blue"}
+  laserColor={"transparent"}
   frameColor={"yellow"}
 
   //onReadQRCode={((event) => this.props.navigation.navigate('Friends')) } //optional
