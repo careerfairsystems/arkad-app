@@ -5,6 +5,7 @@ import Modal from "react-native-modal"
 import Button from '../../components/Button'
 import LogoutButton from '../../containers/LogoutButton'
 import HrefButton from '../../components/HrefButton'
+import CloseButton from '../../components/CloseButton'
 import StudentListItem from '../../components/listItems/StudentListItem'
 import StudentCard from '../../containers/StudentCardContainer'
 import StudentList from '../../containers/StudentListContainer'
@@ -566,16 +567,16 @@ class ProfileLoginScreen extends Component {
                   </Text>
                   <Text style={createAccountText}>
                     Check if any of your co-workers has been invited,
-                    if so they can invite you. The way this should work is described on
+                    if so they can invite you. The way this should work is described on our support page.
                     </Text>
                     <View style={{marginBottom: 15}}>
-                    <HrefButton buttonLink='www.arkadtlth.se/scan' buttonText='www.arkadtlth.se/scan' ></HrefButton>
+                    <CloseButton onPress={() => Linking.openURL('www.arkadtlth.se/scan')} title='Support Page' />
                     </View>
                     <Text style={createAccountText}>
-                    If none of your co-workers has been invited email
+                    If none of your co-workers has been invited email our support.
                     </Text>
                     <View style={{marginBottom: 15}}>
-                    <HrefButton buttonLink='mailto:external_it.arkad@tlth.se' buttonText='external_it.arkad@tlth.se'></HrefButton>
+                    <CloseButton onPress={() => Linking.openURL('mailto:external_it.arkad@tlth.se')} title='Support Email'/>
                     </View>
                 </View>
               </View>
@@ -587,7 +588,7 @@ class ProfileLoginScreen extends Component {
             width:'100%',
           marginBottom:20}}>
                 <View style={{width:'40%'}}>
-                  <Button title='Close'
+                  <CloseButton title='Close'
                           onPress={() => this.toggleCreateAccountModal()}
                           showIcon={false}
                   />
@@ -674,16 +675,16 @@ class ProfileLoginScreen extends Component {
                     Scanning system
                   </Text>
                   <Text style={createAccountText} >
-                    <Text>Want to learn how the scanning system works? You can find the manual at</Text>
+                    <Text>Want to learn how the scanning system works? You can find the manual on our support page.</Text>
                   </Text>
-                  <Button title='www.arkadtlth.se/scan' onPress={() => Linking.openURL('www.arkadtlth.se/scan')}></Button>
+                  <Button title='Support Page' onPress={() => Linking.openURL('www.arkadtlth.se/scan')}></Button>
                 </View>
                 <View style={{marginTop: 15}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Company Host
                   </Text>
                   <Text style={createAccountText}>
-                  Need to get in touch with your company host? Below are the contact details
+                  Need to get in touch with your company host? Below are the contact details.
                   </Text>
                   <Text style={createAccountText}>Name {"\n"}Phone {"\n"}Email </Text>
                   <Text style={createAccountText}>
@@ -694,7 +695,7 @@ class ProfileLoginScreen extends Component {
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Other questions
                   </Text>
-                  <Button title='Goto FAQ' onPress={() => this.gotoFAQ()}></Button>
+                  <Button title='FAQ' onPress={() => this.gotoFAQ()}></Button>
                 </View>
               </View>
               <View style={{
@@ -705,7 +706,8 @@ class ProfileLoginScreen extends Component {
             width:'100%',
           marginBottom:20}}>
                 <View style={{width:'40%'}}>
-                  <Button title='Close'
+                  <CloseButton 
+                          title='Close'
                           onPress={() => this.toggleHelpModal()}
                           showIcon={false}
                   />
