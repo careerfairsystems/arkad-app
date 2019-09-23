@@ -96,10 +96,11 @@ const fetchLoginRequest = () => ({
   type: types.FETCH_LOGIN_REQUEST
 })
 
-const fetchLoginSuccess = (typeLogedin) => ({
+const fetchLoginSuccess = (typeLogedin, jwt) => ({
   type: types.FETCH_LOGIN_SUCCESS,
   logedIn: true,
-  typeLogedin: typeLogedin
+  typeLogedin: typeLogedin,
+  jwt: jwt,
 })
 
 const fetchLoginFailure = error => ({
@@ -132,7 +133,7 @@ export const loadLogin = (username, password, type) => (dispatch) => {
     })
     .then((responseJson) => {
       if (responseJson) {
-        dispatch(fetchLoginSuccess(type))
+        dispatch(fetchLoginSuccess(type, responseJson.data.jwt))
       }
     })
     .catch((error) => {
