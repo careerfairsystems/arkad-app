@@ -15,6 +15,7 @@ const initialState = {
   blips: [],
   studentInfo: [],
   companyRepresentatives: [],
+  jwt: "",
 }
 
 const stringCleaner = string => (string ? string.toString().trim() : '')
@@ -373,6 +374,7 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_LOGIN_REQUEST:
       return {
         ...state,
+        jwt: "",
         logedIn: false,
         loading: true,
         error: ''
@@ -381,6 +383,7 @@ const apiReducer = (state = initialState, action) => {
       return {
         ...state,
         typeLogedin: action.typeLogedin,
+        jwt: action.jwt,
         logedIn: true,
         loading: false,
         updated: Math.floor(Date.now() / 1000)
@@ -522,6 +525,8 @@ const apiReducer = (state = initialState, action) => {
     case types.LOGOUT:
       return {
         ...state,
+        jwt: "",
+        typeLogedin: "",
         logedIn: false,
         loading: false,
         updated: Math.floor(Date.now() / 1000)
