@@ -13,7 +13,14 @@ class CameraScreen extends Component {
 
 
 render() {
-  return( <CameraKitCameraScreen
+  
+  return( 
+  [<View style={{position:'absolute', left:'0%', top:'10%', width:'100%', zIndex:10000, alignItems:'center', textAlign:'center', justifyContent:'center'}}>
+    <Text style={{marginHorizontal:'15%', alignItems:'center', textAlign:'center', justifyContent:'center', color:'#fff', fontSize:16}}>Scan a students QR-code to add them to you companies list of students.</Text>
+    <Text style={{marginHorizontal:'15%', alignItems:'center', textAlign:'center', justifyContent:'center', color:'#D3D3D3', fontSize:14}}>The QR-code is located on the back of the students flipcard on their profile.</Text>
+  </View>,
+  <CameraKitCameraScreen
+  style={{position:'absolute', zIndex:1}}
   scanBarcode={true}
   laserColor={"transparent"}
   frameColor={"yellow"}
@@ -25,7 +32,7 @@ render() {
   offsetForScannerFrame = {10}   //(default 30) optional, offset from left and right side of the screen
   heightForScannerFrame = {300}  //(default 200) optional, change height of the scanner frame
   colorForScannerFrame = {'red'} //(default white) optional, change colot of the scanner frame
-  />
+  />]
 )
 }
 
