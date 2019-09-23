@@ -6,6 +6,8 @@ import LogoutButton from '../containers/LogoutButton'
 import CameraButton from './CameraButton'
 import Modal from "react-native-modal"
 import Button from './Button'
+import ParallaxScrollView from 'react-native-parallax-scroll-view'
+
 
 const styles = {
   listContainer: {
@@ -152,17 +154,29 @@ const StudentList = ({ studentList, navigation }) => {
   }
   return(
     <View style={listContainer}>
-      <View style={welcomeContainer}>
-        <Text style={welcomeText}>
-          Välkommen Axis!
-        </Text>
-      </View>
-      <SectionList
-        style={{width:'100%'}}
-        renderItem={({ item, index, section }) => <StudentListItem navigation={navigation} student={item} userType="DetailStudent"/>}
-        sections={sections}
-        onScrollBeginDrag={() => Keyboard.dismiss()}
-      />
+      <ParallaxScrollView
+        backgroundColor="#fff"
+        contentBackgroundColor="#fff"
+        parallaxHeaderHeight={140}
+        backgroundSpeed={10}
+        renderBackground={() => (
+              <View style={{alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%'}}>
+                <View style={{height: '100%', width: '100%', backgroundColor: 'rgba(60, 60, 60, .8)', position: 'absolute', top: 0, left: 0, zIndex: 100}}></View>
+                <Image style={{height: '100%', width: '100%', zIndex: 1}} source={require('../../resources/img/companyLogos/uniper.jpg')} />
+              </View>
+            )}
+        renderForeground={() => (
+         <View style={{ height: 300, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text style={{color: '#fff', fontSize: 50}}>Welcome!</Text>
+          </View>
+        )}>
+        <SectionList
+          style={{width:'100%'}}
+          renderItem={({ item, index, section }) => <StudentListItem navigation={navigation} student={item} userType="DetailStudent"/>}
+          sections={sections}
+          onScrollBeginDrag={() => Keyboard.dismiss()}
+        />
+      </ParallaxScrollView>
       <CameraButton navigation={navigation} />
     </View>
   )
