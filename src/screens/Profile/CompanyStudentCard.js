@@ -103,6 +103,7 @@ const style = {
     right: 0,
     width: 125,
     height: 125,
+    borderRadius: 25
   },
   profileText: {
     top: 0,
@@ -262,7 +263,7 @@ class StudentCard extends Component {
     super(props)
     this.state = {
       flip: false,
-      starCount: 3,
+      starCount: 4,
       isLoading: false,
       student: false,
       showModal: false,
@@ -324,7 +325,7 @@ class StudentCard extends Component {
               <View style={{flex: 1, alignItems: 'center', width: '100%', justifyContent: 'center'}}>
                 <Image
                   style={cardImage}
-                  source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
+                  source={require('../../../resources/img/arkadTeam/IMG_3798.jpg')}
                 />
               </View>
               <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight: '5%'}}>
@@ -351,7 +352,7 @@ class StudentCard extends Component {
                   <LinkedInButton url={"https://www.google.com"} />
                 </View>
                 <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
-                  <TouchableOpacity onPress={() => openUrl(url)}>
+                  <TouchableOpacity onPress={() => openUrl(www.arkadtlth.se)}>
                     <Icon name="address-card" size={25} color="#000" />
                   </TouchableOpacity>
                 </View>
@@ -412,7 +413,7 @@ class StudentCard extends Component {
             <View style={{flex: 6, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
               <Image
                 style={cardImage}
-                source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
+                source={require('../../../resources/img/arkadTeam/IMG_3798.jpg')}
               />
             </View>
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>

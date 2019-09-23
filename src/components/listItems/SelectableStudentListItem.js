@@ -28,7 +28,7 @@ const starRating = (
     fullStarColor={'#fab700'}
     disabled={false}
     maxStars={5}
-    rating={3.5}
+    rating={4}
     starSize={12}
   />
 )
