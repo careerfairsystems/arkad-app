@@ -547,9 +547,10 @@ class ProfileLoginScreen extends Component {
         <Modal onBackdropPress={() => this.setState({ showCreateAccountModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showCreateAccountModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
           <View style={createAccountContainer}>
             <View style={createAccountView}>
+              <ScrollView>
               <View style={{marginVertical: 20, marginHorizontal: 20}}>
                 <View style={{justifyContent: 'center',
-                alignItems: 'center', marginBottom:50}}>
+                alignItems: 'center', marginBottom:30}}>
                   <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
                     Need an account?
                   </Text>
@@ -567,16 +568,16 @@ class ProfileLoginScreen extends Component {
                   </Text>
                   <Text style={createAccountText}>
                     Check if any of your co-workers has been invited,
-                    if so they can invite you. The way this should work is described on our support page.
-                    </Text>
-                    <View style={{marginBottom: 15}}>
-                    <CloseButton onPress={() => Linking.openURL('www.arkadtlth.se/scan')} title='Support Page' />
+                    if so they can invite you. Check our support page to read more about how it works.
+                  </Text>
+                    <View style={{marginBottom: 20}}>
+                    <CloseButton onPress={() => Linking.openURL('www.arkadtlth.se/scan')} title='Go to Support Page' />
                     </View>
                     <Text style={createAccountText}>
                     If none of your co-workers has been invited email our support.
                     </Text>
-                    <View style={{marginBottom: 15}}>
-                    <CloseButton onPress={() => Linking.openURL('mailto:external_it.arkad@tlth.se')} title='Support Email'/>
+                    <View style={{marginBottom: 10}}>
+                    <CloseButton onPress={() => Linking.openURL('mailto:external_it.arkad@tlth.se')} title='Send Email to Support'/>
                     </View>
                 </View>
               </View>
@@ -584,9 +585,9 @@ class ProfileLoginScreen extends Component {
                 justifyContent: 'center',
                 alignItems: 'center',
                 bottom:0,
-              position: 'absolute',
             width:'100%',
-          marginBottom:20}}>
+          marginBottom:20,
+        marginTop: 10}}>
                 <View style={{width:'40%'}}>
                   <CloseButton title='Close'
                           onPress={() => this.toggleCreateAccountModal()}
@@ -594,7 +595,9 @@ class ProfileLoginScreen extends Component {
                   />
                 </View>
               </View>
+              </ScrollView>
             </View>
+
           </View>
         </Modal>
       </View>
@@ -662,7 +665,7 @@ class ProfileLoginScreen extends Component {
         <Modal onBackdropPress={() => this.setState({ showHelpModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showHelpModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
           <View style={helpContainer}>
             <View style={helpView}>
-            <ScrollView >
+            <ScrollView>
               <View style={{marginVertical: 20, marginHorizontal: 20}}>
                 <View style={{justifyContent: 'center',
                 alignItems: 'center', marginBottom:20}}>
@@ -706,7 +709,7 @@ class ProfileLoginScreen extends Component {
             width:'100%',
           marginBottom:20}}>
                 <View style={{width:'40%'}}>
-                  <CloseButton 
+                  <CloseButton
                           title='Close'
                           onPress={() => this.toggleHelpModal()}
                           showIcon={false}
