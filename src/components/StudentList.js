@@ -161,13 +161,13 @@ const StudentList = ({ studentList, navigation }) => {
         backgroundSpeed={10}
         renderBackground={() => (
               <View style={{alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%'}}>
-                <View style={{height: '100%', width: '100%', backgroundColor: 'rgba(60, 60, 60, .8)', position: 'absolute', top: 0, left: 0, zIndex: 100}}></View>
+                <View style={{height: '100%', width: '100%', backgroundColor: 'rgba(60, 60, 60, .9)', position: 'absolute', top: 0, left: 0, zIndex: 100}}></View>
                 <Image style={{height: '100%', width: '100%', zIndex: 1}} source={require('../../resources/img/companyLogos/uniper.jpg')} />
               </View>
             )}
         renderForeground={() => (
          <View style={{ height: 300, flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{color: '#fff', fontSize: 50}}>Welcome!</Text>
+            <Text style={{color: '#fff', fontSize: 40}}>Scanned students</Text>
           </View>
         )}>
         <SectionList
