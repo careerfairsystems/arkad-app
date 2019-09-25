@@ -103,7 +103,7 @@ const style = {
     right: 0,
     width: 125,
     height: 125,
-    borderRadius: 25
+    borderRadius: 8
   },
   profileText: {
     top: 0,
