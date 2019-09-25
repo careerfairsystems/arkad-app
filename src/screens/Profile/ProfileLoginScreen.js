@@ -420,7 +420,7 @@ const styles = {
     height: 125,
   },
   button: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
     paddingVertical: 8
   },
   buttonText: {
@@ -494,7 +494,7 @@ class ProfileLoginScreen extends Component {
   }
 
   async login() {
-    await this.props.loadLogin(this.state.username, this.state.password, "")
+    await this.props.loadLogin(this.state.username, this.state.password, this.state.username)
     this.checkLoginIn()
   }
 
@@ -706,7 +706,7 @@ class ProfileLoginScreen extends Component {
             width:'100%',
           marginBottom:20}}>
                 <View style={{width:'40%'}}>
-                  <CloseButton 
+                  <CloseButton
                           title='Close'
                           onPress={() => this.toggleHelpModal()}
                           showIcon={false}

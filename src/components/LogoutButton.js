@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 const styles = {
   button: { paddingHorizontal: 16, paddingVertical: 8 },
   headerIcon: {
-  paddingHorizontal: 14,
+  paddingHorizontal: 8,
   alignItems: 'center'
   },
 buttonText: {
