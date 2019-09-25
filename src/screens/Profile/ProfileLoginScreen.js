@@ -452,7 +452,7 @@ const styles = {
   hostImage: {
     width: 60,
     height: 60,
-    borderRadius: 30,
+    borderRadius: 8,
     marginLeft: 5,
     marginRight: 20
   },
