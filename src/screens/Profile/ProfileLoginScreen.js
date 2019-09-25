@@ -351,7 +351,7 @@ const styles = {
    borderTopColor: '#000',
    backgroundColor: 'rgba(0, 43, 100, 0.2)',
    borderRadius: 8,
-   marginTop: 30,
+   marginTop: 10,
    marginBottom: 10,
    paddingLeft: 10
   },
@@ -407,7 +407,7 @@ const styles = {
   createAccountText: {
     fontSize: 14,
     color: global.arkadBlue,
-    marginBottom: 8
+    marginBottom: 6
   },
   modalText: {
     fontSize: 16,
@@ -449,11 +449,18 @@ const styles = {
   paddingHorizontal: 7,
   alignItems: 'center'
   },
+  hostImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 8,
+    marginLeft: 5,
+    marginRight: 20
+  },
 }
 
 
 const { header, buttonText, headerIcon, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
-        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, headerRightView, modalText, cardImage, button, helpView, helpContainer, text } = styles
+        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, headerRightView, modalText, cardImage, button, helpView, helpContainer, text, hostImage } = styles
 
 class ProfileLoginScreen extends Component {
   constructor(props){
@@ -561,7 +568,7 @@ class ProfileLoginScreen extends Component {
                   <Button title='Sign up here' onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/signup')}>
                   </Button>
                 </View>
-                <View style={{marginTop: 30}}>
+                <View style={{marginTop: 20}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Company
                   </Text>
@@ -611,6 +618,7 @@ class ProfileLoginScreen extends Component {
               style={image}
               source={require('../../../resources/img/arkad_logo.png')}
             />
+            <Text style={{fontStyle: 'italic', marginTop: 20, fontSize: 22 }}> Scanning System </Text>
           </View>
           <TextInput
             underlineColorAndroid={'transparent'}
@@ -652,7 +660,7 @@ class ProfileLoginScreen extends Component {
   }
 
   gotoFAQ() {
-    this.toggleModal()
+    this.toggleHelpModal()
     this.props.navigation.navigate('Faq')
   }
 
@@ -672,6 +680,24 @@ class ProfileLoginScreen extends Component {
                 </View>
                 <View>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Company Host
+                  </Text>
+                  <Text style={createAccountText}>
+                  Need to get in touch with your company host? Below are the contact details.
+                  </Text>
+                  <View style={{flexDirection: 'row', marginTop: 7, marginBottom: 7}}>
+                  <Image
+                    style={hostImage}
+                    source={require('../../../resources/img/arkadTeam/MartinHost.jpg')}
+                  />
+                  <Text style={createAccountText}>Martin Värd {"\n"}076 77 11 123 {"\n"}Martin@snus.se </Text>
+                  </View>
+                  <Text style={createAccountText}>
+                  If you need help during the fair and can't reach your host, contact your closest Infodesk.
+                  </Text>
+                </View>
+                <View>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Scanning system
                   </Text>
                   <Text style={createAccountText} >
@@ -679,19 +705,7 @@ class ProfileLoginScreen extends Component {
                   </Text>
                   <Button title='Support Page' onPress={() => Linking.openURL('www.arkadtlth.se/scan')}></Button>
                 </View>
-                <View style={{marginTop: 15}}>
-                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
-                    Company Host
-                  </Text>
-                  <Text style={createAccountText}>
-                  Need to get in touch with your company host? Below are the contact details.
-                  </Text>
-                  <Text style={createAccountText}>Name {"\n"}Phone {"\n"}Email </Text>
-                  <Text style={createAccountText}>
-                  If you need help during the fair and can't reach your host, contact your closest Infodesk.
-                  </Text>
-                </View>
-                <View style={{marginTop: 15, marginBottom:60}}>
+                <View style={{marginTop: 15, marginBottom:50}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Other questions
                   </Text>

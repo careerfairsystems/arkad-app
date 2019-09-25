@@ -77,22 +77,22 @@ function checkPermission(navigation) {
 }
 
 async function reqPermissions(navigation) {
-  Permissions.request('camera')
+  await Permissions.request('camera')
   navigation.navigate('CameraScreen')
 }
 
 function alertForPhotosPermission(navigation) {
   Alert.alert(
-    'Can we access your Camera?',
+    'Can we access your camera?',
     'We need access to scan student QR-Codes',
     [
       {
-        text: 'No way',
+        text: 'No',
         onPress: () => console.log('Permission denied'),
         style: 'cancel',
       },
       true
-        ? {text: 'OK', onPress: () => reqPermissions(navigation) }
+        ? {text: 'Yes', onPress: () => reqPermissions(navigation) }
         : {text: 'Open Settings', onPress: Permissions.openSettings},
     ],
   )
