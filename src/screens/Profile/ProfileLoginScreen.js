@@ -578,7 +578,7 @@ class ProfileLoginScreen extends Component {
                     if so they can invite you. Check our support page to read more about how it works.
                   </Text>
                     <View style={{marginBottom: 20}}>
-                    <CloseButton onPress={() => Linking.openURL('www.arkadtlth.se/scan')} title='Go to Support Page' />
+                    <CloseButton onPress={() => Linking.openURL('https://www.arkadtlth.se/scan/')} title='Go to Support Page' />
                     </View>
                     <Text style={createAccountText}>
                     If none of your co-workers has been invited email our support.
@@ -706,7 +706,7 @@ class ProfileLoginScreen extends Component {
                   <Text style={createAccountText} >
                     <Text>Want to learn how the scanning system works? You can find the manual on our support page.</Text>
                   </Text>
-                  <Button title='Go to Support Page' onPress={() => Linking.openURL('www.arkadtlth.se/scan')}></Button>
+                  <Button title='Go to Support Page' onPress={() => Linking.openURL('https://www.arkadtlth.se/scan/')}></Button>
                 </View>
                 <View style={{marginTop: 15, marginBottom:50}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
