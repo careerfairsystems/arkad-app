@@ -407,7 +407,7 @@ const styles = {
   createAccountText: {
     fontSize: 14,
     color: global.arkadBlue,
-    marginBottom: 6
+    marginBottom: 8
   },
   modalText: {
     fontSize: 16,
@@ -706,13 +706,13 @@ class ProfileLoginScreen extends Component {
                   <Text style={createAccountText} >
                     <Text>Want to learn how the scanning system works? You can find the manual on our support page.</Text>
                   </Text>
-                  <Button title='Support Page' onPress={() => Linking.openURL('www.arkadtlth.se/scan')}></Button>
+                  <Button title='Go to Support Page' onPress={() => Linking.openURL('www.arkadtlth.se/scan')}></Button>
                 </View>
                 <View style={{marginTop: 15, marginBottom:50}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Other questions
                   </Text>
-                  <Button title='FAQ' onPress={() => this.gotoFAQ()}></Button>
+                  <Button title='Go to FAQ' onPress={() => this.gotoFAQ()}></Button>
                 </View>
               </View>
               <View style={{
