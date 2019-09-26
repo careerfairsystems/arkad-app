@@ -278,7 +278,6 @@ function studentLogin(student, navigation) {
     }, {})
     sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
   }
-  console.log("//////////////////////////")
   return(
       <FlipCard
       style={[flipCard, {width:"100%"}]}
@@ -356,7 +355,7 @@ function studentLogin(student, navigation) {
   )
 }
 
-const StudentCard = ({student, navigation, typeLogedin, isLoading}) => (
+const StudentCard = ({student, navigation, typeLogedin, isLoading, flip}) => (
   <View style={{alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
     { studentLogin(student, navigation) }
   </View>

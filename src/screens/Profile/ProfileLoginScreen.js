@@ -476,6 +476,7 @@ class ProfileLoginScreen extends Component {
       showCreateAccountModal: false,
       showHelpModal: false,
       student: false,
+      firstTime: true,
     }
   }
 
@@ -501,7 +502,8 @@ class ProfileLoginScreen extends Component {
   }
 
   async login() {
-    await this.props.loadLogin(this.state.username, this.state.password, this.state.username)
+    // await this.props.loadLogin(this.state.username, this.state.password, this.state.username)
+    await this.props.loadLogin(this.state.username, this.state.password, "student")
     this.checkLoginIn()
   }
 
@@ -736,7 +738,29 @@ class ProfileLoginScreen extends Component {
   }
 
   loadHome() {
-    if (this.props.typeLogedin == 'student') {
+    if (this.props.typeLogedin == 'student' && this.props.firstTime) {
+      return ([<StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.typeLogedin}/>,
+          <View style={{borderRadius: 8, width: '90%', height: '46%', position: 'absolute', bottom: '50%', left: 0, backgroundColor: 'rgba(255, 0, 0, .7)', justifyContent: 'flex-end', alignItems: 'center', marginHorizontal: '5%', marginTop: '4%', zIndex: 1000}}></View>,
+              <View style={{width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, backgroundColor: 'rgba(0, 0, 0, .7)', justifyContent: 'flex-end', alignItems: 'center'}}>
+                <Text style={{color: '#fff', fontSize: 20, textAlign: 'center'}}>This is a flip card.</Text>
+                <Text style={{color: '#fff', fontSize: 20, textAlign: 'center', marginBottom: '25%', marginHorizontal: '5%'}}>Press anywhere on the top side of the card to find your QR-code!</Text>
+              </View>,
+              <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                bottom:0,
+              position: 'absolute',
+            width:'100%',
+          marginBottom:20}}>
+                <View style={{width:'60%'}}>
+                  <CloseButton
+                          title='Got it!'
+                          onPress={() => this.props.setFirstTime()}
+                          showIcon={false}
+                  />
+                </View>
+              </View>])
+    } else if (this.props.typeLogedin == 'student' && !this.props.firstTime){
       return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.typeLogedin}/>
     } else {
       return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.state.isLoding} />

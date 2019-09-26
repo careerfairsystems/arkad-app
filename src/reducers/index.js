@@ -8,11 +8,12 @@ import loginReducer from './company'
 import eventReducer from './event'
 import aboutReducer from './about'
 import favoriteReducer from './favorite'
+import firstTimeReducer from './firstTime'
 
 const rootPersistConfig = {
   key: 'root',
   storage,
-  whitelist: ['api', 'favoriteReducer']
+  whitelist: ['api', 'favoriteReducer', 'firstTimeReducer']
 }
 
 const apiPersistConfig = {
@@ -28,7 +29,8 @@ const rootReducer = combineReducers({
   loginReducer,
   eventReducer,
   aboutReducer,
-  favoriteReducer
+  favoriteReducer,
+  firstTimeReducer
 })
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
