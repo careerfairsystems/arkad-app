@@ -37,9 +37,9 @@ const styles = {
 }
 
 const { container, button, text } = styles
-const CameraButton = ({ navigation }) => (
+const CameraButton = ({ navigation, cameraPermissionGiven, setCameraPermission }) => (
   <View style={container}>
-    <TouchableOpacity style={button} onPress={() => alertForPhotosPermission(navigation) }>
+    <TouchableOpacity style={button} onPress={() => alertForPhotosPermission(navigation, cameraPermissionGiven, setCameraPermission)}>
       <Icon name="plus" size={30} color="#fff" />
     </TouchableOpacity>
   </View>
@@ -76,13 +76,16 @@ function checkPermission(navigation) {
 
 }
 
-async function reqPermissions(navigation) {
+async function reqPermissions(navigation, setCameraPermission) {
   await Permissions.request('camera')
+  setCameraPermission()
   navigation.navigate('CameraScreen')
 }
 
-function alertForPhotosPermission(navigation) {
-  Alert.alert(
+function alertForPhotosPermission(navigation, cameraPermissionGiven, setCameraPermission) {
+  {cameraPermissionGiven ?
+  navigation.navigate('CameraScreen')
+  :Alert.alert(
     'Can we access your camera?',
     'We need access to scan student QR-Codes',
     [
@@ -91,11 +94,10 @@ function alertForPhotosPermission(navigation) {
         onPress: () => console.log('Permission denied'),
         style: 'cancel',
       },
-      true
-        ? {text: 'Yes', onPress: () => reqPermissions(navigation) }
-        : {text: 'Open Settings', onPress: Permissions.openSettings},
+         {text: 'Yes', onPress: () => reqPermissions(navigation, setCameraPermission)}
     ],
   )
+  }
 }
 
 

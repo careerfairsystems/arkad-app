@@ -136,7 +136,7 @@ const styles = {
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
         welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
-const StudentList = ({ studentList, navigation }) => {
+const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission }) => {
   if (studentList.length === 0) {
     sections = [{ title: '', data: [] }]
   } else {
@@ -177,7 +177,7 @@ const StudentList = ({ studentList, navigation }) => {
           onScrollBeginDrag={() => Keyboard.dismiss()}
         />
       </ParallaxScrollView>
-      <CameraButton navigation={navigation} />
+      <CameraButton navigation={navigation} cameraPermissionGiven={cameraPermissionGiven} setCameraPermission={setCameraPermission} />
     </View>
   )
 }
