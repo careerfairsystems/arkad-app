@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-//import { Text, View } from 'react-native';
 import PropTypes from 'prop-types'
 import { CameraKitCameraScreen } from 'react-native-camera-kit';
-import {View, Text,  StyleSheet, PermissionsAndroid, Alert,Platform } from 'react-native';
+import {View, Text,  StyleSheet } from 'react-native';
 
 
 class CameraScreen extends Component {
@@ -13,8 +12,8 @@ class CameraScreen extends Component {
 
 
 render() {
-  
-  return( 
+
+  return(
   [<View style={{position:'absolute', left:'0%', top:'10%', width:'100%', zIndex:10000, alignItems:'center', textAlign:'center', justifyContent:'center'}}>
     <Text style={{marginHorizontal:'15%', alignItems:'center', textAlign:'center', justifyContent:'center', color:'#fff', fontSize:16}}>Scan a students QR-code to add them to you companies list of students.</Text>
     <Text style={{marginHorizontal:'15%', alignItems:'center', textAlign:'center', justifyContent:'center', color:'#D3D3D3', fontSize:14}}>The QR-code is located on the back of the students flipcard on their profile.</Text>
