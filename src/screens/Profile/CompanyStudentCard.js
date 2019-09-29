@@ -336,7 +336,7 @@ class StudentCard extends Component {
                   Computer Science
                 </Text>
                 <Text style={profileText}>
-                  Year: 4
+                  Graduation year: 2020
                 </Text>
                 <Text style={profileText}>
                   Master: Software Engineering
