@@ -9,6 +9,7 @@ import eventReducer from './event'
 import aboutReducer from './about'
 import favoriteReducer from './favorite'
 
+
 const rootPersistConfig = {
   key: 'root',
   storage,
@@ -28,7 +29,7 @@ const rootReducer = combineReducers({
   loginReducer,
   eventReducer,
   aboutReducer,
-  favoriteReducer
+  favoriteReducer,
 })
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer)
