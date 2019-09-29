@@ -474,9 +474,9 @@ class StudentCard extends Component {
       <View>
         <Modal onBackdropPress={() => this.setState({ showUnsavedModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showUnsavedModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '30%'}}>
           <View style={{ borderRadius: 8, backgroundColor: '#fff', flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-          <View style={{flex: 1, marginTop: 8, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style={{textAlign: 'center', marginBottom: 24, fontSize: 20, fontWeight: 'bold'}}>You have unsaved changes!</Text>
-            <Text style={{textAlign: 'center'}}>Are you sure you want to leave?</Text>
+          <View style={{flex: 1, marginTop: 8, justifyContent: 'center', alignItems: 'center', width: '80%'}}>
+            <Text style={{textAlign: 'center', marginBottom: 24, fontSize: 20, fontWeight: 'bold'}}>Unsaved changes</Text>
+            <Text style={{textAlign: 'center'}}>Are you sure you want to leave now? You need to click "save" to keep your changes.</Text>
           </View>
           <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
