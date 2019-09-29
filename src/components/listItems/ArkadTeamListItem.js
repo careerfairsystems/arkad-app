@@ -8,16 +8,16 @@ const styles = {
   image: {
     height: 60,
     width: 60,
-    marginRight: 8,
+    marginRight: 5,
     borderRadius: 30
   },
   infoContainer: { flexDirection: 'column', flex: 1 },
   title: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 15,
     marginTop: 8
   },
-  subtitle: { flex: 1, fontSize: 14, color: global.subtitleColor, marginBottom: 8 }
+  subtitle: { flex: 1, fontSize: 13, color: global.subtitleColor, marginBottom: 8 }
 }
 
 
