@@ -1,6 +1,6 @@
 import React from 'react'
 import { TouchableOpacity, Text, View } from 'react-native'
-import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
+import { createBottomTabNavigator, createStackNavigator, HeaderBackButton } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
 import fontelloConfig from '../selection.json'
@@ -165,7 +165,7 @@ const MainStack = createBottomTabNavigator(
               ...navigationOptions,
               title: 'Profile',
               header: navigation.state.params ? navigation.state.params.header : null,
-              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined
+              headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
             })
           },
           DetailStudent: {
@@ -174,6 +174,7 @@ const MainStack = createBottomTabNavigator(
               ...navigationOptions,
               title: navigation.state.params.item.name,
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
+              headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined,
             })
           },
           DetailCompany: {

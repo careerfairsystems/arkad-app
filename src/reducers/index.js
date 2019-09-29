@@ -10,6 +10,7 @@ import aboutReducer from './about'
 import favoriteReducer from './favorite'
 import cameraReducer from './camera'
 
+
 const rootPersistConfig = {
   key: 'root',
   storage,
