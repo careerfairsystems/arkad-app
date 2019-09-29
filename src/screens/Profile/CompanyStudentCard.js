@@ -13,6 +13,7 @@ import RemoveButton from '../../containers/RemoveButton'
 import LinkedInButton from '../../components/LinkedInButton'
 import StudentListItem from '../../components/listItems/StudentListItem'
 import SectionHeader from '../../components/SectionHeader'
+import { HeaderBackButton } from 'react-navigation'
 
 
 const style = {
@@ -267,10 +268,19 @@ class StudentCard extends Component {
       isLoading: false,
       student: false,
       showModal: false,
+      showUnsavedModal: false,
+      commentText: '',
+      hasChanged: false,
     }
   }
 
   componentDidMount() {
+    this.props.navigation.setParams({
+        headerLeft: (
+          <HeaderBackButton tintColor='#fff' onPress={() => this.customGoBack()} />
+        )
+    })
+
     {this.props.typeLogedin == "student"
       ? (this.props.navigation.setParams({
           headerLeft: (null),
@@ -300,14 +310,41 @@ class StudentCard extends Component {
     }
   }
 
+  customGoBack() {
+    {this.state.hasChanged
+      ? this.setState({
+        showUnsavedModal: true,
+      })
+      : this.props.navigation.goBack()}
+  }
+
   onStarRatingPress(rating) {
+    if (rating != this.state.starCount) {
+      this.setState({
+        hasChanged: true,
+      })
+    }
     this.setState({
-      starCount: rating
-    });
+      starCount: rating,
+    })
   }
 
   toggleModal() {
     this.setState({ showModal: !this.state.showModal });
+  }
+
+  toggleUnsavedModal() {
+    this.setState({ showUnsavedModal: !this.state.showUnsavedModal });
+  }
+
+  save() {
+    this.setState({
+      hasChanged: false
+    })
+  }
+
+  handleCommentText(text) {
+    this.setState({commentText: text, hasChanged: true})
   }
 
   companyLogin() {
@@ -369,8 +406,8 @@ class StudentCard extends Component {
               <View style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: '8%'}}>
                 <TextInput
                   style={{width: '100%', height: 60, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4}}
-                  onChangeText={(text) => this.setState({text})}
-                  value={this.state.text}
+                  onChangeText={(text) => this.handleCommentText(text)}
+                  value={this.state.commentText}
                   placeholder="Write your comment here..."
                   underlineColorAndroid="transparent"
                   multiline = {true}
@@ -378,7 +415,7 @@ class StudentCard extends Component {
               </View>
               <View style={{flex: 14, width: '100%', justifyContent: 'center'}}>
                 <Button title='Save'
-                        onPress={() => console.log("HJSAHEKSH")}
+                        onPress={() => this.save()}
                         loading={this.state.isLoading}
                 />
               </View>
@@ -433,11 +470,39 @@ class StudentCard extends Component {
     )
   }
 
+  unsavedModal() {
+    return(
+      <View>
+        <Modal onBackdropPress={() => this.setState({ showUnsavedModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showUnsavedModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '30%'}}>
+          <View style={{ borderRadius: 8, backgroundColor: '#fff', flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%'}}>
+          <View style={{flex: 1, marginTop: 8, justifyContent: 'center', alignItems: 'center', width: '80%'}}>
+            <Text style={{textAlign: 'center', marginBottom: 24, fontSize: 20, fontWeight: 'bold'}}>Unsaved changes</Text>
+            <Text style={{textAlign: 'center'}}>Are you sure you want to leave now? You need to click "save" to keep your changes.</Text>
+          </View>
+          <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+              <TouchableOpacity style={{marginHorizontal: 16, marginVertical: 8, justifyContent: 'center', alignItems: 'center', textAlign: 'center'}} onPress={() => this.props.navigation.goBack()}>
+                <Text style={{fontSize: 16, color: 'red'}}>Leave</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+              <TouchableOpacity style={button} onPress={() => this.toggleUnsavedModal()}>
+                <Text style={modalText}>Stay</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+          </View>
+        </Modal>
+      </View>
+    )
+  }
+
   render() {
     return(
       <View style={{alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
         { this.companyLogin() }
         { this.removeView() }
+        { this.unsavedModal() }
       </View>
     )
   }
