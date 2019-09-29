@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, TouchableOpacity, Text, StyleSheet, PermissionsAndroid, Alert,Platform } from 'react-native'
+import {View, TouchableOpacity, Text, StyleSheet, Alert } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Permissions from 'react-native-permissions'
@@ -37,52 +37,25 @@ const styles = {
 }
 
 const { container, button, text } = styles
-const CameraButton = ({ navigation }) => (
+const CameraButton = ({ navigation, cameraPermissionGiven, setCameraPermission }) => (
   <View style={container}>
-    <TouchableOpacity style={button} onPress={() => alertForPhotosPermission(navigation) }>
+    <TouchableOpacity style={button} onPress={() => alertForPhotosPermission(navigation, cameraPermissionGiven, setCameraPermission)}>
       <Icon name="plus" size={30} color="#fff" />
     </TouchableOpacity>
   </View>
 )
 
-//This is what happens after a student is scanned
-function checkPermission(navigation) {
-  async function requestCameraPermission() {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.CAMERA,{
-          'title': 'ARKAD Camera Permission',
-          'message': 'In order to Scan QR-codes the App needs access to your Camera. Click anywhere to continue '
-        }
-      )
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        //To Check, If Permission is granted
-        //alert("You can use the CAMERA");
-        navigation.navigate('CameraScreen');
-      } else {
-        alert("CAMERA permission denied");
-      }
-    } catch (err) {
-      alert("err",err);
-      console.warn(err)
-    }
-  }
-  if (Platform.OS === 'android') {
-      //Calling the permission function
-      requestCameraPermission();
-  }else{
-      alert('IOS device found');
-  }
 
-}
-
-async function reqPermissions(navigation) {
+async function reqPermissions(navigation, setCameraPermission) {
   await Permissions.request('camera')
+  setCameraPermission()
   navigation.navigate('CameraScreen')
 }
 
-function alertForPhotosPermission(navigation) {
-  Alert.alert(
+function alertForPhotosPermission(navigation, cameraPermissionGiven, setCameraPermission) {
+  {cameraPermissionGiven ?
+  navigation.navigate('CameraScreen')
+  :Alert.alert(
     'Can we access your camera?',
     'We need access to scan student QR-Codes',
     [
@@ -91,11 +64,10 @@ function alertForPhotosPermission(navigation) {
         onPress: () => console.log('Permission denied'),
         style: 'cancel',
       },
-      true
-        ? {text: 'Yes', onPress: () => reqPermissions(navigation) }
-        : {text: 'Open Settings', onPress: Permissions.openSettings},
+         {text: 'Yes', onPress: () => reqPermissions(navigation, setCameraPermission)}
     ],
   )
+  }
 }
 
 

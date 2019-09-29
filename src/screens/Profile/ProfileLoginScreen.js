@@ -742,7 +742,7 @@ class ProfileLoginScreen extends Component {
     if (this.props.typeLogedin == 'student') {
       return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.typeLogedin}/>
     } else {
-      return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.state.isLoding} />
+      return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.state.isLoding} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission} />
     }
   }
 
