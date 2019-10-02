@@ -527,23 +527,12 @@ const apiReducer = (state = initialState, action) => {
         ...state,
       }
     case types.FETCH_MY_INFO_SUCCESS:
-      Alert.alert(
-        action.myInfo,
-        'Success',
-        [
-          {text: 'OK'},
-        ],
-        {cancelable: true},
-      )
-    case types.FETCH_MY_INFO_FAILURE:
-      Alert.alert(
-        action.myInfo,
-        'Failure.',
-        [
-          {text: 'OK'},
-        ],
-        {cancelable: true},
-      )
+    console.log("/////////////F/F/F/F/")
+      console.log(action)
+      return {
+        ...state,
+        myInfo: action.myInfo,
+      }
     case types.LOGOUT:
       return {
         ...state,

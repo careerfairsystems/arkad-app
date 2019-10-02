@@ -403,5 +403,5 @@ export const getMyInfo = () => async (dispatch) => {
       }
     }
   )
-  .then(r => r.json()).then(console.log)
+  .then(r => r.json()).then((responseJson) => dispatch(fetchMyInfoSuccess(responseJson.data)))
 }

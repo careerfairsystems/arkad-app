@@ -739,6 +739,7 @@ class ProfileLoginScreen extends Component {
   }
 
   loadHome() {
+    console.log(this.props.myInfo)
     if (this.props.typeLogedin == 'student') {
       return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.typeLogedin}/>
     } else {
