@@ -522,6 +522,28 @@ const apiReducer = (state = initialState, action) => {
         loading: false,
         error: action.error
       }
+    case types.FETCH_MY_INFO_REQUEST:
+      return {
+        ...state,
+      }
+    case types.FETCH_MY_INFO_SUCCESS:
+      Alert.alert(
+        action.myInfo,
+        'Success',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      )
+    case types.FETCH_MY_INFO_FAILURE:
+      Alert.alert(
+        action.myInfo,
+        'Failure.',
+        [
+          {text: 'OK'},
+        ],
+        {cancelable: true},
+      )
     case types.LOGOUT:
       return {
         ...state,

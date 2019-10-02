@@ -1,6 +1,7 @@
 /* global fetch:false */
 import * as types from './types'
 import base64 from 'react-native-base64'
+import {AsyncStorage} from 'react-native'
 
 const fetchCompaniesRequest = () => ({
   type: types.FETCH_COMPANIES_REQUEST
@@ -16,7 +17,7 @@ const fetchCompaniesFailure = error => ({
   error
 })
 
-export const loadCompanies = () => (dispatch) => {
+export const loadCompanies = () => async (dispatch) => {
   dispatch(fetchCompaniesRequest())
   return fetch(
     'https://p18.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2019","status:ställer ut"]',
@@ -133,6 +134,7 @@ export const loadLogin = (username, password, type) => (dispatch) => {
     })
     .then((responseJson) => {
       if (responseJson) {
+        AsyncStorage.setItem('token', responseJson.data.jwt)
         dispatch(fetchLoginSuccess(type, responseJson.data.jwt))
       }
     })
@@ -369,4 +371,37 @@ export const getCompanyRepresentatives = () => (dispatch) => {
     .catch((error) => {
       dispatch(fetchCompanyRepresentativesFailure(error.message))
     })
+}
+
+
+const fetchMyInfoRequest = () => ({
+  type: types.FETCH_MY_INFO_REQUEST
+})
+
+const fetchMyInfoSuccess = (data) => ({
+  type: types.FETCH_MY_INFO_SUCCESS,
+  myInfo: data,
+})
+
+const fetchMyInfoFailure = error => ({
+  type: types.FETCH_MY_INFO_FAILURE,
+  error
+})
+
+export const getMyInfo = () => async (dispatch) => {
+  const token = await AsyncStorage.getItem('token')
+  console.log("&/////////")
+  console.log(token)
+  console.log("&/////////")
+  dispatch(fetchMyInfoRequest())
+  return fetch(
+    `https://arkad-nexpo.herokuapp.com/api/me`,
+    {
+      method: 'GET',
+      headers: {
+      'Authorization': 'Bearer ' + token
+      }
+    }
+  )
+  .then(r => r.json()).then(console.log)
 }

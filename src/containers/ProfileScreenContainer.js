@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { loadLogin } from '../actions/api'
+import { loadLogin, getMyInfo } from '../actions/api'
 import ProfileLoginScreen from '../screens/Profile/ProfileLoginScreen'
 import StudentList from '../components/StudentList'
 import setCameraPermission from '../actions/camera'
@@ -12,10 +12,11 @@ const mapStateToProps = state => ({
   typeLogedin: state.apiReducer.typeLogedin,
   jwt: state.apiReducer.jwt,
   cameraPermissionGiven: state.cameraReducer.cameraPermissionGiven,
+  myInfo: state.apiReducer.myInfo,
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ loadLogin, setCameraPermission }, dispatch)
+  return bindActionCreators({ loadLogin, setCameraPermission, getMyInfo }, dispatch)
 }
 
 export default connect(

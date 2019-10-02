@@ -643,7 +643,7 @@ class ProfileLoginScreen extends Component {
                   loading={this.state.isLoading}
           />
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <TouchableOpacity style={{width:'35%'}} onPress={() => this.toggleCreateAccountModal()}>
+            <TouchableOpacity style={{width:'35%'}} onPress={() => this.props.getMyInfo()}>
               <Text style={h2}>
                 Need an account?
               </Text>
