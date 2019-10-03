@@ -1,7 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
 import PropTypes from 'prop-types'
-import ApiLoadingViewContainer from '../../containers/ApiLoadingView'
 import OverviewMap from '../../containers/OverviewMap'
 
 const styles = {
@@ -15,7 +14,6 @@ const styles = {
 const { container } = styles
 const MapScreen = ({ navigation }) => (
   <View style={container}>
-    <ApiLoadingViewContainer />
     <OverviewMap navigation={navigation} />
   </View>
 )

@@ -234,7 +234,7 @@ const MainStack = createBottomTabNavigator(
     }
   },
   {
-    initialRouteName: 'Map',
+    initialRouteName: 'Companies',
     navigationOptions: ({ navigation }) => ({
       tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'CameraScreen' ? false : true,
       // Disable unnecessary eslint warning
