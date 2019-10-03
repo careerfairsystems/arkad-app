@@ -95,7 +95,7 @@ class CompanyDetailsScreen extends Component {
         <TextArraySection title="We offer" descriptionArray={company.weOffer.sort()} />
         <TextArraySection title="Desired programme" descriptionArray={[...new Set(company.desiredProgramme)].sort()} />
         <TextArraySection title="Desired degree" descriptionArray={company.desiredDegree.sort()} />
-        <TextArraySection title="Industry" descriptionArray={company.industry.sort()} />
+        <TextArraySection title="Industry" descriptionArray={[...new Set(company.industry)].sort()} />
 
         <TextSection title="Did you know?" description={company.didYouKnow} />
 
