@@ -203,10 +203,9 @@ const MainStack = createBottomTabNavigator(
         {
           AboutStack: {
             screen: AboutScreenContainer,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: () => ({
               ...navigationOptions,
-              title: 'About',
-              headerRight: <FaqButton navigation={navigation} />,
+              title: 'About'
             })
           },
           ArkadTeam: {
