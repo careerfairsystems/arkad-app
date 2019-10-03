@@ -21,15 +21,16 @@ const AboutScreen = ({
       }))}
     />
     <TextSection
-      title="The ARKAD organization"
-      description={aboutArkadTeam}
-      button={<Button title="The ARKAD team" onPress={() => navigation.navigate('ArkadTeam')} />}
-    />
-    <TextSection
       title="FAQ"
       description='If you have any unanswered questions try looking in our FAQ.'
       button={<Button title="FAQ" onPress={() => navigation.navigate('Faq')} />}
     />
+    <TextSection
+      title="The ARKAD organization"
+      description={aboutArkadTeam}
+      button={<Button title="The ARKAD team" onPress={() => navigation.navigate('ArkadTeam')} />}
+    />
+
   </DetailsScreen>
 )
 
