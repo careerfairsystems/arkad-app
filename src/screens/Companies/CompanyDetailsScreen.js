@@ -107,7 +107,7 @@ class CompanyDetailsScreen extends Component {
         <TextArraySection title="We offer" descriptionArray={company.weOffer} />
         <TextArraySection title="Desired programme" descriptionArray={[...new Set(company.desiredProgramme)]} />
         <TextArraySection title="Desired degree" descriptionArray={company.desiredDegree} />
-        <TextArraySection title="Industry" descriptionArray={company.industry} />
+        <TextArraySection title="Industry" descriptionArray={[...new Set(company.industry)]} />
 
         <TextSection title="Did you know?" description={company.didYouKnow} />
 
