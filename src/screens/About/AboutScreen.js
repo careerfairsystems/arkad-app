@@ -26,7 +26,7 @@ const AboutScreen = ({
       button={<Button title="The ARKAD team" onPress={() => navigation.navigate('ArkadTeam')} />}
     />
     <TextSection
-      title="Faq"
+      title="FAQ"
       description='If you have any unanswered questions try looking in our FAQ.'
       button={<Button title="FAQ" onPress={() => navigation.navigate('Faq')} />}
     />
