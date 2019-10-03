@@ -313,10 +313,25 @@ function studentLogin(student, navigation) {
               </Text>
             </View>
           </View>
-          <View style={{flex: 1, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+          <View style={{flex: 1.5, flexDirection: 'row', width: '80%', alignItems: 'center', justifyContent: 'center'}}>
             <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
               <TouchableOpacity onPress={() => openUrl(url)}>
-                <Icon name="address-card" size={25} color="#000" />
+                <Icon name="address-book" size={35} color="#000" />
+              </TouchableOpacity>
+            </View>
+            <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
+              <TouchableOpacity onPress={() => openUrl(url)}>
+                <Icon name="linkedin" size={35} color="#000" />
+              </TouchableOpacity>
+            </View>
+            <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
+              <TouchableOpacity onPress={() => openUrl(url)}>
+                <Icon name="envelope" size={35} color="#000" />
+              </TouchableOpacity>
+            </View>
+            <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
+              <TouchableOpacity onPress={() => openUrl(url)}>
+                <Icon name="phone" size={35} color="#000" />
               </TouchableOpacity>
             </View>
           </View>
