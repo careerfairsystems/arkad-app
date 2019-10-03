@@ -8,7 +8,7 @@ const styles = {
   subtitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 4
+    marginBottom: 0
   }
 }
 
