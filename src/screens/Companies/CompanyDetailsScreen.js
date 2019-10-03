@@ -116,8 +116,8 @@ class CompanyDetailsScreen extends Component {
             { key: '3', subtitle: 'Phone', description: company.contact.phone }
           ]}
         />
-        <Section title='Company Info'>
-          <Button title={'Read More'} onPress={() => params.actionSheet.show()} />
+        <Section title='Links'>
+          <Button title={'Find out more'} onPress={() => params.actionSheet.show()} />
         </Section>
 
         <ActionSheet
