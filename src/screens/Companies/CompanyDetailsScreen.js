@@ -18,19 +18,6 @@ const styles = {
 }
 
 class CompanyDetailsScreen extends Component {
-  static navigationOptions = ({ navigation }) => {
-    const { params = {} } = navigation.state
-    const { headerIcon } = styles
-    return {
-      title: navigation.state.params.item.name,
-      headerRight: (
-        <TouchableOpacity style={headerIcon} onPress={() => params.actionSheet.show()}>
-          <Icon name="more-vertical" size={25} color="#fff" />
-        </TouchableOpacity>
-      )
-    }
-  }
-
   componentDidMount() {
     const { navigation } = this.props
     navigation.setParams({ actionSheet: this.actionSheet })
@@ -66,9 +53,10 @@ class CompanyDetailsScreen extends Component {
       toggleChangeMap,
       toggleChangeCompany
     } = this.props
+    const { params = {} } = navigation.state
     const company = navigation.state.params.item
+    const { headerIcon } = styles
     let actionSheetData = [
-      { title: 'Brochure', url: company.brochureUrl },
       { title: 'Website', url: company.websiteUrl },
       { title: 'LinkedIn', url: company.linkedInUrl },
       { title: 'Facebook', url: company.facebookUrl },
@@ -128,6 +116,9 @@ class CompanyDetailsScreen extends Component {
             { key: '3', subtitle: 'Phone', description: company.contact.phone }
           ]}
         />
+        <Section title='Links'>
+          <Button title={'Find out more'} onPress={() => params.actionSheet.show()} />
+        </Section>
 
         <ActionSheet
           ref={(ref) => {
