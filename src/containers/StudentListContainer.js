@@ -7,6 +7,7 @@ import setCameraPermission from '../actions/camera'
 const mapStateToProps = state => ({
   logedIn: state.apiReducer.logedIn,
   cameraPermissionGiven: state.cameraReducer.cameraPermissionGiven,
+  myInfo: state.apiReducer.myInfo,
 })
 
 function mapDispatchToProps(dispatch) {

@@ -374,7 +374,6 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_LOGIN_REQUEST:
       return {
         ...state,
-        jwt: "",
         logedIn: false,
         loading: true,
         error: ''
@@ -383,9 +382,6 @@ const apiReducer = (state = initialState, action) => {
       return {
         ...state,
         typeLogedin: action.typeLogedin,
-        jwt: action.jwt,
-        logedIn: true,
-        loading: false,
         updated: Math.floor(Date.now() / 1000)
       }
     case types.FETCH_LOGIN_FAILURE:
@@ -527,11 +523,11 @@ const apiReducer = (state = initialState, action) => {
         ...state,
       }
     case types.FETCH_MY_INFO_SUCCESS:
-    console.log("/////////////F/F/F/F/")
-      console.log(action)
       return {
         ...state,
         myInfo: action.myInfo,
+        logedIn: true,
+        loading: false,
       }
     case types.LOGOUT:
       return {

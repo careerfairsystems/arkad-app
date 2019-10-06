@@ -99,9 +99,7 @@ const fetchLoginRequest = () => ({
 
 const fetchLoginSuccess = (typeLogedin, jwt) => ({
   type: types.FETCH_LOGIN_SUCCESS,
-  logedIn: true,
   typeLogedin: typeLogedin,
-  jwt: jwt,
 })
 
 const fetchLoginFailure = error => ({
@@ -390,9 +388,6 @@ const fetchMyInfoFailure = error => ({
 
 export const getMyInfo = () => async (dispatch) => {
   const token = await AsyncStorage.getItem('token')
-  console.log("&/////////")
-  console.log(token)
-  console.log("&/////////")
   dispatch(fetchMyInfoRequest())
   return fetch(
     `https://arkad-nexpo.herokuapp.com/api/me`,

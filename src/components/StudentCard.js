@@ -259,7 +259,6 @@ const { container, flipCard, flipCardFront, flipCardBack, qrText, button, text, 
 
 
 function studentLogin(student, navigation, myInfo) {
-  console.log(myInfo)
   var test = Dimensions.get('window').width
   if (studentCompanyList.length === 0) {
     sections = [{ title: '', data: [] }]
@@ -297,10 +296,10 @@ function studentLogin(student, navigation, myInfo) {
                 {myInfo.first_name} {myInfo.last_name}
               </Text>
               <Text style={profileText}>
-                Computer Science
+                {myInfo.student.programme}
               </Text>
               <Text style={profileText}>
-                Graduation year: 2020
+                  Year {myInfo.student.year}
               </Text>
               <Text style={profileText}>
                 Master: Software Engineering

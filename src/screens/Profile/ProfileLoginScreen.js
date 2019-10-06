@@ -469,7 +469,6 @@ class ProfileLoginScreen extends Component {
     this.state = {
       username: '',
       password: '',
-      isLoading: false,
       createAccount: false,
       logedIn: false,
       showRemoveModal: false,
@@ -496,17 +495,16 @@ class ProfileLoginScreen extends Component {
   }
 
   handlePress() {
-    this.setState({isLoading: true})
     this.login()
   }
 
   async login() {
     await this.props.loadLogin(this.state.username, this.state.password, this.state.username)
-    await this.props.getMyInfo()
     this.checkLoginIn()
   }
 
-  checkLoginIn() {
+  async checkLoginIn() {
+    await this.props.getMyInfo()
     if (this.props.typeLogedin == 'student') {
       this.props.navigation.setParams({
           header: undefined,
@@ -528,13 +526,6 @@ class ProfileLoginScreen extends Component {
           )
       })
     }
-    this.setState({
-      isLoading: false,
-      username:'',
-      password:'',
-      logedIn: this.props.logedIn,
-      isLoading: false,
-    })
   }
 
   toggleCreateAccountModal() {
@@ -641,7 +632,7 @@ class ProfileLoginScreen extends Component {
           />
           <Button title='Login'
                   onPress={() => this.handlePress()}
-                  loading={this.state.isLoading}
+                  loading={this.props.loading}
           />
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <TouchableOpacity style={{width:'35%'}} onPress={() => this.props.getMyInfo()}>
@@ -743,7 +734,7 @@ class ProfileLoginScreen extends Component {
     if (this.props.typeLogedin == 'student') {
       return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.typeLogedin}/>
     } else {
-      return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.state.isLoding} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission} />
+      return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission} />
     }
   }
 

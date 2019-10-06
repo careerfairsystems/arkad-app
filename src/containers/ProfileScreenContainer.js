@@ -9,6 +9,7 @@ import setCameraPermission from '../actions/camera'
 
 const mapStateToProps = state => ({
   logedIn: state.apiReducer.logedIn,
+  loading: state.apiReducer.loading,
   typeLogedin: state.apiReducer.typeLogedin,
   jwt: state.apiReducer.jwt,
   cameraPermissionGiven: state.cameraReducer.cameraPermissionGiven,
