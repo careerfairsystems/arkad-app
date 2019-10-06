@@ -494,11 +494,7 @@ class ProfileLoginScreen extends Component {
     }
   }
 
-  handlePress() {
-    this.login()
-  }
-
-  async login() {
+  async handlePress() {
     await this.props.loadLogin(this.state.username, this.state.password, this.state.username)
     this.checkLoginIn()
   }
