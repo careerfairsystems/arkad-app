@@ -482,7 +482,7 @@ class ProfileLoginScreen extends Component {
     this.props.navigation.setParams({
         header: null,
     })
-    {this.props.typeLogedin == "student"
+    {!this.props.companyLogedIn
       ? (this.setState({
           student: true
         })
@@ -495,13 +495,13 @@ class ProfileLoginScreen extends Component {
   }
 
   async handlePress() {
-    await this.props.loadLogin(this.state.username, this.state.password, this.state.username)
+    await this.props.loadLogin(this.state.username, this.state.password)
     this.checkLoginIn()
   }
 
   async checkLoginIn() {
     await this.props.getMyInfo()
-    if (this.props.typeLogedin == 'student') {
+    if (!this.props.companyLogedIn == 'student') {
       this.props.navigation.setParams({
           header: undefined,
           headerRight: (
@@ -727,17 +727,18 @@ class ProfileLoginScreen extends Component {
   }
 
   loadHome() {
-    if (this.props.typeLogedin == 'student') {
-      return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.typeLogedin}/>
+    if (!this.props.companyLogedIn) {
+      return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.companyLogedIn}/>
     } else {
       return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission} />
     }
   }
 
   render() {
+    console.log(this.props.companyLogedIn)
     return(
       <View>
-        { !this.props.logedIn ? this.loginView() : this.loadHome()}
+        { this.props.logedIn ? this.loadHome() : this.loginView()}
         { this.helpView() }
       </View>
     )

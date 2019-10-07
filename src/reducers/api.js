@@ -10,7 +10,7 @@ const initialState = {
   loading: false,
   error: '',
   updated: 0,
-  typeLogedin: "",
+  companyLogedIn: false,
   comment: [],
   blips: [],
   studentInfo: [],
@@ -381,7 +381,6 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_LOGIN_SUCCESS:
       return {
         ...state,
-        typeLogedin: action.typeLogedin,
         updated: Math.floor(Date.now() / 1000)
       }
     case types.FETCH_LOGIN_FAILURE:
@@ -523,11 +522,16 @@ const apiReducer = (state = initialState, action) => {
         ...state,
       }
     case types.FETCH_MY_INFO_SUCCESS:
+      let companyLogedIn = false
+      if (action.typeLogedin == null) {
+         companyLogedIn = true
+      }
       return {
         ...state,
         myInfo: action.myInfo,
         logedIn: true,
         loading: false,
+        companyLogedIn: companyLogedIn,
       }
     case types.LOGOUT:
       return {

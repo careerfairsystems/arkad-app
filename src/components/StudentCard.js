@@ -296,7 +296,7 @@ function studentLogin(student, navigation, myInfo) {
                 {myInfo.first_name} {myInfo.last_name}
               </Text>
               <Text style={profileText}>
-                {myInfo.student.programme}
+                {myInfo.student.programme.name}
               </Text>
               <Text style={profileText}>
                   Year {myInfo.student.year}

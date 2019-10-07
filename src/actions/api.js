@@ -97,9 +97,8 @@ const fetchLoginRequest = () => ({
   type: types.FETCH_LOGIN_REQUEST
 })
 
-const fetchLoginSuccess = (typeLogedin, jwt) => ({
+const fetchLoginSuccess = () => ({
   type: types.FETCH_LOGIN_SUCCESS,
-  typeLogedin: typeLogedin,
 })
 
 const fetchLoginFailure = error => ({
@@ -107,11 +106,11 @@ const fetchLoginFailure = error => ({
   error
 })
 
-export const loadLogin = (username, password, type) => (dispatch) => {
+export const loadLogin = (username, password) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
     // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
-    `https://arkad-nexpo.herokuapp.com/api/login?email=arvid.pilhall@me.com&password=123456789`,
+    `https://arkad-nexpo.herokuapp.com/api/login?email=j.bangdal@gmail.com&password=123456789`,
     {
       method: 'POST',
     }
@@ -133,7 +132,7 @@ export const loadLogin = (username, password, type) => (dispatch) => {
     .then((responseJson) => {
       if (responseJson) {
         AsyncStorage.setItem('token', responseJson.data.jwt)
-        dispatch(fetchLoginSuccess(type, responseJson.data.jwt))
+        dispatch(fetchLoginSuccess())
       }
     })
     .catch((error) => {
@@ -379,6 +378,7 @@ const fetchMyInfoRequest = () => ({
 const fetchMyInfoSuccess = (data) => ({
   type: types.FETCH_MY_INFO_SUCCESS,
   myInfo: data,
+  typeLogedin: data.student
 })
 
 const fetchMyInfoFailure = error => ({
