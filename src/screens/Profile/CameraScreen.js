@@ -35,8 +35,7 @@ render() {
 
 //This is what happens after a student is scanned
 onScanned(event) {
-console.log( event.nativeEvent.codeStringValue  );
-this.props.navigation.navigate('Faq');
+  this.props.navigation.navigate('Faq');
 }
 
 }

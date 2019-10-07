@@ -264,7 +264,7 @@ class StudentCard extends Component {
     super(props)
     this.state = {
       flip: false,
-      starCount: 4,
+      starCount: 0,
       isLoading: false,
       student: false,
       showModal: false,
@@ -275,6 +275,10 @@ class StudentCard extends Component {
   }
 
   componentDidMount() {
+    this.setState({
+      starCount: this.props.navigation.state.params.item.rating,
+      commentText: this.props.navigation.state.params.item.comment
+    })
     this.props.navigation.setParams({
         headerLeft: (
           <HeaderBackButton tintColor='#fff' onPress={() => this.customGoBack()} />
@@ -348,6 +352,7 @@ class StudentCard extends Component {
   }
 
   companyLogin() {
+    const studentInfo = this.props.navigation.state.params.item
     return(
         <FlipCard
         style={flipCard}
@@ -367,13 +372,10 @@ class StudentCard extends Component {
               </View>
               <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight: '5%'}}>
                 <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
-                  Börje Börjesson
+                  {studentInfo.first_name} {studentInfo.last_name}
                 </Text>
                 <Text style={profileText}>
-                  Computer Science
-                </Text>
-                <Text style={profileText}>
-                  Graduation year: 2020
+                  {studentInfo.programme.name}
                 </Text>
                 <Text style={profileText}>
                   Master: Software Engineering

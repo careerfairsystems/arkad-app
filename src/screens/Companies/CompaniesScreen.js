@@ -102,7 +102,6 @@ const CompaniesScreen = ({
     }, {})
     sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
   }
-  console.log(sections)
   return (
     <View style={content}>
       <ClearAllFiltersButtonContainer />
