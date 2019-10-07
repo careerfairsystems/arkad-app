@@ -172,7 +172,7 @@ const MainStack = createBottomTabNavigator(
             screen: CompanyStudentCardContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: navigation.state.params.item.name,
+              title: navigation.state.params.item.first_name + ' ' + navigation.state.params.item.last_name,
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
               headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined,
             })

@@ -12,10 +12,10 @@ const initialState = {
   updated: 0,
   companyLogedIn: false,
   comment: [],
-  blips: [],
   studentInfo: [],
   companyRepresentatives: [],
   jwt: "",
+  blips: {},
 }
 
 const stringCleaner = string => (string ? string.toString().trim() : '')
@@ -425,7 +425,6 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_BLIPS_SUCCESS:
       return {
         ...state,
-        loading: false,
         blips: action.blips,
       }
     case types.FETCH_BLIPS_FAILURE:

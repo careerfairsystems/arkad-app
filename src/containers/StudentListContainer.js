@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
   logedIn: state.apiReducer.logedIn,
   cameraPermissionGiven: state.cameraReducer.cameraPermissionGiven,
   myInfo: state.apiReducer.myInfo,
+  blips: state.apiReducer.blips,
 })
 
 function mapDispatchToProps(dispatch) {
