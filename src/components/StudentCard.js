@@ -12,6 +12,7 @@ import RemoveButton from '../containers/RemoveButton'
 import LinkedInButton from './LinkedInButton'
 import StudentListItem from './listItems/StudentListItem'
 import SectionHeader from './SectionHeader'
+import StudentCardButtonRoll from './StudentCardButtonRoll'
 
 
 const studentCompanyList = [ { key: '10101467333312',
@@ -313,7 +314,8 @@ function studentLogin(student, navigation) {
               </Text>
             </View>
           </View>
-          <View style={{flex: 1.5, flexDirection: 'row', width: '80%', alignItems: 'center', justifyContent: 'center'}}>
+          <StudentCardButtonRoll />
+          {/* <View style={{flex: 1.5, flexDirection: 'row', width: '80%', alignItems: 'center', justifyContent: 'center'}}>
             <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
               <TouchableOpacity onPress={() => openUrl(url)}>
                 <Icon name="address-book" size={35} color="#000" />
@@ -334,7 +336,7 @@ function studentLogin(student, navigation) {
                 <Icon name="phone" size={35} color="#000" />
               </TouchableOpacity>
             </View>
-          </View>
+          </View> */}
           <View style={{flex: 5, width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: global.arkadGray}}>
             <View style={{height: '12%', alignItems: 'center', justifyContent: 'center'}}>
               <Text>
