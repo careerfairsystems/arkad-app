@@ -110,7 +110,8 @@ export const loadLogin = (username, password) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
     // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
-    `https://arkad-nexpo.herokuapp.com/api/login?email=j.bangdal@gmail.com&password=123456789`,
+    // `https://arkad-nexpo.herokuapp.com/api/login?email=j.bangdal@gmail.com&password=123456789`,
+    `https://arkad-nexpo.herokuapp.com/api/login?email=gxx04035@bcaoo.com&password=123456789`,
     {
       method: 'POST',
     }
@@ -370,6 +371,54 @@ export const getCompanyRepresentatives = () => (dispatch) => {
     })
 }
 
+const fetchCreateBlipRequest = () => ({
+  type: types.FETCH_CREATE_BLIP_REQUEST
+})
+
+const fetchCreateBlipSuccess = (data) => ({
+  type: types.FETCH_CREATE_BLIP_SUCCESS,
+})
+
+const fetchCreateBlipFailure = error => ({
+  type: types.FETCH_CREATE_BLIP_FAILURE,
+  error
+})
+
+export const createBlip = (student_id) => async (dispatch) => {
+  const token = await AsyncStorage.getItem('token')
+  dispatch(fetchCreateBlipRequest())
+  return fetch(
+    `https://arkad-nexpo.herokuapp.com/api/me/company/blips?student_id=${student_id}`,
+    {
+      method: 'GET',
+      headers: {
+      'Authorization': 'Bearer ' + token
+      }
+    }
+  )
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json()
+      }
+      response
+        .json()
+        .then((responseJson) => {
+          dispatch(fetchCreateBlipFailure(responseJson.error.title))
+        })
+        .catch((error) => {
+          dispatch(fetchCreateBlipFailure(error.message))
+        })
+      return null
+    })
+    .then((responseJson) => {
+      if (responseJson) {
+        dispatch(fetchCreateBlipSuccess(responseJson.results))
+      }
+    })
+    .catch((error) => {
+      dispatch(fetchCreateBlipFailure(error.message))
+    })
+}
 
 const fetchMyInfoRequest = () => ({
   type: types.FETCH_MY_INFO_REQUEST

@@ -137,7 +137,6 @@ const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, 
         welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
 const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo }) => {
-  console.log(myInfo)
   if (studentList.length === 0) {
     sections = [{ title: '', data: [] }]
   } else {

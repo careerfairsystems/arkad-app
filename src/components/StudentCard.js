@@ -341,7 +341,7 @@ function studentLogin(student, navigation, myInfo) {
             Go share it with your favourite companies!
           </Text>
           <QRCode
-            value="www.google.se"
+            value={'https://www.arkadtlth.se/wrong-qr/' + myInfo.student.user_id.toString()}
             size={200}
             bgColor='rgb(0, 43, 100)'
             fgColor='#fff'/>

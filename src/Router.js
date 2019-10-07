@@ -16,7 +16,7 @@ import CompanyFilterScreenContainer from './containers/CompanyFilterScreen'
 import EventsScreenContainer from './containers/EventsScreen'
 import EventDetailsScreen from './screens/Events/EventDetailsScreen'
 import ProfileScreenContainer from './containers/ProfileScreenContainer'
-import CameraScreen from './screens/Profile/CameraScreen'
+import CameraContainer from './containers/CameraContainer'
 import CompanyStudentCardContainer from './containers/CompanyStudentCardContainer'
 import StudentListContainer from './containers/StudentListContainer'
 import AboutScreenContainer from './containers/AboutScreen'
@@ -186,7 +186,7 @@ const MainStack = createBottomTabNavigator(
             })
           },
           CameraScreen: {
-            screen: CameraScreen,
+            screen: CameraContainer,
             navigationOptions: () => ({
               ...navigationOptions,
               title: 'Camera',

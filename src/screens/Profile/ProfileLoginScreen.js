@@ -735,7 +735,6 @@ class ProfileLoginScreen extends Component {
   }
 
   render() {
-    console.log(this.props.companyLogedIn)
     return(
       <View>
         { this.props.logedIn ? this.loadHome() : this.loginView()}
