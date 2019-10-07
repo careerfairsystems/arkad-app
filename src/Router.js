@@ -108,7 +108,7 @@ const MainStack = createBottomTabNavigator(
             screen: CompanyDetailsScreenContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: navigation.state.params.item.name
+              title: navigation.state.params.item.name,
             })
           }
         },
@@ -147,7 +147,10 @@ const MainStack = createBottomTabNavigator(
             screen: CompanyDetailsScreenContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: navigation.state.params.item.name
+              title: navigation.state.params.item.name,
+              headerRight: (
+                <ShowFavoritesButton/>
+              )
             })
           }
         },
