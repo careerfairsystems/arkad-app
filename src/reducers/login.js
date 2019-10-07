@@ -12,7 +12,6 @@ const loginReducer = (state = initialState, action) => {
         refreshing: true
       }
     case types.FETCH_LOGIN_SUCCESS:
-      console.log("INNE I LOGIN REDUCER!")
       return {
         ...state,
         refreshing: false

@@ -110,7 +110,7 @@ export const loadLogin = (username, password) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
     // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
-    `https://arkad-nexpo.herokuapp.com/api/login?email=j.bangdal@gmail.com&password=123456789`,
+    `https://arkad-nexpo.herokuapp.com/api/login?email=gxx04035@bcaoo.com&password=123456789`,
     {
       method: 'POST',
     }
@@ -200,12 +200,17 @@ const fetchBlipsFailure = error => ({
   error
 })
 
-export const getBlips = () => (dispatch) => {
+export const getBlips = () => async (dispatch) => {
+  const token = await AsyncStorage.getItem('token')
+  console.log(token)
   dispatch(fetchBlipsRequest())
   return fetch(
     `https://arkad-nexpo.herokuapp.com/api/me/company/blips`,
     {
       method: 'GET',
+      headers: {
+      'Authorization': 'Bearer ' + token
+      }
     }
   )
     .then((response) => {
@@ -224,7 +229,7 @@ export const getBlips = () => (dispatch) => {
     })
     .then((responseJson) => {
       if (responseJson) {
-        dispatch(fetchBlipsSuccess(responseJson.results))
+        dispatch(fetchBlipsSuccess(responseJson.data))
       }
     })
     .catch((error) => {

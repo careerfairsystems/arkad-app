@@ -496,6 +496,11 @@ class ProfileLoginScreen extends Component {
 
   async handlePress() {
     await this.props.loadLogin(this.state.username, this.state.password)
+    this.fetchBlips()
+  }
+
+  async fetchBlips() {
+    await this.props.getBlips()
     this.checkLoginIn()
   }
 
@@ -730,12 +735,11 @@ class ProfileLoginScreen extends Component {
     if (!this.props.companyLogedIn) {
       return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.companyLogedIn}/>
     } else {
-      return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission} />
+      return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission}/>
     }
   }
 
   render() {
-    console.log(this.props.companyLogedIn)
     return(
       <View>
         { this.props.logedIn ? this.loadHome() : this.loginView()}

@@ -23,12 +23,12 @@ const styles = {
 
 const { image, viewLeft, viewRight } = styles
 
-const starRating = (
+const starRating = (rating) => (
   <StarRating
     fullStarColor={'#fab700'}
     disabled={false}
     maxStars={5}
-    rating={4}
+    rating={rating}
     starSize={12}
   />
 )
@@ -48,7 +48,7 @@ const SelectableStudentListItem = ({ children, navigation, item, userType }) => 
         <View style={viewRight}>
           { userType == 'DetailCompany'
             ? null
-            : starRating
+            : starRating(item.rating)
           }
           <SelectStudentButton navigation={navigation} item={item} userType={userType}/>
         </View>
@@ -61,7 +61,8 @@ SelectableStudentListItem.propTypes = {
   children: PropTypes.node.isRequired,
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   item: PropTypes.shape({
-    name: PropTypes.string.isRequired
+    first_name: PropTypes.string.isRequired,
+    last_name: PropTypes.string.isRequired,
   }).isRequired
 }
 

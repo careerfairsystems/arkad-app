@@ -136,14 +136,16 @@ const styles = {
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
         welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
-const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo }) => {
-  console.log(myInfo)
-  if (studentList.length === 0) {
+const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo, blips }) => {
+  console.log("&&&&&&&&&&&")
+  console.log(blips)
+  console.log("&&&&&&&&&&&")
+  if (blips.length === 0) {
     sections = [{ title: '', data: [] }]
   } else {
-    sections = studentList.reduce((a, b) => {
+    sections = blips.reduce((a, b) => {
       const item = a
-      const firstLetter = b.name[0].toUpperCase()
+      const firstLetter = b.first_name[0].toUpperCase()
       if (item[firstLetter]) {
         item[firstLetter].push(b)
       } else {
@@ -176,6 +178,7 @@ const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCamera
           renderItem={({ item, index, section }) => <StudentListItem navigation={navigation} student={item} userType="DetailStudent"/>}
           sections={sections}
           onScrollBeginDrag={() => Keyboard.dismiss()}
+          keyExtractor={(item, index) => index.toString()}
         />
       </ParallaxScrollView>
       <CameraButton navigation={navigation} cameraPermissionGiven={cameraPermissionGiven} setCameraPermission={setCameraPermission} />

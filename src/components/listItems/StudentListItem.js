@@ -13,7 +13,7 @@ const { title } = styles
 const StudentListItem = ({ navigation, student, userType }) => {
   return (
     <SelectableStudentListItem navigation={navigation} item={student} userType={userType}>
-      <Text style={title}>{student.name}</Text>
+      <Text style={title}>{student.first_name} {student.last_name}</Text>
     </SelectableStudentListItem>
   )
 }
@@ -21,7 +21,8 @@ const StudentListItem = ({ navigation, student, userType }) => {
 StudentListItem.propTypes = {
   navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired }).isRequired,
   student: PropTypes.shape({
-    name: PropTypes.string.isRequired
+    first_name: PropTypes.string.isRequired,
+    last_name: PropTypes.string.isRequired,
   }).isRequired
 }
 
