@@ -12,7 +12,7 @@ import RemoveButton from '../containers/RemoveButton'
 import LinkedInButton from './LinkedInButton'
 import StudentListItem from './listItems/StudentListItem'
 import SectionHeader from './SectionHeader'
-import StudentCardButtonRoll from './StudentCardButtonRoll'
+import ButtonBar from './ButtonBar'
 
 
 const studentCompanyList = [ { key: '10101467333312',
@@ -310,7 +310,7 @@ function studentLogin(student, navigation, myInfo) {
               </Text>
             </View>
           </View>
-          <StudentCardButtonRoll />
+          <ButtonBar />
           {/* <View style={{flex: 1.5, flexDirection: 'row', width: '80%', alignItems: 'center', justifyContent: 'center'}}>
             <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
               <TouchableOpacity onPress={() => openUrl(url)}>
