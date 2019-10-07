@@ -434,14 +434,6 @@ const apiReducer = (state = initialState, action) => {
         error: action.error
       }
     case types.FETCH_REMOVE_BLIPPED_STUDENT_REQUEST:
-      Alert.alert(
-        'Failed!',
-        'Fetch remove blipped student request',
-        [
-          {text: 'OK'},
-        ],
-        {cancelable: true},
-      )
       return {
         ...state,
         loading: true,
@@ -523,6 +515,22 @@ const apiReducer = (state = initialState, action) => {
         logedIn: true,
         loading: false,
         companyLogedIn: companyLogedIn,
+      }
+    case types.FETCH_CREATE_BLIPS_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
+    case types.FETCH_CREATE_BLIPS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+      }
+    case types.FETCH_CREATE_BLIPS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.error
       }
     case types.LOGOUT:
       return {
