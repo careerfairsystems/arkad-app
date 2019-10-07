@@ -1,6 +1,7 @@
 /* global fetch:false */
 import * as types from './types'
 import base64 from 'react-native-base64'
+import {AsyncStorage} from 'react-native'
 
 const fetchCompaniesRequest = () => ({
   type: types.FETCH_COMPANIES_REQUEST
@@ -16,7 +17,7 @@ const fetchCompaniesFailure = error => ({
   error
 })
 
-export const loadCompanies = () => (dispatch) => {
+export const loadCompanies = () => async (dispatch) => {
   dispatch(fetchCompaniesRequest())
   return fetch(
     'https://p18.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2019","status:ställer ut"]',
@@ -96,11 +97,8 @@ const fetchLoginRequest = () => ({
   type: types.FETCH_LOGIN_REQUEST
 })
 
-const fetchLoginSuccess = (typeLogedin, jwt) => ({
+const fetchLoginSuccess = () => ({
   type: types.FETCH_LOGIN_SUCCESS,
-  logedIn: true,
-  typeLogedin: typeLogedin,
-  jwt: jwt,
 })
 
 const fetchLoginFailure = error => ({
@@ -108,11 +106,11 @@ const fetchLoginFailure = error => ({
   error
 })
 
-export const loadLogin = (username, password, type) => (dispatch) => {
+export const loadLogin = (username, password) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
     // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
-    `https://arkad-nexpo.herokuapp.com/api/login?email=arvid.pilhall@me.com&password=123456789`,
+    `https://arkad-nexpo.herokuapp.com/api/login?email=j.bangdal@gmail.com&password=123456789`,
     {
       method: 'POST',
     }
@@ -133,7 +131,8 @@ export const loadLogin = (username, password, type) => (dispatch) => {
     })
     .then((responseJson) => {
       if (responseJson) {
-        dispatch(fetchLoginSuccess(type, responseJson.data.jwt))
+        AsyncStorage.setItem('token', responseJson.data.jwt)
+        dispatch(fetchLoginSuccess())
       }
     })
     .catch((error) => {
@@ -369,4 +368,35 @@ export const getCompanyRepresentatives = () => (dispatch) => {
     .catch((error) => {
       dispatch(fetchCompanyRepresentativesFailure(error.message))
     })
+}
+
+
+const fetchMyInfoRequest = () => ({
+  type: types.FETCH_MY_INFO_REQUEST
+})
+
+const fetchMyInfoSuccess = (data) => ({
+  type: types.FETCH_MY_INFO_SUCCESS,
+  myInfo: data,
+  typeLogedin: data.student
+})
+
+const fetchMyInfoFailure = error => ({
+  type: types.FETCH_MY_INFO_FAILURE,
+  error
+})
+
+export const getMyInfo = () => async (dispatch) => {
+  const token = await AsyncStorage.getItem('token')
+  dispatch(fetchMyInfoRequest())
+  return fetch(
+    `https://arkad-nexpo.herokuapp.com/api/me`,
+    {
+      method: 'GET',
+      headers: {
+      'Authorization': 'Bearer ' + token
+      }
+    }
+  )
+  .then(r => r.json()).then((responseJson) => dispatch(fetchMyInfoSuccess(responseJson.data)))
 }
