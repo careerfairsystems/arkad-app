@@ -12,6 +12,7 @@ import RemoveButton from '../containers/RemoveButton'
 import LinkedInButton from './LinkedInButton'
 import StudentListItem from './listItems/StudentListItem'
 import SectionHeader from './SectionHeader'
+import ButtonBar from './ButtonBar'
 
 
 const studentCompanyList = [ { key: '10101467333312',
@@ -309,13 +310,29 @@ function studentLogin(student, navigation, myInfo) {
               </Text>
             </View>
           </View>
-          <View style={{flex: 1, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+          <ButtonBar />
+          {/* <View style={{flex: 1.5, flexDirection: 'row', width: '80%', alignItems: 'center', justifyContent: 'center'}}>
             <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
               <TouchableOpacity onPress={() => openUrl(url)}>
-                <Icon name="address-card" size={25} color="#000" />
+                <Icon name="address-book" size={35} color="#000" />
               </TouchableOpacity>
             </View>
-          </View>
+            <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
+              <TouchableOpacity onPress={() => openUrl(url)}>
+                <Icon name="linkedin" size={35} color="#000" />
+              </TouchableOpacity>
+            </View>
+            <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
+              <TouchableOpacity onPress={() => openUrl(url)}>
+                <Icon name="envelope" size={35} color="#000" />
+              </TouchableOpacity>
+            </View>
+            <View style={{flex: 1, width:"100%", justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
+              <TouchableOpacity onPress={() => openUrl(url)}>
+                <Icon name="phone" size={35} color="#000" />
+              </TouchableOpacity>
+            </View>
+          </View> */}
           <View style={{flex: 5, width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: global.arkadGray}}>
             <View style={{height: '12%', alignItems: 'center', justifyContent: 'center'}}>
               <Text>
