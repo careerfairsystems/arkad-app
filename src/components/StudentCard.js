@@ -258,11 +258,8 @@ const style = {
 
 const { container, flipCard, flipCardFront, flipCardBack, qrText, button, text, filterView, headerIcon, buttonText, cardImage, profileText, modalText, starCount } = style
 
-function onStarRatingPress(rating) {
-  console.log(rating)
-}
 
-function studentLogin(student, navigation) {
+function studentLogin(student, navigation, myInfo) {
   var test = Dimensions.get('window').width
   if (studentCompanyList.length === 0) {
     sections = [{ title: '', data: [] }]
@@ -279,7 +276,6 @@ function studentLogin(student, navigation) {
     }, {})
     sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
   }
-  console.log("//////////////////////////")
   return(
       <FlipCard
       style={[flipCard, {width:"100%"}]}
@@ -298,13 +294,13 @@ function studentLogin(student, navigation) {
             </View>
             <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight:'5%'}}>
               <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
-                Börje Börjesson
+                {myInfo.first_name} {myInfo.last_name}
               </Text>
               <Text style={profileText}>
-                Computer Science
+                {myInfo.student.programme.name}
               </Text>
               <Text style={profileText}>
-                Graduation year: 2020
+                  Year {myInfo.student.year}
               </Text>
               <Text style={profileText}>
                 Master: Software Engineering
@@ -373,9 +369,9 @@ function studentLogin(student, navigation) {
   )
 }
 
-const StudentCard = ({student, navigation, typeLogedin, isLoading}) => (
+const StudentCard = ({student, navigation, typeLogedin, isLoading, myInfo}) => (
   <View style={{alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-    { studentLogin(student, navigation) }
+    { studentLogin(student, navigation, myInfo) }
   </View>
 )
 

@@ -8,6 +8,7 @@ import NoResultsView from '../../components/NoResultsView'
 import CompanyListItem from '../../components/listItems/CompanyListItem'
 import SectionHeader from '../../components/SectionHeader'
 import ClearAllFiltersButtonContainer from '../../containers/ClearAllFiltersButton'
+import ApiLoadingViewContainer from '../../containers/ApiLoadingView'
 
 const styles = {
   content: { flex: 1 },
@@ -50,6 +51,7 @@ const renderSearchField = (
   searchCompany
 ) => (
   <View>
+    <ApiLoadingViewContainer />
     <View style={searchContainer}>
       <View style={searchIconContainer}>
         <Icon name="search" size={14} color={global.gray} />

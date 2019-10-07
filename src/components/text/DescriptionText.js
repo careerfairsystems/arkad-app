@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 
 const styles = {
   text: {
-    fontSize: 14
+    fontSize: 14,
+    marginBottom: 10,
   }
 }
 

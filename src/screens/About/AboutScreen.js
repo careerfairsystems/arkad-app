@@ -7,7 +7,7 @@ import TextSubtitleSection from '../../components/text/TextSubtitleSection'
 import Button from '../../components/Button'
 
 const AboutScreen = ({
-  navigation, aboutUs, openingHours, aboutArkadTeam
+  navigation, aboutUs, openingHours, aboutArkadTeam, aboutFAQ
 }) => (
   <DetailsScreen>
     <DisplayImage source={require('../../../resources/img/arkad_logo.png')} />
@@ -21,10 +21,16 @@ const AboutScreen = ({
       }))}
     />
     <TextSection
+      title="FAQ"
+      description='If you have any unanswered questions try looking in our FAQ.'
+      button={<Button title="FAQ" onPress={() => navigation.navigate('Faq')} />}
+    />
+    <TextSection
       title="The ARKAD organization"
       description={aboutArkadTeam}
       button={<Button title="The ARKAD team" onPress={() => navigation.navigate('ArkadTeam')} />}
     />
+
   </DetailsScreen>
 )
 

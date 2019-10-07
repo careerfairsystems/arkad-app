@@ -469,7 +469,6 @@ class ProfileLoginScreen extends Component {
     this.state = {
       username: '',
       password: '',
-      isLoading: false,
       createAccount: false,
       logedIn: false,
       showRemoveModal: false,
@@ -483,7 +482,7 @@ class ProfileLoginScreen extends Component {
     this.props.navigation.setParams({
         header: null,
     })
-    {this.props.typeLogedin == "student"
+    {!this.props.companyLogedIn
       ? (this.setState({
           student: true
         })
@@ -495,18 +494,14 @@ class ProfileLoginScreen extends Component {
     }
   }
 
-  handlePress() {
-    this.setState({isLoading: true})
-    this.login()
-  }
-
-  async login() {
-    await this.props.loadLogin(this.state.username, this.state.password, this.state.username)
+  async handlePress() {
+    await this.props.loadLogin(this.state.username, this.state.password)
     this.checkLoginIn()
   }
 
-  checkLoginIn() {
-    if (this.props.typeLogedin == 'student') {
+  async checkLoginIn() {
+    await this.props.getMyInfo()
+    if (!this.props.companyLogedIn == 'student') {
       this.props.navigation.setParams({
           header: undefined,
           headerRight: (
@@ -527,13 +522,6 @@ class ProfileLoginScreen extends Component {
           )
       })
     }
-    this.setState({
-      isLoading: false,
-      username:'',
-      password:'',
-      logedIn: this.props.logedIn,
-      isLoading: false,
-    })
   }
 
   toggleCreateAccountModal() {
@@ -640,10 +628,10 @@ class ProfileLoginScreen extends Component {
           />
           <Button title='Login'
                   onPress={() => this.handlePress()}
-                  loading={this.state.isLoading}
+                  loading={this.props.loading}
           />
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <TouchableOpacity style={{width:'35%'}} onPress={() => this.toggleCreateAccountModal()}>
+            <TouchableOpacity style={{width:'35%'}} onPress={() => this.props.getMyInfo()}>
               <Text style={h2}>
                 Need an account?
               </Text>
@@ -739,17 +727,18 @@ class ProfileLoginScreen extends Component {
   }
 
   loadHome() {
-    if (this.props.typeLogedin == 'student') {
-      return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.typeLogedin}/>
+    if (!this.props.companyLogedIn) {
+      return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.companyLogedIn}/>
     } else {
-      return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.state.isLoding} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission} />
+      return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission} />
     }
   }
 
   render() {
+    console.log(this.props.companyLogedIn)
     return(
       <View>
-        { !this.props.logedIn ? this.loginView() : this.loadHome()}
+        { this.props.logedIn ? this.loadHome() : this.loginView()}
         { this.helpView() }
       </View>
     )

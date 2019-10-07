@@ -203,10 +203,9 @@ const MainStack = createBottomTabNavigator(
         {
           AboutStack: {
             screen: AboutScreenContainer,
-            navigationOptions: ({ navigation }) => ({
+            navigationOptions: () => ({
               ...navigationOptions,
-              title: 'About',
-              headerRight: <FaqButton navigation={navigation} />,
+              title: 'About'
             })
           },
           ArkadTeam: {
@@ -235,7 +234,7 @@ const MainStack = createBottomTabNavigator(
     }
   },
   {
-    initialRouteName: 'Map',
+    initialRouteName: 'Companies',
     navigationOptions: ({ navigation }) => ({
       tabBarVisible: navigation.state.routes[navigation.state.index].routeName === 'CameraScreen' ? false : true,
       // Disable unnecessary eslint warning

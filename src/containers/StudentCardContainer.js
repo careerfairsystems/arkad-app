@@ -7,6 +7,7 @@ const mapStateToProps = state => ({
   typeLogedin: state.apiReducer.typeLogedin,
   refreshing: state.companyReducer.refreshing,
   studentCompanyList: state.apiReducer.items,
+  myInfo: state.apiReducer.myInfo,
 })
 
 function mapDispatchToProps(dispatch) {
