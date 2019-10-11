@@ -1,11 +1,11 @@
 import React from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity, Linking } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const IconButton = ({ name, onPress, styles }) => (
     <View style={styles} >
-        <TouchableOpacity onPress={onPress} style={styles}>
-            <Icon name={name} size={34} />
+        <TouchableOpacity onPress={() => {Linking.openURL('mailto:support@domain.com?subject=mailsubject&body=mailbody')}} style={styles}>
+            <Icon name={name} size={34} color={name=='linkedin' ? global.arkadBlue : global.arkadGray} />
         </TouchableOpacity>
     </View>
 )

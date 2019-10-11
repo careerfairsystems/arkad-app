@@ -16,7 +16,8 @@ const styles = {
         width: '100%',
         justifyContent: 'center',
         alignItems: 'flex-start',
-        paddingLeft: 10
+        paddingLeft: 10,
+        color: 'rgba(0, 43, 100, 1)'
     }
 }
 
@@ -27,7 +28,7 @@ const ButtonBar = () => (
                 <IconButton name='linkedin' />
             </View>
             <View style={styles.button}>
-                <IconButton name='facebook' />
+                <IconButton name='file-o' />
             </View>
             <View style={styles.button}>
                 <IconButton name='phone' />
