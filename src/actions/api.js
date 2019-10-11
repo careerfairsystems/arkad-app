@@ -203,7 +203,6 @@ const fetchBlipsFailure = error => ({
 
 export const getBlips = () => async (dispatch) => {
   const token = await AsyncStorage.getItem('token')
-  console.log(token)
   dispatch(fetchBlipsRequest())
   return fetch(
     `https://arkad-nexpo.herokuapp.com/api/me/company/blips`,

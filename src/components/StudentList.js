@@ -137,9 +137,6 @@ const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, 
         welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
 const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo, blips }) => {
-  console.log("&&&&&&&&&&&")
-  console.log(blips)
-  console.log("&&&&&&&&&&&")
   if (blips.length === 0) {
     sections = [{ title: '', data: [] }]
   } else {

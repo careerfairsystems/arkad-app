@@ -636,7 +636,7 @@ class ProfileLoginScreen extends Component {
                   loading={this.props.loading}
           />
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <TouchableOpacity style={{width:'35%'}} onPress={() => this.props.getMyInfo()}>
+            <TouchableOpacity style={{width:'35%'}} onPress={() => this.toggleCreateAccountModal()}>
               <Text style={h2}>
                 Need an account?
               </Text>
