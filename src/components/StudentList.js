@@ -136,24 +136,31 @@ const styles = {
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
         welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
-const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo, blips }) => {
-  console.log("&&&&&&&&&&&")
+const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo, blips, loading, blips_loading }) => {
+  console.log("++++++++++++++++++++++")
+  console.log("LOADING DOWN BELOW")
+  console.log(loading)
+  console.log("BLIPS_LOADING DOWN BELOW")
+  console.log(blips_loading)
+  console.log("++++++++++++++++++++++")
   console.log(blips)
-  console.log("&&&&&&&&&&&")
-  if (blips.length === 0) {
-    sections = [{ title: '', data: [] }]
-  } else {
-    sections = blips.reduce((a, b) => {
-      const item = a
-      const firstLetter = b.first_name[0].toUpperCase()
-      if (item[firstLetter]) {
-        item[firstLetter].push(b)
-      } else {
-        item[firstLetter] = [b]
-      }
-      return item
-    }, {})
-    sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
+  if (!loading && !blips_loading && blips != undefined) {
+    if (blips.length === 0) {
+      sections = [{ title: '', data: [] }]
+    } else {
+      console.log(blips)
+      sections = blips.reduce((a, b) => {
+        const item = a
+        const firstLetter = b.first_name[0].toUpperCase()
+        if (item[firstLetter]) {
+          item[firstLetter].push(b)
+        } else {
+          item[firstLetter] = [b]
+        }
+        return item
+      }, {})
+      sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
+    }
   }
   return(
     <View style={listContainer}>
@@ -173,13 +180,16 @@ const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCamera
             <Text style={{color: '#fff', fontSize: 40}}>Scanned students</Text>
           </View>
         )}>
-        <SectionList
-          style={{width:'100%'}}
-          renderItem={({ item, index, section }) => <StudentListItem navigation={navigation} student={item} userType="DetailStudent"/>}
-          sections={sections}
-          onScrollBeginDrag={() => Keyboard.dismiss()}
-          keyExtractor={(item, index) => index.toString()}
-        />
+        {!loading && !blips_loading ?
+          <SectionList
+            style={{width:'100%'}}
+            renderItem={({ item, index, section }) => <StudentListItem navigation={navigation} student={item} userType="DetailStudent"/>}
+            sections={sections}
+            onScrollBeginDrag={() => Keyboard.dismiss()}
+            keyExtractor={(item, index) => index.toString()}
+          />
+          : null}
+
       </ParallaxScrollView>
       <CameraButton navigation={navigation} cameraPermissionGiven={cameraPermissionGiven} setCameraPermission={setCameraPermission} />
     </View>
