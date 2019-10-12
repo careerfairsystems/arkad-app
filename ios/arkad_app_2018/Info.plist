@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>15</string>
+	<string>24</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -51,8 +51,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>NSCameraUsageDescription</key>
 	<string>Required for QR-code scanning</string>
 	<key>UIAppFonts</key>
@@ -83,5 +81,23 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Required to upload photos</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Needed to track your location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Needed to track your location</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Required to connect to calendar</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Needed to connect to other devices</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Needed to connect to other devices</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Needed to connect to Apple Music</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Needed to capture motion</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Needed to capture speach</string>
 </dict>
 </plist>
