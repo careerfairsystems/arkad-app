@@ -133,6 +133,13 @@ const styles = {
   }
 }
 
+function renderNoContent(section) {
+  if(section.data.length == 0){
+      return (<View style={{textAlign: 'center', alignItems: 'center', justifyContent: 'center'}}><Text style={{textAlign: 'center', justifyContent: 'center', alignItems: 'center', color: '#000', fontSize: 18, marginTop: '10%'}}>You have no scanned students yet!</Text></View>)
+   }
+   return null
+}
+
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
         welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
@@ -141,7 +148,6 @@ const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCamera
     if (blips.length === 0) {
       sections = [{ title: '', data: [] }]
     } else {
-      console.log(blips)
       sections = blips.reduce((a, b) => {
         const item = a
         const firstLetter = b.first_name[0].toUpperCase()
@@ -189,6 +195,7 @@ const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCamera
             sections={sections}
             onScrollBeginDrag={() => Keyboard.dismiss()}
             keyExtractor={(item, index) => index.toString()}
+            renderSectionFooter={({section}) => renderNoContent(section)}
           />
           : null}
 
