@@ -31,7 +31,7 @@ const ButtonBar = () => (
                 <IconButton name='file-o' />
             </View>
             <View style={styles.button}>
-                <IconButton name='phone' />
+                <IconButton name='phone'data="0767711123" />
             </View>
             <View style={styles.button}>
                 <IconButton name='envelope' />

@@ -34,10 +34,9 @@ render() {
 }
 
 //This is what happens after a student is scanned
-async onScanned(event) {
-  console.log(event.nativeEvent.codeStringValue.split("/")[4])
-  await this.props.createBlip(event.nativeEvent.codeStringValue.split("/")[4])
-  this.props.navigation.navigate('ProfileScreenContainer')
+onScanned(event) {
+  val = event.nativeEvent.codeStringValue;
+  this.props.navigation.navigate('Faq');
 }
 
 }
