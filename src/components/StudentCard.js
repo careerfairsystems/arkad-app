@@ -343,7 +343,7 @@ function studentLogin(student, navigation, myInfo, loading) {
           </Text>
           {!loading ?
           <QRCode
-            value={'https://www.arkadtlth.se/wrong-qr/' + myInfo.student.user_id.toString()}
+            value={'https://www.arkadtlth.se/wrong-qr/' + myInfo.student.id.toString()}
             size={200}
             bgColor='rgb(0, 43, 100)'
             fgColor='#fff'/>

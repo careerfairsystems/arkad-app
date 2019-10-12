@@ -438,20 +438,11 @@ class ProfileLoginScreen extends Component {
   }
 
   loadHome() {
-    console.log("/////////////////")
-    console.log(this.props.companyLogedIn)
-    console.log("/////////////////")
     if (this.props.companyLogedIn != null) {
-      console.log("--------------------")
-      console.log(this.props.companyLogedIn)
-      console.log("--------------------")
       if (!this.props.companyLogedIn) {
-        console.log("INNE I STUDENT")
         return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.companyLogedIn}/>
       } else {
         if (!this.props.blips_loading) {
-        console.log("INNE I COMPANY")
-        console.log(this.props.blips_loading)
         return <StudentList navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission}/>
       }
       }

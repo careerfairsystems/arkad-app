@@ -341,10 +341,21 @@ class StudentCard extends Component {
     this.setState({ showUnsavedModal: !this.state.showUnsavedModal });
   }
 
-  save() {
-    this.setState({
+  async save() {
+    const studentInfo = this.props.navigation.state.params.item
+    await this.setState({
       hasChanged: false
     })
+    console.log(this.state.starCount)
+    console.log(this.state.commentText)
+    console.log(studentInfo.student_id)
+    await this.props.commentRateStudent(studentInfo.student_id, this.state.starCount, this.state.commentText)
+    this.updateBlips()
+  }
+
+  async updateBlips() {
+    const studentInfo = this.props.navigation.state.params.item
+    await this.props.getBlips(studentInfo.student_id)
   }
 
   handleCommentText(text) {
@@ -459,7 +470,7 @@ class StudentCard extends Component {
             </View>
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-                <RemoveButton navigation={this.props.navigation} studentId={studentInfo.id} />
+                <RemoveButton navigation={this.props.navigation} studentId={studentInfo.student_id} />
               </View>
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
                 <TouchableOpacity style={button} onPress={() => this.toggleModal()}>

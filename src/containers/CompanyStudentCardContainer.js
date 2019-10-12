@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import StudentCard from '../screens/Profile/CompanyStudentCard'
+import { commentRateStudent, getBlips } from '../actions/api'
 
 
 const mapStateToProps = state => ({
@@ -10,7 +11,7 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ }, dispatch)
+  return bindActionCreators({ commentRateStudent, getBlips }, dispatch)
 }
 
 export default connect(

@@ -500,6 +500,7 @@ const apiReducer = (state = initialState, action) => {
       if (action.typeLogedin == null) {
          companyLogedIn = true
       }
+      console.log(action.myInfo)
       return {
         ...state,
         loading: false,

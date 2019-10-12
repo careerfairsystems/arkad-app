@@ -110,8 +110,8 @@ export const loadLogin = (username, password) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
     // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
-    // `https://arkad-nexpo.herokuapp.com/api/login?email=alexanderlundst@gmail.com&password=123456789`,
-    `https://arkad-nexpo.herokuapp.com/api/login?email=alexander.mjoberg@gmail.com&password=123456789`,
+    `https://arkad-nexpo.herokuapp.com/api/login?email=alexanderlundst@gmail.com&password=123456789`,
+    // `https://arkad-nexpo.herokuapp.com/api/login?email=alexander.mjoberg@gmail.com&password=123456789`,
     {
       method: 'POST',
     }
@@ -132,6 +132,7 @@ export const loadLogin = (username, password) => (dispatch) => {
     })
     .then((responseJson) => {
       if (responseJson) {
+        console.log(responseJson.data.jwt)
         AsyncStorage.setItem('token', responseJson.data.jwt)
         dispatch(fetchLoginSuccess())
       }
@@ -155,12 +156,16 @@ const fetchCommentStudentFailure = error => ({
   error
 })
 
-export const commentRateStudent = (studentId, rating, comment) => (dispatch) => {
+export const commentRateStudent = (studentId, rating, comment) => async (dispatch) => {
   dispatch(fetchCommentStudentRequest())
+  const token = await AsyncStorage.getItem('token')
   return fetch(
-    `https://arkad-nexpo.herokuapp.com/api/me/company/comments/${studentId}?rating=${rating}&comment=${comment}`,
+    `https://arkad-nexpo.herokuapp.com/api/me/company/blips/${studentId}?rating=${rating}&comment=${comment}`,
     {
-      method: 'POST',
+      method: 'PATCH',
+      headers: {
+      'Authorization': 'Bearer ' + token
+      }
     }
   )
     .then((response) => {
@@ -398,7 +403,7 @@ export const createBlip = (student_id) => async (dispatch) => {
   return fetch(
     `https://arkad-nexpo.herokuapp.com/api/me/company/blips?student_id=${student_id}`,
     {
-      method: 'GET',
+      method: 'POST',
       headers: {
       'Authorization': 'Bearer ' + token
       }
