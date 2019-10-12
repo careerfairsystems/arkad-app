@@ -2,6 +2,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import StudentList from '../components/StudentList'
 import setCameraPermission from '../actions/camera'
+import { getBlips } from '../actions/api'
 
 
 const mapStateToProps = state => ({
@@ -14,7 +15,7 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ setCameraPermission }, dispatch)
+  return bindActionCreators({ setCameraPermission, getBlips }, dispatch)
 }
 
 export default connect(

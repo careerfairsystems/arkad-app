@@ -143,7 +143,7 @@ function renderNoContent(section) {
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
         welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
-const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo, blips, loading, blips_loading }) => {
+const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo, blips, loading, blips_loading, getBlips }) => {
   if (!loading && !blips_loading && blips != undefined) {
     if (blips.length === 0) {
       sections = [{ title: '', data: [] }]
@@ -165,6 +165,14 @@ const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCamera
     <View style={listContainer}>
       <ParallaxScrollView
         backgroundColor="#fff"
+        refreshControl={(
+          <RefreshControl
+            refreshing={blips_loading}
+            onRefresh={() => {
+              getBlips()
+            }}
+          />
+        )}
         contentBackgroundColor="#fff"
         parallaxHeaderHeight={140}
         backgroundSpeed={10}
@@ -182,6 +190,7 @@ const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCamera
         {!loading && !blips_loading ?
           <SectionList
             style={{width:'100%'}}
+
             renderItem={({ item, index, section }) => <StudentListItem navigation={navigation} student={item} userType="DetailStudent"/>}
             sections={sections}
             onScrollBeginDrag={() => Keyboard.dismiss()}
