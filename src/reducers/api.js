@@ -10,12 +10,13 @@ const initialState = {
   loading: false,
   error: '',
   updated: 0,
-  companyLogedIn: false,
+  companyLogedIn: "",
   comment: [],
   studentInfo: [],
   companyRepresentatives: [],
   jwt: "",
   blips: {},
+  myInfo: {},
 }
 
 const stringCleaner = string => (string ? string.toString().trim() : '')
@@ -381,6 +382,7 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_LOGIN_SUCCESS:
       return {
         ...state,
+        logedIn: true,
         updated: Math.floor(Date.now() / 1000)
       }
     case types.FETCH_LOGIN_FAILURE:
@@ -392,15 +394,12 @@ const apiReducer = (state = initialState, action) => {
         ],
         {cancelable: true},
       )
+      return {
+        ...state,
+        loading: false,
+        logedIn: false,
+      }
     case types.FETCH_COMMENT_STUDENT_REQUEST:
-      Alert.alert(
-        'Failed!',
-        'Fetch comment student request',
-        [
-          {text: 'OK'},
-        ],
-        {cancelable: true},
-      )
       return {
         ...state,
         loading: true,
@@ -426,6 +425,7 @@ const apiReducer = (state = initialState, action) => {
       return {
         ...state,
         blips: action.blips,
+        loading: false,
       }
     case types.FETCH_BLIPS_FAILURE:
       return {
@@ -451,14 +451,6 @@ const apiReducer = (state = initialState, action) => {
         error: action.error
       }
     case types.FETCH_STUDENT_INFO_REQUEST:
-      Alert.alert(
-        'Failed!',
-        'Fetch student info request',
-        [
-          {text: 'OK'},
-        ],
-        {cancelable: true},
-      )
       return {
         ...state,
         loading: true,
@@ -476,14 +468,6 @@ const apiReducer = (state = initialState, action) => {
         error: action.error
       }
     case types.FETCH_COMPANY_REPRESENTATIVES_REQUEST:
-      Alert.alert(
-        'Failed!',
-        'Fetch company represtentatives request',
-        [
-          {text: 'OK'},
-        ],
-        {cancelable: true},
-      )
       return {
         ...state,
         loading: true,
@@ -503,6 +487,7 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_MY_INFO_REQUEST:
       return {
         ...state,
+        loading: true,
       }
     case types.FETCH_MY_INFO_SUCCESS:
       let companyLogedIn = false
@@ -512,8 +497,6 @@ const apiReducer = (state = initialState, action) => {
       return {
         ...state,
         myInfo: action.myInfo,
-        logedIn: true,
-        loading: false,
         companyLogedIn: companyLogedIn,
       }
     case types.FETCH_CREATE_BLIPS_REQUEST:
@@ -535,8 +518,7 @@ const apiReducer = (state = initialState, action) => {
     case types.LOGOUT:
       return {
         ...state,
-        jwt: "",
-        typeLogedin: "",
+        companyLogedIn: "",
         logedIn: false,
         loading: false,
         updated: Math.floor(Date.now() / 1000)

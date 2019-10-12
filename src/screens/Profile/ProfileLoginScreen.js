@@ -9,8 +9,8 @@ import CloseButton from '../../components/CloseButton'
 import StudentListItem from '../../components/listItems/StudentListItem'
 import StudentCard from '../../containers/StudentCardContainer'
 import StudentList from '../../containers/StudentListContainer'
-import RemoveButton from '../../containers/RemoveButton'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import LoadingView from '../../components/LoadingView'
 
 
 const studentList = [ {  key: '1',
@@ -496,17 +496,15 @@ class ProfileLoginScreen extends Component {
 
   async handlePress() {
     await this.props.loadLogin(this.state.username, this.state.password)
+    if (this.props.logedIn == false) {
+      return
+    }
     this.fetchBlips()
   }
 
   async fetchBlips() {
-    await this.props.getBlips()
-    this.checkLoginIn()
-  }
-
-  async checkLoginIn() {
     await this.props.getMyInfo()
-    if (!this.props.companyLogedIn == 'student') {
+    if (!this.props.companyLogedIn) {
       this.props.navigation.setParams({
           header: undefined,
           headerRight: (
@@ -526,6 +524,13 @@ class ProfileLoginScreen extends Component {
             </View>
           )
       })
+    }
+    this.checkBlips()
+  }
+
+  async checkBlips() {
+    if (this.props.companyLogedIn) {
+      await this.props.getBlips()
     }
   }
 
@@ -732,10 +737,14 @@ class ProfileLoginScreen extends Component {
   }
 
   loadHome() {
-    if (!this.props.companyLogedIn) {
-      return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.companyLogedIn}/>
+      if (!this.props.companyLogedIn == "") {
+      if (!this.props.companyLogedIn) {
+        return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.companyLogedIn}/>
+      } else {
+        return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission}/>
+      }
     } else {
-      return <StudentList studentList={studentList} navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission}/>
+      return <View style={{alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%'}}><LoadingView /></View>
     }
   }
 
