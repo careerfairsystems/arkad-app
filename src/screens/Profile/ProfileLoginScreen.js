@@ -202,6 +202,9 @@ class ProfileLoginScreen extends Component {
       return
     }
     this.fetchBlips()
+    this.setState({
+      password: '',
+    })
   }
 
   async fetchBlips() {
