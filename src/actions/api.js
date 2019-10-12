@@ -110,8 +110,8 @@ export const loadLogin = (username, password) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
     // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
-    // `https://arkad-nexpo.herokuapp.com/api/login?email=alexanderlundst@gmail.com&password=123456789`,
-    `https://arkad-nexpo.herokuapp.com/api/login?email=alexander.mjoberg@gmail.com&password=123456789`,
+    `https://arkad-nexpo.herokuapp.com/api/login?email=alexanderlundst@gmail.com&password=123456789`,
+    // `https://arkad-nexpo.herokuapp.com/api/login?email=alexander.mjoberg@gmail.com&password=123456789`,
     {
       method: 'POST',
     }
@@ -132,6 +132,7 @@ export const loadLogin = (username, password) => (dispatch) => {
     })
     .then((responseJson) => {
       if (responseJson) {
+        console.log(responseJson.data.jwt)
         AsyncStorage.setItem('token', responseJson.data.jwt)
         dispatch(fetchLoginSuccess())
       }

@@ -459,7 +459,7 @@ class StudentCard extends Component {
             </View>
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-                <RemoveButton navigation={this.props.navigation} studentId={studentInfo.id} />
+                <RemoveButton navigation={this.props.navigation} studentId={studentInfo.student_id} />
               </View>
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
                 <TouchableOpacity style={button} onPress={() => this.toggleModal()}>
