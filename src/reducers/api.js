@@ -418,13 +418,14 @@ const apiReducer = (state = initialState, action) => {
         error: action.error
       }
     case types.FETCH_BLIPS_REQUEST:
-      console.log("AAAAAAAAAAAAAAAH")
+      console.log("INNE I REQUEST BLIPS")
       return {
         ...state,
         loading: true,
         blips_loading: true,
       }
     case types.FETCH_BLIPS_SUCCESS:
+    console.log("INNE I SUCCESS BLIPS")
       return {
         ...state,
         blips: action.blips,
@@ -503,6 +504,7 @@ const apiReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         myInfo: action.myInfo,
+        blips_loading: true,
         companyLogedIn: companyLogedIn,
       }
     case types.FETCH_CREATE_BLIPS_REQUEST:
@@ -524,9 +526,10 @@ const apiReducer = (state = initialState, action) => {
     case types.LOGOUT:
       return {
         ...state,
-        companyLogedIn: "",
+        companyLogedIn: null,
         logedIn: false,
         loading: false,
+        blips_loading: false,
         updated: Math.floor(Date.now() / 1000)
       }
       return {

@@ -213,8 +213,13 @@ class ProfileLoginScreen extends Component {
             <LogoutButton navigation={this.props.navigation} />
           )
       })
-    } else {
-      if (!this.props.blips_loading) {
+    }
+    this.checkBlips()
+  }
+
+  async checkBlips() {
+    if (this.props.companyLogedIn) {
+      await this.props.getBlips()
       this.props.navigation.setParams({
           header: undefined,
           headerRight: (
@@ -227,14 +232,6 @@ class ProfileLoginScreen extends Component {
             </View>
           )
       })
-    }
-    }
-    this.checkBlips()
-  }
-
-  async checkBlips() {
-    if (this.props.companyLogedIn) {
-      await this.props.getBlips()
     }
   }
 
