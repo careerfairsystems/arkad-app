@@ -442,6 +442,7 @@ class StudentCard extends Component {
   }
 
   removeView() {
+    const studentInfo = this.props.navigation.state.params.item
     return(
       <View>
         <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '20%'}}>
@@ -458,7 +459,7 @@ class StudentCard extends Component {
             </View>
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-                <RemoveButton navigation={this.props.navigation} />
+                <RemoveButton navigation={this.props.navigation} studentId={studentInfo.id} />
               </View>
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
                 <TouchableOpacity style={button} onPress={() => this.toggleModal()}>

@@ -9,8 +9,8 @@ import CloseButton from '../../components/CloseButton'
 import StudentListItem from '../../components/listItems/StudentListItem'
 import StudentCard from '../../containers/StudentCardContainer'
 import StudentList from '../../containers/StudentListContainer'
-import RemoveButton from '../../containers/RemoveButton'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import LoadingView from '../../components/LoadingView'
 
 
 const styles = {
@@ -198,24 +198,28 @@ class ProfileLoginScreen extends Component {
 
   async handlePress() {
     await this.props.loadLogin(this.state.username, this.state.password)
+    if (this.props.logedIn == false) {
+      return
+    }
     this.fetchBlips()
   }
 
   async fetchBlips() {
-    await this.props.getBlips()
-    this.checkLoginIn()
-  }
-
-  async checkLoginIn() {
     await this.props.getMyInfo()
-    if (!this.props.companyLogedIn == 'student') {
+    if (!this.props.companyLogedIn) {
       this.props.navigation.setParams({
           header: undefined,
           headerRight: (
             <LogoutButton navigation={this.props.navigation} />
           )
       })
-    } else {
+    }
+    this.checkBlips()
+  }
+
+  async checkBlips() {
+    if (this.props.companyLogedIn) {
+      await this.props.getBlips()
       this.props.navigation.setParams({
           header: undefined,
           headerRight: (
@@ -434,10 +438,25 @@ class ProfileLoginScreen extends Component {
   }
 
   loadHome() {
-    if (!this.props.companyLogedIn) {
-      return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.companyLogedIn}/>
+    console.log("/////////////////")
+    console.log(this.props.companyLogedIn)
+    console.log("/////////////////")
+    if (this.props.companyLogedIn != null) {
+      console.log("--------------------")
+      console.log(this.props.companyLogedIn)
+      console.log("--------------------")
+      if (!this.props.companyLogedIn) {
+        console.log("INNE I STUDENT")
+        return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.companyLogedIn}/>
+      } else {
+        if (!this.props.blips_loading) {
+        console.log("INNE I COMPANY")
+        console.log(this.props.blips_loading)
+        return <StudentList navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission}/>
+      }
+      }
     } else {
-      return <StudentList navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission}/>
+      return <View style={{alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%'}}><LoadingView /></View>
     }
   }
 

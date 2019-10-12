@@ -259,22 +259,24 @@ const style = {
 const { container, flipCard, flipCardFront, flipCardBack, qrText, button, text, filterView, headerIcon, buttonText, cardImage, profileText, modalText, starCount } = style
 
 
-function studentLogin(student, navigation, myInfo) {
-  var test = Dimensions.get('window').width
-  if (studentCompanyList.length === 0) {
-    sections = [{ title: '', data: [] }]
-  } else {
-    sections = studentCompanyList.reduce((a, b) => {
-      const item = a
-      const firstLetter = b.name[0].toUpperCase()
-      if (item[firstLetter]) {
-        item[firstLetter].push(b)
-      } else {
-        item[firstLetter] = [b]
-      }
-      return item
-    }, {})
-    sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
+function studentLogin(student, navigation, myInfo, loading) {
+  if (!loading) {
+    var test = Dimensions.get('window').width
+    if (studentCompanyList.length === 0) {
+      sections = [{ title: '', data: [] }]
+    } else {
+      sections = studentCompanyList.reduce((a, b) => {
+        const item = a
+        const firstLetter = b.name[0].toUpperCase()
+        if (item[firstLetter]) {
+          item[firstLetter].push(b)
+        } else {
+          item[firstLetter] = [b]
+        }
+        return item
+      }, {})
+      sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
+    }
   }
   return(
       <FlipCard
@@ -292,6 +294,7 @@ function studentLogin(student, navigation, myInfo) {
                 source={require('../../resources/img/arkadTeam/IMG_3758.jpg')}
               />
             </View>
+            {!loading ?
             <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight:'5%'}}>
               <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
                 {myInfo.first_name} {myInfo.last_name}
@@ -309,6 +312,7 @@ function studentLogin(student, navigation, myInfo) {
                 Interested in: Summerjob, thesis, internship
               </Text>
             </View>
+            : null}
           </View>
           <ButtonBar />
           <View style={{flex: 5, width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: global.arkadGray}}>
@@ -317,12 +321,14 @@ function studentLogin(student, navigation, myInfo) {
               Your scanned companies
               </Text>
             </View>
+            {!loading ?
             <SectionList
               style={{width: test * .9}}
               renderItem={({ item, index, section }) => <StudentListItem navigation={navigation} student={item} userType="DetailCompany"/>}
               sections={sections}
               onScrollBeginDrag={() => Keyboard.dismiss()}
             />
+            : null}
           </View>
         </View>
         {/* Back Side */}
@@ -335,11 +341,13 @@ function studentLogin(student, navigation, myInfo) {
           <Text style={qrText}>
             Go share it with your favourite companies!
           </Text>
+          {!loading ?
           <QRCode
             value={'https://www.arkadtlth.se/wrong-qr/' + myInfo.student.user_id.toString()}
             size={200}
             bgColor='rgb(0, 43, 100)'
             fgColor='#fff'/>
+            : null}
             </View>
             </View>
         </View>
@@ -347,9 +355,9 @@ function studentLogin(student, navigation, myInfo) {
   )
 }
 
-const StudentCard = ({student, navigation, typeLogedin, isLoading, myInfo}) => (
+const StudentCard = ({student, navigation, typeLogedin, isLoading, myInfo, loading}) => (
   <View style={{alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-    { studentLogin(student, navigation, myInfo) }
+    { studentLogin(student, navigation, myInfo, loading) }
   </View>
 )
 
