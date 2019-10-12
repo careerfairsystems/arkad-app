@@ -460,7 +460,7 @@ class StudentCard extends Component {
           <View style={{ borderRadius: 8, backgroundColor: '#fff', flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%'}}>
             <View style={{flex: 3, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
               <Text>Are you sure you want to remove this student?</Text>
-              <Text style={{marginTop: '8%', fontWeight: 'bold', fontSize: 16}}>Test Testsson</Text>
+              <Text style={{marginTop: '8%', fontWeight: 'bold', fontSize: 16}}>{studentInfo.first_name} {studentInfo.last_name}</Text>
             </View>
             <View style={{flex: 6, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
               <Image
