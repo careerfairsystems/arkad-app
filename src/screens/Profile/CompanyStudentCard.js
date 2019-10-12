@@ -346,9 +346,6 @@ class StudentCard extends Component {
     await this.setState({
       hasChanged: false
     })
-    console.log(this.state.starCount)
-    console.log(this.state.commentText)
-    console.log(studentInfo.student_id)
     await this.props.commentRateStudent(studentInfo.student_id, this.state.starCount, this.state.commentText)
     this.updateBlips()
   }

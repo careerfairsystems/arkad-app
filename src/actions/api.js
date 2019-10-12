@@ -130,7 +130,6 @@ export const loadLogin = (username, password) => (dispatch) => {
     })
     .then((responseJson) => {
       if (responseJson) {
-        console.log(responseJson.data.jwt)
         AsyncStorage.setItem('token', responseJson.data.jwt)
         dispatch(fetchLoginSuccess())
       }

@@ -144,18 +144,10 @@ const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, 
         welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
 const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo, blips, loading, blips_loading }) => {
-  console.log("++++++++++++++++++++++")
-  console.log("LOADING DOWN BELOW")
-  console.log(loading)
-  console.log("BLIPS_LOADING DOWN BELOW")
-  console.log(blips_loading)
-  console.log("++++++++++++++++++++++")
-  console.log(blips)
   if (!loading && !blips_loading && blips != undefined) {
     if (blips.length === 0) {
       sections = [{ title: '', data: [] }]
     } else {
-      console.log(blips)
       sections = blips.reduce((a, b) => {
         const item = a
         const firstLetter = b.first_name[0].toUpperCase()
