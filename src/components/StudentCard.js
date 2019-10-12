@@ -315,21 +315,6 @@ function studentLogin(student, navigation, myInfo, loading) {
             : null}
           </View>
           <ButtonBar />
-          <View style={{flex: 5, width: '100%', alignItems: 'center', justifyContent: 'center', backgroundColor: global.arkadGray}}>
-            <View style={{height: '12%', alignItems: 'center', justifyContent: 'center'}}>
-              <Text>
-              Your scanned companies
-              </Text>
-            </View>
-            {!loading ?
-            <SectionList
-              style={{width: test * .9}}
-              renderItem={({ item, index, section }) => <StudentListItem navigation={navigation} student={item} userType="DetailCompany"/>}
-              sections={sections}
-              onScrollBeginDrag={() => Keyboard.dismiss()}
-            />
-            : null}
-          </View>
         </View>
         {/* Back Side */}
         <View style={flipCardBack}>
