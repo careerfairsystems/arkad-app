@@ -156,12 +156,16 @@ const fetchCommentStudentFailure = error => ({
   error
 })
 
-export const commentRateStudent = (studentId, rating, comment) => (dispatch) => {
+export const commentRateStudent = (studentId, rating, comment) => async (dispatch) => {
   dispatch(fetchCommentStudentRequest())
+  const token = await AsyncStorage.getItem('token')
   return fetch(
-    `https://arkad-nexpo.herokuapp.com/api/me/company/comments/${studentId}?rating=${rating}&comment=${comment}`,
+    `https://arkad-nexpo.herokuapp.com/api/me/company/blips/${studentId}?rating=${rating}&comment=${comment}`,
     {
-      method: 'POST',
+      method: 'PATCH',
+      headers: {
+      'Authorization': 'Bearer ' + token
+      }
     }
   )
     .then((response) => {
@@ -399,7 +403,7 @@ export const createBlip = (student_id) => async (dispatch) => {
   return fetch(
     `https://arkad-nexpo.herokuapp.com/api/me/company/blips?student_id=${student_id}`,
     {
-      method: 'GET',
+      method: 'POST',
       headers: {
       'Authorization': 'Bearer ' + token
       }

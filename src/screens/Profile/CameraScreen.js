@@ -37,7 +37,7 @@ render() {
 async onScanned(event) {
   console.log(event.nativeEvent.codeStringValue.split("/")[4])
   await this.props.createBlip(event.nativeEvent.codeStringValue.split("/")[4])
-  this.props.navigation.navigate('ProfileScreenContainer')
+  this.props.navigation.navigate('ProfileStack')
 }
 
 }

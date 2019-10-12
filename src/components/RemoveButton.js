@@ -9,7 +9,7 @@ const styles = {
 async function remove(navigation, getBlips, removeBlippedStudent, studentId) {
   await removeBlippedStudent(studentId)
   getBlips()
-  navigation.navigate('CompanyLogin')
+  navigation.navigate('ProfileStack')
 }
 
 const { button, text } = styles
