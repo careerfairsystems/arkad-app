@@ -10,13 +10,14 @@ const initialState = {
   loading: false,
   error: '',
   updated: 0,
-  companyLogedIn: "",
+  companyLogedIn: null,
   comment: [],
   studentInfo: [],
   companyRepresentatives: [],
   jwt: "",
   blips: {},
   myInfo: {},
+  blips_loading: false,
 }
 
 const stringCleaner = string => (string ? string.toString().trim() : '')
@@ -417,21 +418,25 @@ const apiReducer = (state = initialState, action) => {
         error: action.error
       }
     case types.FETCH_BLIPS_REQUEST:
+      console.log("AAAAAAAAAAAAAAAH")
       return {
         ...state,
         loading: true,
+        blips_loading: true,
       }
     case types.FETCH_BLIPS_SUCCESS:
       return {
         ...state,
         blips: action.blips,
         loading: false,
+        blips_loading: false,
       }
     case types.FETCH_BLIPS_FAILURE:
       return {
         ...state,
         loading: false,
-        error: action.error
+        error: action.error,
+        blips_loading: false,
       }
     case types.FETCH_REMOVE_BLIPPED_STUDENT_REQUEST:
       return {
@@ -496,6 +501,7 @@ const apiReducer = (state = initialState, action) => {
       }
       return {
         ...state,
+        loading: false,
         myInfo: action.myInfo,
         companyLogedIn: companyLogedIn,
       }
