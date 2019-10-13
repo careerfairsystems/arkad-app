@@ -48,7 +48,7 @@ const styles = {
    color: global.arkadBlue,
    marginTop: 18
   },
-  usernameInput: {
+  inputContainer: {
    height: 40,
    borderTopColor: '#000',
    backgroundColor: 'rgba(0, 43, 100, 0.2)',
@@ -57,14 +57,9 @@ const styles = {
    marginBottom: 10,
    paddingLeft: 10
   },
-  passwordInput: {
-   height: 40,
-   borderTopColor: '#000',
-   backgroundColor: 'rgba(0, 43, 100, 0.2)',
-   borderRadius: 8,
-   marginTop: 5,
-   marginBottom: 40,
-   paddingLeft: 10,
+  input: {
+    height: '100%',
+    width: '100%',
   },
   welcomeText: {
    fontSize: 30,
@@ -161,8 +156,8 @@ const styles = {
 }
 
 
-const { header, buttonText, headerIcon, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
-        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, headerRightView, modalText, cardImage, button, helpView, helpContainer, text, hostImage } = styles
+const { header, buttonText, headerIcon, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, input,
+        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, headerRightView, modalText, cardImage, button, helpView, helpContainer, text, hostImage, inputContainer } = styles
 
 class ProfileLoginScreen extends Component {
   constructor(props){
@@ -325,21 +320,28 @@ class ProfileLoginScreen extends Component {
             />
             <Text style={{fontStyle: 'italic', marginTop: 20, fontSize: 22 }}> Scanning System </Text>
           </View>
-          <TextInput
-            underlineColorAndroid={'transparent'}
-            style={usernameInput}
-            placeholder="Username"
-            value={this.state.username}
-            onChangeText={(text) => this.setState({username: text})}
-          />
-          <TextInput
-            underlineColorAndroid={'transparent'}
-            style={passwordInput}
-            placeholder="Password"
-            secureTextEntry={true}
-            value={this.state.password}
-            onChangeText={(text) => this.setState({password: text})}
-          />
+          <View style={inputContainer}>
+            <TextInput
+              underlineColorAndroid={'transparent'}
+              style={input}
+              placeholder="Username"
+              autoCompleteType={'email'}
+              keyboardType={'email-address'}
+              value={this.state.username}
+              onChangeText={(text) => this.setState({username: text})}
+            />
+          </View>
+          <View style={inputContainer}>
+            <TextInput
+              underlineColorAndroid={'transparent'}
+              style={input}
+              placeholder="Password"
+              secureTextEntry={true}
+              autoCompleteType={'password'}
+              value={this.state.password}
+              onChangeText={(text) => this.setState({password: text})}
+            />
+          </View>
           <Button title='Login'
                   onPress={() => this.handlePress()}
                   loading={this.props.loading}
