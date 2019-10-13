@@ -4,15 +4,17 @@ import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const styles = {
-  button: { paddingHorizontal: 16, paddingVertical: 8 },
-  headerIcon: {
-  paddingHorizontal: 8,
-  alignItems: 'center'
+  button: {
+    paddingHorizontal: 20,
+    paddingVertical: 8
   },
-buttonText: {
-  fontSize: 12,
-  right: 0,
-  color: global.arkadGray
+  headerIcon: {
+    paddingHorizontal: 8,
+    alignItems: 'center'
+  },
+  buttonText: {
+    fontSize: 12,
+    color: global.arkadGray
   },
 }
 

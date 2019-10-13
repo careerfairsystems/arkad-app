@@ -27,20 +27,19 @@ import CameraButton from './components/CameraButton'
 
 const styles = {
   headerIcon: {
-    alignItems: 'center'
+    paddingHorizontal: 16,
+    paddingVertical: 8
   },
   filterView: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 8,
   },
   buttonText: {
     fontSize: 12,
-    right: 0,
-    color: global.arkadGray
+    color: global.arkadGray,
+    textAlign: 'center',
   },
   qrButton: {
     paddingHorizontal: 16,
@@ -49,6 +48,9 @@ const styles = {
   qrText: {
     fontSize: 16,
     color: '#fff',
+  },
+  icon: {
+    paddingHorizontal: 8,
   }
 }
 
@@ -135,7 +137,7 @@ const MainStack = createBottomTabNavigator(
                       style={styles.headerIcon}
                       onPress={() => navigation.navigate('Filter')}
                     >
-                      <Icon name="filter" size={21} color="#fff" />
+                      <Icon name="filter" size={21} color="#fff" style={styles.icon} />
                       <Text style={styles.buttonText}>Filter</Text>
                     </TouchableOpacity>
                   </View>

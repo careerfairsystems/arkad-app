@@ -13,12 +13,11 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: 6,
     paddingVertical: 8,
   },
   buttonText: {
     fontSize: 12,
-    right: 0,
     color: global.arkadGray
   },
   headerIcon: {
