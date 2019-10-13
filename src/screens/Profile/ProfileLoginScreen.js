@@ -53,8 +53,7 @@ const styles = {
    borderTopColor: '#000',
    backgroundColor: 'rgba(0, 43, 100, 0.2)',
    borderRadius: 8,
-   marginTop: 10,
-   marginBottom: 10,
+   marginTop: 8,
    paddingLeft: 10
   },
   input: {
@@ -72,8 +71,8 @@ const styles = {
    color: global.arkadBlue
   },
   image: {
-    height: 160,
-    width: 165.6,
+    height: 140,
+    width: 145,
     marginTop: 15
   },
   imageContainer: {
@@ -318,7 +317,7 @@ class ProfileLoginScreen extends Component {
               style={image}
               source={require('../../../resources/img/arkad_logo.png')}
             />
-            <Text style={{fontStyle: 'italic', marginTop: 20, fontSize: 22 }}> Scanning System </Text>
+            <Text style={{fontStyle: 'italic', marginTop: 16, fontSize: 20 }}> Scanning System </Text>
           </View>
           <View style={inputContainer}>
             <TextInput
@@ -331,7 +330,7 @@ class ProfileLoginScreen extends Component {
               onChangeText={(text) => this.setState({username: text})}
             />
           </View>
-          <View style={inputContainer}>
+          <View style={[inputContainer, {marginBottom: 20}]}>
             <TextInput
               underlineColorAndroid={'transparent'}
               style={input}
@@ -347,12 +346,12 @@ class ProfileLoginScreen extends Component {
                   loading={this.props.loading}
           />
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <TouchableOpacity style={{width:'35%'}} onPress={() => this.toggleCreateAccountModal()}>
+            <TouchableOpacity style={{width:'70%'}} onPress={() => this.toggleCreateAccountModal()}>
               <Text style={h2}>
                 Need an account?
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{width:'45%'}} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/forgot-password')}>
+            <TouchableOpacity style={{width:'70%'}} onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/forgot-password')}>
               <Text style={h2}>
                 Forgot your password?
               </Text>
