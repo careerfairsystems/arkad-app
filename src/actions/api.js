@@ -109,7 +109,8 @@ const fetchLoginFailure = error => ({
 export const loadLogin = (username, password) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
-    `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
+    // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
+    `https://arkad-nexpo.herokuapp.com/api/login?email=alexanderlundst@gmail.com&password=123456789`,
     {
       method: 'POST',
     }
@@ -145,7 +146,6 @@ const fetchCommentStudentRequest = () => ({
 
 const fetchCommentStudentSuccess = (data) => ({
   type: types.FETCH_COMMENT_STUDENT_SUCCESS,
-  comment: data,
 })
 
 const fetchCommentStudentFailure = error => ({

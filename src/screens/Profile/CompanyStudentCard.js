@@ -14,6 +14,8 @@ import LinkedInButton from '../../components/LinkedInButton'
 import StudentListItem from '../../components/listItems/StudentListItem'
 import SectionHeader from '../../components/SectionHeader'
 import { HeaderBackButton } from 'react-navigation'
+import LoadingView from '../../components/LoadingView'
+import SaveSuccess from '../../components/SaveSuccess'
 
 
 const style = {
@@ -359,6 +361,10 @@ class StudentCard extends Component {
     this.setState({commentText: text, hasChanged: true})
   }
 
+  saveSuccessTimer() {
+    setTimeout(() => this.props.unsetSaved(), 7000)
+  }
+
   companyLogin() {
     const studentInfo = this.props.navigation.state.params.item
     return(
@@ -509,8 +515,19 @@ class StudentCard extends Component {
   }
 
   render() {
+    this.saveSuccessTimer()
     return(
       <View style={{alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+        {this.props.loading ?
+        <View style={{position: 'absolute', width: '100%', height: '100%', zIndex: 100, alignItems: 'center', justifyContent: 'center'}}>
+          <LoadingView />
+        </View>
+        : null}
+        {this.props.save_success ?
+        <View style={{position: 'absolute', width: '100%', height: '100%', zIndex: 100, alignItems: 'center', justifyContent: 'center'}}>
+          <SaveSuccess />
+        </View>
+        : null}
         { this.companyLogin() }
         { this.removeView() }
         { this.unsavedModal() }
