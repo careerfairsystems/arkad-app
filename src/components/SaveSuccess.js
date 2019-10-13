@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, ActivityIndicator, Text } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 const styles = {
   container: {
@@ -8,8 +9,11 @@ const styles = {
     alignItems: 'center',
   },
   indicatorBackground: {
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#fff',
-    padding: 24,
+    paddingHorizontal: 25,
+    paddingVertical: 12,
     borderRadius: 8,
     shadowColor: "#000",
     shadowOffset: {
@@ -24,13 +28,13 @@ const styles = {
 }
 
 const { container, indicatorBackground, loadingText } = styles
-const LoadingView = () => (
+const SaveSuccess = () => (
   <View style={container}>
     <View style={indicatorBackground}>
-      <ActivityIndicator size="large" color={global.arkadBlue}/>
-      <Text style={loadingText}>Loading...</Text>
+      <Icon name="check" size={60} color='#26c93c' />
+      <Text style={loadingText}>Saved!</Text>
     </View>
   </View>
 )
 
-export default LoadingView
+export default SaveSuccess
