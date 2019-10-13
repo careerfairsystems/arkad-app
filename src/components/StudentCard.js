@@ -258,6 +258,17 @@ const style = {
 
 const { container, flipCard, flipCardFront, flipCardBack, qrText, button, text, filterView, headerIcon, buttonText, cardImage, profileText, modalText, starCount } = style
 
+function process(obj) {
+  for (var i in obj) {
+    var child = obj[i]
+    if (child === "")
+      obj[i] = "not set"
+    if (child === null)
+      obj[i] = "not set"
+    else if (typeof(child)=="object")
+      process(child);
+  }
+}
 
 function studentLogin(student, navigation, myInfo, loading) {
   if (!loading) {
@@ -278,6 +289,10 @@ function studentLogin(student, navigation, myInfo, loading) {
       sections = Object.keys(sections).map(key => ({ title: key, data: sections[key] }))
     }
   }
+
+  process(myInfo)
+  console.log(myInfo)
+
   return(
       <FlipCard
       style={[flipCard, {width:"100%"}]}
@@ -300,7 +315,7 @@ function studentLogin(student, navigation, myInfo, loading) {
                 {myInfo.first_name} {myInfo.last_name}
               </Text>
               <Text style={profileText}>
-                {myInfo.student.programme.name}
+                {myInfo.student.programme == "not set" ? "Not set" : myInfo.student.programme.name}
               </Text>
               <Text style={profileText}>
                   Year {myInfo.student.year}
