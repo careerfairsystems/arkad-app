@@ -26,7 +26,7 @@ const { image, viewLeft, viewRight } = styles
 const starRating = (rating) => (
   <StarRating
     fullStarColor={'#fab700'}
-    disabled={false}
+    disabled={true}
     maxStars={5}
     rating={rating}
     starSize={12}
