@@ -333,7 +333,7 @@ class StudentCard extends Component {
         <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '20%'}}>
           <View style={{ borderRadius: 8, backgroundColor: '#fff', flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%'}}>
             <View style={{flex: 3, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-              <Text>Are you sure you want to remove this student?</Text>
+              <Text style={{fontWeight: 'bold', fontSize: 16}}>Are you sure you want to remove this student?</Text>
             </View>
             <View style={{flex: 6, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
               <Image
