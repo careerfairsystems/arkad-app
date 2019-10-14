@@ -20,7 +20,7 @@ const fetchCompaniesFailure = error => ({
 export const loadCompanies = () => async (dispatch) => {
   dispatch(fetchCompaniesRequest())
   return fetch(
-    'https://p18.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2019","status:ställer ut"]',
+    'https://p18.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2019","published:true"]',
     {
       method: 'GET'
     }
