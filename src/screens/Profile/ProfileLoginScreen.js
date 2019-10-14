@@ -389,7 +389,7 @@ class ProfileLoginScreen extends Component {
   studentHelpView() {
     return(
       <View>
-        <Modal onBackdropPress={() => this.setState({ showStudetnHelpModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showStudentHelpModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
+        <Modal onBackdropPress={() => this.setState({ showStudentHelpModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showStudentHelpModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
           <View style={helpContainer}>
             <View style={helpView}>
             <ScrollView>
@@ -405,12 +405,12 @@ class ProfileLoginScreen extends Component {
                     How does the card work?
                   </Text>
                   <Text style={createAccountText}>
-                    The top area of the card looks the same as it does for companies that scanned you. You can flip the card by tapping your screen once to access your QR-Code that companies can scan. Your information is collected from your profile. The icons are available or greyed out depending on your choices. You must have either a CV or linkedIn added to your profile, you can have both if you want to. You can opt in or out of companies accessing your email and phone through the card.
+                    Click the card to see your QR-code. Companies see the same card as you.
                   </Text>
                 </View>
                 <View style={{marginTop: 15, marginBottom:50}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
-                    Updating your information
+                    Changing your information
                   </Text>
                   <Text style={createAccountText} >
                     <Text></Text>
