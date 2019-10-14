@@ -333,14 +333,14 @@ class StudentCard extends Component {
         <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '20%'}}>
           <View style={{ borderRadius: 8, backgroundColor: '#fff', flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%'}}>
             <View style={{flex: 3, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-              <Text>Are you sure you want to remove this student?</Text>
-              <Text style={{marginTop: '8%', fontWeight: 'bold', fontSize: 16}}>{studentInfo.first_name} {studentInfo.last_name}</Text>
+              <Text style={{fontSize: 16}}>Are you sure you want to remove this student?</Text>
             </View>
             <View style={{flex: 6, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
               <Image
                 style={cardImage}
                 source={require('../../../resources/img/arkadTeam/IMG_3798.jpg')}
               />
+              <Text style={{marginTop: '2%', fontWeight: 'bold', fontSize: 16}}>{studentInfo.first_name} {studentInfo.last_name}</Text>
             </View>
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
