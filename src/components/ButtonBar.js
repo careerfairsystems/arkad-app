@@ -22,19 +22,19 @@ const styles = {
 }
 
 // Icon button takes an onPress() function as a prop
-const ButtonBar = ({studentInfo}) => (
+const ButtonBar = (phone, linkedin) => (
         <View style={styles.bar}>
             <View style={styles.button}>
-                <IconButton name='linkedin' data={studentInfo.linked_in} />
+                <IconButton name='linkedin' data={linkedin} />
             </View>
             <View style={styles.button}>
                 <IconButton name='file-o' />
             </View>
             <View style={styles.button}>
-                <IconButton name='phone'data="0767711123" />
+                <IconButton name='envelope' />
             </View>
             <View style={styles.button}>
-                <IconButton name='envelope' />
+                <IconButton name='phone'data="0767711123" />
             </View>
         </View>
 )

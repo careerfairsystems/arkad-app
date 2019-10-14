@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 const IconButton = ({ name, onPress, styles, data }) => (
     <View style={styles} >
         <TouchableOpacity onPress={() => {Linking.openURL('mailto:support@domain.com?subject=mailsubject&body=mailbody')}} style={styles}>
-            <Icon name={name} size={34} color={isEmpty(data) ? global.arkadBlue : global.arkadGray} />
+            <Icon name={name} size={34} color={isEmpty(data) ? global.arkadGray : global.arkadBlue} />
         </TouchableOpacity>
     </View>
 )
