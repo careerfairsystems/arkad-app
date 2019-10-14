@@ -144,9 +144,13 @@ class StudentCard extends Component {
   }
 
   componentDidMount() {
+    let tempComment = this.props.navigation.state.params.item.comment
+    if (this.props.navigation.state.params.item.comment == null) {
+      tempComment = ""
+    }
     this.setState({
       starCount: this.props.navigation.state.params.item.rating,
-      commentText: this.props.navigation.state.params.item.comment
+      commentText: tempComment
     })
     this.props.navigation.setParams({
         headerLeft: (
