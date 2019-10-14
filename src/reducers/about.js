@@ -156,7 +156,7 @@ const initialState = {
           name: 'Joel Bångdal',
           role: 'IT Developer',
           image: require('../../resources/img/arkadTeam/default.png'),
-          linkedInUrl: ''
+          linkedInUrl: 'https://www.linkedin.com/in/joel-b%C3%A5ngdal-90a2797a/'
         }
       ]
     },
