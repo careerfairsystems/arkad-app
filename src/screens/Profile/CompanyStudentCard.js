@@ -16,6 +16,7 @@ import SectionHeader from '../../components/SectionHeader'
 import { HeaderBackButton } from 'react-navigation'
 import LoadingView from '../../components/LoadingView'
 import SaveSuccess from '../../components/SaveSuccess'
+import ButtonBar from '../../components/ButtonBar'
 
 
 const style = {
@@ -271,16 +272,7 @@ class StudentCard extends Component {
               </View>
             </View>
             <View style={{flex: 4, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
-              <View style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center'}}>
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-end', paddingRight: 10}}>
-                  <LinkedInButton url={"https://www.google.com"} />
-                </View>
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-start', paddingLeft: 10}}>
-                  <TouchableOpacity onPress={() => openUrl(www.arkadtlth.se)}>
-                    <Icon name="address-card" size={25} color="#000" />
-                  </TouchableOpacity>
-                </View>
-              </View>
+                <ButtonBar phone={studentInfo.phone_number} linkedin={studentInfo.linked_in} email_adr={studentInfo.email} />
               <View style={{flex: 9, flexDirection: 'column', width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
                 <StarRating
                   disabled={false}

@@ -314,7 +314,7 @@ function studentLogin(student, navigation, myInfo, loading) {
             </View>
             : null}
           </View>
-          <ButtonBar phone={myInfo.phone_number} />
+          <ButtonBar phone={myInfo.phone_number} linkedin={myInfo.student.linked_in} email_adr={myInfo.email} />
         </View>
         {/* Back Side */}
         <View style={flipCardBack}>
