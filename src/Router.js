@@ -24,6 +24,7 @@ import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
 import LogoutButton from './containers/LogoutButton'
 import CameraButton from './components/CameraButton'
+import CompanyDetailFavorite from './containers/CompanyDetailFavorite.js'
 
 const styles = {
   headerIcon: {
@@ -147,7 +148,12 @@ const MainStack = createBottomTabNavigator(
             screen: CompanyDetailsScreenContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: navigation.state.params.item.name
+              title: navigation.state.params.item.name,
+              headerRight: (
+                <View style={{marginHorizontal: 16}}>
+                  <CompanyDetailFavorite company={navigation.state.params.item}/>
+                </View>
+              )
             })
           }
         },
