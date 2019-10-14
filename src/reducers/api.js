@@ -11,13 +11,13 @@ const initialState = {
   error: '',
   updated: 0,
   companyLogedIn: null,
-  comment: [],
   studentInfo: [],
   companyRepresentatives: [],
   jwt: "",
   blips: {},
   myInfo: {},
   blips_loading: false,
+  save_success: false,
 }
 
 const stringCleaner = string => (string ? string.toString().trim() : '')
@@ -404,28 +404,28 @@ const apiReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+        save_success: false,
       }
     case types.FETCH_COMMENT_STUDENT_SUCCESS:
       return {
         ...state,
         loading: false,
-        comment: action.comment,
+        save_success: true,
       }
     case types.FETCH_COMMENT_STUDENT_FAILURE:
       return {
         ...state,
         loading: false,
-        error: action.error
+        error: action.error,
+        save_success: false ,
       }
     case types.FETCH_BLIPS_REQUEST:
-      console.log("INNE I REQUEST BLIPS")
       return {
         ...state,
         loading: true,
         blips_loading: true,
       }
     case types.FETCH_BLIPS_SUCCESS:
-    console.log("INNE I SUCCESS BLIPS")
       return {
         ...state,
         blips: action.blips,
@@ -500,7 +500,6 @@ const apiReducer = (state = initialState, action) => {
       if (action.typeLogedin == null) {
          companyLogedIn = true
       }
-      console.log(action.myInfo)
       return {
         ...state,
         loading: false,
@@ -508,21 +507,26 @@ const apiReducer = (state = initialState, action) => {
         blips_loading: true,
         companyLogedIn: companyLogedIn,
       }
-    case types.FETCH_CREATE_BLIPS_REQUEST:
+    case types.FETCH_CREATE_BLIP_REQUEST:
       return {
         ...state,
         loading: true,
       }
-    case types.FETCH_CREATE_BLIPS_SUCCESS:
+    case types.FETCH_CREATE_BLIP_SUCCESS:
       return {
         ...state,
         loading: false,
       }
-    case types.FETCH_CREATE_BLIPS_FAILURE:
+    case types.FETCH_CREATE_BLIP_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.error
+      }
+    case types.UNSET_SAVED:
+      return {
+        ...state,
+        save_success: false,
       }
     case types.LOGOUT:
       return {

@@ -913,6 +913,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = QJ6A8ZCM48;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1561,6 +1562,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = QJ6A8ZCM48;
@@ -1585,6 +1588,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = se.arkadtlth.app2018;
 				PRODUCT_NAME = arkad_app_2018;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1594,6 +1598,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QJ6A8ZCM48;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1617,6 +1623,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = se.arkadtlth.app2018;
 				PRODUCT_NAME = arkad_app_2018;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
