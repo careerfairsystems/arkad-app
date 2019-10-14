@@ -6,6 +6,7 @@ import { getBlips } from '../actions/api'
 
 
 const mapStateToProps = state => ({
+  items: state.apiReducer.items,
   logedIn: state.apiReducer.logedIn,
   loading: state.apiReducer.loading,
   blips_loading: state.apiReducer.blips_loading,
