@@ -241,11 +241,9 @@ const style = {
     right: 0,
     width: 125,
     height: 125,
-    borderRadius: 8
+    borderRadius: 8,
   },
   profileText: {
-    top: 0,
-    left: 0,
     fontSize: 12,
     marginBottom: 6,
   },
@@ -272,7 +270,7 @@ function process(obj) {
 
 function studentLogin(student, navigation, myInfo, loading) {
   if (!loading) {
-    var test = Dimensions.get('window').width
+    var windowWidth = Dimensions.get('window').width
     if (studentCompanyList.length === 0) {
       sections = [{ title: '', data: [] }]
     } else {
@@ -291,7 +289,6 @@ function studentLogin(student, navigation, myInfo, loading) {
   }
 
   process(myInfo)
-  console.log(myInfo)
 
   return(
       <FlipCard
@@ -301,34 +298,68 @@ function studentLogin(student, navigation, myInfo, loading) {
       friction={5}
       clickable={true}>
         {/* Face Side */}
-        <View style={flipCardFront}>
-          <View style={{flex: 4, flexDirection: 'row', width: '100%'}}>
-            <View style={{flex: 1, alignItems: 'center', width: '100%', justifyContent: 'center'}}>
-              <Image
-                style={cardImage}
-                source={require('../../resources/img/arkadTeam/IMG_3758.jpg')}
-              />
-            </View>
-            {!loading ?
-            <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight:'5%'}}>
-              <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
-                {myInfo.first_name} {myInfo.last_name}
-              </Text>
-              <Text style={profileText}>
-                {myInfo.student.programme == "not set" ? "Not set" : myInfo.student.programme.name}
-              </Text>
-              <Text style={profileText}>
-                  Year {myInfo.student.year}
-              </Text>
-              <Text style={profileText}>
-                Master: Software Engineering
-              </Text>
-              <Text style={profileText}>
-                Interested in: Summerjob, thesis, internship
-              </Text>
-            </View>
-            : null}
+        <View style={[flipCardFront, {width: windowWidth * 0.9}]}>
+          <View style={{flex: 2, width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
+            <Image
+              style={cardImage}
+              source={require('../../resources/img/arkadTeam/IMG_3758.jpg')}
+            />
+            <Text style={{fontWeight: 'bold', fontSize: 22, marginTop: '5%'}}>
+              {myInfo.first_name} {myInfo.last_name}
+            </Text>
           </View>
+          {!loading ?
+            <View style={{flex: 1, width: '100%', padding: '5%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+              <View style={{flex: 3, flexDirection: 'row'}}>
+                <View style={{width: '30%'}}>
+                  <Text style={[profileText, {fontWeight: 'bold'}]}>
+                    Programme:
+                  </Text>
+                </View>
+                <View style={{width: '70%'}}>
+                  <Text style={profileText}>
+                    {myInfo.student.programme == "not set" ? "Not set" : myInfo.student.programme.name}
+                  </Text>
+                </View>
+              </View>
+              <View style={{flex: 3, flexDirection: 'row'}}>
+                <View style={{width: '30%'}}>
+                  <Text style={[profileText, {fontWeight: 'bold'}]}>
+                    Year:
+                  </Text>
+                </View>
+                <View style={{width: '70%'}}>
+                  <Text style={profileText}>
+                    {myInfo.student.year}
+                  </Text>
+                </View>
+              </View>
+              <View style={{flex: 3, flexDirection: 'row'}}>
+                <View style={{width: '30%'}}>
+                  <Text style={[profileText, {fontWeight: 'bold'}]}>
+                    Master:
+                  </Text>
+                </View>
+                <View style={{width: '70%'}}>
+                  <Text style={profileText}>
+                    Software Engineering
+                  </Text>
+                </View>
+              </View>
+              <View style={{flex: 3, flexDirection: 'row'}}>
+                <View style={{width: '30%'}}>
+                  <Text style={[profileText, {fontWeight: 'bold'}]}>
+                    Interested in:
+                  </Text>
+                </View>
+                <View style={{width: '70%'}}>
+                  <Text style={profileText}>
+                    Summerjob, thesis, internship
+                  </Text>
+                </View>
+              </View>
+            </View>
+          : null}
           <ButtonBar />
         </View>
         {/* Back Side */}
