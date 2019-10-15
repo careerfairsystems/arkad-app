@@ -26,8 +26,6 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-    height: '100%',
-    width: '100%',
     backgroundColor: 'transparent',
 
   },
@@ -238,6 +236,7 @@ class StudentCard extends Component {
   }
 
   companyLogin() {
+    var windowHeight = Dimensions.get('window').height
     const studentInfo = this.props.navigation.state.params.item
     return(
         <FlipCard
@@ -293,9 +292,9 @@ class StudentCard extends Component {
                   starSize={32}
                 />
               </View>
-              <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={30} enabled style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: '8%'}}>
+              <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={windowHeight*0.5} enabled style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: '8%'}}>
                 <TextInput
-                  style={{width: '100%', height: 60, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4}}
+                  style={{width: '100%', height: 60, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4, backgroundColor: '#fff', zIndex: 1000}}
                   onChangeText={(text) => this.handleCommentText(text)}
                   value={this.state.commentText}
                   placeholder="Write your comment here..."
