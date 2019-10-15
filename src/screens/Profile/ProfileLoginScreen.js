@@ -170,6 +170,7 @@ class ProfileLoginScreen extends Component {
       showRemoveModal: false,
       showCreateAccountModal: false,
       showHelpModal: false,
+      showStudentHelpModal: false,
       student: false,
     }
   }
@@ -207,7 +208,13 @@ class ProfileLoginScreen extends Component {
       this.props.navigation.setParams({
           header: undefined,
           headerRight: (
-            <LogoutButton navigation={this.props.navigation} />
+            <View style={{flex: 1, flexDirection: 'row'}}>
+              <TouchableOpacity style={button} onPress={() => this.toggleStudentHelpModal()}>
+                <Icon style={headerIcon} name='question' size={21} color='#fff'/>
+                <Text style={buttonText}>Help</Text>
+              </TouchableOpacity>
+              <LogoutButton navigation={this.props.navigation} />
+            </View>
           )
       })
     }
@@ -242,6 +249,10 @@ class ProfileLoginScreen extends Component {
 
   toggleHelpModal() {
     this.setState({ showHelpModal: !this.state.showHelpModal });
+  }
+
+  toggleStudentHelpModal() {
+    this.setState({ showStudentHelpModal: !this.state.showStudentHelpModal });
   }
 
   createAccountView() {
@@ -369,6 +380,66 @@ class ProfileLoginScreen extends Component {
     this.toggleHelpModal()
     this.props.navigation.navigate('Faq')
   }
+  gotoStudentFAQ() {
+    this.toggleStudentHelpModal()
+    this.props.navigation.navigate('Faq')
+  }
+
+
+  studentHelpView() {
+    return(
+      <View>
+        <Modal onBackdropPress={() => this.setState({ showStudentHelpModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showStudentHelpModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
+          <View style={helpContainer}>
+            <View style={helpView}>
+            <ScrollView>
+              <View style={{marginVertical: 20, marginHorizontal: 20}}>
+                <View style={{justifyContent: 'center',
+                alignItems: 'center', marginBottom:20}}>
+                  <Text style={{fontSize: 30, color:global.arkadBlue, fontWeight: 'bold'}}>
+                    Need help?
+                  </Text>
+                </View>
+                <View>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    How does the card work?
+                  </Text>
+                  <Text style={createAccountText}>
+                    Click the card to see your QR-code. Companies see the same card as you.
+                  </Text>
+                </View>
+                <View style={{marginTop: 15, marginBottom:50}}>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Changing your information
+                  </Text>
+                  <Text style={createAccountText} >
+                    <Text></Text>
+                  </Text>
+                  <Button title='Edit Profile' onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/user')}></Button>
+                </View>
+              </View>
+              <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                bottom:0,
+              position: 'absolute',
+            width:'100%',
+          marginBottom:20}}>
+                <View style={{width:'40%'}}>
+                  <CloseButton
+                          title='Close'
+                          onPress={() => this.toggleStudentHelpModal()}
+                          showIcon={false}
+                  />
+                </View>
+              </View>
+              </ScrollView>
+            </View>
+          </View>
+        </Modal>
+      </View>
+    )
+  }
 
   helpView() {
     return(
@@ -460,6 +531,7 @@ class ProfileLoginScreen extends Component {
       <View>
         { this.props.logedIn ? this.loadHome() : this.loginView()}
         { this.helpView() }
+        { this.studentHelpView() }
       </View>
     )
   }

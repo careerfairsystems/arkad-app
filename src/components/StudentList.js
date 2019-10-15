@@ -7,6 +7,7 @@ import CameraButton from './CameraButton'
 import Modal from "react-native-modal"
 import Button from './Button'
 import ParallaxScrollView from 'react-native-parallax-scroll-view'
+import DisplayImage from './DisplayImage'
 
 
 const styles = {
@@ -143,7 +144,13 @@ function renderNoContent(section) {
 const { header, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, usernameInput, passwordInput,
         welcomeText, infoText, image, imageContainer, helpContainer, createAccountText, helpView, button, text } = styles
 
-const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo, blips, loading, blips_loading, getBlips }) => {
+const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCameraPermission, myInfo, blips, loading, blips_loading, getBlips, items }) => {
+  let imgUrl = ""
+  items.forEach(function (item, index) {
+    if (item.name == myInfo.representative.company.name) {
+      imgUrl = item.logotypeUrl
+    }
+  })
   if (!loading && !blips_loading && blips != undefined) {
     if (blips.length === 0) {
       sections = [{ title: '', data: [] }]
@@ -179,7 +186,7 @@ const StudentList = ({ studentList, navigation, cameraPermissionGiven, setCamera
         renderBackground={() => (
               <View style={{alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%'}}>
                 <View style={{height: '100%', width: '100%', backgroundColor: 'rgba(60, 60, 60, .9)', position: 'absolute', top: 0, left: 0, zIndex: 100}}></View>
-                <Image style={{height: '100%', width: '100%', zIndex: 1}} source={require('../../resources/img/companyLogos/uniper.jpg')} />
+                <DisplayImage source={{ uri: imgUrl }} />
               </View>
             )}
         renderForeground={() => (

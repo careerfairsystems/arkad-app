@@ -20,7 +20,7 @@ const fetchCompaniesFailure = error => ({
 export const loadCompanies = () => async (dispatch) => {
   dispatch(fetchCompaniesRequest())
   return fetch(
-    'https://p18.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2019","status:ställer ut"]',
+    'https://p18.jexpo.se/arkad/exhibitors?getAttributes=true&filter=["workspace:2019","published:true"]',
     {
       method: 'GET'
     }
@@ -109,7 +109,9 @@ const fetchLoginFailure = error => ({
 export const loadLogin = (username, password) => (dispatch) => {
   dispatch(fetchLoginRequest())
   return fetch(
-    `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
+    // `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
+     `https://arkad-nexpo.herokuapp.com/api/login?email=alexanderlundst@gmail.com&password=123456789`,
+    // `https://arkad-nexpo.herokuapp.com/api/login?email=alexander.mjoberg@gmail.com&password=123456789`,
     {
       method: 'POST',
     }
