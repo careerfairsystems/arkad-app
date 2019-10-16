@@ -235,9 +235,21 @@ class StudentCard extends Component {
     setTimeout(() => this.props.unsetSaved(), 7000)
   }
 
+  process(obj) {
+    for (var i in obj) {
+      var child = obj[i]
+      if (child === null)
+        obj[i] = "not set"
+      else if (typeof(child)=="object")
+        process(child);
+    }
+  }
+
   companyLogin() {
     var windowHeight = Dimensions.get('window').height
     const studentInfo = this.props.navigation.state.params.item
+
+    this.process(studentInfo)
     return(
         <FlipCard
         style={flipCard}
