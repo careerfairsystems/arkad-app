@@ -5,7 +5,7 @@ import IconButton from './IconButton'
 
 const styles = {
     bar: {
-        flex: 1.5,
+        flex: .7,
         flexDirection: 'row',
         width: '80%',
         alignItems: 'center',
@@ -15,7 +15,7 @@ const styles = {
         flex: 1,
         width: '100%',
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         paddingLeft: 10
     }
 }
