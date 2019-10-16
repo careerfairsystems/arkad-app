@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, Text, View } from 'react-native'
+import { TouchableOpacity, Text, View, Dimensions } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator, HeaderBackButton } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
@@ -61,6 +61,8 @@ const navigationOptions = {
   },
   headerTintColor: '#fff'
 }
+
+const windowWidth = Dimensions.get('window').width
 
 const ArkadIcon = createIconSetFromFontello(fontelloConfig)
 
@@ -138,8 +140,11 @@ const MainStack = createBottomTabNavigator(
                       style={styles.headerIcon}
                       onPress={() => navigation.navigate('Filter')}
                     >
-                      <Icon name="filter" size={21} color="#fff" style={styles.icon} />
-                      <Text style={styles.buttonText}>Filter</Text>
+                      {windowWidth < 350
+                        ? [<Icon name="filter" size={16} color="#fff" style={styles.icon} />,
+                          <Text style={[styles.buttonText, {fontSize: 9}]}>Filter</Text>]
+                        :[<Icon name="filter" size={21} color="#fff" style={styles.icon} />,
+                          <Text style={styles.buttonText}>Filter</Text>]}
                     </TouchableOpacity>
                   </View>
                 </View>
