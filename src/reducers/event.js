@@ -1,143 +1,148 @@
 const initialState = [
   {
-    title: '4 November',
+    title: 'November 3rd - Sunday',
     data: [
       {
         key: '1',
-        name: 'Toughest Lab',
+        name: 'Bounce',
         speaker: '',
-        startTime: '14:00',
-        endTime: '17:00',
+        startTime: '15:10',
+        endTime: '17:30',
         language: '',
-        location: 'Toughest Lab, Malmö',
+        location: 'Outside Kårhuset, bus to Malmö',
         description:
-          'Come and get sweaty with ARKAD! We’re arranging two 90-minute long classes with Toughest’s instructors which will be hold at Toughest LAB in Malmö. The two sessions will have 40 spots each, and a shuttle bus will depart from Kårhuset.',
+          'Let’s Bounce! Come and join ARKAD for one full hour of jumping fun at bounce in Malmö! If you are tired of sitting still and studying for exams all day, then this event exactly what you need. For this event we will take the bus to the indoor jumping park Bounce in Malmö and let off some steam during one full hour. Bounce offers a variety of different jumping-areas with something for everyone to enjoy. Some of the areas are the freerun/parkour park, the ninja warrior course and the free jump trampoline area. Of course there will plenty of other areas to discover yourself!',
         signUpURL: 'https://www.arkadtlth.se/events/'
       }
     ]
   },
   {
-    title: '5 November',
+    title: 'November 4th - Monday',
     data: [
       {
         key: '1',
-        name: 'The Digital Revolution',
-        speaker: 'Andreas Ekström',
-        startTime: '17:00',
-        endTime: '18:30',
-        language: 'Swedish',
-        location: 'Kårhuset: Aulan',
-        description:
-          'The journalist Andreas Ekström will perform his internationally famous lecture - Seven ways to own the world". It will bring up how power, money and knowledge has been unevenly distributed in the digital revolution, but also the enormous possibilities which have appeared - to build business, new social interplay and the internet that we really want.',
-        signUpURL: 'https://www.arkadtlth.se/events/'
-      }
-    ]
-  },
-  {
-    title: '7 November',
-    data: [
-      {
-        key: '1',
-        name: 'Assa Abloy',
-        speaker: '',
-        startTime: '12:15',
-        endTime: '13:00',
+        name: 'The digital shift - how will you be affected? ',
+        speaker: 'Nicholas Fernholm',
+        startTime: '17:15',
+        endTime: '18:45',
         language: 'English',
-        location: 'Matteannexet: MA7',
+        location: 'Kårhuset: Auditorium',
         description:
-          'Come and meet the real people of ASSA ABLOY before ARKAD! Are you curious to learn more about what you can do at ASSA ABLOY and what master thesis projects we have open for application? Our Research and Development colleagues from different parts of our organization will talk you through some interesting topics and opportunities, and are prepared to answer questions about the future, innovation, and more.',
-        signUpURL: 'https://www.arkadtlth.se/events/'
-      },
-      {
-        key: '2',
-        name: 'Kodjo Akolor',
-        speaker: '',
-        startTime: '17:00',
-        endTime: '18:30',
-        language: 'Swedish',
-        location: 'Kårhuset: Aulan',
-        description:
-          'Kodjo Akolor, a Swedish comedian famous from Morgonpasset i p3, Musikhjälpen and a lot more is coming to perfom a stand-up show the 7th of November!',
+          'Do you wonder what the future holds for you as an engineer, and how you may increase your competitiveness on the employment market? Then do not miss this lecture with Nicholas Fernholm! This event will give you valuable insight into the increasing automation in today’s industry, how this affects and changes our society and how engineers may face these changes in a successful way, to benefit themselves.',
         signUpURL: 'https://www.arkadtlth.se/events/'
       }
     ]
   },
   {
-    title: '8 November',
+    title: 'November 5th - Tuesday',
     data: [
       {
         key: '1',
-        name: 'ATEA',
+        name: 'Stand up with Hasse Brontén',
+        speaker: 'Hasse Brontén',
+        startTime: '17:15',
+        endTime: '18:00',
+        language: 'Swedish',
+        location: 'Kårhuset: Auditorium',
+        description:
+          'Who doesn’t like a good laugh? We are happy to announce this year’s most comedic event with the stand-up comedian Hasse Brontén! A lively, bright and straightforward humour along with a slightly unusual way thinking makes Hasse a class act that gets across to everyone, young and old. If you want to get some high quality entertainment and take some time off from studies to laugh your heart out, then this is the event you don’t want to miss! There will be a limited amount of spots for this performance, so hurry up and register today! ',
+        signUpURL: 'https://www.arkadtlth.se/events/'
+      }
+    ]
+  },
+  {
+    title: 'November 6th - Wednessday',
+    data: [
+      {
+        key: '1',
+        name: 'Personal development and a positive mindset',
+        speaker: 'Pamela von Sabljar',
+        startTime: '17:15',
+        endTime: '18:45',
+        language: 'Swedish',
+        location: 'Kårhuset: Auditorium',
+        description:
+          'Have you ever wondered how to face challenges and setbacks in the best way possible? Then check out this inspirational and motivational event with Pamela von Sabljar! This event will help you learn more about the importance of a good mindset and how you may acquire one. Furthermore, Pamela will also talk about how to deal with setbacks and how to turn these from something negative into something positive.',
+        signUpURL: 'https://www.arkadtlth.se/events/'
+      }
+    ]
+  },
+  {
+    title: 'November 7th - Thursday',
+    data: [
+      {
+        key: '1',
+        name: 'Lunch lecture with Sveriges Ingenjörer',
         speaker: '',
-        startTime: '12:15',
+        startTime: '12:00',
         endTime: '13:00',
         language: 'Swedish',
         location: 'Matteannexet: MA7',
         description:
-          "You're about to make life-changing decisions regarding your future, what's the smarter choice? How can you make the most out of contributing to a more sustainable world, perform on top and at the same time keep challenging yourself and your environment?",
+          'Have you ever wondered how to face challenges and setbacks in the best way possible? Then check out this inspirational and motivational event with Pamela von Sabljar! This event will help you learn more about the importance of a good mindset and how you may acquire one. Furthermore, Pamela will also talk about how to deal with setbacks and how to turn these from something negative into something positive.',
+        signUpURL: 'https://www.arkadtlth.se/events/'
+      }
+    ]
+  },
+  {
+    title: 'November 11th - Monday',
+    data: [
+      {
+        key: '1',
+        name: 'Lunch lecture with Atea',
+        speaker: '',
+        startTime: '12:00',
+        endTime: '13:00',
+        language: 'Swedish',
+        location: 'Matteannexet: MA7',
+        description:
+          "",
         signUpURL: 'https://www.arkadtlth.se/events/'
       },
       {
         key: '2',
         name: 'Snacka Snyggt',
-        speaker: 'Serena Mon de Vienne',
+        speaker: 'Anna Ekblom',
+        startTime: '17:15',
+        endTime: '18:45',
+        language: 'Swedish',
+        location: 'Kårhuset: Auditorium',
+        description:
+          'Do you want to know how you can gain that competitive edge in interaction with companies during ARKAD 2019? Then check out this event with Anna Ekblom from Snacka Snyggt! This event will give you tips and tricks regarding what you should and what you should not do during a fair. Specifically, this event will help you understand how to use both your words and your body language to stand out from the masses in a career fair environment.',
+        signUpURL: 'https://www.arkadtlth.se/events/'
+      }
+    ]
+  },
+  {
+    title: 'November 12th - Tuesday',
+    data: [
+      {
+        key: '1',
+        name: 'Opening Ceremony ARKAD 2019',
+        speaker: '',
         startTime: '17:00',
-        endTime: '18:30',
-        language: 'Swedish',
-        location: 'Kårhuset: Aulan',
-        description:
-          'Serena Mon de Vienne from the rhetoric consulting firm Snacka Snyggt will provide all the tips and trix for using the right rhetorics for landing the dream job. How do you avoid the clichés, how do you adjust your rhetorics due to your personal characteristics, how to brag in a trustworthy way without stepping on the toes of jantelagen, and how you can use storytelling to deliver a story in a trustworthy way.',
-        signUpURL: 'https://www.arkadtlth.se/events/'
-      }
-    ]
-  },
-  {
-    title: '12 November',
-    data: [
-      {
-        key: '1',
-        name: 'Region Skåne',
-        speaker: '',
-        startTime: '12:15',
-        endTime: '13:00',
-        language: 'Swedish',
-        location: 'E-huset: E:B',
-        description:
-          'Region Skåne operates 10 hospitals, 150 primary care centres and are investing to become the leading region in digitalization of health care in Sweden in 2025. Are you interested in sourcing technology? There are several exciting opportunities coming up now, visit this lunch seminar to know more about your carreer at Region Skåne.',
-        signUpURL: 'https://www.arkadtlth.se/events/'
-      }
-    ]
-  },
-  {
-    title: '13 November',
-    data: [
-      {
-        key: '1',
-        name: 'Opening Ceremony ARKAD 2018',
-        speaker: '',
-        startTime: '18:00',
-        endTime: '21:00',
+        endTime: '19:00',
         language: '',
         location: 'Kårhuset: Gasquesalen',
         description:
-          'Come to Gasquesalen and enjoy a spectacular evening with us to celebrate the opening of this year’s ARKAD fair! There will be live music, entertainment and a competition where great knowledge of Lund will be the key for winning the big prize. We will offer delicious appetizers and a wide sortiment of good beverages. Welcome!',
+          'Welcome to ARKAD 2019! It is with great pleasure that we welcome you to the opening ceremony for ARKAD 2019! This event will be the spark that will ignite this year’s career fair, as it will be the official opening of ARKAD 2019. Come and mingle with both company representatives and students while enjoying some sparkling drinks, appetizers and live music.',
         signUpURL: 'https://www.arkadtlth.se/events/'
       }
     ]
   },
   {
-    title: '15 November',
+    title: 'November 13th - Wednessday',
     data: [
       {
         key: '1',
-        name: 'Pitch Please',
+        name: 'Pitch please!',
         speaker: '',
         startTime: '12:00',
         endTime: '13:00',
         language: '',
         location: 'Matteannexet: MA7',
         description:
-          'Come and listen to offers for examination work, internships and trainee employment from companies who want you to work for their organisations. The companies who will pitch their offers are Preem, Sydkraft Hydropower, Tunstall Nordic, and Schibsted Media Group. Lunch will be offered!',
+          'Are you looking to find out about new interesting companies in your search for a summer job, master thesis project or first regular job? Then this is the perfect event for you! For this event, a total of five different companies will get five minutes each to present and pitch themselves, what they do, as well as their visions, ideas and aspirations. Due to the time limit, be prepared to get high quality, time-optimized pitches.',
         signUpURL: 'https://www.arkadtlth.se/events/'
       }
     ]
