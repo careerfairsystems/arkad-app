@@ -301,7 +301,6 @@ class StudentCard extends Component {
                   underlineColorAndroid="transparent"
                   multiline = {true}
                 />
-                <DoneButton />
               </KeyboardAvoidingView>
               <View style={{flex: 14, width: '100%', justifyContent: 'center'}}>
                 <Button title='Save'
