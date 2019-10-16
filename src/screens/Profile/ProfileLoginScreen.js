@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity, ScrollView, Dimensions } from 'react-native'
 import PropTypes from 'prop-types'
 import Modal from "react-native-modal"
 import Button from '../../components/Button'
@@ -117,7 +117,9 @@ const styles = {
   },
   button: {
     paddingHorizontal: 8,
-    paddingVertical: 8
+    paddingVertical: 8,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   buttonText: {
     right: 0,
@@ -204,14 +206,18 @@ class ProfileLoginScreen extends Component {
 
   async fetchBlips() {
     await this.props.getMyInfo()
+    const windowWidth = Dimensions.get('window').width
     if (!this.props.companyLogedIn) {
       this.props.navigation.setParams({
           header: undefined,
           headerRight: (
             <View style={{flex: 1, flexDirection: 'row'}}>
               <TouchableOpacity style={button} onPress={() => this.toggleStudentHelpModal()}>
-                <Icon style={headerIcon} name='question' size={21} color='#fff'/>
-                <Text style={buttonText}>Help</Text>
+              { windowWidth < 350 ?
+                [<Icon style={[headerIcon, {paddingHorizontal: 0}]} name='question' size={16} color='#fff'/>,
+                <Text style={[buttonText, {fontSize: 9}]}>Help</Text>]
+                : [<Icon style={headerIcon} name='question' size={21} color='#fff'/>,
+                <Text style={buttonText}>Help</Text>]}
               </TouchableOpacity>
               <LogoutButton navigation={this.props.navigation} />
             </View>
@@ -223,14 +229,18 @@ class ProfileLoginScreen extends Component {
 
   async checkBlips() {
     if (this.props.companyLogedIn) {
+      const windowWidth = Dimensions.get('window').width
       await this.props.getBlips()
       this.props.navigation.setParams({
           header: undefined,
           headerRight: (
             <View style={{flex: 1, flexDirection: 'row'}}>
               <TouchableOpacity style={button} onPress={() => this.toggleHelpModal()}>
-                <Icon style={headerIcon} name='question' size={21} color='#fff'/>
-                <Text style={buttonText}>Help</Text>
+              { windowWidth < 350 ?
+                [<Icon style={[headerIcon, {paddingHorizontal: 0}]} name='question' size={16} color='#fff'/>,
+                <Text style={[buttonText, {fontSize: 9}]}>Help</Text>]
+                : [<Icon style={headerIcon} name='question' size={21} color='#fff'/>,
+                <Text style={buttonText}>Help</Text>]}
               </TouchableOpacity>
               <LogoutButton navigation={this.props.navigation} />
             </View>
