@@ -79,7 +79,7 @@ const initialState = [
         language: 'Swedish',
         location: 'Matteannexet: MA7',
         description:
-          'Have you ever wondered how to face challenges and setbacks in the best way possible? Then check out this inspirational and motivational event with Pamela von Sabljar! This event will help you learn more about the importance of a good mindset and how you may acquire one. Furthermore, Pamela will also talk about how to deal with setbacks and how to turn these from something negative into something positive.',
+          'Do you want to know how you may strengthen your own personal brand as an engineer and secure that summer job, master thesis project or first regular job you really want? Then this is an event you don’t want to miss!',
         signUpURL: 'https://www.arkadtlth.se/events/'
       }
     ]
