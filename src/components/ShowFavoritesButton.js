@@ -1,11 +1,12 @@
 import React from 'react'
-import { TouchableOpacity, View, Text } from 'react-native'
+import { TouchableOpacity, View, Text, Dimensions } from 'react-native'
 import PropTypes from 'prop-types'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import './../../global'
 
-const notFavIcon = <Icon name="heart-o" size={21} color="#fff" />
-const favIcon = <Icon name="heart" size={21} color="#fff" />
+const notFavIcon = (size) => (<Icon name="heart-o" size={size} color="#fff" />)
+const favIcon = (size) => (<Icon name="heart" size={size} color="#fff" />)
+
 
 const styles = {
   favoriteView: {
@@ -13,12 +14,9 @@ const styles = {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 16,
     paddingVertical: 8,
   },
   buttonText: {
-    fontSize: 12,
-    right: 0,
     color: global.arkadGray
   },
   headerIcon: {
@@ -26,13 +24,8 @@ const styles = {
   },
 }
 
-const ShowFavoritesButton = ({
-  showFavorites,
-  toggleShowFavorites,
-  searchCompany,
-  clearCompanyFilter
-}) => (
-  <View style={styles.favoriteView}>
+const FavoriteItem = ({size, padding, fontSize, }) => (
+  <View style={[styles.favoriteView, {paddingHorizontal: 8}]}>
     <TouchableOpacity
       style={styles.headerIcon}
       onPress={() => {
@@ -43,11 +36,60 @@ const ShowFavoritesButton = ({
         toggleShowFavorites()
       }}
     >
-      {showFavorites ? favIcon : notFavIcon}
-      <Text style={styles.buttonText}>Favorites</Text>
+      {showFavorites ? favIcon(size) : notFavIcon(size)}
+      <Text style={[styles.buttonText, {fontSize: '${fontSize}'}]}>Favorites</Text>
     </TouchableOpacity>
   </View>
 )
+
+const windowWidth = Dimensions.get('window').width
+
+const ShowFavoritesButton = ({
+  showFavorites,
+  toggleShowFavorites,
+  searchCompany,
+  clearCompanyFilter
+}) => {
+  if(windowWidth < 350) {
+    return (
+      <View style={[styles.favoriteView, {paddingHorizontal: 0}]}>
+        <TouchableOpacity
+          style={styles.headerIcon}
+          onPress={() => {
+            if (!showFavorites) {
+              searchCompany('')
+              clearCompanyFilter()
+            }
+            toggleShowFavorites()
+          }}
+        >
+          {showFavorites ? favIcon(16) : notFavIcon(16)}
+          <Text style={[styles.buttonText, {fontSize: 9}]}>Favorites</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  } else {
+    return (
+      <View style={[styles.favoriteView, {paddingHorizontal: 8}]}>
+        <TouchableOpacity
+          style={styles.headerIcon}
+          onPress={() => {
+            if (!showFavorites) {
+              searchCompany('')
+              clearCompanyFilter()
+            }
+            toggleShowFavorites()
+          }}
+        >
+          {showFavorites ? favIcon(21) : notFavIcon(21)}
+          <Text style={[styles.buttonText, {fontSize: 12}]}>Favorites</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
+
+}
+
 
 ShowFavoritesButton.propTypes = {
   showFavorites: PropTypes.bool.isRequired,

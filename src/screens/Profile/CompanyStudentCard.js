@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, TouchableOpacity, Keyboard, Image, SectionList, RefreshControl, Dimensions } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, Keyboard, Image, SectionList, RefreshControl, Dimensions, TouchableWithoutFeedback, KeyboardAvoidingView } from 'react-native'
 import PropTypes from 'prop-types'
 import Button from '../../components/Button'
 import ActionSheet from 'react-native-actionsheet'
@@ -17,6 +17,7 @@ import { HeaderBackButton } from 'react-navigation'
 import LoadingView from '../../components/LoadingView'
 import SaveSuccess from '../../components/SaveSuccess'
 import ButtonBar from '../../components/ButtonBar'
+import DoneButton from 'react-native-keyboard-done-button'
 
 
 const style = {
@@ -26,8 +27,6 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-    height: '100%',
-    width: '100%',
     backgroundColor: 'transparent',
 
   },
@@ -237,8 +236,21 @@ class StudentCard extends Component {
     setTimeout(() => this.props.unsetSaved(), 7000)
   }
 
+  process(obj) {
+    for (var i in obj) {
+      var child = obj[i]
+      if (child === null)
+        obj[i] = "not set"
+      else if (typeof(child)=="object")
+        process(child);
+    }
+  }
+
   companyLogin() {
+    var windowHeight = Dimensions.get('window').height
     const studentInfo = this.props.navigation.state.params.item
+
+    this.process(studentInfo)
     return(
         <FlipCard
         style={flipCard}
@@ -248,6 +260,8 @@ class StudentCard extends Component {
         flip={this.state.flip}
         clickable={this.state.student}>
           {/* Face Side */}
+
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
           <View style={flipCardFront}>
             <View style={{flex: 3, flexDirection: 'row', width: '100%'}}>
               <View style={{flex: 1, alignItems: 'center', width: '100%', justifyContent: 'center'}}>
@@ -282,16 +296,16 @@ class StudentCard extends Component {
                   starSize={32}
                 />
               </View>
-              <View style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: '8%'}}>
+              <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={windowHeight*0.5} enabled style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: '8%'}}>
                 <TextInput
-                  style={{width: '100%', height: 60, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4}}
+                  style={{width: '100%', height: 60, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4, backgroundColor: '#fff', zIndex: 1000}}
                   onChangeText={(text) => this.handleCommentText(text)}
                   value={this.state.commentText}
                   placeholder="Write your comment here..."
                   underlineColorAndroid="transparent"
                   multiline = {true}
                 />
-              </View>
+              </KeyboardAvoidingView>
               <View style={{flex: 14, width: '100%', justifyContent: 'center'}}>
                 <Button title='Save'
                         onPress={() => this.save()}
@@ -300,6 +314,7 @@ class StudentCard extends Component {
               </View>
             </View>
           </View>
+          </TouchableWithoutFeedback>
           {/* Back Side */}
           <View style={flipCardBack}>
             <Text style={qrText}>
@@ -325,14 +340,14 @@ class StudentCard extends Component {
         <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '20%'}}>
           <View style={{ borderRadius: 8, backgroundColor: '#fff', flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%'}}>
             <View style={{flex: 3, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-              <Text>Are you sure you want to remove this student?</Text>
-              <Text style={{marginTop: '8%', fontWeight: 'bold', fontSize: 16}}>{studentInfo.first_name} {studentInfo.last_name}</Text>
+              <Text style={{fontSize: 16}}>Are you sure you want to remove this student?</Text>
             </View>
             <View style={{flex: 6, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
               <Image
                 style={cardImage}
                 source={require('../../../resources/img/arkadTeam/IMG_3798.jpg')}
               />
+              <Text style={{marginTop: '2%', fontWeight: 'bold', fontSize: 16}}>{studentInfo.first_name} {studentInfo.last_name}</Text>
             </View>
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
@@ -380,7 +395,7 @@ class StudentCard extends Component {
   render() {
     this.saveSuccessTimer()
     return(
-      <View style={{alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
         {this.props.loading ?
         <View style={{position: 'absolute', width: '100%', height: '100%', zIndex: 100, alignItems: 'center', justifyContent: 'center'}}>
           <LoadingView />

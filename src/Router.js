@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, Text, View } from 'react-native'
+import { TouchableOpacity, Text, View, Dimensions } from 'react-native'
 import { createBottomTabNavigator, createStackNavigator, HeaderBackButton } from 'react-navigation'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { createIconSetFromFontello } from 'react-native-vector-icons'
@@ -24,23 +24,23 @@ import ArkadTeamScreenContainer from './containers/ArkadTeamScreen'
 import FaqScreenContainer from './containers/FaqScreen'
 import LogoutButton from './containers/LogoutButton'
 import CameraButton from './components/CameraButton'
+import FavoriteButton from './containers/FavoriteButton.js'
 
 const styles = {
   headerIcon: {
-    alignItems: 'center'
+    paddingHorizontal: 16,
+    paddingVertical: 8
   },
   filterView: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 8,
   },
   buttonText: {
     fontSize: 12,
-    right: 0,
-    color: global.arkadGray
+    color: global.arkadGray,
+    textAlign: 'center',
   },
   qrButton: {
     paddingHorizontal: 16,
@@ -49,6 +49,9 @@ const styles = {
   qrText: {
     fontSize: 16,
     color: '#fff',
+  },
+  icon: {
+    paddingHorizontal: 8,
   }
 }
 
@@ -58,6 +61,8 @@ const navigationOptions = {
   },
   headerTintColor: '#fff'
 }
+
+const windowWidth = Dimensions.get('window').width
 
 const ArkadIcon = createIconSetFromFontello(fontelloConfig)
 
@@ -135,8 +140,11 @@ const MainStack = createBottomTabNavigator(
                       style={styles.headerIcon}
                       onPress={() => navigation.navigate('Filter')}
                     >
-                      <Icon name="filter" size={21} color="#fff" />
-                      <Text style={styles.buttonText}>Filter</Text>
+                      {windowWidth < 350
+                        ? [<Icon name="filter" size={16} color="#fff" style={styles.icon} />,
+                          <Text style={[styles.buttonText, {fontSize: 9}]}>Filter</Text>]
+                        :[<Icon name="filter" size={21} color="#fff" style={styles.icon} />,
+                          <Text style={styles.buttonText}>Filter</Text>]}
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -147,7 +155,12 @@ const MainStack = createBottomTabNavigator(
             screen: CompanyDetailsScreenContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: navigation.state.params.item.name
+              title: navigation.state.params.item.name,
+              headerRight: (
+                <View style={{marginHorizontal: 16}}>
+                  <FavoriteButton company={navigation.state.params.item} color={"#fff"}/>
+                </View>
+              )
             })
           }
         },
@@ -189,7 +202,7 @@ const MainStack = createBottomTabNavigator(
             screen: CameraContainer,
             navigationOptions: () => ({
               ...navigationOptions,
-              title: 'Camera',
+              headerTitle: <SubtitleHeader title="Camera" subtitle="Scan the QR-code on a students flipcard" />
             })
           }
         },
