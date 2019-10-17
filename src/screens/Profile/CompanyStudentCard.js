@@ -286,7 +286,9 @@ class StudentCard extends Component {
               </View>
             </View>
             <View style={{flex: 4, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+              <View style={{flex: 5, width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
                 <ButtonBar phone={studentInfo.phone_number} linkedin={studentInfo.linked_in} email_adr={studentInfo.email} />
+              </View>
               <View style={{flex: 9, flexDirection: 'column', width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
                 <StarRating
                   disabled={false}
