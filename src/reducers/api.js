@@ -432,6 +432,7 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_BLIPS_REQUEST:
       return {
         ...state,
+        save_success: false,
         loading: true,
         blips_loading: true,
       }
@@ -526,6 +527,7 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_CREATE_BLIP_SUCCESS:
       return {
         ...state,
+        save_success: true,
         loading: false,
       }
     case types.FETCH_CREATE_BLIP_FAILURE:
