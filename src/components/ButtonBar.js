@@ -28,7 +28,7 @@ const ButtonBar = ({phone, linkedin, email_adr}) => (
                 <IconButton name='linkedin' data={linkedin} />
             </View>
             <TouchableOpacity style={styles.button}>
-                <Image style={{width: 34, height: 34}} source={require('./../../resources//img/arkadCV.png')}/>
+                <Image style={{width: 34, height: 34}} source={require('./../../resources/img/arkadCV.png')}/>
             </TouchableOpacity>
             <View style={styles.button}>
                 <IconButton name='envelope' data={email_adr} />
