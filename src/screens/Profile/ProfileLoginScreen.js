@@ -130,7 +130,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    height:'100%',
+    height: 500,
     width:'100%',
   },
   helpView: {
@@ -144,8 +144,8 @@ const styles = {
     color: '#fff'
   },
   headerIcon: {
-  paddingHorizontal: 7,
-  alignItems: 'center'
+    paddingHorizontal: 7,
+    alignItems: 'center'
   },
   hostImage: {
     width: 60,
