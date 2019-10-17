@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, TouchableOpacity, Image } from 'react-native'
 import IconButton from './IconButton'
 
 
@@ -16,24 +16,25 @@ const styles = {
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingLeft: 10
+        paddingLeft: 10,
+        color: 'rgba(0, 43, 100, 1)'
     }
 }
 
 // Icon button takes an onPress() function as a prop
-const ButtonBar = () => (
+const ButtonBar = ({phone, linkedin, email_adr}) => (
         <View style={styles.bar}>
             <View style={styles.button}>
-                <IconButton name='linkedin' />
+                <IconButton name='linkedin' data={linkedin} />
+            </View>
+            <TouchableOpacity style={styles.button}>
+                <Image style={{width: 34, height: 34}} source={require('./../../resources//img/arkadCV.png')}/>
+            </TouchableOpacity>
+            <View style={styles.button}>
+                <IconButton name='envelope' data={email_adr} />
             </View>
             <View style={styles.button}>
-                <IconButton name='facebook' />
-            </View>
-            <View style={styles.button}>
-                <IconButton name='phone' />
-            </View>
-            <View style={styles.button}>
-                <IconButton name='envelope' />
+                <IconButton name='phone'data={phone} />
             </View>
         </View>
 )

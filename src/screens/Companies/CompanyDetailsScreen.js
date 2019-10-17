@@ -10,6 +10,7 @@ import TextSection from '../../components/text/TextSection'
 import TextArraySection from '../../components/text/TextArraySection'
 import TextSubtitleSection from '../../components/text/TextSubtitleSection'
 import Button from '../../components/Button'
+import ButtonBar from '../../components/ButtonBar'
 
 const styles = {
   headerIcon: {
@@ -96,7 +97,7 @@ class CompanyDetailsScreen extends Component {
         <TextArraySection title="Desired programme" descriptionArray={[...new Set(company.desiredProgramme)].sort()} />
         <TextArraySection title="Desired degree" descriptionArray={company.desiredDegree.sort()} />
         <TextArraySection title="Industry" descriptionArray={[...new Set(company.industry)].sort()} />
-
+        <ButtonBar />
         <TextSection title="Did you know?" description={company.didYouKnow} />
 
         <TextSubtitleSection
