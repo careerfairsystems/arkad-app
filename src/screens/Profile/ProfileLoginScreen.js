@@ -130,7 +130,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    height: 200,
+    height: 500,
     width:'100%',
   },
   helpView: {

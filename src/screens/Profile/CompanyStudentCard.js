@@ -31,7 +31,7 @@ const style = {
   },
   flipCardFront: {
     alignItems: 'center',
-    height: '100%',
+    height: 500,
     width: '90%',
     backgroundColor: '#fff',
     flex: 1,
@@ -144,15 +144,12 @@ class StudentCard extends Component {
 
   async componentDidMount() {
     let tempComment = this.props.navigation.state.params.item.comment
-    let studentInfo = this.props.navigation.state.params.item
-    await this.process(studentInfo)
     if (this.props.navigation.state.params.item.comment == null) {
       tempComment = ""
     }
     this.setState({
       starCount: this.props.navigation.state.params.item.rating,
       commentText: tempComment,
-      studentInfo: studentInfo,
     })
 
     this.props.navigation.setParams({
@@ -337,10 +334,9 @@ class StudentCard extends Component {
   removeView() {
     const studentInfo = this.props.navigation.state.params.item
     return(
-      <View>
-        <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '20%'}}>
+        <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '30%', top: '12%'}}>
           <View style={{ borderRadius: 8, backgroundColor: '#fff', flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%'}}>
-            <View style={{flex: 3, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+            <View style={{flex: 3, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", paddingHorizontal: '3%'}}>
               <Text style={{fontSize: 16}}>Are you sure you want to remove this student?</Text>
             </View>
             <View style={{flex: 6, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
@@ -348,7 +344,7 @@ class StudentCard extends Component {
                 style={cardImage}
                 source={require('../../../resources/img/arkadTeam/IMG_3798.jpg')}
               />
-              <Text style={{marginTop: '2%', fontWeight: 'bold', fontSize: 16}}>{studentInfo.first_name} {studentInfo.last_name}</Text>
+              <Text style={{marginTop: '3%', fontWeight: 'bold', fontSize: 16}}>{studentInfo.first_name} {studentInfo.last_name}</Text>
             </View>
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
               <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
@@ -362,7 +358,6 @@ class StudentCard extends Component {
             </View>
           </View>
         </Modal>
-      </View>
     )
   }
 
@@ -396,7 +391,7 @@ class StudentCard extends Component {
   render() {
     this.saveSuccessTimer()
     return(
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
+      <View style={{alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
         {this.props.loading ?
         <View style={{position: 'absolute', width: '100%', height: '100%', zIndex: 100, alignItems: 'center', justifyContent: 'center'}}>
           <LoadingView />
