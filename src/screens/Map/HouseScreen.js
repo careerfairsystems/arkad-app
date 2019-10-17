@@ -138,9 +138,9 @@ class HouseScreen extends Component {
       case global.karhuset:
         return <Karhuset parseSvg={this.parseSvg} />
       case global.matteannexetFirstFloor:
-        return <MatteannexetFirstFloor parseSvg={this.parseSvgMA} />
+        return <MatteannexetFirstFloor parseSvg={this.parseSvg} />
       case global.matteannexetSecondFloor:
-        return <MatteannexetSecondFloor parseSvg={this.parseSvgMA} />
+        return <MatteannexetSecondFloor parseSvg={this.parseSvg} />
       case global.studiecentrumFirstFloor:
         return <StudiecentrumFirstFloor parseSvg={this.parseSvg} />
       case global.studiecentrumSecondFloor:
