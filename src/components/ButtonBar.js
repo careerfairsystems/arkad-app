@@ -15,7 +15,7 @@ const styles = {
         flex: 1,
         width: '100%',
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         paddingLeft: 10,
         color: 'rgba(0, 43, 100, 1)'
     }
