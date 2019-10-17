@@ -141,21 +141,21 @@ const initialState = {
           key: '0',
           name: 'Arvid Pilhall',
           role: 'IT Developer',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Arvid_Pilhall.png'),
           linkedInUrl: 'https://www.linkedin.com/in/arvidpilhall/'
         },
         {
           key: '1',
           name: 'Fritjof Bengtsson',
           role: 'IT Developer',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Fritjof_Bengtsson.png'),
           linkedInUrl: 'https://www.linkedin.com/in/fritjofbengtsson/'
         },
         {
           key: '3',
           name: 'Joel Bångdal',
           role: 'IT Developer',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Joel_Bangdal.png'),
           linkedInUrl: 'https://www.linkedin.com/in/joel-b%C3%A5ngdal-90a2797a/'
         }
       ]
@@ -167,35 +167,35 @@ const initialState = {
           key: '0',
           name: 'Filip Hedén',
           role: 'IT Developer',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Filip_Heden.png'),
           linkedInUrl: 'https://www.linkedin.com/in/filip-hed%C3%A9n-823682171/'
         },
         {
           key: '1',
           name: 'Gabriel Borglund',
           role: 'IT Developer',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Gabriel_Borglund.png'),
           linkedInUrl: 'https://www.linkedin.com/in/gabriel-borglund/'
         },
         {
           key: '2',
           name: 'Mustafa Albayati',
           role: 'IT Developer',
-          image: require('../../resources/img/arkadTeam/default.png'),
-          linkedInUrl: ''
+          image: require('../../resources/img/arkadTeam/Mustafa_Albayati.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/mustafa-albayati-952416196'
         },
         {
           key: '3',
           name: 'Nicki Berlin',
           role: 'IT Developer',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Nicki_Berlin.png'),
           linkedInUrl: ''
         },
         {
           key: '4',
           name: 'Oskar Damkjaer',
           role: 'IT Developer',
-          image: require('../../resources/img/arkadTeam/default.png'),
+          image: require('../../resources/img/arkadTeam/Oskar_Damkjaer.png'),
           linkedInUrl: 'https://www.linkedin.com/in/oskar-damkjaer-771257b5/'
         }
       ]
@@ -203,235 +203,235 @@ const initialState = {
     // Coord-start
     {
       title: 'Fair And Logistics',
-      data: [{
-        key: '0',
-        name: 'Daniel Iveborg',
-        role: 'Logistics Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '1',
-        name: 'Lucas Werner',
-        role: 'Logistics Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '2',
-        name: 'Samuel Hirschfeld',
-        role: 'Logistics Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '3',
-        name: 'Anthon Izad Khast Wellerfeld',
-        role: 'Lounge Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '4',
-        name: 'Rawan Yacoub',
-        role: 'Lounge Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '5',
-        name: 'Arne Stenkrona',
-        role: 'Lunch Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '6',
-        name: 'Matilda Horn',
-        role: 'Lunch Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '7',
-        name: 'Daniel Ringwald',
-        role: 'Power Supply & Network Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '8',
-        name: 'Hugo Hildeman',
-        role: 'Power Supply & Network Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '9',
-        name: 'Andreas Bengtsson',
-        role: 'Premises Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '10',
-        name: 'Diederik Harmsen',
-        role: 'Premises Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '11',
-        name: 'Ebba Lundberg',
-        role: 'Premises Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '12',
-        name: 'Filip Lindkvist',
-        role: 'Premises Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '13',
-        name: 'Jessica Kågeman',
-        role: 'Premises Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '14',
-        name: 'Linus Åbrink',
-        role: 'Premises Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '15',
-        name: 'Sanna Nordberg',
-        role: 'Premises Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '16',
-        name: 'Gustav Jönemo',
-        role: 'Shuttle Service Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '17',
-        name: 'Linnea Gidner',
-        role: 'Task Force Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      } ]
-    }, {
+      data: [        {
+          key: '0',
+          name: 'Daniel Iveborg',
+          role: 'Logistics Coordinator',
+          image: require('../../resources/img/arkadTeam/Daniel_Iveborg.png'),
+          linkedInUrl: ''
+        },        {
+          key: '1',
+          name: 'Lucas Werner',
+          role: 'Logistics Coordinator',
+          image: require('../../resources/img/arkadTeam/Lucas_Werner.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/lucas-werner-21baab17a/'
+        },        {
+          key: '2',
+          name: 'Samuel Hirschfeld',
+          role: 'Logistics Coordinator',
+          image: require('../../resources/img/arkadTeam/Samuel_Hirschfeld.png'),
+          linkedInUrl: ''
+        },        {
+          key: '3',
+          name: 'Anthon Izad Khast Wellerfeld',
+          role: 'Lounge Coordinator',
+          image: require('../../resources/img/arkadTeam/Anthon_Izad_Khast_Wellerfeld.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/anthon-izad-khast-wellerfeld-83a8a8183/'
+        },        {
+          key: '4',
+          name: 'Rawan Yacoub',
+          role: 'Lounge Coordinator',
+          image: require('../../resources/img/arkadTeam/Rawan_Yacoub.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/rawan-yacoub-1088a714a'
+        },        {
+          key: '5',
+          name: 'Arne Stenkrona',
+          role: 'Lunch Coordinator',
+          image: require('../../resources/img/arkadTeam/Arne_Stenkrona.png'),
+          linkedInUrl: ''
+        },        {
+          key: '6',
+          name: 'Matilda Horn',
+          role: 'Lunch Coordinator',
+          image: require('../../resources/img/arkadTeam/Matilda_Horn.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/matildahorn/'
+        },        {
+          key: '7',
+          name: 'Daniel Ringwald',
+          role: 'Power Supply & Network Coordinator',
+          image: require('../../resources/img/arkadTeam/Daniel_Ringwald.png'),
+          linkedInUrl: 'http://linkedin.com/in/daniel-ringwald-b73bb7142'
+        },        {
+          key: '8',
+          name: 'Hugo Hildeman',
+          role: 'Power Supply & Network Coordinator',
+          image: require('../../resources/img/arkadTeam/Hugo_Hildeman.png'),
+          linkedInUrl: ''
+        },        {
+          key: '9',
+          name: 'Andreas Bengtsson',
+          role: 'Premises Coordinator',
+          image: require('../../resources/img/arkadTeam/Andreas_Bengtsson.png'),
+          linkedInUrl: ''
+        },        {
+          key: '10',
+          name: 'Diederik Harmsen',
+          role: 'Premises Coordinator',
+          image: require('../../resources/img/arkadTeam/Diederik_Harmsen.png'),
+          linkedInUrl: ''
+        },        {
+          key: '11',
+          name: 'Ebba Lundberg',
+          role: 'Premises Coordinator',
+          image: require('../../resources/img/arkadTeam/Ebba_Lundberg.png'),
+          linkedInUrl: 'http://linkedin.com/in/ebba-lundberg-lth'
+        },        {
+          key: '12',
+          name: 'Filip Lindkvist',
+          role: 'Premises Coordinator',
+          image: require('../../resources/img/arkadTeam/Filip_Lindkvist.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/filip-lindkvist-165537136/'
+        },        {
+          key: '13',
+          name: 'Jessica Kågeman',
+          role: 'Premises Coordinator',
+          image: require('../../resources/img/arkadTeam/Jessica_Kageman.png'),
+          linkedInUrl: ''
+        },        {
+          key: '14',
+          name: 'Linus Åbrink',
+          role: 'Premises Coordinator',
+          image: require('../../resources/img/arkadTeam/Linus_Abrink.png'),
+          linkedInUrl: ''
+        },        {
+          key: '15',
+          name: 'Sanna Nordberg',
+          role: 'Premises Coordinator',
+          image: require('../../resources/img/arkadTeam/Sanna_Nordberg.png'),
+          linkedInUrl: ''
+        },        {
+          key: '16',
+          name: 'Gustav Jönemo',
+          role: 'Shuttle Service Coordinator',
+          image: require('../../resources/img/arkadTeam/Gustav_Jonemo.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/gustav-j%C3%B6nemo-8b8720174/'
+        },        {
+          key: '17',
+          name: 'Linnea Gidner',
+          role: 'Task Force Coordinator',
+          image: require('../../resources/img/arkadTeam/Linnea_Gidner.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/linnea-gidner-a58ba2158/'
+        }      ]
+    },{
       title: 'Gasque And Event',
-      data: [{
-        key: '0',
-        name: 'Emma Olsson',
-        role: 'Event - Administration Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '1',
-        name: 'Nelly Ostréus',
-        role: 'Event - Administration Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '2',
-        name: 'Douglas Edström',
-        role: 'Event - Meal Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '3',
-        name: 'Hjalmar Åhman',
-        role: 'Event - Meal Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '4',
-        name: 'Frida Joelsson',
-        role: 'Gasque - Decor and purchase Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '5',
-        name: 'Filip Berg',
-        role: 'Gasque - Entertainment Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '6',
-        name: 'Ming Li',
-        role: 'Gasque - Entertainment Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '7',
-        name: 'Adam Turesson',
-        role: 'Gasque - Sound & Lighting Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      } ]
-    }, {
+      data: [        {
+          key: '0',
+          name: 'Emma Olsson',
+          role: 'Event - Administration Coordinator',
+          image: require('../../resources/img/arkadTeam/Emma_Olsson.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/emma-olsson-8b8398153/'
+        },        {
+          key: '1',
+          name: 'Nelly Ostréus',
+          role: 'Event - Administration Coordinator',
+          image: require('../../resources/img/arkadTeam/Nelly_Ostreus.png'),
+          linkedInUrl: ''
+        },        {
+          key: '2',
+          name: 'Douglas Edström',
+          role: 'Event - Meal Coordinator',
+          image: require('../../resources/img/arkadTeam/Douglas_Edstrom.png'),
+          linkedInUrl: ''
+        },        {
+          key: '3',
+          name: 'Hjalmar Åhman',
+          role: 'Event - Meal Coordinator',
+          image: require('../../resources/img/arkadTeam/Hjalmar_Ahman.png'),
+          linkedInUrl: ''
+        },        {
+          key: '4',
+          name: 'Frida Joelsson',
+          role: 'Gasque - Decor and purchase Coordinator',
+          image: require('../../resources/img/arkadTeam/Frida_Joelsson.png'),
+          linkedInUrl: ''
+        },        {
+          key: '5',
+          name: 'Filip Berg',
+          role: 'Gasque - Entertainment Coordinator',
+          image: require('../../resources/img/arkadTeam/Filip_Berg.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/filip-berg-499712179/'
+        },        {
+          key: '6',
+          name: 'Ming Li',
+          role: 'Gasque - Entertainment Coordinator',
+          image: require('../../resources/img/arkadTeam/Ming_Li.png'),
+          linkedInUrl: ''
+        },        {
+          key: '7',
+          name: 'Adam Turesson',
+          role: 'Gasque - Sound & Lighting Coordinator',
+          image: require('../../resources/img/arkadTeam/Adam_Turesson.png'),
+          linkedInUrl: ''
+        }      ]
+    },{
       title: 'Marketing and Communication',
-      data: [{
-        key: '0',
-        name: 'Benjamin Kabil',
-        role: 'Info Desk Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '1',
-        name: 'Jakob Bengtsson',
-        role: 'Info Desk Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '2',
-        name: 'Thomas Syski',
-        role: 'Info Desk Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '3',
-        name: 'Zennat Gholam',
-        role: 'Info Desk Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '4',
-        name: 'Filip Tran',
-        role: 'Information Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '5',
-        name: 'Elias Åberg',
-        role: 'Interior Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '6',
-        name: 'Louise Wedberg',
-        role: 'Interior Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '7',
-        name: 'Jacob Nilsson',
-        role: 'Market Research Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '8',
-        name: 'Axel Wiktor',
-        role: 'Photo Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '9',
-        name: 'Alexia Han',
-        role: 'PR Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      }, {
-        key: '10',
-        name: 'André Nilsson',
-        role: 'UX Coordinator',
-        image: require('../../resources/img/arkadTeam/default.png'),
-        linkedInUrl: ''
-      } ]
+      data: [        {
+          key: '0',
+          name: 'Benjamin Kabil',
+          role: 'Info Desk Coordinator',
+          image: require('../../resources/img/arkadTeam/Benjamin_Kabil.png'),
+          linkedInUrl: ''
+        },        {
+          key: '1',
+          name: 'Jakob Bengtsson',
+          role: 'Info Desk Coordinator',
+          image: require('../../resources/img/arkadTeam/Jakob_Bengtsson.png'),
+          linkedInUrl: ''
+        },        {
+          key: '2',
+          name: 'Thomas Syski',
+          role: 'Info Desk Coordinator',
+          image: require('../../resources/img/arkadTeam/Thomas_Syski.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/thomas-syski/'
+        },        {
+          key: '3',
+          name: 'Zennat Gholam',
+          role: 'Info Desk Coordinator',
+          image: require('../../resources/img/arkadTeam/Zennat_Gholam.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/zennatgholam/'
+        },        {
+          key: '4',
+          name: 'Filip Tran',
+          role: 'Information Coordinator',
+          image: require('../../resources/img/arkadTeam/Filip_Tran.png'),
+          linkedInUrl: ''
+        },        {
+          key: '5',
+          name: 'Elias Åberg',
+          role: 'Interior Coordinator',
+          image: require('../../resources/img/arkadTeam/Elias_Aberg.png'),
+          linkedInUrl: ''
+        },        {
+          key: '6',
+          name: 'Louise Wedberg',
+          role: 'Interior Coordinator',
+          image: require('../../resources/img/arkadTeam/Louise_Wedberg.png'),
+          linkedInUrl: 'www.linkedin.com/in/louise-wedberg-86a3aa15a'
+        },        {
+          key: '7',
+          name: 'Jacob Nilsson',
+          role: 'Market Research Coordinator',
+          image: require('../../resources/img/arkadTeam/Jacob_Nilsson.png'),
+          linkedInUrl: 'http://linkedin.com/in/jacob-nilsson-a8b8a0107'
+        },        {
+          key: '8',
+          name: 'Axel Wiktor',
+          role: 'Photo Coordinator',
+          image: require('../../resources/img/arkadTeam/Axel_Wiktor.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/axelwiktor/'
+        },        {
+          key: '9',
+          name: 'Alexia Han',
+          role: 'PR Coordinator',
+          image: require('../../resources/img/arkadTeam/Alexia_Han.png'),
+          linkedInUrl: 'www.linkedin.com/in/alexia-x-han'
+        },        {
+          key: '10',
+          name: 'André Nilsson',
+          role: 'UX Coordinator',
+          image: require('../../resources/img/arkadTeam/Andre_Nilsson.png'),
+          linkedInUrl: 'https://www.linkedin.com/in/andr%C3%A9-nilsson-739585165/'
+        }      ]
     },
     // Coord-stop
     {

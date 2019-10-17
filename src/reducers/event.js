@@ -45,7 +45,7 @@ const initialState = [
         language: 'Swedish',
         location: 'Kårhuset: Auditorium',
         description:
-          'Who doesn’t like a good laugh? We are happy to announce this year’s most comedic event with the stand-up comedian Hasse Brontén! A lively, bright and straightforward humour along with a slightly unusual way thinking makes Hasse a class act that gets across to everyone, young and old. If you want to get some high quality entertainment and take some time off from studies to laugh your heart out, then this is the event you don’t want to miss! There will be a limited amount of spots for this performance, so hurry up and register today! ',
+          'Who doesn’t like a good laugh? We are happy to announce this year’s most comedic event with the stand-up comedian Hasse Brontén! A lively, bright and straightforward humour along with a slightly unusual way thinking makes Hasse a class act that gets across to everyone, young and old. If you want to get some high quality entertainment and take some time off from studies to laugh your heart out, then this is the event you don’t want to miss! There will be a limited amount of spots for this event, so hurry up and register today!',
         signUpURL: 'https://www.arkadtlth.se/events/'
       }
     ]
