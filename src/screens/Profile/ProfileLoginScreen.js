@@ -417,13 +417,11 @@ class ProfileLoginScreen extends Component {
                   <Text style={createAccountText}>
                     Click the card to see your QR-code. Companies see the same card as you.
                   </Text>
+                  <CloseButton title='Learn more about the system' onPress={() => Linking.openURL('https://www.arkadtlth.se/scan')}></CloseButton>
                 </View>
                 <View style={{marginTop: 15, marginBottom:50}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Changing your information
-                  </Text>
-                  <Text style={createAccountText} >
-                    <Text></Text>
                   </Text>
                   <Button title='Edit Profile' onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/user')}></Button>
                 </View>
