@@ -169,14 +169,14 @@ const MainStack = createBottomTabNavigator(
         }
       )
     },
-    Profile: {
+    Scanning: {
       screen: createStackNavigator(
         {
           ProfileStack: {
             screen: ProfileScreenContainer,
             navigationOptions: ({ navigation }) => ({
               ...navigationOptions,
-              title: 'Profile',
+              title: 'Scanning',
               header: navigation.state.params ? navigation.state.params.header : null,
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
             })
@@ -261,7 +261,7 @@ const MainStack = createBottomTabNavigator(
           iconName = 'briefcase'
         } else if (routeName === 'Events') {
           iconName = 'calendar-check-o'
-        } else if (routeName === 'Profile') {
+        } else if (routeName === 'Scanning') {
           iconName = 'user'
         } else if (routeName === 'About') {
           return <ArkadIcon name="arkadlogo" size={26} color={tintColor} />
