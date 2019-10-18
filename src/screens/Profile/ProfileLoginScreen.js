@@ -345,6 +345,7 @@ class ProfileLoginScreen extends Component {
               underlineColorAndroid={'transparent'}
               style={input}
               placeholder="Username"
+              placeholderTextColor = 'gray'
               autoCompleteType={'email'}
               keyboardType={'email-address'}
               value={this.state.username}
@@ -356,6 +357,7 @@ class ProfileLoginScreen extends Component {
               underlineColorAndroid={'transparent'}
               style={input}
               placeholder="Password"
+              placeholderTextColor = 'gray'
               secureTextEntry={true}
               autoCompleteType={'password'}
               value={this.state.password}
