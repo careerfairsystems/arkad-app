@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { createBlip, getBlips } from '../actions/api'
+import { createBlip } from '../actions/api'
 import CameraScreen from '../screens/Profile/CameraScreen'
 
 const mapStateToProps = state => ({
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ createBlip, getBlips }, dispatch)
+  return bindActionCreators({ createBlip }, dispatch)
 }
 
 export default connect(
