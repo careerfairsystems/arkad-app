@@ -202,7 +202,7 @@ const MainStack = createBottomTabNavigator(
             screen: CameraContainer,
             navigationOptions: () => ({
               ...navigationOptions,
-              headerTitle: <SubtitleHeader title="Camera" subtitle="Scan the QR-code on a students flipcard" />
+              title: 'Scanner' 
             })
           }
         },
