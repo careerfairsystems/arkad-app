@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity, Image, Linking } from 'react-native'
+import { View, TouchableOpacity, Image, Linking, Alert } from 'react-native'
 import IconButton from './IconButton'
 
 
@@ -22,13 +22,13 @@ const styles = {
 }
 
 // Icon button takes an onPress() function as a prop
-const ButtonBar = ({phone, linkedin, email_adr}) => (
+const ButtonBar = ({phone, linkedin, email_adr, cvsv}) => (
   <View style={styles.bar}>
     <View style={styles.button}>
       <IconButton name='linkedin' data={linkedin} />
     </View>
     <View style={styles.button}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => openUrl(cvsv)}>
         <Image style={{width: 34, height: 34}} source={require('./../../resources/img/arkadCV.png')}/>
       </TouchableOpacity>
     </View>
@@ -40,5 +40,17 @@ const ButtonBar = ({phone, linkedin, email_adr}) => (
     </View>
   </View>
 )
+
+const openUrl = (url) => {
+  Linking.canOpenURL(url)
+    .then((supported) => {
+      if (supported) {
+        Linking.openURL(url)
+      } else {
+        Alert.alert(`Could not open URL: ${this.url}`)
+      }
+    })
+    .catch(err => Alert.alert(`Could not open URL: ${err}`))
+}
 
 export default ButtonBar
