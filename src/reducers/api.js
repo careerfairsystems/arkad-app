@@ -245,6 +245,16 @@ const filterFormatter = (name, id, array) => {
   return { name, id, children }
 }
 
+function process(obj) {
+  for (var i in obj) {
+    var child = obj[i]
+    if (child === null)
+      obj[i] = "not set"
+    else if (typeof(child)=="object")
+      process(child);
+  }
+}
+
 const apiReducer = (state = initialState, action) => {
   let filteredCompanies
   let maps = []
@@ -426,6 +436,7 @@ const apiReducer = (state = initialState, action) => {
         blips_loading: true,
       }
     case types.FETCH_BLIPS_SUCCESS:
+      process(action.blips)
       return {
         ...state,
         blips: action.blips,

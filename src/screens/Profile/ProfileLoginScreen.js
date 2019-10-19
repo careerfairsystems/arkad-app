@@ -130,7 +130,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    height:'100%',
+    height: 500,
     width:'100%',
   },
   helpView: {
@@ -144,8 +144,8 @@ const styles = {
     color: '#fff'
   },
   headerIcon: {
-  paddingHorizontal: 7,
-  alignItems: 'center'
+    paddingHorizontal: 7,
+    alignItems: 'center'
   },
   hostImage: {
     width: 60,
@@ -345,6 +345,7 @@ class ProfileLoginScreen extends Component {
               underlineColorAndroid={'transparent'}
               style={input}
               placeholder="Username"
+              placeholderTextColor = 'gray'
               autoCompleteType={'email'}
               keyboardType={'email-address'}
               value={this.state.username}
@@ -356,6 +357,7 @@ class ProfileLoginScreen extends Component {
               underlineColorAndroid={'transparent'}
               style={input}
               placeholder="Password"
+              placeholderTextColor = 'gray'
               secureTextEntry={true}
               autoCompleteType={'password'}
               value={this.state.password}
@@ -417,13 +419,11 @@ class ProfileLoginScreen extends Component {
                   <Text style={createAccountText}>
                     Click the card to see your QR-code. Companies see the same card as you.
                   </Text>
+                  <CloseButton title='Learn more about the system' onPress={() => Linking.openURL('https://www.arkadtlth.se/scan')}></CloseButton>
                 </View>
                 <View style={{marginTop: 15, marginBottom:50}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
                     Changing your information
-                  </Text>
-                  <Text style={createAccountText} >
-                    <Text></Text>
                   </Text>
                   <Button title='Edit Profile' onPress={() => Linking.openURL('https://arkad-nexpo.herokuapp.com/user')}></Button>
                 </View>
