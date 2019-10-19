@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity, Image } from 'react-native'
+import { View, TouchableOpacity, Image, Linking } from 'react-native'
 import IconButton from './IconButton'
 
 
@@ -33,7 +33,7 @@ const ButtonBar = ({phone, linkedin, email_adr}) => (
       </TouchableOpacity>
     </View>
     <View style={styles.button}>
-        <IconButton name='envelope' data={email_adr} />
+        <IconButton name='envelope' data={email_adr} onPress={() => {Linking.openURL('mailto:support@domain.com?subject=mailsubject&body=mailbody')}} />
     </View>
     <View style={styles.button}>
         <IconButton name='phone'data={phone} />
