@@ -135,7 +135,7 @@ const styles = {
   },
   helpView: {
     height:'90%',
-    width:'90%',
+    width:'100%',
     backgroundColor: '#fff',
     borderRadius:10
   },
