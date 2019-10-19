@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, TouchableOpacity, Keyboard, Image, SectionList, RefreshControl, Dimensions, TouchableWithoutFeedback, KeyboardAvoidingView } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, Keyboard, Image, SectionList, RefreshControl, Dimensions, TouchableWithoutFeedback, KeyboardAvoidingView, ScrollView } from 'react-native'
 import PropTypes from 'prop-types'
 import Button from '../../components/Button'
 import ActionSheet from 'react-native-actionsheet'
@@ -23,30 +23,14 @@ import DoneButton from 'react-native-keyboard-done-button'
 const style = {
   starCount: 3.5,
   isLoading: false,
-  flipCard: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 8,
-    backgroundColor: 'transparent',
-
-  },
   flipCardFront: {
     alignItems: 'center',
-    height: 500,
-    width: '90%',
+    justifyContent: 'center',
+    height: '100%',
+    width: '100%',
     backgroundColor: '#fff',
     flex: 1,
-    borderRadius: 8,
-    margin: "5%",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 9,
-    },
-    shadowOpacity: 0.50,
-    shadowRadius: 12.35,
-
-    elevation: 19,
+    padding: "5%",
   },
   flipCardBack: {
     justifyContent: 'center',
@@ -240,88 +224,108 @@ class StudentCard extends Component {
   companyLogin() {
     var windowHeight = Dimensions.get('window').height
     const studentInfo = this.props.navigation.state.params.item
+    console.log("oashdoaidioasdh")
+    console.log(studentInfo)
+    console.log("oashdoaidioasdh")
 
     return(
-        <FlipCard
-        style={flipCard}
-        flipHorizontal={true}
-        flipVertical={false}
-        friction={10}
-        flip={this.state.flip}
-        clickable={this.state.student}>
-          {/* Face Side */}
-
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-          <View style={flipCardFront}>
-            <View style={{flex: 3, flexDirection: 'row', width: '100%'}}>
-              <View style={{flex: 1, alignItems: 'center', width: '100%', justifyContent: 'center'}}>
-                <Image
-                  style={cardImage}
-                  source={require('../../../resources/img/arkadTeam/IMG_3798.jpg')}
-                />
+      <ScrollView style={{width: '100%', height: '100%'}}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <View style={flipCardFront}>
+          <View style={{flex: 10, width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: 30}}>
+            <Image
+              style={cardImage}
+              source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
+            />
+            <Text style={{fontWeight: 'bold', fontSize: 22, marginVertical: '5%'}}>
+              {studentInfo.first_name} {studentInfo.last_name}
+            </Text>
+          </View>
+          {!this.props.loading ?
+          <View style={{flex: 10, width: '100%', padding: '5%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{flex: 3, flexDirection: 'row'}}>
+              <View style={{width: '35%'}}>
+                <Text style={[profileText, {fontWeight: 'bold'}]}>
+                  Programme:
+                </Text>
               </View>
-              <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', paddingRight: '5%'}}>
-                <Text style={[profileText, {fontWeight: 'bold', fontSize: 18}]}>
-                  {studentInfo.first_name} {studentInfo.last_name}
-                </Text>
+              <View style={{width: '65%'}}>
                 <Text style={profileText}>
-                  {studentInfo.programme.name}
-                </Text>
-                <Text style={profileText}>
-                  Master: Software Engineering
-                </Text>
-                <Text style={profileText}>
-                  Interested in: Summerjob, thesis, internship
+                  {studentInfo.programme.name == null ? "-" : studentInfo.programme.name}
                 </Text>
               </View>
             </View>
-            <View style={{flex: 4, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
-              <View style={{flex: 5, width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
-                <ButtonBar phone={studentInfo.phone_number} linkedin={studentInfo.linked_in} email_adr={studentInfo.email} />
+            <View style={{flex: 3, flexDirection: 'row'}}>
+              <View style={{width: '35%'}}>
+                <Text style={[profileText, {fontWeight: 'bold'}]}>
+                  Year:
+                </Text>
               </View>
-              <View style={{flex: 9, flexDirection: 'column', width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
-                <StarRating
-                  disabled={false}
-                  maxStars={5}
-                  rating={this.state.starCount}
-                  selectedStar={(rating) => this.onStarRatingPress(rating)}
-                  starSize={32}
-                />
+              <View style={{width: '65%'}}>
+                <Text style={profileText}>
+                  {studentInfo.year == null ? "-" : studentInfo.year}
+                </Text>
               </View>
-              <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={windowHeight*0.5} enabled style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center', paddingHorizontal: '8%'}}>
-                <TextInput
-                  style={{width: '100%', height: 60, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4, backgroundColor: '#fff', zIndex: 1000}}
-                  onChangeText={(text) => this.handleCommentText(text)}
-                  value={this.state.commentText}
-                  placeholder="Write your comment here..."
-                  underlineColorAndroid="transparent"
-                  multiline = {true}
-                />
-              </KeyboardAvoidingView>
-              <View style={{flex: 14, width: '100%', justifyContent: 'center'}}>
-                <Button title='Save'
-                        onPress={() => this.save()}
-                        loading={this.state.isLoading}
-                />
+            </View>
+            <View style={{flex: 3, flexDirection: 'row'}}>
+              <View style={{width: '35%'}}>
+                <Text style={[profileText, {fontWeight: 'bold'}]}>
+                  Master:
+                </Text>
+              </View>
+              <View style={{width: '65%'}}>
+                <Text style={profileText}>
+                  {studentInfo.year == null ? "-" : studentInfo.year}
+                </Text>
+              </View>
+            </View>
+            <View style={{flex: 3, flexDirection: 'row'}}>
+              <View style={{width: '35%'}}>
+                <Text style={[profileText, {fontWeight: 'bold'}]}>
+                  Interested in:
+                </Text>
+              </View>
+              <View style={{width: '65%'}}>
+                <Text style={profileText}>
+                  {studentInfo.year == null ? "-" : studentInfo.year}
+                </Text>
               </View>
             </View>
           </View>
-          </TouchableWithoutFeedback>
-          {/* Back Side */}
-          <View style={flipCardBack}>
-            <Text style={qrText}>
-              Your personal QR-code.
-            </Text>
-            <Text style={qrText}>
-              Go share it with your favourit companies!
-            </Text>
-            <QRCode
-              value="www.google.se"
-              size={200}
-              bgColor='rgb(0, 43, 100)'
-              fgColor='#fff'/>
+          : null}
+          <View style={{flex: 10, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{flex: 5, width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
+              <ButtonBar phone={studentInfo.phone_number} linkedin={studentInfo.linked_in} email_adr={studentInfo.email} />
+            </View>
+            <View style={{flex: 1, flexDirection: 'column', width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4, height: 90}}>
+              <StarRating
+                disabled={false}
+                maxStars={5}
+                rating={this.state.starCount}
+                selectedStar={(rating) => this.onStarRatingPress(rating)}
+                starSize={40}
+              />
+            </View>
+            <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={windowHeight*0.25} enabled style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+              <View style={{width: '100%'}}>
+              <TextInput
+                style={{width: '100%', height: 130, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4, backgroundColor: '#fff', zIndex: 1000, marginBottom: 20}}
+                onChangeText={(text) => this.handleCommentText(text)}
+                value={this.state.commentText}
+                placeholder="Write your comment here..."
+                underlineColorAndroid="transparent"
+                multiline = {true}
+              />
+              <Button title='Save'
+                      onPress={() => this.save()}
+                      loading={this.state.isLoading}
+              />
+            </View>
+            </KeyboardAvoidingView>
           </View>
-        </FlipCard>
+        </View>
+      </TouchableWithoutFeedback>
+      </ScrollView>
     )
   }
 
