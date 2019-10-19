@@ -144,7 +144,7 @@ class StudentCard extends Component {
   }
 
   async componentDidMount() {
-    let tempComment = this.props.navigation.state.params.item.comment
+    let tempComment = this.props.navigation.state.params.item.comment.replace(/\%0A/g, '\n')
     if (this.props.navigation.state.params.item.comment == null) {
       tempComment = ""
     }
