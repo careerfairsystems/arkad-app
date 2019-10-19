@@ -434,18 +434,8 @@ const initialState = {
         }      ]
     },
     // Coord-stop
-    {
     // Host-start
-      title: 'Hosts',
-      data: [
-        {
-          key: '0',
-          name: 'Hosts',
-          role: 'Helps companies at the fair',
-          image: require('../../resources/img/arkadTeam/hosts.jpg')
-        }
-      ]
-    },{
+    {
       title: 'Gasque hosts',
       data: [
     {
