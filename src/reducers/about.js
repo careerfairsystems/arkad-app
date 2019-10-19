@@ -434,17 +434,1479 @@ const initialState = {
         }      ]
     },
     // Coord-stop
+    // Host-start
     {
-      title: 'Hosts',
+      title: 'Gasque hosts',
       data: [
-        {
-          key: '0',
-          name: 'Hosts',
-          role: 'Helps companies at the fair',
-          image: require('../../resources/img/arkadTeam/hosts.jpg')
-        }
-      ]
+    {
+       name: "Lovis Åsberg",
+       role: "Gasque host",
+       key: 0,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Alexander Sandström",
+       role: "Gasque host",
+       key: 1,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Amanda Nystedt",
+       role: "Gasque host",
+       key: 2,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Emma Holmqvist",
+       role: "Gasque host",
+       key: 3,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Fanny Brink",
+       role: "Gasque host",
+       key: 4,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Felicia Schipperges Tjus",
+       role: "Gasque host",
+       key: 5,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Petter Håkansson",
+       role: "Gasque host",
+       key: 6,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Samuel Eklund",
+       role: "Gasque host",
+       key: 7,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Sara Davidsson Bencker",
+       role: "Gasque host",
+       key: 8,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Shashank Bhanuprakash",
+       role: "Gasque host",
+       key: 9,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Shegofa Qorbanzade",
+       role: "Gasque host",
+       key: 10,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Valeriia Grudtsyna",
+       role: "Gasque host",
+       key: 11,
+       image: require('../../resources/img/arkadTeam/default.png')
+    }]},
+    {
+      title: 'Chauffeur hosts',
+      data: [
+    {
+       name: "Fred Nordell",
+       role: "Chauffeur host",
+       key: 12,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Felicia Gabrielii Augustsson",
+       role: "Chauffeur host",
+       key: 13,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Nils Wicktor",
+       role: "Chauffeur host",
+       key: 14,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Maria Manuel De Bastos Pacheco",
+       role: "Chauffeur host",
+       key: 15,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Theo Nyman",
+       role: "Chauffeur host",
+       key: 16,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Ardian Miftari",
+       role: "Chauffeur host",
+       key: 17,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Malin Wahlström",
+       role: "Chauffeur host",
+       key: 18,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Gustav Sällberg",
+       role: "Chauffeur host",
+       key: 19,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Simon Hessman",
+       role: "Chauffeur host",
+       key: 20,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Gloria Mokberi",
+       role: "Chauffeur host",
+       key: 21,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Lukas Petersson",
+       role: "Chauffeur host",
+       key: 22,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Jasmina Trinh",
+       role: "Chauffeur host",
+       key: 23,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Andreas Thoft",
+       role: "Chauffeur host",
+       key: 24,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Patric Wargeus",
+       role: "Chauffeur host",
+       key: 25,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    ]
+  },
+    {
+      title: 'Events hosts',
+      data: [
+    {
+       name: "Lina Tinnerberg",
+       role: "Event host",
+       key: 26,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Tove Persson",
+       role: "Event host",
+       key: 27,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Rebecka Knutsson",
+       role: "Event host",
+       key: 28,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Henriette Haugen",
+       role: "Event host",
+       key: 29,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Oskar Wändesjö",
+       role: "Event host",
+       key: 30,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Johan Ekman",
+       role: "Event host",
+       key: 31,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Sahqr",
+       role: "Event host",
+       key: 32,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Joakim Dworak",
+       role: "Event host",
+       key: 33,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Pauline Sandberg",
+       role: "Event host",
+       key: 34,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Kathleen Nguyen",
+       role: "Event host",
+       key: 35,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Moutoz Abdalrahman",
+       role: "Event host",
+       key: 36,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "YiZhen Yang",
+       role: "Event host",
+       key: 37,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Rasmus Olsson",
+       role: "Event host",
+       key: 38,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Gelli Bharath",
+       role: "Event host",
+       key: 39,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Yash Shrimali",
+       role: "Event host",
+       key: 40,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+  ]},
+  {
+    title: 'Info-desk hosts',
+    data: [
+    {
+       name: "Yasmeen Ali",
+       role: "Info-desk host",
+       key: 42,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Gustav Ingvaldsson",
+       role: "Info-desk host",
+       key: 43,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Celina Gustafsson",
+       role: "Info-desk host",
+       key: 44,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Björn Lindgren",
+       role: "Info-desk host",
+       key: 45,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Hanna Bengtsson",
+       role: "Info-desk host",
+       key: 46,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Tove Nimvik",
+       role: "Info-desk host",
+       key: 47,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Elin Öberg",
+       role: "Info-desk host",
+       key: 48,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Hugo wikholm",
+       role: "Info-desk host",
+       key: 49,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Ester Pörtfors",
+       role: "Info-desk host",
+       key: 50,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Viktor Strömberg",
+       role: "Info-desk host",
+       key: 51,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Albin Forsberg",
+       role: "Info-desk host",
+       key: 52,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Gustaf Carstam",
+       role: "Info-desk host",
+       key: 53,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Per Nelsson",
+       role: "Info-desk host",
+       key: 54,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Henrik Ramström",
+       role: "Info-desk host",
+       key: 55,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Hanna Karlsson",
+       role: "Info-desk host",
+       key: 56,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Julia Lövgren",
+       role: "Info-desk host",
+       key: 57,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Anna Andersson",
+       role: "Info-desk host",
+       key: 58,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Märta Larsson",
+       role: "Info-desk host",
+       key: 59,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Johanna Schedin",
+       role: "Info-desk host",
+       key: 60,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Osama Eldawebi",
+       role: "Info-desk host",
+       key: 61,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Albin Erlander",
+       role: "Info-desk host",
+       key: 62,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Henrik Shadman",
+       role: "Info-desk host",
+       key: 63,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Tselmeg Baasan",
+       role: "Info-desk host",
+       key: 64,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Heaven Frezgi",
+       role: "Info-desk host",
+       key: 65,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Victoria Lindwert",
+       role: "Info-desk host",
+       key: 66,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "SUPRADEEPA PANUAL GANESAN",
+       role: "Info-desk host",
+       key: 67,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Oliver Bengtsson",
+       role: "Info-desk host",
+       key: 68,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+  ]},
+  {
+    title: 'Interior hosts',
+    data: [
+    {
+       name: "Ida Andersson",
+       role: "Interior host",
+       key: 69,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Lisa Bybro",
+       role: "Interior host",
+       key: 70,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Elina Yrlid",
+       role: "Interior host",
+       key: 71,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Alice Berggren",
+       role: "Interior host",
+       key: 72,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Antonia Mundt-Petersen",
+       role: "Interior host",
+       key: 73,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Chia-Yin Lin",
+       role: "Interior host",
+       key: 74,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Durgaprasad Srinivasa",
+       role: "Interior host",
+       key: 75,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Cassandra Hennström",
+       role: "Interior host",
+       key: 76,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Lova Sedigh",
+       role: "Interior host",
+       key: 77,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+  ]},
+  {
+    title: 'Lounge hosts',
+    data: [
+    {
+       name: "Sofie Thulin",
+       role: "Lounge host",
+       key: 78,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Nicki Holmgran",
+       role: "Lounge host",
+       key: 79,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Henrik Ruuth",
+       role: "Lounge host",
+       key: 80,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Pontus Herrmann",
+       role: "Lounge host",
+       key: 81,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Jens Svendsen",
+       role: "Lounge host",
+       key: 82,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Johan Svensson",
+       role: "Lounge host",
+       key: 83,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Rebecka Lindquist",
+       role: "Lounge host",
+       key: 84,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Daniel Carlson Bjernald",
+       role: "Lounge host",
+       key: 85,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Ulrika Lindquist",
+       role: "Lounge host",
+       key: 86,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Vesa Halipi",
+       role: "Lounge host",
+       key: 87,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Agnesa Halipi",
+       role: "Lounge host",
+       key: 88,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Max Gref",
+       role: "Lounge host",
+       key: 89,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "David Karlsson",
+       role: "Lounge host",
+       key: 90,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Miran Lurr",
+       role: "Lounge host",
+       key: 91,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Love Sjelvgren",
+       role: "Lounge host",
+       key: 92,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Johan Henningsson",
+       role: "Lounge host",
+       key: 93,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Alexander Lenander",
+       role: "Lounge host",
+       key: 94,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Manjunath Harshavardhan",
+       role: "Lounge host",
+       key: 95,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Frida Takman",
+       role: "Lounge host",
+       key: 96,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Niklas Gälldin",
+       role: "Lounge host",
+       key: 97,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Pernilla Johansson",
+       role: "Lounge host",
+       key: 98,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Lejla Alibegovic",
+       role: "Lounge host",
+       key: 99,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Anthony Chin",
+       role: "Lounge host",
+       key: 100,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Malin Thituson",
+       role: "Lounge host",
+       key: 101,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Alex Gustafsson",
+       role: "Lounge host",
+       key: 102,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Oskar Pott",
+       role: "Lounge host",
+       key: 103,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+  ]},
+  {
+    title: 'Lunch hosts',
+    data: [
+    {
+       name: "Natalia Norambuena",
+       role: "Lunch host",
+       key: 105,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Nawanit Kumar",
+       role: "Lunch host",
+       key: 106,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Cassandra Doggett",
+       role: "Lunch host",
+       key: 107,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Evelina Morgan",
+       role: "Lunch host",
+       key: 108,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Emma Ralston",
+       role: "Lunch host",
+       key: 109,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Darshan Manjunathrao Chawan",
+       role: "Lunch host",
+       key: 110,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Manasa Sreeharideva",
+       role: "Lunch host",
+       key: 111,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Elna Seyer",
+       role: "Lunch host",
+       key: 112,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Janani",
+       role: "Lunch host",
+       key: 113,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Klara Eliasson",
+       role: "Lunch host",
+       key: 114,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Sofia Larsson",
+       role: "Lunch host",
+       key: 115,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Divya Khanna",
+       role: "Lunch host",
+       key: 116,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Michaela Alsterberg",
+       role: "Lunch host",
+       key: 117,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Alfred Langerbeck",
+       role: "Lunch host",
+       key: 118,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Amanda Ekegren",
+       role: "Lunch host",
+       key: 119,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Luut Hermans",
+       role: "Lunch host",
+       key: 120,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Shushruth Holla",
+       role: "Lunch host",
+       key: 121,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Rimzim Singh",
+       role: "Lunch host",
+       key: 122,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+  ]},
+  {
+    title: 'Power supply & Network hosts',
+    data: [
+    {
+       name: "Oliver Stussi",
+       role: "Power Supply & Network host",
+       key: 123,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Hussein Shreif",
+       role: "Power Supply & Network host",
+       key: 124,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Jakob Sinclair",
+       role: "Power Supply & Network host",
+       key: 125,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Manish Basavaraj Basaligundi",
+       role: "Power Supply & Network host",
+       key: 126,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Tobias Karlsson",
+       role: "Power Supply & Network host",
+       key: 127,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Erik Busk",
+       role: "Power Supply & Network host",
+       key: 128,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+  ]},
+  {
+    title: 'Photo hosts',
+    data: [
+    {
+       name: "Johan Hultqvist",
+       role: "Photo host",
+       key: 129,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Amanda Hillström",
+       role: "Photo host",
+       key: 130,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+  ]},
+  {
+    title: 'Student session hosts',
+    data: [
+    {
+       name: "Revathi Saravana kumar",
+       role: "Student Session host",
+       key: 131,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Lakshmi Manogna Dama",
+       role: "Student Session host",
+       key: 132,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Oscar Wahlström",
+       role: "Student Session host",
+       key: 133,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+  ]},
+  {
+    title: 'Task force hosts',
+    data: [
+    {
+       name: "Johan Bengtsson",
+       role: "Task Force host",
+       key: 134,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Hanna Höjbert",
+       role: "Task Force host",
+       key: 135,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Hannes Östergren",
+       role: "Task Force host",
+       key: 136,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Michal Nowak",
+       role: "Task Force host",
+       key: 137,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Lauren Dell",
+       role: "Task Force host",
+       key: 138,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Viktor Halldén",
+       role: "Task Force host",
+       key: 139,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Johan Karlsson",
+       role: "Task Force host",
+       key: 140,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Anton Öreberg",
+       role: "Task Force host",
+       key: 141,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Fredrik Berg",
+       role: "Task Force host",
+       key: 142,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Love Sandin",
+       role: "Task Force host",
+       key: 143,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Josefin Böhrens Radö",
+       role: "Task Force host",
+       key: 144,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Artina Sijarina",
+       role: "Task Force host",
+       key: 145,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Alvin Ohlsson",
+       role: "Task Force host",
+       key: 146,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Bashir Chikho",
+       role: "Task Force host",
+       key: 147,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Prasad Rajendra Kekare",
+       role: "Task Force host",
+       key: 148,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+  ]},
+  {
+    title: 'Career fair hosts',
+    data: [
+    {
+       name: "Joel Bäcker",
+       role: "Career Fair host",
+       key: 150,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Meshach Milon",
+       role: "Career Fair host",
+       key: 151,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Daniel Bakic Bakic",
+       role: "Career Fair host",
+       key: 152,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Olivia Samuelsson",
+       role: "Career Fair host",
+       key: 153,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Tobias Widmark",
+       role: "Career Fair host",
+       key: 154,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Fiona Hay",
+       role: "Career Fair host",
+       key: 155,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Henrik Elmér",
+       role: "Career Fair host",
+       key: 156,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Beri Manideep",
+       role: "Career Fair host",
+       key: 157,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "William Eriksson",
+       role: "Career Fair host",
+       key: 158,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Idun Jerlhagen Forsgren",
+       role: "Career Fair host",
+       key: 159,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Biborka Bihari",
+       role: "Career Fair host",
+       key: 160,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Sofia Rokkones",
+       role: "Career Fair host",
+       key: 161,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Harald Harald Huber",
+       role: "Career Fair host",
+       key: 162,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Ranjitha Gubbi Suresh",
+       role: "Career Fair host",
+       key: 163,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Lisa Swanberg",
+       role: "Career Fair host",
+       key: 164,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Gopal Gomatam",
+       role: "Career Fair host",
+       key: 165,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Oskar Hindgren",
+       role: "Career Fair host",
+       key: 166,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Gustaf Lundgren",
+       role: "Career Fair host",
+       key: 167,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Georg Hanö Ivarsson",
+       role: "Career Fair host",
+       key: 168,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Erik Svensson",
+       role: "Career Fair host",
+       key: 169,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Jonas Lilja",
+       role: "Career Fair host",
+       key: 170,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Marcus Hedebark",
+       role: "Career Fair host",
+       key: 171,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Spuran Reddy",
+       role: "Career Fair host",
+       key: 172,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Gustav Lilja",
+       role: "Career Fair host",
+       key: 173,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Lisa af Klint",
+       role: "Career Fair host",
+       key: 174,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "John Helbrink",
+       role: "Career Fair host",
+       key: 175,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Daniel Lundkvist",
+       role: "Career Fair host",
+       key: 176,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Sara Ahrari",
+       role: "Career Fair host",
+       key: 177,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Filip Farbäck",
+       role: "Career Fair host",
+       key: 178,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Fredrik Siemund",
+       role: "Career Fair host",
+       key: 179,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Karl-Oskar Rikås",
+       role: "Career Fair host",
+       key: 180,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Oskar Heimer",
+       role: "Career Fair host",
+       key: 181,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Stina Josephson",
+       role: "Career Fair host",
+       key: 182,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Marie Ask Uggla",
+       role: "Career Fair host",
+       key: 183,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Niklas Karlsson",
+       role: "Career Fair host",
+       key: 184,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "John Moberg",
+       role: "Career Fair host",
+       key: 185,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "karnarjun kantharajan",
+       role: "Career Fair host",
+       key: 186,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Ludvig Söderman",
+       role: "Career Fair host",
+       key: 187,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Amalia Emmoth",
+       role: "Career Fair host",
+       key: 188,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Uno Thurfjell",
+       role: "Career Fair host",
+       key: 189,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Vilmer Dahlberg",
+       role: "Career Fair host",
+       key: 190,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Amanda Blad",
+       role: "Career Fair host",
+       key: 191,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Clara Wilhelmsson",
+       role: "Career Fair host",
+       key: 192,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Ajay Ravi Malasetty",
+       role: "Career Fair host",
+       key: 193,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Emil Palmenäs",
+       role: "Career Fair host",
+       key: 194,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Tusjant Ruthran",
+       role: "Career Fair host",
+       key: 195,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "David Flyrin",
+       role: "Career Fair host",
+       key: 196,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Nermina Goletic",
+       role: "Career Fair host",
+       key: 197,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Fredrik Sidh",
+       role: "Career Fair host",
+       key: 198,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Oscar Odestål",
+       role: "Career Fair host",
+       key: 199,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Sara Johannesson",
+       role: "Career Fair host",
+       key: 200,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Sara Wallén",
+       role: "Career Fair host",
+       key: 201,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Badri Reddy Gade",
+       role: "Career Fair host",
+       key: 202,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Arvid Hansson",
+       role: "Career Fair host",
+       key: 203,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Ebba Lundgren",
+       role: "Career Fair host",
+       key: 204,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Anudeep Gudimella",
+       role: "Career Fair host",
+       key: 205,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Javad Blouchi",
+       role: "Career Fair host",
+       key: 206,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "SUBHAJIT BHUINYA",
+       role: "Career Fair host",
+       key: 207,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Tobias Wrammerfors",
+       role: "Career Fair host",
+       key: 208,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Linus Andersson",
+       role: "Career Fair host",
+       key: 209,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Chandana Mysore Somashekar",
+       role: "Career Fair host",
+       key: 210,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Roberts Bitenieks",
+       role: "Career Fair host",
+       key: 211,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Edvin Ottosson",
+       role: "Career Fair host",
+       key: 212,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Yeabsra Habtegebriel",
+       role: "Career Fair host",
+       key: 213,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Molly Lillebjörn Rusk",
+       role: "Career Fair host",
+       key: 214,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Rodrigo Olmedo Sotomayor",
+       role: "Career Fair host",
+       key: 215,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Sharath Thandava Murthy",
+       role: "Career Fair host",
+       key: 216,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Anton Liljefors",
+       role: "Career Fair host",
+       key: 217,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Emelie Wiklund",
+       role: "Career Fair host",
+       key: 218,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Andrej Zemtsovski",
+       role: "Career Fair host",
+       key: 219,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Fabian Larhed",
+       role: "Career Fair host",
+       key: 220,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Agnes Köhler",
+       role: "Career Fair host",
+       key: 221,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Gustav Klotz",
+       role: "Career Fair host",
+       key: 222,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Herman Lönnqvist",
+       role: "Career Fair host",
+       key: 223,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Lisa Chung",
+       role: "Career Fair host",
+       key: 224,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Christoffer Sörensson",
+       role: "Career Fair host",
+       key: 225,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Sandra Olofsson",
+       role: "Career Fair host",
+       key: 226,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Celia Ramos sanchez",
+       role: "Career Fair host",
+       key: 227,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Anna Palmqvist Sjövall",
+       role: "Career Fair host",
+       key: 228,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Sandra Arvidsson",
+       role: "Career Fair host",
+       key: 229,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Ludvig Spångberg",
+       role: "Career Fair host",
+       key: 230,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Hema Kalidasu",
+       role: "Career Fair host",
+       key: 231,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Gopalakrishnan Srinivasan",
+       role: "Career Fair host",
+       key: 232,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Oscar de Kuijer",
+       role: "Career Fair host",
+       key: 233,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Henry Sandell",
+       role: "Career Fair host",
+       key: 234,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "David Lundberg",
+       role: "Career Fair host",
+       key: 235,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Fanny Ejlertsson",
+       role: "Career Fair host",
+       key: 236,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Qianqian Li",
+       role: "Career Fair host",
+       key: 237,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Rebecka Svensson",
+       role: "Career Fair host",
+       key: 238,
+       image: require('../../resources/img/arkadTeam/default.png')
+    },
+    {
+       name: "Alina Liljeäng",
+       role: "Career Fair host",
+       key: 239,
+       image: require('../../resources/img/arkadTeam/default.png')
     }
+ ]
+}
+ //Host-stop
   ],
   faq: {
     forStudents: [
