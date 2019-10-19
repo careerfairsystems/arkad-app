@@ -65,10 +65,7 @@ class CompanyDetailsScreen extends Component {
       { title: 'YouTube', url: company.youTubeUrl }
     ]
     actionSheetData = this.removeUndefinedUrlObjects(actionSheetData)
-    const favoriteButtonText = favorites.includes(company.key) ? 'Remove favorite' : 'Add favorite'
-    const alertButtonText = favorites.includes(company.key) ? 'Removed' : 'Added'
     const actionSheetOptions = [
-      favoriteButtonText,
       ...actionSheetData.map(item => item.title),
       'Cancel'
     ]
@@ -97,7 +94,6 @@ class CompanyDetailsScreen extends Component {
         <TextArraySection title="Desired programme" descriptionArray={[...new Set(company.desiredProgramme)].sort()} />
         <TextArraySection title="Desired degree" descriptionArray={company.desiredDegree.sort()} />
         <TextArraySection title="Industry" descriptionArray={[...new Set(company.industry)].sort()} />
-        <ButtonBar />
         <TextSection title="Did you know?" description={company.didYouKnow} />
 
         <TextSubtitleSection
