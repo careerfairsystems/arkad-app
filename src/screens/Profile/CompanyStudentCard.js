@@ -276,7 +276,9 @@ class StudentCard extends Component {
               </View>
             </View>
             <View style={{flex: 4, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+              <View style={{flex: 5, width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
                 <ButtonBar phone={studentInfo.phone_number} linkedin={studentInfo.linked_in} email_adr={studentInfo.email} />
+              </View>
               <View style={{flex: 9, flexDirection: 'column', width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
                 <StarRating
                   disabled={false}
@@ -326,7 +328,8 @@ class StudentCard extends Component {
   removeView() {
     const studentInfo = this.props.navigation.state.params.item
     return(
-        <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '30%', top: '12%'}}>
+      <View>
+        <Modal onBackdropPress={() => this.setState({ showModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center', paddingVertical: '19%', top: '8%'}}>
           <View style={{ borderRadius: 8, backgroundColor: '#fff', flex: 1, alignItems: 'center', justifyContent: 'center', width: '100%'}}>
             <View style={{flex: 3, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", paddingHorizontal: '3%'}}>
               <Text style={{fontSize: 16}}>Are you sure you want to remove this student?</Text>
@@ -350,6 +353,7 @@ class StudentCard extends Component {
             </View>
           </View>
         </Modal>
+      </View>
     )
   }
 
