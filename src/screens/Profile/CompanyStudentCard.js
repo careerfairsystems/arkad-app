@@ -311,7 +311,7 @@ class StudentCard extends Component {
               <TextInput
                 style={{width: '100%', height: 130, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4, backgroundColor: '#fff', zIndex: 1000, marginBottom: 20}}
                 onChangeText={(text) => this.handleCommentText(text)}
-                value={this.state.commentText}
+                value={this.state.commentText=='not set' ? "" : this.state.commentText}
                 placeholder="Write your comment here..."
                 underlineColorAndroid="transparent"
                 multiline = {true}
