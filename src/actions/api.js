@@ -231,7 +231,6 @@ export const getBlips = () => async (dispatch) => {
     })
     .then((responseJson) => {
       if (responseJson) {
-        console.log(responseJson.data)
         dispatch(fetchBlipsSuccess(responseJson.data))
       }
     })

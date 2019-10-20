@@ -177,7 +177,7 @@ class StudentCard extends Component {
       ? this.setState({
         showUnsavedModal: true,
       })
-      : this.props.navigation.goBack()}
+      : this.props.navigation.navigate('ProfileStack')}
   }
 
   onStarRatingPress(rating) {
