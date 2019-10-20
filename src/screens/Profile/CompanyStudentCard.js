@@ -224,9 +224,6 @@ class StudentCard extends Component {
   companyLogin() {
     var windowHeight = Dimensions.get('window').height
     const studentInfo = this.props.navigation.state.params.item
-    console.log("oashdoaidioasdh")
-    console.log(studentInfo)
-    console.log("oashdoaidioasdh")
 
     return(
       <ScrollView style={{width: '100%', height: '100%'}}>

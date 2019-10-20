@@ -9,6 +9,10 @@ import SaveSuccess from '../../components/SaveSuccess'
 class CameraScreen extends Component {
   constructor(props){
     super(props)
+
+    this.state = {
+      allow: true
+    }
   }
 
 
@@ -40,17 +44,18 @@ class CameraScreen extends Component {
 
   //This is what happens after a student is scanned
   async onScanned(event) {
-    await this.props.createBlip(event.nativeEvent.codeStringValue.split("/")[4])
-    this.fetchBlips()
+    if (this.state.allow) {
+      this.setState({
+        allow: false
+      })
+      await this.props.createBlip(event.nativeEvent.codeStringValue.split("/")[4])
+      this.fetchBlips()
+    }
   }
 
   async fetchBlips() {
     await this.props.getBlips()
-    for (var i = 0; i < this.props.blips.length; i ++) {
-      if (this.props.blips[i].student_id == event.nativeEvent.codeStringValue.split("/")[4]) {
-        this.props.navigation.navigate('DetailStudent', this.props.blips[i])
-      }
-    }
+    this.props.navigation.navigate('ProfileStack')
   }
 }
 
