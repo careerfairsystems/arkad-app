@@ -344,7 +344,7 @@ class ProfileLoginScreen extends Component {
             <TextInput
               underlineColorAndroid={'transparent'}
               style={input}
-              placeholder="Username"
+              placeholder="Email"
               placeholderTextColor = 'gray'
               autoCompleteType={'email'}
               keyboardType={'email-address'}

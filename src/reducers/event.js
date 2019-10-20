@@ -96,7 +96,7 @@ const initialState = [
         language: 'Swedish',
         location: 'Matteannexet: MA7',
         description:
-          "",
+          "Do you ever think of future career decisions and wonder where you will be and what you will do 5, 10 or 20 years from now? Then check out this lunch lecture with Carin Winberg from the company Atea. For this event Carin will talk about her own, to say the least, bumpy career journey and use this to educate you on the subject of how to reason when choosing the right employer/company for you.",
         signUpURL: 'https://www.arkadtlth.se/events/'
       },
       {
