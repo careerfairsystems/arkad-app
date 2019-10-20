@@ -48,14 +48,19 @@ class CameraScreen extends Component {
       this.setState({
         allow: false
       })
-      await this.props.createBlip(event.nativeEvent.codeStringValue.split("/")[4])
-      this.fetchBlips()
+      const studentId = parseInt(event.nativeEvent.codeStringValue.split("/")[4], 10)
+      await this.props.createBlip(studentId)
+      this.fetchBlips(studentId)
     }
   }
 
-  async fetchBlips() {
+  async fetchBlips(studentId) {
     await this.props.getBlips()
-    this.props.navigation.navigate('ProfileStack')
+    for (var i = 0; i < this.props.blips.length; i++) {
+      if (this.props.blips[i].student_id == studentId) {
+        this.props.navigation.navigate('DetailStudent', { item: this.props.blips[i]})
+      }
+    }
   }
 }
 
