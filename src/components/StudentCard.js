@@ -360,7 +360,7 @@ function studentLogin(student, navigation, myInfo, loading) {
               </View>
             </View>
           : null}
-          <ButtonBar phone={myInfo.phone_number} linkedin={myInfo.student.linked_in} email_adr={myInfo.email} />
+          <ButtonBar phone={myInfo.phone_number} linkedin={myInfo.student.linked_in} email_adr={myInfo.email} cvsv={myInfo.student.resume_sv_url}/>
         </View>
         {/* Back Side */}
         <View style={flipCardBack}>
