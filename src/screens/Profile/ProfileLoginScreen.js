@@ -417,9 +417,17 @@ class ProfileLoginScreen extends Component {
                     How does the card work?
                   </Text>
                   <Text style={createAccountText}>
-                    Click the card to see your QR-code. Companies see the same card as you.
+                    Click the card to see your QR-code. Companies see the same card as you once they scan you!
                   </Text>
                   <CloseButton title='Learn more about the system' onPress={() => Linking.openURL('https://www.arkadtlth.se/scan')}></CloseButton>
+                </View>
+                <View style={{marginTop: 15}}>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Can I add a profile-picture?
+                  </Text>
+                  <Text style={createAccountText}>
+                    Unfortunately not yet, but we are adding that feature soon!
+                  </Text>
                 </View>
                 <View style={{marginTop: 15, marginBottom:50}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>

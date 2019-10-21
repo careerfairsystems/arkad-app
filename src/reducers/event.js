@@ -1,6 +1,6 @@
 const initialState = [
   {
-    title: 'November 3rd - Sunday',
+    title: 'Nov 3rd - Sunday',
     data: [
       {
         key: '1',
@@ -17,7 +17,7 @@ const initialState = [
     ]
   },
   {
-    title: 'November 4th - Monday',
+    title: 'Nov 4th - Monday',
     data: [
       {
         key: '1',
@@ -34,7 +34,7 @@ const initialState = [
     ]
   },
   {
-    title: 'November 5th - Tuesday',
+    title: 'Nov 5th - Tuesday',
     data: [
       {
         key: '1',
@@ -51,7 +51,7 @@ const initialState = [
     ]
   },
   {
-    title: 'November 6th - Wednesday',
+    title: 'Nov 6th - Wednesday',
     data: [
       {
         key: '1',
@@ -68,7 +68,7 @@ const initialState = [
     ]
   },
   {
-    title: 'November 7th - Thursday',
+    title: 'Nov 7th - Thursday',
     data: [
       {
         key: '1',
@@ -85,7 +85,7 @@ const initialState = [
     ]
   },
   {
-    title: 'November 11th - Monday',
+    title: 'Nov 11th - Monday',
     data: [
       {
         key: '1',
@@ -114,7 +114,7 @@ const initialState = [
     ]
   },
   {
-    title: 'November 12th - Tuesday',
+    title: 'Nov 12th - Tuesday',
     data: [
       {
         key: '1',
@@ -131,7 +131,7 @@ const initialState = [
     ]
   },
   {
-    title: 'November 13th - Wednessday',
+    title: 'Nov 13th - Wednessday',
     data: [
       {
         key: '1',
