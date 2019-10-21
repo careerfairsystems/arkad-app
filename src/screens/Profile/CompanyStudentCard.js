@@ -92,8 +92,8 @@ const style = {
   cardImage: {
     top: 0,
     right: 0,
-    width: 125,
-    height: 125,
+    width: 100,
+    height: 100,
     borderRadius: 8
   },
   profileText: {
@@ -255,7 +255,7 @@ class StudentCard extends Component {
             <View style={{flex: 3, flexDirection: 'row'}}>
               <View style={{width: '35%'}}>
                 <Text style={[profileText, {fontWeight: 'bold'}]}>
-                  Year:
+                  Graduation year:
                 </Text>
               </View>
               <View style={{width: '65%'}}>
@@ -272,7 +272,7 @@ class StudentCard extends Component {
               </View>
               <View style={{width: '65%'}}>
                 <Text style={profileText}>
-                  {studentInfo.year == null ? "-" : studentInfo.year}
+                  {studentInfo.master == null ? "-" : studentInfo.master}
                 </Text>
               </View>
             </View>
@@ -284,7 +284,7 @@ class StudentCard extends Component {
               </View>
               <View style={{width: '65%'}}>
                 <Text style={profileText}>
-                  {studentInfo.year == null ? "-" : studentInfo.year}
+                  {this.getInterestNames(studentInfo.interests)}
                 </Text>
               </View>
             </View>
@@ -383,6 +383,15 @@ class StudentCard extends Component {
         </Modal>
       </View>
     )
+  }
+
+  getInterestNames(interests){
+    var buildString = ''
+    for (var i = 0; i < interests.length; i++) {
+      buildString += interests[i].name
+      i == interests.length-1 ? false : buildString += ', '
+    }
+    return buildString
   }
 
   render() {
