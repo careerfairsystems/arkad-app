@@ -154,6 +154,7 @@ const fetchCommentStudentFailure = error => ({
 
 export const commentRateStudent = (studentId, rating, comment) => async (dispatch) => {
   var newComment = comment.replace(/[\r\n]/g, "%0A")
+  rating == 'not set' ? rating = 0 : rating
   dispatch(fetchCommentStudentRequest())
   const token = await AsyncStorage.getItem('token')
   return fetch(
