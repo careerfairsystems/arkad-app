@@ -306,7 +306,7 @@ class StudentCard extends Component {
             <KeyboardAvoidingView behavior="padding" keyboardVerticalOffset={windowHeight*0.45} enabled style={{flex: 9, flexDirection: 'row', width: '100%', justifyContent: 'center', alignItems: 'center'}}>
               <View style={{width: '100%'}}>
               <TextInput
-                style={{width: '100%', height: 130, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4, backgroundColor: '#fff', zIndex: 1000, marginBottom: 20}}
+                style={{width: '100%', height: 200, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4, backgroundColor: '#fff', zIndex: 1000, marginBottom: 20}}
                 onChangeText={(text) => this.handleCommentText(text)}
                 value={this.state.commentText=='not set' ? "" : this.state.commentText}
                 placeholder="Write your comment here..."
