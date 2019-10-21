@@ -325,7 +325,7 @@ function studentLogin(student, navigation, myInfo, loading) {
               <View style={{flex: 3, flexDirection: 'row'}}>
                 <View style={{width: '30%'}}>
                   <Text style={[profileText, {fontWeight: 'bold'}]}>
-                    Year:
+                    Graduation year:
                   </Text>
                 </View>
                 <View style={{width: '70%'}}>
@@ -342,7 +342,7 @@ function studentLogin(student, navigation, myInfo, loading) {
                 </View>
                 <View style={{width: '70%'}}>
                   <Text style={profileText}>
-                    Software Engineering
+                    {myInfo.student.master}
                   </Text>
                 </View>
               </View>
@@ -354,7 +354,7 @@ function studentLogin(student, navigation, myInfo, loading) {
                 </View>
                 <View style={{width: '70%'}}>
                   <Text style={profileText}>
-                    Summerjob, thesis, internship
+                    {getInterestNames(myInfo.student.interests)}
                   </Text>
                 </View>
               </View>
@@ -384,6 +384,15 @@ function studentLogin(student, navigation, myInfo, loading) {
         </View>
       </FlipCard>
   )
+}
+
+function getInterestNames(interests){
+  var buildString = ''
+  for (var i = 0; i < interests.length; i++) {
+    buildString += interests[i].name
+    i == interests.length-1 ? false : buildString += ', '
+  }
+  return buildString
 }
 
 const StudentCard = ({student, navigation, typeLogedin, isLoading, myInfo, loading}) => (
