@@ -249,7 +249,7 @@ function process(obj) {
   for (var i in obj) {
     var child = obj[i]
     if (child === null)
-      obj[i] = "not set"
+      obj[i] = "Not set"
     else if (typeof(child)=="object")
       process(child);
   }

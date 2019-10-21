@@ -88,8 +88,8 @@ const styles = {
     width:'100%',
   },
   createAccountView: {
-    height:'90%',
-    width:'90%',
+    height:'55%',
+    width:'100%',
     backgroundColor: '#fff',
     borderRadius:10
   },

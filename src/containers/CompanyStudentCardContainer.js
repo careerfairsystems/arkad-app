@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import StudentCard from '../screens/Profile/CompanyStudentCard'
+import CompanyStudentCard from '../screens/Profile/CompanyStudentCard'
 import { commentRateStudent, getBlips } from '../actions/api'
 import unsetSaved from '../actions/saved'
 
@@ -20,4 +20,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(StudentCard)
+)(CompanyStudentCard)
