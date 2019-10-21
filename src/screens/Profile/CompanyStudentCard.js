@@ -111,7 +111,7 @@ const style = {
 
 const { container, flipCard, flipCardFront, flipCardBack, qrText, button, text, filterView, headerIcon, buttonText, cardImage, profileText, modalText, removeButton } = style
 
-class StudentCard extends Component {
+class CompanyStudentCard extends Component {
 
   constructor(props) {
     super(props)
@@ -284,7 +284,7 @@ class StudentCard extends Component {
               </View>
               <View style={{width: '65%'}}>
                 <Text style={profileText}>
-                  {studentInfo.interests.name == null ? "-" : this.getInterestNames(studentInfo.interests)}
+                  {studentInfo.interests.name == null ? "Not set" : this.getInterestNames(studentInfo.interests)}
                 </Text>
               </View>
             </View>
@@ -308,7 +308,7 @@ class StudentCard extends Component {
               <TextInput
                 style={{width: '100%', height: 200, borderColor: global.arkadBlue, borderWidth: 1, textAlignVertical: 'top', borderRadius: 8, paddingLeft: 7, paddingTop: 4, backgroundColor: '#fff', zIndex: 1000, marginBottom: 20}}
                 onChangeText={(text) => this.handleCommentText(text)}
-                value={this.state.commentText=='not set' ? "" : this.state.commentText}
+                value={this.state.commentText=='Not set' ? "" : this.state.commentText}
                 placeholder="Write your comment here..."
                 underlineColorAndroid="transparent"
                 multiline = {true}
@@ -416,4 +416,4 @@ class StudentCard extends Component {
   }
 }
 
-export default StudentCard
+export default CompanyStudentCard

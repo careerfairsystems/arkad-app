@@ -9,14 +9,14 @@ const CVButton = ({ name, data }) => (
 
 function iconChoose(name, data){
   if(name === 'CV_SV'){
-    if(data === 'not set'){
+    if(data === 'Not set'){
       return require('./../../resources/img/CV_SV_Gray.png');
     } else {
       return require('./../../resources/img/CV_SV_Blue.png');
     }
   }
   if(name === 'CV_EN'){
-    if(data === 'not set'){
+    if(data === 'Not set'){
       return require('./../../resources/img/CV_EN_Gray.png');
     } else {
       return require('./../../resources/img/CV_EN_Blue.png');

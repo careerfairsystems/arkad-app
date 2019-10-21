@@ -260,9 +260,9 @@ function process(obj) {
   for (var i in obj) {
     var child = obj[i]
     if (child === "")
-      obj[i] = "not set"
+      obj[i] = "Not set"
     if (child === null)
-      obj[i] = "not set"
+      obj[i] = "Not set"
     else if (typeof(child)=="object")
       process(child);
   }
@@ -311,50 +311,50 @@ function studentLogin(student, navigation, myInfo, loading) {
           {!loading ?
             <View style={{flex: 1, width: '100%', padding: '5%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
               <View style={{flex: 3, flexDirection: 'row'}}>
-                <View style={{width: '30%'}}>
+                <View style={{width: '35%'}}>
                   <Text style={[profileText, {fontWeight: 'bold'}]}>
                     Programme:
                   </Text>
                 </View>
-                <View style={{width: '70%'}}>
+                <View style={{width: '65%'}}>
                   <Text style={profileText}>
-                    {myInfo.student.programme == "not set" ? "Not set" : myInfo.student.programme.name}
+                    {myInfo.student.programme == "Not set" ? "Not set" : myInfo.student.programme.name}
                   </Text>
                 </View>
               </View>
               <View style={{flex: 3, flexDirection: 'row'}}>
-                <View style={{width: '30%'}}>
+                <View style={{width: '35%'}}>
                   <Text style={[profileText, {fontWeight: 'bold'}]}>
                     Graduation year:
                   </Text>
                 </View>
-                <View style={{width: '70%'}}>
+                <View style={{width: '65%'}}>
                   <Text style={profileText}>
                     {myInfo.student.year}
                   </Text>
                 </View>
               </View>
               <View style={{flex: 3, flexDirection: 'row'}}>
-                <View style={{width: '30%'}}>
+                <View style={{width: '35%'}}>
                   <Text style={[profileText, {fontWeight: 'bold'}]}>
                     Master:
                   </Text>
                 </View>
-                <View style={{width: '70%'}}>
+                <View style={{width: '65%'}}>
                   <Text style={profileText}>
                     {myInfo.student.master}
                   </Text>
                 </View>
               </View>
               <View style={{flex: 3, flexDirection: 'row'}}>
-                <View style={{width: '30%'}}>
+                <View style={{width: '35%'}}>
                   <Text style={[profileText, {fontWeight: 'bold'}]}>
                     Interested in:
                   </Text>
                 </View>
-                <View style={{width: '70%'}}>
+                <View style={{width: '65%'}}>
                   <Text style={profileText}>
-                    {studentInfo.interests.name == null ? "-" : getInterestNames(studentInfo.interests)}
+                    {myInfo.student.interests.name == null ? "Not set" : getInterestNames(myInfo.student.interests)}
                   </Text>
                 </View>
               </View>
