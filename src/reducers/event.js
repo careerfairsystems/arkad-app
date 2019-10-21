@@ -51,7 +51,7 @@ const initialState = [
     ]
   },
   {
-    title: 'November 6th - Wednessday',
+    title: 'November 6th - Wednesday',
     data: [
       {
         key: '1',

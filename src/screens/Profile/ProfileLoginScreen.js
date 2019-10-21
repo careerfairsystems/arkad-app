@@ -475,9 +475,9 @@ class ProfileLoginScreen extends Component {
                   <View style={{flexDirection: 'row', marginTop: 7, marginBottom: 7}}>
                   <Image
                     style={hostImage}
-                    source={require('../../../resources/img/arkadTeam/MartinHost.jpg')}
+                    source={require('../../../resources/img/arkadTeam/default.png')}
                   />
-                  <Text style={createAccountText}>Martin Värd {"\n"}076 77 11 123 {"\n"}Martin@snus.se </Text>
+                  <Text style={createAccountText}>not set {"\n"} not set {"\n"} not set </Text>
                   </View>
                   <Text style={createAccountText}>
                   If you need help during the fair and can't reach your host, contact your closest Infodesk.
