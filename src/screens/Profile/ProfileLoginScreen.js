@@ -417,9 +417,17 @@ class ProfileLoginScreen extends Component {
                     How does the card work?
                   </Text>
                   <Text style={createAccountText}>
-                    Click the card to see your QR-code. Companies see the same card as you.
+                    Click the card to see your QR-code. Companies see the same card as you once they scan you!
                   </Text>
                   <CloseButton title='Learn more about the system' onPress={() => Linking.openURL('https://www.arkadtlth.se/scan')}></CloseButton>
+                </View>
+                <View style={{marginTop: 15}}>
+                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
+                    Can I add a profile-picture?
+                  </Text>
+                  <Text style={createAccountText}>
+                    Unfortunately not yet, but we are adding that feature soon!
+                  </Text>
                 </View>
                 <View style={{marginTop: 15, marginBottom:50}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
@@ -475,9 +483,9 @@ class ProfileLoginScreen extends Component {
                   <View style={{flexDirection: 'row', marginTop: 7, marginBottom: 7}}>
                   <Image
                     style={hostImage}
-                    source={require('../../../resources/img/arkadTeam/MartinHost.jpg')}
+                    source={require('../../../resources/img/arkadTeam/default.png')}
                   />
-                  <Text style={createAccountText}>Martin Värd {"\n"}076 77 11 123 {"\n"}Martin@snus.se </Text>
+                  <Text style={createAccountText}>not set {"\n"} not set {"\n"} not set </Text>
                   </View>
                   <Text style={createAccountText}>
                   If you need help during the fair and can't reach your host, contact your closest Infodesk.
