@@ -35,7 +35,7 @@ const ButtonBar = ({linkedin, email_adr, cvsv, cven}) => (
       <CVButton name='CV_EN' data={cven}></CVButton>
     </View>
     <View style={styles.button}>
-        <IconButton name='envelope' data={email_adr} onPress={() => {Linking.openURL('mailto:support@domain.com?subject=mailsubject&body=mailbody')}} />
+      <IconButton name='envelope' data={'mailto:' + email_adr}/>
     </View>
   </View>
 )
