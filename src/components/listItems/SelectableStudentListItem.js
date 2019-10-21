@@ -41,7 +41,7 @@ const SelectableStudentListItem = ({ children, navigation, item, userType }) => 
     <View>
       <HighListItem>
         <View>
-          <Image style={image} source={require('../../../resources/img/arkadTeam/IMG_3798.jpg')} />
+          <Image style={image} source={require('../../../resources/img/arkadTeam/default.png')} />
         </View>
         {children}
 
