@@ -354,7 +354,7 @@ function studentLogin(student, navigation, myInfo, loading) {
                 </View>
                 <View style={{width: '70%'}}>
                   <Text style={profileText}>
-                    {getInterestNames(myInfo.student.interests)}
+                    {studentInfo.interests.name == null ? "-" : getInterestNames(studentInfo.interests)}
                   </Text>
                 </View>
               </View>

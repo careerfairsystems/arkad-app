@@ -284,7 +284,7 @@ class StudentCard extends Component {
               </View>
               <View style={{width: '65%'}}>
                 <Text style={profileText}>
-                  {this.getInterestNames(studentInfo.interests)}
+                  {studentInfo.interests.name == null ? "-" : this.getInterestNames(studentInfo.interests)}
                 </Text>
               </View>
             </View>
