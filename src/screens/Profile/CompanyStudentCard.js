@@ -232,7 +232,7 @@ class StudentCard extends Component {
           <View style={{flex: 10, width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: 30}}>
             <Image
               style={cardImage}
-              source={require('../../../resources/img/arkadTeam/IMG_3758.jpg')}
+              source={require('../../../resources/img/arkadTeam/default.png')}
             />
             <Text style={{fontWeight: 'bold', fontSize: 22, marginVertical: '5%'}}>
               {studentInfo.first_name} {studentInfo.last_name}
@@ -338,7 +338,7 @@ class StudentCard extends Component {
             <View style={{flex: 6, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
               <Image
                 style={cardImage}
-                source={require('../../../resources/img/arkadTeam/IMG_3798.jpg')}
+                source={require('../../../resources/img/arkadTeam/default.png')}
               />
               <Text style={{marginTop: '3%', fontWeight: 'bold', fontSize: 16}}>{studentInfo.first_name} {studentInfo.last_name}</Text>
             </View>

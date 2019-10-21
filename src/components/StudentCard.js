@@ -302,7 +302,7 @@ function studentLogin(student, navigation, myInfo, loading) {
           <View style={{flex: 2, width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
             <Image
               style={cardImage}
-              source={require('../../resources/img/arkadTeam/IMG_3758.jpg')}
+              source={require('../../resources/img/arkadTeam/default.png')}
             />
             <Text style={{fontWeight: 'bold', fontSize: 22, marginTop: '5%'}}>
               {myInfo.first_name} {myInfo.last_name}
