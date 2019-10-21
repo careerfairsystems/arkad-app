@@ -15,6 +15,7 @@ const mapStateToProps = state => ({
   jwt: state.apiReducer.jwt,
   cameraPermissionGiven: state.cameraReducer.cameraPermissionGiven,
   myInfo: state.apiReducer.myInfo,
+  blips: state.apiReducer.blips,
 })
 
 function mapDispatchToProps(dispatch) {
