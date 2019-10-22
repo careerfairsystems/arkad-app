@@ -14,7 +14,7 @@ const styles = {
 const { title } = styles
 const CompanyListItem = ({ navigation, company }) => (
   <SelectableListItem navigation={navigation} item={company}>
-    <Text style={title}>Company</Text>
+    <Text style={title}>{company.name}</Text>
     <FavoriteButton company={company} color="#000" />
   </SelectableListItem>
 )
