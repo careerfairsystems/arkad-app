@@ -33,7 +33,7 @@ const EventListItem = ({ navigation, item }) => (
       <Text style={time}>{item.endTime}</Text>
     </View>
     <View style={infoContainer}>
-      <Text style={title}>Event</Text>
+      <Text style={title}>{item.name}</Text>
       <Text style={subtitle}>{item.location}</Text>
     </View>
   </SelectableListItem>
