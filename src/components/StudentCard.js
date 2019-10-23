@@ -289,7 +289,7 @@ function studentLogin(student, navigation, myInfo, loading) {
   }
 
   process(myInfo)
-
+  
   return(
       <FlipCard
       style={[flipCard, {width:"100%"}]}
@@ -354,7 +354,7 @@ function studentLogin(student, navigation, myInfo, loading) {
                 </View>
                 <View style={{width: '65%'}}>
                   <Text style={profileText}>
-                    {myInfo.student.interests.name == null ? "Not set" : getInterestNames(myInfo.student.interests)}
+                    {myInfo.student.interests == null ? "Not set" : getInterestNames(myInfo.student.interests)}
                   </Text>
                 </View>
               </View>
