@@ -284,7 +284,7 @@ class CompanyStudentCard extends Component {
               </View>
               <View style={{width: '65%'}}>
                 <Text style={profileText}>
-                  {studentInfo.interests.name == null ? "Not set" : this.getInterestNames(studentInfo.interests)}
+                  {studentInfo.interests == null ? "Not set" : this.getInterestNames(studentInfo.interests)}
                 </Text>
               </View>
             </View>
