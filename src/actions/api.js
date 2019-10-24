@@ -1,7 +1,7 @@
 /* global fetch:false */
-import * as types from './types'
 import base64 from 'react-native-base64'
-import {AsyncStorage} from 'react-native'
+import { AsyncStorage } from 'react-native'
+import * as types from './types'
 
 const fetchCompaniesRequest = () => ({
   type: types.FETCH_COMPANIES_REQUEST
@@ -65,9 +65,11 @@ const fetchUpdatedSinceFailure = error => ({
 
 export const loadUpdatedSince = updated => (dispatch) => {
   dispatch(fetchUpdatedSinceRequest())
-  // old filter '?filter=[["updated_since","${updated}"]]'
-  return fetch(`https://p18.jexpo.se/arkad/exhibitors`, {
-    method: 'GET'
+  return fetch(`https://p18.jexpo.se/arkad/exhibitors?filter=[">updated:${updated}", "<updated:${Date.now()}"]`, {
+    method: 'GET',
+    headers: {
+      Authorization: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX25hbWUiOiJhcmthZC1hcHAiLCJ1c2VyX2lkIjoiYXJrYWQtYXBwIiwibmFtZXNwYWNlIjoiYXJrYWQiLCJyYW5kIjowLjc2NDU1MzIyMzk2MjI2MzksImFkbWluIjp0cnVlLCJleHBpcmVzIjoxNTgwNDY2MzgzNDU1fQ.C1VI73CmOqPUXJ0JWP5BJKtbAzu-ZkomnqH7JLfBqHk'
+    }
   })
     .then((response) => {
       if (response.status === 200) {
@@ -98,7 +100,7 @@ const fetchLoginRequest = () => ({
 })
 
 const fetchLoginSuccess = () => ({
-  type: types.FETCH_LOGIN_SUCCESS,
+  type: types.FETCH_LOGIN_SUCCESS
 })
 
 const fetchLoginFailure = error => ({
@@ -111,7 +113,7 @@ export const loadLogin = (username, password) => (dispatch) => {
   return fetch(
     `https://arkad-nexpo.herokuapp.com/api/login?email=${username}&password=${password}`,
     {
-      method: 'POST',
+      method: 'POST'
     }
   )
     .then((response) => {
@@ -143,8 +145,8 @@ const fetchCommentStudentRequest = () => ({
   type: types.FETCH_COMMENT_STUDENT_REQUEST
 })
 
-const fetchCommentStudentSuccess = (data) => ({
-  type: types.FETCH_COMMENT_STUDENT_SUCCESS,
+const fetchCommentStudentSuccess = data => ({
+  type: types.FETCH_COMMENT_STUDENT_SUCCESS
 })
 
 const fetchCommentStudentFailure = error => ({
@@ -153,7 +155,7 @@ const fetchCommentStudentFailure = error => ({
 })
 
 export const commentRateStudent = (studentId, rating, comment) => async (dispatch) => {
-  var newComment = comment.replace(/[\r\n]/g, "%0A")
+  const newComment = comment.replace(/[\r\n]/g, '%0A')
   rating == 'Not set' ? rating = 0 : rating
   dispatch(fetchCommentStudentRequest())
   const token = await AsyncStorage.getItem('token')
@@ -162,7 +164,7 @@ export const commentRateStudent = (studentId, rating, comment) => async (dispatc
     {
       method: 'PATCH',
       headers: {
-      'Authorization': 'Bearer ' + token
+        Authorization: `Bearer ${token}`
       }
     }
   )
@@ -194,9 +196,9 @@ const fetchBlipsRequest = () => ({
   type: types.FETCH_BLIPS_REQUEST
 })
 
-const fetchBlipsSuccess = (data) => ({
+const fetchBlipsSuccess = data => ({
   type: types.FETCH_BLIPS_SUCCESS,
-  blips: data,
+  blips: data
 })
 
 const fetchBlipsFailure = error => ({
@@ -208,11 +210,11 @@ export const getBlips = () => async (dispatch) => {
   dispatch(fetchBlipsRequest())
   const token = await AsyncStorage.getItem('token')
   return fetch(
-    `https://arkad-nexpo.herokuapp.com/api/me/company/blips`,
+    'https://arkad-nexpo.herokuapp.com/api/me/company/blips',
     {
       method: 'GET',
       headers: {
-      'Authorization': 'Bearer ' + token
+        Authorization: `Bearer ${token}`
       }
     }
   )
@@ -244,9 +246,9 @@ const fetchRemoveBlippedStudentRequest = () => ({
   type: types.FETCH_REMOVE_BLIPPED_STUDENT_REQUEST
 })
 
-const fetchRemoveBlippedStudentSuccess = (data) => ({
+const fetchRemoveBlippedStudentSuccess = data => ({
   type: types.FETCH_REMOVE_BLIPPED_STUDENT_SUCCESS,
-  blips: data,
+  blips: data
 })
 
 const fetchRemoveBlippedStudentFailure = error => ({
@@ -254,7 +256,7 @@ const fetchRemoveBlippedStudentFailure = error => ({
   error
 })
 
-export const removeBlippedStudent = (studentId) => async (dispatch) => {
+export const removeBlippedStudent = studentId => async (dispatch) => {
   const token = await AsyncStorage.getItem('token')
   dispatch(fetchRemoveBlippedStudentRequest())
   return fetch(
@@ -262,7 +264,7 @@ export const removeBlippedStudent = (studentId) => async (dispatch) => {
     {
       method: 'DELETE',
       headers: {
-      'Authorization': 'Bearer ' + token
+        Authorization: `Bearer ${token}`
       }
     }
   )
@@ -294,9 +296,9 @@ const fetchStudentInfoRequest = () => ({
   type: types.FETCH_STUDENT_INFO_REQUEST
 })
 
-const fetchStudentInfoSuccess = (data) => ({
+const fetchStudentInfoSuccess = data => ({
   type: types.FETCH_STUDENT_INFO_SUCCESS,
-  studentInfo: data,
+  studentInfo: data
 })
 
 const fetchStudentInfoFailure = error => ({
@@ -304,12 +306,12 @@ const fetchStudentInfoFailure = error => ({
   error
 })
 
-export const getStudentInfo = (student_id) => (dispatch) => {
+export const getStudentInfo = student_id => (dispatch) => {
   dispatch(fetchStudentInfoRequest())
   return fetch(
     `https://arkad-nexpo.herokuapp.com/api/me/company/comment/${student_id}`,
     {
-      method: 'GET',
+      method: 'GET'
     }
   )
     .then((response) => {
@@ -328,7 +330,6 @@ export const getStudentInfo = (student_id) => (dispatch) => {
     })
     .then((responseJson) => {
       if (responseJson) {
-
         dispatch(fetchStudentInfoSuccess(responseJson.results))
       }
     })
@@ -341,9 +342,9 @@ const fetchCompanyRepresentativesRequest = () => ({
   type: types.FETCH_COMPANY_REPRESENTATIVES_REQUEST
 })
 
-const fetchCompanyRepresentativesSuccess = (data) => ({
+const fetchCompanyRepresentativesSuccess = data => ({
   type: types.FETCH_COMPANY_REPRESENTATIVES_SUCCESS,
-  companyRepresentatives: data,
+  companyRepresentatives: data
 })
 
 const fetchCompanyRepresentativesFailure = error => ({
@@ -354,9 +355,9 @@ const fetchCompanyRepresentativesFailure = error => ({
 export const getCompanyRepresentatives = () => (dispatch) => {
   dispatch(fetchCompanyRepresentativesRequest())
   return fetch(
-    `https://arkad-nexpo.herokuapp.com/api/me/company/representatives`,
+    'https://arkad-nexpo.herokuapp.com/api/me/company/representatives',
     {
-      method: 'GET',
+      method: 'GET'
     }
   )
     .then((response) => {
@@ -387,8 +388,8 @@ const fetchCreateBlipRequest = () => ({
   type: types.FETCH_CREATE_BLIP_REQUEST
 })
 
-const fetchCreateBlipSuccess = (data) => ({
-  type: types.FETCH_CREATE_BLIP_SUCCESS,
+const fetchCreateBlipSuccess = data => ({
+  type: types.FETCH_CREATE_BLIP_SUCCESS
 })
 
 const fetchCreateBlipFailure = error => ({
@@ -396,7 +397,7 @@ const fetchCreateBlipFailure = error => ({
   error
 })
 
-export const createBlip = (student_id) => async (dispatch) => {
+export const createBlip = student_id => async (dispatch) => {
   const token = await AsyncStorage.getItem('token')
   dispatch(fetchCreateBlipRequest())
   return fetch(
@@ -404,7 +405,7 @@ export const createBlip = (student_id) => async (dispatch) => {
     {
       method: 'POST',
       headers: {
-      'Authorization': 'Bearer ' + token
+        Authorization: `Bearer ${token}`
       }
     }
   )
@@ -436,7 +437,7 @@ const fetchMyInfoRequest = () => ({
   type: types.FETCH_MY_INFO_REQUEST
 })
 
-const fetchMyInfoSuccess = (data) => ({
+const fetchMyInfoSuccess = data => ({
   type: types.FETCH_MY_INFO_SUCCESS,
   myInfo: data,
   typeLogedin: data.student
@@ -451,13 +452,13 @@ export const getMyInfo = () => async (dispatch) => {
   const token = await AsyncStorage.getItem('token')
   dispatch(fetchMyInfoRequest())
   return fetch(
-    `https://arkad-nexpo.herokuapp.com/api/me`,
+    'https://arkad-nexpo.herokuapp.com/api/me',
     {
       method: 'GET',
       headers: {
-      'Authorization': 'Bearer ' + token
+        Authorization: `Bearer ${token}`
       }
     }
   )
-  .then(r => r.json()).then((responseJson) => dispatch(fetchMyInfoSuccess(responseJson.data)))
+    .then(r => r.json()).then(responseJson => dispatch(fetchMyInfoSuccess(responseJson.data)))
 }
