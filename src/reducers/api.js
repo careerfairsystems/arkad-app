@@ -13,11 +13,11 @@ const initialState = {
   companyLogedIn: null,
   studentInfo: [],
   companyRepresentatives: [],
-  jwt: "",
+  jwt: '',
   blips: {},
   myInfo: {},
   blips_loading: false,
-  save_success: false,
+  save_success: false
 }
 
 const stringCleaner = string => (string ? string.toString().trim() : '')
@@ -217,7 +217,7 @@ const translateWords = (originalWord, id) => {
   translations[id].forEach((item) => {
     if (
       item.words.findIndex(word => originalWord.toLowerCase().trim() === word.toLowerCase())
-        !== -1
+      !== -1
       || originalWord.toLowerCase() === item.translation.toLowerCase()
     ) {
       newWord = item.translation
@@ -246,12 +246,10 @@ const filterFormatter = (name, id, array) => {
 }
 
 function process(obj) {
-  for (var i in obj) {
-    var child = obj[i]
-    if (child === null)
-      obj[i] = "Not set"
-    else if (typeof(child)=="object")
-      process(child);
+  for (let i in obj) {
+    let child = obj[i]
+    if (child === null) {obj[i] = "Not set"}
+    else if (typeof (child) === 'object') {process(child);}
   }
 }
 
@@ -355,7 +353,7 @@ const apiReducer = (state = initialState, action) => {
         maps,
         notUpdated: [],
         loading: false,
-        updated: Math.floor(Date.now() / 1000)
+        updated: Date.now()
       }
     case types.FETCH_COMPANIES_FAILURE:
       Alert.alert(action.error)
@@ -401,39 +399,39 @@ const apiReducer = (state = initialState, action) => {
         'Login failed!',
         'Wrong username or password.',
         [
-          {text: 'OK'},
+          { text: 'OK' }
         ],
-        {cancelable: true},
+        { cancelable: true },
       )
       return {
         ...state,
         loading: false,
-        logedIn: false,
+        logedIn: false
       }
     case types.FETCH_COMMENT_STUDENT_REQUEST:
       return {
         ...state,
         loading: true,
-        save_success: false,
+        save_success: false
       }
     case types.FETCH_COMMENT_STUDENT_SUCCESS:
       return {
         ...state,
         loading: false,
-        save_success: true,
+        save_success: true
       }
     case types.FETCH_COMMENT_STUDENT_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.error,
-        save_success: false ,
+        save_success: false
       }
     case types.FETCH_BLIPS_REQUEST:
       return {
         ...state,
         loading: true,
-        blips_loading: true,
+        blips_loading: true
       }
     case types.FETCH_BLIPS_SUCCESS:
       process(action.blips)
@@ -441,25 +439,25 @@ const apiReducer = (state = initialState, action) => {
         ...state,
         blips: action.blips,
         loading: false,
-        blips_loading: false,
+        blips_loading: false
       }
     case types.FETCH_BLIPS_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.error,
-        blips_loading: false,
+        blips_loading: false
       }
     case types.FETCH_REMOVE_BLIPPED_STUDENT_REQUEST:
       return {
         ...state,
-        loading: true,
+        loading: true
       }
     case types.FETCH_REMOVE_BLIPPED_STUDENT_SUCCESS:
       return {
         ...state,
         loading: false,
-        blips: action.blips,
+        blips: action.blips
       }
     case types.FETCH_REMOVE_BLIPPED_STUDENT_FAILURE:
       return {
@@ -470,13 +468,13 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_STUDENT_INFO_REQUEST:
       return {
         ...state,
-        loading: true,
+        loading: true
       }
     case types.FETCH_STUDENT_INFO_SUCCESS:
       return {
         ...state,
         loading: false,
-        studentInfo: action.studentInfo,
+        studentInfo: action.studentInfo
       }
     case types.FETCH_STUDENT_INFO_FAILURE:
       return {
@@ -487,13 +485,13 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_COMPANY_REPRESENTATIVES_REQUEST:
       return {
         ...state,
-        loading: true,
+        loading: true
       }
     case types.FETCH_COMPANY_REPRESENTATIVES_SUCCESS:
       return {
         ...state,
         loading: false,
-        companyRepresentatives: action.companyRepresentatives,
+        companyRepresentatives: action.companyRepresentatives
       }
     case types.FETCH_COMPANY_REPRESENTATIVES_FAILURE:
       return {
@@ -504,29 +502,29 @@ const apiReducer = (state = initialState, action) => {
     case types.FETCH_MY_INFO_REQUEST:
       return {
         ...state,
-        loading: true,
+        loading: true
       }
     case types.FETCH_MY_INFO_SUCCESS:
       let companyLogedIn = false
       if (action.typeLogedin == null) {
-         companyLogedIn = true
+        companyLogedIn = true
       }
       return {
         ...state,
         loading: false,
         myInfo: action.myInfo,
         blips_loading: true,
-        companyLogedIn: companyLogedIn,
+        companyLogedIn
       }
     case types.FETCH_CREATE_BLIP_REQUEST:
       return {
         ...state,
-        loading: true,
+        loading: true
       }
     case types.FETCH_CREATE_BLIP_SUCCESS:
       return {
         ...state,
-        loading: false,
+        loading: false
       }
     case types.FETCH_CREATE_BLIP_FAILURE:
       return {
@@ -537,7 +535,7 @@ const apiReducer = (state = initialState, action) => {
     case types.UNSET_SAVED:
       return {
         ...state,
-        save_success: false,
+        save_success: false
       }
     case types.LOGOUT:
       return {
