@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TextInput, TouchableOpacity, Keyboard, Image, SectionList, RefreshControl, Dimensions } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, Keyboard, Image, SectionList, RefreshControl, Dimensions, ScrollView } from 'react-native'
 import PropTypes from 'prop-types'
 import Button from './Button'
 import ActionSheet from 'react-native-actionsheet'
@@ -167,21 +167,12 @@ const style = {
   },
   flipCardFront: {
     alignItems: 'center',
+    justifyContent: 'center',
     height: '100%',
-    width: '90%',
+    width: '100%',
     backgroundColor: '#fff',
     flex: 1,
-    borderRadius: 8,
-    margin: "5%",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 9,
-    },
-    shadowOpacity: 0.50,
-    shadowRadius: 12.35,
-
-    elevation: 19,
+    padding: "5%",
   },
   flipCardBack: {
     justifyContent: 'center',
@@ -289,100 +280,78 @@ function studentLogin(student, navigation, myInfo, loading) {
   }
 
   process(myInfo)
-  
+
   return(
-      <FlipCard
-      style={[flipCard, {width:"100%"}]}
-      flipHorizontal={true}
-      flipVertical={false}
-      friction={5}
-      clickable={true}>
-        {/* Face Side */}
-        <View style={[flipCardFront, {width: windowWidth * 0.9}]}>
-          <View style={{flex: 2, width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-            <Image
-              style={cardImage}
-              source={require('../../resources/img/arkadTeam/default.png')}
-            />
-            <Text style={{fontWeight: 'bold', fontSize: 22, marginTop: '5%'}}>
-              {myInfo.first_name} {myInfo.last_name}
-            </Text>
+      <View style={flipCardFront}>
+      <ScrollView style={{width: '100%', height: '100%'}}>
+        <View style={{flex: 5, width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: 30}}>
+          <Image
+            style={cardImage}
+            source={require('../../resources/img/arkadTeam/default.png')}
+          />
+          <Text style={{fontWeight: 'bold', fontSize: 22, marginVertical: '5%'}}>
+            {myInfo.first_name} {myInfo.last_name}
+          </Text>
+        </View>
+        {!loading ?
+        <View style={{flex: 10, width: '100%', padding: '5%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+          <View style={{flex: 3, flexDirection: 'row'}}>
+            <View style={{width: '35%'}}>
+              <Text style={[profileText, {fontWeight: 'bold'}]}>
+                Programme:
+              </Text>
+            </View>
+            <View style={{width: '65%'}}>
+              <Text style={profileText}>
+                {myInfo.student.programme == "Not set" ? "Not set" : myInfo.student.programme.name}
+              </Text>
+            </View>
           </View>
-          {!loading ?
-            <View style={{flex: 1, width: '100%', padding: '5%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-              <View style={{flex: 3, flexDirection: 'row'}}>
-                <View style={{width: '35%'}}>
-                  <Text style={[profileText, {fontWeight: 'bold'}]}>
-                    Programme:
-                  </Text>
-                </View>
-                <View style={{width: '65%'}}>
-                  <Text style={profileText}>
-                    {myInfo.student.programme == "Not set" ? "Not set" : myInfo.student.programme.name}
-                  </Text>
-                </View>
-              </View>
-              <View style={{flex: 3, flexDirection: 'row'}}>
-                <View style={{width: '35%'}}>
-                  <Text style={[profileText, {fontWeight: 'bold'}]}>
-                    Graduation year:
-                  </Text>
-                </View>
-                <View style={{width: '65%'}}>
-                  <Text style={profileText}>
-                    {myInfo.student.year}
-                  </Text>
-                </View>
-              </View>
-              <View style={{flex: 3, flexDirection: 'row'}}>
-                <View style={{width: '35%'}}>
-                  <Text style={[profileText, {fontWeight: 'bold'}]}>
-                    Master:
-                  </Text>
-                </View>
-                <View style={{width: '65%'}}>
-                  <Text style={profileText}>
-                    {myInfo.student.master}
-                  </Text>
-                </View>
-              </View>
-              <View style={{flex: 3, flexDirection: 'row'}}>
-                <View style={{width: '35%'}}>
-                  <Text style={[profileText, {fontWeight: 'bold'}]}>
-                    Interested in:
-                  </Text>
-                </View>
-                <View style={{width: '65%'}}>
-                  <Text style={profileText}>
-                    {myInfo.student.interests == null ? "Not set" : getInterestNames(myInfo.student.interests)}
-                  </Text>
-                </View>
-              </View>
+          <View style={{flex: 3, flexDirection: 'row'}}>
+            <View style={{width: '35%'}}>
+              <Text style={[profileText, {fontWeight: 'bold'}]}>
+                Graduation year:
+              </Text>
             </View>
-          : null}
-          <ButtonBar linkedin={myInfo.student.linked_in} email_adr={myInfo.email} cvsv={myInfo.student.resume_sv_url} cven={myInfo.student.resume_en_url}/>
+            <View style={{width: '65%'}}>
+              <Text style={profileText}>
+                {myInfo.student.year}
+              </Text>
+            </View>
+          </View>
+          <View style={{flex: 3, flexDirection: 'row'}}>
+            <View style={{width: '35%'}}>
+              <Text style={[profileText, {fontWeight: 'bold'}]}>
+                Master:
+              </Text>
+            </View>
+            <View style={{width: '65%'}}>
+              <Text style={profileText}>
+                {myInfo.student.master}
+              </Text>
+            </View>
+          </View>
+          <View style={{flex: 3, flexDirection: 'row'}}>
+            <View style={{width: '35%'}}>
+              <Text style={[profileText, {fontWeight: 'bold'}]}>
+                Interested in:
+              </Text>
+            </View>
+            <View style={{width: '65%'}}>
+              <Text style={profileText}>
+                {myInfo.student.interests == null ? "Not set" : getInterestNames(myInfo.student.interests)}
+              </Text>
+            </View>
+          </View>
         </View>
-        {/* Back Side */}
-        <View style={flipCardBack}>
-        <View style={{flex: 1, flexDirection: 'row', width: '100%'}}>
-        <View style={{flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={qrText}>
-            Your personal QR-code.
-          </Text>
-          <Text style={qrText}>
-            Go share it with your favourite companies!
-          </Text>
-          {!loading ?
-          <QRCode
-            value={'https://www.arkadtlth.se/wrong-qr/' + myInfo.student.id.toString()}
-            size={200}
-            bgColor='rgb(0, 43, 100)'
-            fgColor='#fff'/>
-            : null}
-            </View>
-            </View>
+        : null}
+        <View style={{flex: 10, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+          <View style={{flex: 5, width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
+            <ButtonBar linkedin={myInfo.student.linked_in} email_adr={myInfo.email} cvsv={myInfo.student.resume_sv_url} cven={myInfo.student.resume_en_url}/>
+          </View>
         </View>
-      </FlipCard>
+        </ScrollView>
+      </View>
   )
 }
 
