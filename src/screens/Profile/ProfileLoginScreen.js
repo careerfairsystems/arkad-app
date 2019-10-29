@@ -117,7 +117,8 @@ const styles = {
     height: 125,
   },
   button: {
-    paddingHorizontal: 8,
+    paddingRight: 8,
+    paddingLeft: 12,
     paddingVertical: 8,
     alignItems: 'center',
     justifyContent: 'center'
@@ -222,13 +223,6 @@ class ProfileLoginScreen extends Component {
           header: undefined,
           headerRight: (
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
-              <TouchableOpacity style={button} onPress={() => this.toggleStudentQRModal()}>
-              { windowWidth < 350 ?
-                [<Icon style={[headerIcon, {paddingHorizontal: 0}]} name='qr-code' size={14} color='#fff'/>,
-                <Text style={[buttonText, {fontSize: 9, marginTop: 3}]}>Help</Text>]
-                : [<Icon style={headerIcon} name='qrcode' size={20} color='#fff'/>,
-                <Text style={buttonText}>QR-Code</Text>]}
-              </TouchableOpacity>
               <TouchableOpacity style={button} onPress={() => this.toggleStudentHelpModal()}>
               { windowWidth < 350 ?
                 [<Icon style={[headerIcon, {paddingHorizontal: 0}]} name='question' size={16} color='#fff'/>,
@@ -237,6 +231,17 @@ class ProfileLoginScreen extends Component {
                 <Text style={buttonText}>Help</Text>]}
               </TouchableOpacity>
               <LogoutButton navigation={this.props.navigation} />
+            </View>
+          ),
+          headerLeft: (
+            <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
+              <TouchableOpacity style={button} onPress={() => this.toggleStudentQRModal()}>
+              { windowWidth < 350 ?
+                [<Icon style={[headerIcon, {marginLeft: 0}]} name='qrcode' size={14} color='#fff'/>,
+                <Text style={[buttonText, {fontSize: 9, marginTop: 3}]}>QR-Code</Text>]
+                : [<Icon style={headerIcon} name='qrcode' size={20} color='#fff'/>,
+                <Text style={buttonText}>QR-Code</Text>]}
+              </TouchableOpacity>
             </View>
           )
       })
@@ -248,8 +253,6 @@ class ProfileLoginScreen extends Component {
     if (this.props.companyLogedIn) {
       const windowWidth = Dimensions.get('window').width
       await this.props.getBlips()
-      await this.props.getMyInfo()
-      this.props.student_id = state.myInfo.student.id.toString()
       this.props.navigation.setParams({
           header: undefined,
           headerRight: (
@@ -487,25 +490,36 @@ class ProfileLoginScreen extends Component {
       <View>
         <Modal onBackdropPress={() => this.setState({ showStudentQRModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showStudentQRModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
           <View style={helpContainer}>
-          <View style={helpView}>
-      <View style={{flex: 1, flexDirection: 'row', width: '100%'}}>
-      <View style={{flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
-        <Text style={qrText}>
-          Your personal QR-code.
-        </Text>
-        <Text style={qrText}>
-          Go share it with your favourite companies!
-        </Text>
-        {!this.props.loading ?
-        <QRCode
-          value={'https://www.arkadtlth.se/wrong-qr/' + this.state.student_id}
-          size={200}
-          bgColor='rgb(0, 43, 100)'
-          fgColor='#fff'/>
-          : null}
-          </View>
-          </View>
-          </View>
+            <View style={helpView}>
+              <View style={{flex: 1, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
+                <Text style={qrText}>
+                  Your personal QR-code.
+                </Text>
+                <Text style={qrText}>
+                  Go share it with your favourite companies!
+                </Text>
+                { this.props.myInfo.student != undefined ?
+                  <QRCode
+                    value={'https://www.arkadtlth.se/wrong-qr/' + this.props.myInfo.student.id.toString()}
+                    size={200}
+                    bgColor='rgb(0, 43, 100)'
+                    fgColor='#fff'/>
+                : null}
+              </View>
+              <View style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                width:'100%',
+                marginBottom:20,
+                marginTop: 10}}>
+                <View style={{width:'40%'}}>
+                  <CloseButton title='Close'
+                          onPress={() => this.toggleStudentQRModal()}
+                          showIcon={false}
+                  />
+                </View>
+              </View>
+            </View>
           </View>
         </Modal>
       </View>
@@ -603,7 +617,7 @@ class ProfileLoginScreen extends Component {
         { this.props.logedIn ? this.loadHome() : this.loginView()}
         { this.helpView() }
         { this.studentHelpView() }
-        { this.studentQRView() }
+        { this.props.logedIn && !this.props.companyLogedIn ? this.studentQRView() : null }
       </View>
     )
   }

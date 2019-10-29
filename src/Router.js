@@ -179,6 +179,7 @@ const MainStack = createBottomTabNavigator(
               title: 'Scanning',
               header: navigation.state.params ? navigation.state.params.header : null,
               headerRight: navigation.state.params ? navigation.state.params.headerRight : undefined,
+              headerLeft: navigation.state.params ? navigation.state.params.headerLeft : undefined,
             })
           },
           DetailStudent: {
@@ -202,7 +203,7 @@ const MainStack = createBottomTabNavigator(
             screen: CameraContainer,
             navigationOptions: () => ({
               ...navigationOptions,
-              title: 'Scanner' 
+              title: 'Scanner'
             })
           }
         },
