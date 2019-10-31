@@ -136,58 +136,56 @@ function studentLogin(student, navigation, myInfo, loading) {
             {myInfo.first_name} {myInfo.last_name}
           </Text>
         </View>
-        {!loading ?
         <View style={{flex: 10, width: '100%', padding: '5%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 150}}>
-          <View style={{flex: 3, flexDirection: 'row'}}>
-            <View style={{width: '35%'}}>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{width: '30%'}}>
               <Text style={[profileText, {fontWeight: 'bold'}]}>
                 Programme:
               </Text>
             </View>
-            <View style={{width: '65%'}}>
+            <View style={{width: '70%'}}>
               <Text style={profileText}>
                 {myInfo.student.programme == "Not set" ? "Not set" : myInfo.student.programme.name}
               </Text>
             </View>
           </View>
-          <View style={{flex: 3, flexDirection: 'row'}}>
-            <View style={{width: '35%'}}>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{width: '30%'}}>
               <Text style={[profileText, {fontWeight: 'bold'}]}>
-                Graduation year:
+                Graduation:
               </Text>
             </View>
-            <View style={{width: '65%'}}>
+            <View style={{width: '70%'}}>
               <Text style={profileText}>
                 {myInfo.student.year}
               </Text>
             </View>
           </View>
-          <View style={{flex: 3, flexDirection: 'row'}}>
-            <View style={{width: '35%'}}>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{width: '30%'}}>
               <Text style={[profileText, {fontWeight: 'bold'}]}>
                 Master:
               </Text>
             </View>
-            <View style={{width: '65%'}}>
+            <View style={{width: '70%'}}>
               <Text style={profileText}>
                 {myInfo.student.master}
               </Text>
             </View>
           </View>
-          <View style={{flex: 3, flexDirection: 'row'}}>
-            <View style={{width: '35%'}}>
+          <View style={{flexDirection: 'row'}}>
+            <View style={{width: '30%'}}>
               <Text style={[profileText, {fontWeight: 'bold'}]}>
                 Interested in:
               </Text>
             </View>
-            <View style={{width: '65%'}}>
+            <View style={{width: '70%'}}>
               <Text style={profileText}>
                 {myInfo.student.interests == null ? "Not set" : getInterestNames(myInfo.student.interests)}
               </Text>
             </View>
           </View>
         </View>
-        : null}
         <View style={{flex: 10, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center', height: 60}}>
           <View style={{flex: 5, width: '100%', justifyContent: 'center', alignItems: 'center', marginBottom: 4}}>
             <ButtonBar linkedin={myInfo.student.linked_in} email_adr={myInfo.email} cvsv={myInfo.student.resume_sv_url} cven={myInfo.student.resume_en_url}/>
