@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity, ScrollView, Dimensions, Platform } from 'react-native'
+import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity, ScrollView, Dimensions, Platform, StatusBar } from 'react-native'
 import PropTypes from 'prop-types'
 import Modal from "react-native-modal"
 import Button from '../../components/Button'
@@ -132,14 +132,19 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     position: 'absolute',
-    height: 500,
     width:'100%',
   },
   helpView: {
-    height:'90%',
+    height:'60%',
     width:'100%',
     backgroundColor: '#fff',
-    borderRadius:10
+    borderRadius:10,
+  },
+  qrModal: {
+    height:'100%',
+    width:'100%',
+    backgroundColor: '#fff',
+    borderRadius:10,
   },
   text: {
     fontSize: 16,
@@ -167,7 +172,7 @@ const styles = {
 
 
 const { header, buttonText, headerIcon, bar, title, scrollViewContent, listContainer, welcomeContainer, outerContainer, innerContainer, loginBtn, h1, h2, input,
-        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, headerRightView, modalText, cardImage, button, helpView, helpContainer, text, hostImage, inputContainer, qrText } = styles
+        welcomeText, infoText, image, imageContainer, createAccountContainer, createAccountText, createAccountView, headerRightView, modalText, cardImage, button, helpView, helpContainer, text, hostImage, inputContainer, qrText, qrModal } = styles
 
 class ProfileLoginScreen extends Component {
   constructor(props){
@@ -382,6 +387,7 @@ class ProfileLoginScreen extends Component {
               style={input}
               placeholder="Email"
               placeholderTextColor = 'gray'
+              autoCapitalize = 'none'
               autoCompleteType={'email'}
               keyboardType={'email-address'}
               value={this.state.username}
@@ -436,9 +442,8 @@ class ProfileLoginScreen extends Component {
 
   studentHelpView() {
     return(
-      <View>
+      <View style={{ backgroundColor: 'pink' }}>
         <Modal onBackdropPress={() => this.setState({ showStudentHelpModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showStudentHelpModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
-          <View style={helpContainer}>
             <View style={helpView}>
             <ScrollView>
               <View style={{marginVertical: 20, marginHorizontal: 20}}>
@@ -488,7 +493,6 @@ class ProfileLoginScreen extends Component {
                 </View>
               </View>
               </ScrollView>
-            </View>
           </View>
         </Modal>
       </View>
@@ -500,20 +504,23 @@ class ProfileLoginScreen extends Component {
       <View>
         <Modal onBackdropPress={() => this.setState({ showStudentQRModal: false })} backdropTransitionOutTiming={0} isVisible={this.state.showStudentQRModal} style={{ flex:1, alignItems: 'center', justifyContent: 'center'}}>
           <View style={helpContainer}>
-            <View style={helpView}>
+            <View style={qrModal}>
               <View style={{flex: 1, flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center'}}>
-                <Text style={qrText}>
+                <Text style={[qrText, { marginTop: 20, fontWeight: 'bold' }]}>
                   Your personal QR-code.
                 </Text>
                 <Text style={qrText}>
                   Go share it with your favourite companies!
                 </Text>
                 { this.props.myInfo.student != undefined ?
+                  <View style={{ marginTop: 10, marginBottom: 25 }}>
                   <QRCode
                     value={'https://www.arkadtlth.se/wrong-qr/' + this.props.myInfo.student.id.toString()}
                     size={200}
                     bgColor='rgb(0, 43, 100)'
-                    fgColor='#fff'/>
+                    fgColor='#fff'
+                  />
+                  </View>
                 : null}
               </View>
               <View style={{
