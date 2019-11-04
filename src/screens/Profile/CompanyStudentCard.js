@@ -31,6 +31,7 @@ const style = {
     backgroundColor: '#fff',
     flex: 1,
     padding: "5%",
+    alignSelf: "stretch",
   },
   flipCardBack: {
     justifyContent: 'center',
