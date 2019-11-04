@@ -10,6 +10,9 @@ const mapReducer = (state = initialState, action) => {
     case types.TOGGLE_CHANGE_MAP:
       return { ...state, currentMap: action.map }
     case types.TOGGLE_CHANGE_COMPANY:
+      if (state.selectedCompany == action.company){
+        return { ...state, selectedCompany: 0 }
+      }
       return { ...state, selectedCompany: action.company }
     default:
       return state
