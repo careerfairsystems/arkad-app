@@ -55,20 +55,13 @@ These settings are important to avoid conflicts and to get a common coding struc
 
 ## Parse SVG to React components
 
-1. Open a new terminal in the folder where the SVG-file is located.
-2. Run `npx @svgr/cli name-of-file.svg --native -d maps`
-3. The parser will parse the SVG-file and place it in a folder maps.
-4. To make the component zoomable open the created js-file in your favorite editor and add the following code at the top of your file:
-
-```
-import { Dimensions } from 'react-native'
-import SvgPanZoom from 'react-native-svg-pan-zoom'
-
-const { width } = Dimensions.get('window')
-
-const zoom = width / 600
-```
-
-5. Replace `<Svg viewBox="0 0 600 800" {...props}>` and `</Svg>` with `<SvgPanZoom canvasHeight={800} canvasWidth={600} minScale={0.5} initialZoom={zoom}>` and `</SvgPanZoom>`.
-6. Make sure that the SvgPanZoom-component is placed within a `<View>` component with width and height set to 100% (important!).
-7. Enjoy!
+1. The art director should send you new SVG-files. They need to be exported with the correct settings. A screenshot of the setting exist here in the PG drive : https://drive.google.com/drive/u/2/folders/1cot4-DyqKzrlIvFA829D5-iwXmFVJyFF
+2. Go to https://www.smooth-code.com/open-source/svgr/playground/?fbclid=IwAR369muucvHP8eCg7-LHRuRPBmJixmhka9TV8KPrGU5CyEtebQDVu2s1e5c
+3. Tick react-native. Untick SVGO
+4. Paste SVG code into the right side.
+5. The page is kind of sensitive. You can remove the first row about XML and stuff. The first row should maybe only be the SVG code up until </title>
+6. Break it up so rows don't become too long.
+7. For the really big SVG files, you might split up the code and gradually move it over to the component map file.
+8. Move the new code over from the SVGR side to the map component. Replace the text between <Defs> and </Svg>
+9. Next, you need to add layered booth components. Use the script in resources/scripts/add_map_layers
+10. You should now have new working maps. Enjoy!
