@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity, ScrollView, Dimensions } from 'react-native'
+import { View, Text, TextInput, SectionList, RefreshControl, Keyboard, Image, Linking, TouchableOpacity, ScrollView, Dimensions, Platform } from 'react-native'
 import PropTypes from 'prop-types'
 import Modal from "react-native-modal"
 import Button from '../../components/Button'
@@ -223,6 +223,15 @@ class ProfileLoginScreen extends Component {
           header: undefined,
           headerRight: (
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
+            {Platform.OS === 'android' ?
+            <TouchableOpacity style={button} onPress={() => this.toggleStudentQRModal()}>
+            { windowWidth < 350 ?
+              [<Icon style={[headerIcon, {marginLeft: 0}]} name='qrcode' size={14} color='#fff'/>,
+              <Text style={[buttonText, {fontSize: 9, marginTop: 3}]}>QR-Code</Text>]
+              : [<Icon style={headerIcon} name='qrcode' size={20} color='#fff'/>,
+              <Text style={buttonText}>QR-Code</Text>]}
+            </TouchableOpacity>
+            : null}
               <TouchableOpacity style={button} onPress={() => this.toggleStudentHelpModal()}>
               { windowWidth < 350 ?
                 [<Icon style={[headerIcon, {paddingHorizontal: 0}]} name='question' size={16} color='#fff'/>,
@@ -234,6 +243,7 @@ class ProfileLoginScreen extends Component {
             </View>
           ),
           headerLeft: (
+            Platform.OS === 'android' ? null :
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
               <TouchableOpacity style={button} onPress={() => this.toggleStudentQRModal()}>
               { windowWidth < 350 ?

@@ -17,7 +17,7 @@ const styles = {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 10,
+    paddingHorizontal: 4,
     color: 'rgba(0, 43, 100, 1)'
   }
 }
