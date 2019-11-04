@@ -8,7 +8,7 @@ const initialState = {
     { date: '14th of November', time: '10:00-15:00' }
   ],
   aboutArkadTeam:
-    'The ARKAD organization consist of the Project Group, Coordinators and Hosts. All together we are almost 300 people and together we have been working very hard to make this year’s fair be the best one ever.',
+    'The ARKAD organization consist of the Project Group, Coordinators and Hosts. All together we are almost 300 people that have been working very hard to make this year’s fair the best one this far!',
   arkadTeam: [
     {
       title: 'Project group',
