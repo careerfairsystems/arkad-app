@@ -69,7 +69,7 @@ class CompanyDetailsScreen extends Component {
       ...actionSheetData.map(item => item.title),
       'Cancel'
     ]
-    const actionSheetUrls = ['', ...actionSheetData.map(item => item.url), '']
+    const actionSheetUrls = [...actionSheetData.map(item => item.url), '']
     return (
       <DetailsScreen>
         <DisplayImage source={{ uri: company.logotypeUrl }} />
@@ -126,10 +126,6 @@ class CompanyDetailsScreen extends Component {
           cancelButtonIndex={actionSheetOptions.length - 1}
           onPress={(index) => {
             switch (index) {
-              case 0:
-                toggleFavorite(company.key)
-                Alert.alert(`${alertButtonText} ${company.name} as favorite`)
-                break
               case actionSheetOptions.length - 1:
                 break
               default:
