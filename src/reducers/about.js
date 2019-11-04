@@ -434,7 +434,7 @@ const initialState = {
         }      ]
     },
     // Coord-stop
-    // Host-start
+    // Host-start - There is a script that to some degree will automatically will generate the hosts for below, you can find it in resources/scripts/hosts_to_json
     {
       title: 'Gasque hosts',
       data: [

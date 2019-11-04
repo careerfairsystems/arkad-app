@@ -1,0 +1,1424 @@
+[
+  {
+    name: "Alexander Sandström",
+    role: "Gasque",
+    id: 0,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Amanda Nystedt",
+    role: "Gasque",
+    id: 1,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Emma Holmqvist",
+    role: "Gasque",
+    id: 2,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Fanny Brink",
+    role: "Gasque",
+    id: 3,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Felicia Schipperges Tjus",
+    role: "Gasque",
+    id: 4,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lovis Åsberg",
+    role: "Gasque",
+    id: 5,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Petter Håkansson",
+    role: "Gasque",
+    id: 6,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Samuel Eklund",
+    role: "Gasque",
+    id: 7,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sara Davidsson Bencker",
+    role: "Gasque",
+    id: 8,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Shashank Bhanuprakash",
+    role: "Gasque",
+    id: 9,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Shegofa Qorbanzade",
+    role: "Gasque",
+    id: 10,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Valeriia Grudtsyna",
+    role: "Gasque",
+    id: 11,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Andreas Thoft",
+    role: "Chauffeur",
+    id: 12,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Ardian Miftari",
+    role: "Chauffeur",
+    id: 13,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Felicia Gabrielii Augustsson",
+    role: "Chauffeur",
+    id: 14,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Fred Nordell",
+    role: "Chauffeur",
+    id: 15,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Gloria Mokberi",
+    role: "Chauffeur",
+    id: 16,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Gustav Sällberg",
+    role: "Chauffeur",
+    id: 17,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Jasmina Trinh",
+    role: "Chauffeur",
+    id: 18,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lukas Petersson",
+    role: "Chauffeur",
+    id: 19,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Malin Wahlström",
+    role: "Chauffeur",
+    id: 20,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Maria Manuel De Bastos Pacheco",
+    role: "Chauffeur",
+    id: 21,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Nils Wicktor",
+    role: "Chauffeur",
+    id: 22,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Patric Wargeus",
+    role: "Chauffeur",
+    id: 23,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Simon Hessman",
+    role: "Chauffeur",
+    id: 24,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Theo Nyman",
+    role: "Chauffeur",
+    id: 25,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Gelli Bharath",
+    role: "Event",
+    id: 26,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Henriette Haugen",
+    role: "Event",
+    id: 27,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Joakim Dworak",
+    role: "Event",
+    id: 28,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Johan Ekman",
+    role: "Event",
+    id: 29,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Kathleen Nguyen",
+    role: "Event",
+    id: 30,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lina Tinnerberg",
+    role: "Event",
+    id: 31,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Moutoz Abdalrahman",
+    role: "Event",
+    id: 32,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Oskar Wändesjö",
+    role: "Event",
+    id: 33,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Pauline Sandberg",
+    role: "Event",
+    id: 34,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Rasmus Olsson",
+    role: "Event",
+    id: 35,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Rebecka Knutsson",
+    role: "Event",
+    id: 36,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sahqr",
+    role: "Event",
+    id: 37,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Tove Persson",
+    role: "Event",
+    id: 38,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Yash Shrimali",
+    role: "Event",
+    id: 39,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "YiZhen Yang",
+    role: "Event",
+    id: 40,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Albin Erlander",
+    role: "Info Desk",
+    id: 41,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Albin Forsberg",
+    role: "Info Desk",
+    id: 42,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Anna Andersson",
+    role: "Info Desk",
+    id: 43,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Björn Lindgren",
+    role: "Info Desk",
+    id: 44,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Celina Gustafsson",
+    role: "Info Desk",
+    id: 45,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Elin Öberg",
+    role: "Info Desk",
+    id: 46,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Ester Pörtfors",
+    role: "Info Desk",
+    id: 47,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Gustaf Carstam",
+    role: "Info Desk",
+    id: 48,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Gustav Ingvaldsson",
+    role: "Info Desk",
+    id: 49,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Hanna Bengtsson",
+    role: "Info Desk",
+    id: 50,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Hanna Karlsson",
+    role: "Info Desk",
+    id: 51,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Heaven Frezgi",
+    role: "Info Desk",
+    id: 52,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Henrik Ramström",
+    role: "Info Desk",
+    id: 53,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Henrik Shadman",
+    role: "Info Desk",
+    id: 54,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Hugo wikholm",
+    role: "Info Desk",
+    id: 55,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Johanna Schedin",
+    role: "Info Desk",
+    id: 56,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Julia Lövgren",
+    role: "Info Desk",
+    id: 57,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Märta Larsson",
+    role: "Info Desk",
+    id: 58,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Oliver Bengtsson",
+    role: "Info Desk",
+    id: 59,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Osama Eldawebi",
+    role: "Info Desk",
+    id: 60,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Per Nelsson",
+    role: "Info Desk",
+    id: 61,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "SUPRADEEPA PANUAL GANESAN",
+    role: "Info Desk",
+    id: 62,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Tove Nimvik",
+    role: "Info Desk",
+    id: 63,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Tselmeg Baasan",
+    role: "Info Desk",
+    id: 64,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Victoria Lindwert",
+    role: "Info Desk",
+    id: 65,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Viktor Strömberg",
+    role: "Info Desk",
+    id: 66,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Yasmeen Ali",
+    role: "Info Desk",
+    id: 67,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Alice Berggren",
+    role: "Interior",
+    id: 68,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Antonia Mundt-Petersen",
+    role: "Interior",
+    id: 69,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Cassandra Hennström",
+    role: "Interior",
+    id: 70,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Chia-Yin Lin",
+    role: "Interior",
+    id: 71,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Durgaprasad Srinivasa",
+    role: "Interior",
+    id: 72,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Elina Yrlid",
+    role: "Interior",
+    id: 73,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Ida Andersson",
+    role: "Interior",
+    id: 74,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lisa Bybro",
+    role: "Interior",
+    id: 75,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lova Sedigh",
+    role: "Interior",
+    id: 76,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Agnesa Halipi",
+    role: "Lounge",
+    id: 77,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Alex Gustafsson",
+    role: "Lounge",
+    id: 78,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Alexander Lenander",
+    role: "Lounge",
+    id: 79,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Anthony Chin",
+    role: "Lounge",
+    id: 80,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Daniel Carlson Bjernald",
+    role: "Lounge",
+    id: 81,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "David Karlsson",
+    role: "Lounge",
+    id: 82,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Frida Takman",
+    role: "Lounge",
+    id: 83,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Henrik Ruuth",
+    role: "Lounge",
+    id: 84,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Jens Svendsen",
+    role: "Lounge",
+    id: 85,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Johan Henningsson",
+    role: "Lounge",
+    id: 86,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Johan Svensson",
+    role: "Lounge",
+    id: 87,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lejla Alibegovic",
+    role: "Lounge",
+    id: 88,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Love Sjelvgren",
+    role: "Lounge",
+    id: 89,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Malin Thituson",
+    role: "Lounge",
+    id: 90,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Manjunath Harshavardhan",
+    role: "Lounge",
+    id: 91,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Max Gref",
+    role: "Lounge",
+    id: 92,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Miran Lurr",
+    role: "Lounge",
+    id: 93,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Nicki Holmgran",
+    role: "Lounge",
+    id: 94,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Niklas Gälldin",
+    role: "Lounge",
+    id: 95,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Oskar Pott",
+    role: "Lounge",
+    id: 96,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Pernilla Johansson",
+    role: "Lounge",
+    id: 97,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Pontus Herrmann",
+    role: "Lounge",
+    id: 98,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Rebecka Lindquist",
+    role: "Lounge",
+    id: 99,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sofie Thulin",
+    role: "Lounge",
+    id: 100,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Ulrika Lindquist",
+    role: "Lounge",
+    id: 101,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Vesa Halipi",
+    role: "Lounge",
+    id: 102,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Alfred Langerbeck",
+    role: "Lunch",
+    id: 103,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Amanda Ekegren",
+    role: "Lunch",
+    id: 104,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Cassandra Doggett",
+    role: "Lunch",
+    id: 105,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Darshan Manjunathrao Chawan",
+    role: "Lunch",
+    id: 106,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Divya Khanna",
+    role: "Lunch",
+    id: 107,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Elna Seyer",
+    role: "Lunch",
+    id: 108,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Emma Ralston",
+    role: "Lunch",
+    id: 109,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Evelina Morgan",
+    role: "Lunch",
+    id: 110,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Janani",
+    role: "Lunch",
+    id: 111,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Klara Eliasson",
+    role: "Lunch",
+    id: 112,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Luut Hermans",
+    role: "Lunch",
+    id: 113,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Manasa Sreeharideva",
+    role: "Lunch",
+    id: 114,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Michaela Alsterberg",
+    role: "Lunch",
+    id: 115,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Natalia Norambuena",
+    role: "Lunch",
+    id: 116,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Nawanit Kumar",
+    role: "Lunch",
+    id: 117,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Rimzim Singh",
+    role: "Lunch",
+    id: 118,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Shushruth Holla",
+    role: "Lunch",
+    id: 119,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sofia Larsson",
+    role: "Lunch",
+    id: 120,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Erik Busk",
+    role: "Power Supply & Network",
+    id: 121,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Hussein Shreif",
+    role: "Power Supply & Network",
+    id: 122,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Jakob Sinclair",
+    role: "Power Supply & Network",
+    id: 123,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Manish Basavaraj Basaligundi",
+    role: "Power Supply & Network",
+    id: 124,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Oliver Stussi",
+    role: "Power Supply & Network",
+    id: 125,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Tobias Karlsson",
+    role: "Power Supply & Network",
+    id: 126,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Amanda Hillström",
+    role: "Photo",
+    id: 127,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Johan Hultqvist",
+    role: "Photo",
+    id: 128,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lakshmi Manogna Dama",
+    role: "Student Session",
+    id: 129,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Oscar Wahlström",
+    role: "Student Session",
+    id: 130,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Revathi Saravana kumar",
+    role: "Student Session",
+    id: 131,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Alvin Ohlsson",
+    role: "Task Force",
+    id: 132,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Anton Öreberg",
+    role: "Task Force",
+    id: 133,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Artina Sijarina",
+    role: "Task Force",
+    id: 134,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Bashir Chikho",
+    role: "Task Force",
+    id: 135,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Fredrik Berg",
+    role: "Task Force",
+    id: 136,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Hanna Höjbert",
+    role: "Task Force",
+    id: 137,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Hannes Östergren",
+    role: "Task Force",
+    id: 138,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Johan Bengtsson",
+    role: "Task Force",
+    id: 139,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Johan Karlsson",
+    role: "Task Force",
+    id: 140,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Josefin Böhrens Radö",
+    role: "Task Force",
+    id: 141,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lauren Dell",
+    role: "Task Force",
+    id: 142,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Love Sandin",
+    role: "Task Force",
+    id: 143,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Michal Nowak",
+    role: "Task Force",
+    id: 144,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "PRASAD RAJENDRA KEKARE",
+    role: "Task Force",
+    id: 145,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Viktor Halldén",
+    role: "Task Force",
+    id: 146,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Agnes Köhler",
+    role: "Career Fair",
+    id: 147,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Ajay Ravi Malasetty",
+    role: "Career Fair",
+    id: 148,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Alina Liljeäng",
+    role: "Career Fair",
+    id: 149,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Amalia Emmoth",
+    role: "Career Fair",
+    id: 150,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Amanda Blad",
+    role: "Career Fair",
+    id: 151,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Andrej Zemtsovski",
+    role: "Career Fair",
+    id: 152,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Anna Palmqvist Sjövall",
+    role: "Career Fair",
+    id: 153,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Anton Liljefors",
+    role: "Career Fair",
+    id: 154,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Anudeep Gudimella",
+    role: "Career Fair",
+    id: 155,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Arvid Hansson",
+    role: "Career Fair",
+    id: 156,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Badri Reddy Gade",
+    role: "Career Fair",
+    id: 157,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Beri Manideep",
+    role: "Career Fair",
+    id: 158,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Biborka Bihari",
+    role: "Career Fair",
+    id: 159,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Celia Ramos sanchez",
+    role: "Career Fair",
+    id: 160,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Chandana Mysore Somashekar",
+    role: "Career Fair",
+    id: 161,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Christoffer Sörensson",
+    role: "Career Fair",
+    id: 162,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Clara Wilhelmsson",
+    role: "Career Fair",
+    id: 163,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Daniel Bakic Bakic",
+    role: "Career Fair",
+    id: 164,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Daniel Lundkvist",
+    role: "Career Fair",
+    id: 165,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "David Flyrin",
+    role: "Career Fair",
+    id: 166,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "David Lundberg",
+    role: "Career Fair",
+    id: 167,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Ebba Lundgren",
+    role: "Career Fair",
+    id: 168,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Edvin Ottosson",
+    role: "Career Fair",
+    id: 169,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Emelie Wiklund",
+    role: "Career Fair",
+    id: 170,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Emil Palmenäs",
+    role: "Career Fair",
+    id: 171,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Erik Svensson",
+    role: "Career Fair",
+    id: 172,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Fabian Larhed",
+    role: "Career Fair",
+    id: 173,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Fanny Ejlertsson",
+    role: "Career Fair",
+    id: 174,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Filip Farbäck",
+    role: "Career Fair",
+    id: 175,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Fiona Hay",
+    role: "Career Fair",
+    id: 176,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Fredrik Sidh",
+    role: "Career Fair",
+    id: 177,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Fredrik Siemund",
+    role: "Career Fair",
+    id: 178,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Georg Hanö Ivarsson",
+    role: "Career Fair",
+    id: 179,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Gopal Gomatam",
+    role: "Career Fair",
+    id: 180,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Gopalakrishnan Srinivasan",
+    role: "Career Fair",
+    id: 181,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Gustaf Lundgren",
+    role: "Career Fair",
+    id: 182,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Gustav Klotz",
+    role: "Career Fair",
+    id: 183,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Gustav Lilja",
+    role: "Career Fair",
+    id: 184,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Harald Harald Huber",
+    role: "Career Fair",
+    id: 185,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Hema Kalidasu",
+    role: "Career Fair",
+    id: 186,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Henrik Elmér",
+    role: "Career Fair",
+    id: 187,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Henry Sandell",
+    role: "Career Fair",
+    id: 188,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Herman Lönnqvist",
+    role: "Career Fair",
+    id: 189,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Idun Jerlhagen Forsgren",
+    role: "Career Fair",
+    id: 190,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Javad Blouchi",
+    role: "Career Fair",
+    id: 191,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Joel Bäcker",
+    role: "Career Fair",
+    id: 192,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "John Helbrink",
+    role: "Career Fair",
+    id: 193,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "John Moberg",
+    role: "Career Fair",
+    id: 194,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Jonas Lilja",
+    role: "Career Fair",
+    id: 195,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Karl-Oskar Rikås",
+    role: "Career Fair",
+    id: 196,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "karnarjun kantharajan",
+    role: "Career Fair",
+    id: 197,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Linus Andersson",
+    role: "Career Fair",
+    id: 198,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lisa af Klint",
+    role: "Career Fair",
+    id: 199,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lisa Chung",
+    role: "Career Fair",
+    id: 200,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Lisa Swanberg",
+    role: "Career Fair",
+    id: 201,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Ludvig Söderman",
+    role: "Career Fair",
+    id: 202,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Ludvig Spångberg",
+    role: "Career Fair",
+    id: 203,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Marcus Hedebark",
+    role: "Career Fair",
+    id: 204,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Marie Ask Uggla",
+    role: "Career Fair",
+    id: 205,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Meshach Milon",
+    role: "Career Fair",
+    id: 206,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Molly Lillebjörn Rusk",
+    role: "Career Fair",
+    id: 207,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Nermina Goletic",
+    role: "Career Fair",
+    id: 208,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Niklas Karlsson",
+    role: "Career Fair",
+    id: 209,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Olivia Samuelsson",
+    role: "Career Fair",
+    id: 210,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Oscar de Kuijer",
+    role: "Career Fair",
+    id: 211,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Oscar Odestål",
+    role: "Career Fair",
+    id: 212,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Oskar Heimer",
+    role: "Career Fair",
+    id: 213,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Oskar Hindgren",
+    role: "Career Fair",
+    id: 214,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Qianqian Li",
+    role: "Career Fair",
+    id: 215,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Ranjitha Gubbi Suresh",
+    role: "Career Fair",
+    id: 216,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Rebecka Svensson",
+    role: "Career Fair",
+    id: 217,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Roberts Bitenieks",
+    role: "Career Fair",
+    id: 218,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Rodrigo Olmedo Sotomayor",
+    role: "Career Fair",
+    id: 219,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sandra Arvidsson",
+    role: "Career Fair",
+    id: 220,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sandra Olofsson",
+    role: "Career Fair",
+    id: 221,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sara Ahrari",
+    role: "Career Fair",
+    id: 222,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sara Johannesson",
+    role: "Career Fair",
+    id: 223,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sara Wallén",
+    role: "Career Fair",
+    id: 224,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sharath Thandava Murthy",
+    role: "Career Fair",
+    id: 225,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Sofia Rokkones",
+    role: "Career Fair",
+    id: 226,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Spuran Reddy",
+    role: "Career Fair",
+    id: 227,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Stina Josephson",
+    role: "Career Fair",
+    id: 228,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "SUBHAJIT BHUINYA",
+    role: "Career Fair",
+    id: 229,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Tobias Widmark",
+    role: "Career Fair",
+    id: 230,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Tobias Wrammerfors",
+    role: "Career Fair",
+    id: 231,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Tusjant Ruthran",
+    role: "Career Fair",
+    id: 232,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Uno Thurfjell",
+    role: "Career Fair",
+    id: 233,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Vilmer Dahlberg",
+    role: "Career Fair",
+    id: 234,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "William Eriksson",
+    role: "Career Fair",
+    id: 235,
+    image: require('../../resources/img/arkadTeam/default.png')
+  },
+  {
+    name: "Yeabsra Habtegebriel",
+    role: "Career Fair",
+    id: 236,
+    image: require('../../resources/img/arkadTeam/default.png')
+  }
+]
