@@ -1925,11 +1925,11 @@ const initialState = {
           },          {
             key: 3,
             question: 'What is Student Session, and how can I apply?',
-            answer: 'Student sessions are a great way to establish contact with a diverse range of companies. Generally, a session consists of a 20-25 minute one-on-one talk with a representative of a company. The topics can vary from internships, trainee programs, summer jobs, thesis projects, other forms of employment and much more. It all depends on what the company is looking for and what they are offering. You may apply by visiting the student sessions page and follow the instructions.'
+            answer: 'Student sessions are a great way to establish contact with a diverse range of companies. Generally, a session consists of a 20-25 minute one-on-one talk with a representative of a company. The topics can vary from internships, trainee programs, summer jobs, thesis projects, other forms of employment and much more. It all depends on what the company is looking for and what they are offering. Unfortunately, the application for the student session is now closed.'
           },          {
             key: 4,
             question: 'Where are the Student Sessions taking place?',
-            answer: 'They will be in the E-building. If you are going to have a student session you will receive an email with more detailed information.'
+            answer: 'Where are the Student Sessions taking place? Svar: The student sessions will take place in the E-building. If you have registered for a student session, then please visit the Info-desk situated in the E-building to check in for you session.'
           },      ]},
       {
         key: '1',
@@ -1966,7 +1966,11 @@ const initialState = {
             key: 8,
             question: 'Can I apply for Student Sessions now?',
             answer: 'Yes, the application for student sessions will be open until the 23rd of October.'
-          },      ]},
+          },    {
+            key: 9,
+            question: 'What is the Green Zone and where is it located?',
+            answer: 'The Green Zone is the place at ARKAD for companies and students that value sustainability. The companies here are of different sizes and industries, but what they have in common is their ambitious work for a sustainable future. You can learn about their sustainability work below or by meeting them in the Green Zone at ARKAD.\n\nThe purpose of the Green Zone is to raise the question of sustainability and to encourage both students and companies to discuss sustainability issues, at ARKAD and outside. It can also give inspiration about how you, as an engineer or architect, can include sustainability in your work life. \n\nThe Green Zone will be situated in the silent study room in Studiecentrum on the first floor.'
+          },  ]},
       {
         key: '3',
         name: 'Events',
@@ -1987,6 +1991,10 @@ const initialState = {
             key: 4,
             question: 'I have signed up for an event but I will not be able to attend it, what do I do?',
             answer: 'Go to the confirmation email and follow the link to your registration, you can cancel so your spot goes to someone on the waiting list.'
+          },      {
+            key: 5,
+            question: 'How do I know if I’ve signed up to an event?',
+            answer: 'You should have received a mail when you registered for an event. If it is not in your inbox, check your spam mail.'
           },      ]},
       {
         key: '4',
@@ -2008,6 +2016,10 @@ const initialState = {
             key: 4,
             question: 'What is the dress code?',
             answer: 'Semi formal (mörk kostym)'
+          },{
+            key: 5,
+            question: 'When is the gasque taking place?',
+            answer: 'The gasque is held during the evening on the first fair-day for ARKAD 2019. These are the specific dates and times:                                                                              13-11-2019: 17.30 The doors to the gasque opens\n18.30 The doors to the gasque closes\n19.00 The food will be served\n23.00 The Gasque party starts\n02.00 The Gasque party ends
           },      ]},
       {
         key: '5',
@@ -2090,12 +2102,12 @@ const initialState = {
             answer: 'Your Career Fair Host or the Info Desks.'
           },          {
             key: 18,
-            question: 'Where do we get the envelope with parking tickets, Gasque tickets, wi-fi code etc?',
+            question: 'Where do we get the envelope with parking tickets and lunch tickets?',
             answer: 'You get them at the Info desk or from your Career Fair Host.'
           },          {
             key: 19,
             question: 'Can we buy extra lunch tickets?',
-            answer: 'There are a limited amout of 75 extra lunch tickets available for everyone. You can buy them at the info-desks.'
+            answer: 'There is a limited amount of 75 extra lunch tickets available for everyone. You can buy them at the info-desk in Kårhuset. '
           },          {
             key: 20,
             question: 'Where is the lunch?',
@@ -2108,6 +2120,14 @@ const initialState = {
             key: 22,
             question: 'Is it ok to have competitions or live demonstrations in our exhibitor stand?',
             answer: 'Yes, however please keep in mind that you may only use your assigned space and to follow safety precautions.'
+          },  {
+            key: 23,
+            question: 'Where do we get our gasque tickets?',
+            answer: 'You get the gasque tickets via mail.'
+          },  {
+            key: 24,
+            question: 'Where are the Student Sessions taking place?',
+            answer: 'The student sessions will take place in the E-building.'
           },      ]},
       {
         key: '4',
@@ -2116,7 +2136,7 @@ const initialState = {
           {
             key: 24,
             question: 'Who gets to go to the Gasque?',
-            answer: 'Representatives from the companies and students involved in ARKAD gets invited to the Gasque.'
+            answer: 'Representatives from the companies and students from LTH gets invited to the Gasque.'
           },          {
             key: 25,
             question: 'Where is the Gasque?',
@@ -2138,8 +2158,12 @@ const initialState = {
             key: 29,
             question: 'Will I as exhibitor representative be placed next to the students whose education is strongly connected to my corporate work at the Gasque?',
             answer: 'We will place students and the exhibitor representatives next to each other so that they make the best of each other’s company. Both the students’ education and your company’s area of business will be taken into account for the placement.'
-          },          {
+          },   {
             key: 30,
+            question: 'When is the gasque taking place?',
+            answer: 'The gasque is held during the evening on the first fair-day for ARKAD 2019. These are the specific dates and times:                                                                              13-11-2019: 17.30 The doors to the gasque opens\n18.30 The doors to the gasque closes\n19.00 The food will be served\n23.00 The Gasque party starts\n02.00 The Gasque party ends'
+          },          {
+            key: 31,
             question: 'Will there be an opportunity to meet and converse with students during the Gasque?',
             answer: 'The Gasque is a chance for the exhibitor representatives to meet ambitious students in a relaxed environment. There will be opportunities for conversation during the mingle, the dinner and after party, which will offer both dance floors and a lounge area.'
           },      ]},
