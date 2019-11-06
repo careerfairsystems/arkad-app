@@ -1965,7 +1965,7 @@ const initialState = {
           },          {
             key: 8,
             question: 'Can I apply for Student Sessions now?',
-            answer: 'Yes, the application for student sessions will be open until the 23rd of October.'
+            answer: 'Unfortunately not, the application for student sessions will closed on 23rd of October.'
           },    {
             key: 9,
             question: 'What is the Green Zone and where is it located?',
@@ -2019,7 +2019,7 @@ const initialState = {
           },{
             key: 5,
             question: 'When is the gasque taking place?',
-            answer: 'The gasque is held during the evening on the first fair-day for ARKAD 2019. These are the specific dates and times:                                                                              13-11-2019: 17.30 The doors to the gasque opens\n18.30 The doors to the gasque closes\n19.00 The food will be served\n23.00 The Gasque party starts\n02.00 The Gasque party ends
+            answer: 'The gasque is held during the evening on the first fair-day for ARKAD 2019. These are the specific dates and times \n\n13-11-2019\n17.30 The doors to the gasque opens\n18.30 The doors to the gasque closes\n19.00 The food will be served\n23.00 The Gasque party starts\n14-11-2019\n02.00 The Gasque party ends'
           },      ]},
       {
         key: '5',
@@ -2160,8 +2160,8 @@ const initialState = {
             answer: 'We will place students and the exhibitor representatives next to each other so that they make the best of each other’s company. Both the students’ education and your company’s area of business will be taken into account for the placement.'
           },   {
             key: 30,
-            question: 'When is the gasque taking place?',
-            answer: 'The gasque is held during the evening on the first fair-day for ARKAD 2019. These are the specific dates and times:                                                                              13-11-2019: 17.30 The doors to the gasque opens\n18.30 The doors to the gasque closes\n19.00 The food will be served\n23.00 The Gasque party starts\n02.00 The Gasque party ends'
+            question: 'When is the Gasque taking place?',
+            answer: 'The Gasque is held during the evening on the first fair-day for ARKAD 2019. These are the specific dates and times \n\n13-11-2019\n17.30 The doors to the gasque opens\n18.30 The doors to the gasque closes\n19.00 The food will be served\n23.00 The Gasque party starts\n14-11-2019\n02.00 The Gasque party ends'
           },          {
             key: 31,
             question: 'Will there be an opportunity to meet and converse with students during the Gasque?',
