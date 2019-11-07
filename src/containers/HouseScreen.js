@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { toggleChangeCompany } from '../actions/map'
+import { toggleChangeCompany, toggleChangeMap } from '../actions/map'
 import HouseScreen from '../screens/Map/HouseScreen'
 
 const mapStateToProps = state => ({
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ toggleChangeCompany }, dispatch)
+  return bindActionCreators({ toggleChangeCompany, toggleChangeMap }, dispatch)
 }
 
 export default connect(
