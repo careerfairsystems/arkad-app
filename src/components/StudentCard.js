@@ -123,15 +123,21 @@ function process(obj) {
 
 function studentLogin(student, navigation, myInfo, loading) {
   process(myInfo)
-
   return(
       <View style={flipCardFront}>
       <ScrollView style={{flex: 1, width: '100%', height: '100%'}}>
         <View style={{flex: 5, width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: 30, height: '100%'}}>
-          <Image
-            style={cardImage}
-            source={require('../../resources/img/arkadTeam/default.png')}
-          />
+          { myInfo.profile_image == 'Not set' ?
+            <Image
+              style={cardImage}
+              source={require('../../resources/img/arkadTeam/default.png')}
+            />
+            :
+            <Image
+              style={cardImage}
+              source={{uri: myInfo.profile_image}}
+            />
+          }
           <Text style={{fontWeight: 'bold', fontSize: 22, marginVertical: '5%'}}>
             {myInfo.first_name} {myInfo.last_name}
           </Text>
