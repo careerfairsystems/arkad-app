@@ -138,6 +138,10 @@ function studentLogin(student, navigation, myInfo, loading) {
               source={{uri: myInfo.profile_image}}
             />
           }
+          { myInfo.profile_image == 'Not set' ?
+            <Text style={profileText}> You can now add a profile picture! Click edit information in help and update your Nexpo account.</Text>
+            : null
+          }
           <Text style={{fontWeight: 'bold', fontSize: 22, marginVertical: '5%'}}>
             {myInfo.first_name} {myInfo.last_name}
           </Text>
