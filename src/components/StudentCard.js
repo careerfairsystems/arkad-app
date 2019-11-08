@@ -128,19 +128,16 @@ function studentLogin(student, navigation, myInfo, loading) {
       <ScrollView style={{flex: 1, width: '100%', height: '100%'}}>
         <View style={{flex: 5, width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: 30, height: '100%'}}>
           { myInfo.profile_image == 'Not set' ?
-            <Image
+            [<Image
               style={cardImage}
               source={require('../../resources/img/arkadTeam/default.png')}
-            />
+            />,
+            <Text style={profileText}> Edit your Nexpo account to add a profile picture!</Text>]
             :
             <Image
               style={cardImage}
               source={{uri: myInfo.profile_image}}
             />
-          }
-          { myInfo.profile_image == 'Not set' ?
-            <Text style={profileText}> You can now add a profile picture! Click edit information in help and update your Nexpo account.</Text>
-            : null
           }
           <Text style={{fontWeight: 'bold', fontSize: 22, marginVertical: '5%'}}>
             {myInfo.first_name} {myInfo.last_name}
