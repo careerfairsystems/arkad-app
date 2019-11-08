@@ -57,7 +57,7 @@ class HouseScreen extends Component {
     const { currentMap } = this.props
     if (prevProps.currentMap !== currentMap) {
       this.updateMap()
-      //this.flatList.scrollToIndex({ index: 0, animated: false })
+      this.flatList.scrollToIndex({ index: 0, animated: false })
     }
   }
 
