@@ -89,7 +89,7 @@ const styles = {
     width:'100%',
   },
   createAccountView: {
-    height:'85%',
+    height: Math.round(Dimensions.get('window').height)*0.85,
     width:'100%',
     backgroundColor: '#fff',
     borderRadius:10
@@ -135,7 +135,7 @@ const styles = {
     width:'100%',
   },
   helpView: {
-    height:'90%',
+    height: Math.round(Dimensions.get('window').height)*0.85,
     width:'100%',
     backgroundColor: '#fff',
     borderRadius:10,
