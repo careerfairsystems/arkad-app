@@ -461,17 +461,9 @@ class ProfileLoginScreen extends Component {
                     How does the card work?
                   </Text>
                   <Text style={createAccountText}>
-                    Click the card to see your QR-code. Companies see the same card as you once they scan you!
+                    Once companies have scanned your QR-code they see your card. We recommend you add your interests, graduation year and program information as companies are very interested in this information. Adding a profile picture will help them remember you from the fair. You should also add a CV or linkedin so companies can learn more about you. All this information is collected from your Nexpo account.
                   </Text>
                   <CloseButton title='Learn more about the system' onPress={() => Linking.openURL('https://www.arkadtlth.se/scan')}></CloseButton>
-                </View>
-                <View style={{marginTop: 15}}>
-                  <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>
-                    Can I add a profile-picture?
-                  </Text>
-                  <Text style={createAccountText}>
-                    Unfortunately not yet, but we are adding that feature soon!
-                  </Text>
                 </View>
                 <View style={{marginTop: 15, marginBottom:50}}>
                   <Text style={[createAccountText, {fontWeight: 'bold', fontSize:18}]}>

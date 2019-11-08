@@ -41,7 +41,11 @@ const SelectableStudentListItem = ({ children, navigation, item, userType }) => 
     <View>
       <HighListItem>
         <View>
-          <Image style={image} source={require('../../../resources/img/arkadTeam/default.png')} />
+          { item.profile_image == 'Not set' ?
+           <Image style={image} source={require('../../../resources/img/arkadTeam/default.png')} />
+           :
+           <Image style={image} source={{uri: item.profile_image}} />
+         }
         </View>
         {children}
 
