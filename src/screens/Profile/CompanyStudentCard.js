@@ -231,10 +231,11 @@ class CompanyStudentCard extends Component {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={flipCardFront}>
           <View style={{flex: 10, width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginTop: 30}}>
-            <Image
-              style={cardImage}
-              source={require('../../../resources/img/arkadTeam/default.png')}
-            />
+            { studentInfo.profile_image == 'Not set' ?
+             <Image style={cardImage} source={require('../../../resources/img/arkadTeam/default.png')} />
+             :
+             <Image style={cardImage} source={{uri: studentInfo.profile_image }} />
+           }
             <Text style={{fontWeight: 'bold', fontSize: 22, marginVertical: '5%'}}>
               {studentInfo.first_name} {studentInfo.last_name}
             </Text>
@@ -337,10 +338,11 @@ class CompanyStudentCard extends Component {
               <Text style={{fontSize: 16}}>Are you sure you want to remove this student?</Text>
             </View>
             <View style={{flex: 6, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%"}}>
-              <Image
-                style={cardImage}
-                source={require('../../../resources/img/arkadTeam/default.png')}
-              />
+                { studentInfo.profile_image == 'Not set' ?
+                 <Image style={cardImage} source={require('../../../resources/img/arkadTeam/default.png')} />
+                 :
+                 <Image style={cardImage} source={{uri: studentInfo.profile_image }} />
+               }
               <Text style={{marginTop: '3%', fontWeight: 'bold', fontSize: 16}}>{studentInfo.first_name} {studentInfo.last_name}</Text>
             </View>
             <View style={{flex: 2, alignItems: 'center', justifyContent: 'center', width: "100%", height:"100%", flexDirection: 'row'}}>
