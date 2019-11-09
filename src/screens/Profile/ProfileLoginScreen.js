@@ -197,6 +197,9 @@ class ProfileLoginScreen extends Component {
     this.props.navigation.setParams({
         header: null,
     })
+    if (this.props.logedIn == true) {
+      this.fetchBlips()
+    }
     {!this.props.companyLogedIn
       ? (this.setState({
           student: true
@@ -637,11 +640,11 @@ class ProfileLoginScreen extends Component {
         return <StudentCard student={this.state.student} navigation={this.props.navigation} typeLogedin={this.props.companyLogedIn}/>
       } else {
         if (!this.props.blips_loading) {
-        return <StudentList navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission}/>
-      }
+          return <StudentList navigation={this.props.navigation} isLoading={this.props.loading} cameraPermissionGiven={this.props.cameraPermissionGiven} setCameraPermission={this.props.setCameraPermission}/>
+        }
       }
     } else {
-      return <View style={{alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%'}}><LoadingView /></View>
+      return <View style={{alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%' }}><LoadingView /></View>
     }
   }
 
@@ -652,6 +655,7 @@ class ProfileLoginScreen extends Component {
         { this.helpView() }
         { this.studentHelpView() }
         { this.props.logedIn && !this.props.companyLogedIn ? this.studentQRView() : null }
+        { this.props.loading && this.props.logedIn ? <View style={{ alignItems: 'center', justifyContent: 'center', height: '100%', width: '100%', position: 'absolute', top: 0, left: 0 }}><LoadingView /></View> : null }
       </View>
     )
   }
