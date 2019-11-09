@@ -449,6 +449,18 @@ class ProfileLoginScreen extends Component {
     return str
   }
 
+  formatPhone(nbr){
+    if (this.isEmpty(nbr)){
+      return 'Not set'
+    }
+    else if (nbr.toString().charAt(0) == '+' || nbr.toString().charAt(0) == '0'){
+      return nbr
+    }
+    else{
+      return '0'.toString().concat(nbr)
+    }
+  }
+
 
   studentHelpView() {
     return(
@@ -567,13 +579,13 @@ class ProfileLoginScreen extends Component {
                   Need to get in touch with your company host? Below are the contact details.
                   </Text>
                   <View style={{flexDirection: 'row', marginTop: 7, marginBottom: 7, alignItems:'center'}}>
-                  {this.props.myInfo.representative == null ? null : this.getHostImage(this.props.myInfo.representative.company.host_email)}
+                  {(this.props.logedIn == false || this.props.companyLogedIn== false || this.props.myInfo.representative == null)  ? null : this.getHostImage(this.props.myInfo.representative.company.host_email)}
                   <Text style={[createAccountText, {marginRight:8, width: '60%'}]}>
-                    {this.props.myInfo.representative == null ? null : this.getText(this.props.myInfo.representative.company.host_name)}
+                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null) ? null : this.getText(this.props.myInfo.representative.company.host_name)}
                     {"\n"}
-                    {this.props.myInfo.representative == null ? null : this.getText(this.props.myInfo.representative.company.host_email)}
+                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null) ? null : this.getText(this.props.myInfo.representative.company.host_email)}
                     {"\n"}
-                    {this.props.myInfo.representative == null ? null : this.getText(this.props.myInfo.representative.company.host_phone)}
+                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null) ? null : this.formatPhone(this.props.myInfo.representative.company.host_phone)}
                   </Text>
                   </View>
                   <Text style={createAccountText}>
@@ -726,6 +738,7 @@ class ProfileLoginScreen extends Component {
         case 'uno.thurfjell@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/uno.thurfjell@gmail.com.jpg')} />
         case 'vi8808da-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/vi8808da-s@student.lu.se.jpg')} />
         case 'vov15ffa@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/vov15ffa@student.lu.se.jpg')} />
+        case 'ye0082ha-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/ye0082ha-s@student.lu.se.jpg')} />
         case 'wilhelmsson.clara@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/wilhelmsson.clara@hotmail.com.jpg')} />
         case 'zemtsovski.andrej@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/zemtsovski.andrej@gmail.com.jpg')} />
 
