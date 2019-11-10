@@ -167,23 +167,25 @@ class HouseScreen extends Component {
         <View style={listContainer}>
           <View style={listHeader}>
             <Text style={listHeaderText}>Companies</Text>
-            { (this.state.map.type.name == 'StudiecentrumFirstFloor' || this.state.map.type.name == 'StudiecentrumSecondFloor' || this.state.map.type.name == 'MatteannexetFirstFloor' || this.state.map.type.name == 'MatteannexetSecondFloor') ?
-               <Button title="Change floor" onPress={() => { switch (this.state.map.type.name) {
-                    case 'StudiecentrumFirstFloor':
+            { (this.props.currentMap == global.studiecentrumFirstFloor || this.props.currentMap == global.studiecentrumSecondFloor || this.props.currentMap == global.matteannexetSecondFloor || this.props.currentMap == global.matteannexetFirstFloor) ?
+               <Button title="Change floor" onPress={() => { switch (this.props.currentMap) {
+                    case global.studiecentrumFirstFloor:
                       toggleChangeMap(global.studiecentrumSecondFloor)
                       break;
-                    case 'StudiecentrumSecondFloor':
+                    case global.studiecentrumSecondFloor:
                       toggleChangeMap(global.studiecentrumFirstFloor)
                       break;
-                    case 'MatteannexetFirstFloor':
+                    case global.matteannexetFirstFloor:
                       toggleChangeMap(global.matteannexetSecondFloor)
                       break;
-                    case "MatteannexetSecondFloor":
+                    case global.matteannexetSecondFloor:
                       toggleChangeMap(global.matteannexetFirstFloor)
                       break;
                   }
                  }
-                   } /> : null}
+                }
+                />
+              : null}
           </View>
           <View style={list}>
             <FlatList
