@@ -582,13 +582,13 @@ class ProfileLoginScreen extends Component {
                   Need to get in touch with your company host? Below are the contact details.
                   </Text>
                   <View style={{flexDirection: 'row', marginTop: 7, marginBottom: 7, alignItems:'center'}}>
-                  {(this.props.logedIn == false || this.props.companyLogedIn== false || this.props.myInfo.representative == null)  ? null : this.getHostImage(this.props.myInfo.representative.company.host_email)}
+                  {(this.props.logedIn == false || this.props.companyLogedIn== false || this.props.myInfo.representative == null || this.props.myInfo.representative.company == null)  ? null : this.getHostImage(this.props.myInfo.representative.company.host_email)}
                   <Text style={[createAccountText, {marginRight:8, width: '60%'}]}>
-                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null) ? null : this.getText(this.props.myInfo.representative.company.host_name)}
+                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null || this.props.myInfo.representative.company == null) ? null : this.getText(this.props.myInfo.representative.company.host_name)}
                     {"\n"}
-                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null) ? null : this.getText(this.props.myInfo.representative.company.host_email)}
+                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null || this.props.myInfo.representative.company == null) ? null : this.getText(this.props.myInfo.representative.company.host_email)}
                     {"\n"}
-                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null) ? null : this.formatPhone(this.props.myInfo.representative.company.host_phone)}
+                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null || this.props.myInfo.representative.company == null) ? null : this.formatPhone(this.props.myInfo.representative.company.host_phone)}
                   </Text>
                   </View>
                   <Text style={createAccountText}>
