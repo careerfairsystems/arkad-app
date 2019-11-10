@@ -167,8 +167,7 @@ class HouseScreen extends Component {
         <View style={listContainer}>
           <View style={listHeader}>
             <Text style={listHeaderText}>Companies</Text>
-            {console.log(this.state.map.type.name)}
-            { this.state.map.type.name == 'StudiecentrumFirstFloor' || this.state.map.type.name == 'StudiecentrumSecondFloor' || this.state.map.type.name == 'MatteannexetFirstFloor' || this.state.map.type.name == 'MatteannexetSecondFloor' ?
+            { (this.state.map.type.name == 'StudiecentrumFirstFloor' || this.state.map.type.name == 'StudiecentrumSecondFloor' || this.state.map.type.name == 'MatteannexetFirstFloor' || this.state.map.type.name == 'MatteannexetSecondFloor') ?
                <Button title="Change floor" onPress={() => { switch (this.state.map.type.name) {
                     case 'StudiecentrumFirstFloor':
                       toggleChangeMap(global.studiecentrumSecondFloor)
