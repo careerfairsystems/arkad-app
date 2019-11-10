@@ -155,11 +155,11 @@ const styles = {
     alignItems: 'center'
   },
   hostImage: {
-    width: 60,
-    height: 60,
+    width: 100,
+    height: 100,
     borderRadius: 8,
     marginLeft: 5,
-    marginRight: 20
+    marginRight: 10
   },
   qrText: {
     textAlign: 'center',
@@ -442,6 +442,28 @@ class ProfileLoginScreen extends Component {
     this.props.navigation.navigate('Faq')
   }
 
+  isEmpty(str) {
+      return (!str || 0 === str.length);
+  }
+
+  getText(str){
+    if (this.isEmpty(str))
+      return 'Not set'
+    return str
+  }
+
+  formatPhone(nbr){
+    if (this.isEmpty(nbr)){
+      return 'Not set'
+    }
+    else if (nbr.toString().charAt(0) == '+' || nbr.toString().charAt(0) == '0'){
+      return nbr
+    }
+    else{
+      return '0'.toString().concat(nbr)
+    }
+  }
+
 
   studentHelpView() {
     return(
@@ -559,12 +581,15 @@ class ProfileLoginScreen extends Component {
                   <Text style={createAccountText}>
                   Need to get in touch with your company host? Below are the contact details.
                   </Text>
-                  <View style={{flexDirection: 'row', marginTop: 7, marginBottom: 7}}>
-                  <Image
-                    style={hostImage}
-                    source={require('../../../resources/img/arkadTeam/default.png')}
-                  />
-                  <Text style={createAccountText}>not set {"\n"} not set {"\n"} not set </Text>
+                  <View style={{flexDirection: 'row', marginTop: 7, marginBottom: 7, alignItems:'center'}}>
+                  {(this.props.logedIn == false || this.props.companyLogedIn== false || this.props.myInfo.representative == null || this.props.myInfo.representative.company == null)  ? null : this.getHostImage(this.props.myInfo.representative.company.host_email)}
+                  <Text style={[createAccountText, {marginRight:8, width: '60%'}]}>
+                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null || this.props.myInfo.representative.company == null) ? null : this.getText(this.props.myInfo.representative.company.host_name)}
+                    {"\n"}
+                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null || this.props.myInfo.representative.company == null) ? null : this.getText(this.props.myInfo.representative.company.host_email)}
+                    {"\n"}
+                    {(this.props.logedIn == false || this.props.companyLogedIn == false || this.props.myInfo.representative == null || this.props.myInfo.representative.company == null) ? null : this.formatPhone(this.props.myInfo.representative.company.host_phone)}
+                  </Text>
                   </View>
                   <Text style={createAccountText}>
                   If you need help during the fair and can't reach your host, contact your closest Infodesk.
@@ -634,6 +659,98 @@ class ProfileLoginScreen extends Component {
       </View>
     )
   }
+
+  //Bless me father for I have sinned. My last confession was 2 months ago and these are my sins. Since pictures of ARKAD career fair hosts could not be hosted in blessed Nexpo, this vile switch case method below had to be constructed. React-natives bundling does not allow dynamic images, so each resource must be listed if URI isn't used. May the lord have mercy on my wicked ways.
+  getHostImage(hostEmail){
+      switch (hostEmail){
+        case 'Alaxan_@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/Alaxan_@hotmail.com.jpg')} />
+        case 'ag1633ko-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/ag1633ko-s@student.lu.se.jpg')} />
+        case 'aj3487ma-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/aj3487ma-s@student.lu.se.jpg')} />
+        case 'amalia.emmoth@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/amalia.emmoth@hotmail.com.jpg')} />
+        case 'amanda.blad@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/amanda.blad@hotmail.com.jpg')} />
+        case 'antonliljefors@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/antonliljefors@gmail.com.jpg')} />
+        case 'anudeepgudimella1996@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/anudeepgudimella1996@gmail.com.jpg')} />
+        case 'badrireddy1997@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/badrireddy1997@gmail.com.jpg')} />
+        case 'bibbibihari@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/bibbibihari@gmail.com.jpg')} />
+        case 'celia1793@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/celia1793@gmail.com.jpg')} />
+        case 'chandana.somashekarmysore@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/chandana.somashekarmysore@gmail.com.jpg')} />
+        case 'christoffer.s@hotmail.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/christoffer.s@hotmail.se.jpg')} />
+        case 'cogustaflundgren@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/cogustaflundgren@gmail.com.jpg')} />
+        case 'da2587lu-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/da2587lu-s@student.lu.se.jpg')} />
+        case 'dat15asj@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/dat15asj@student.lu.se.jpg')} />
+        case 'david.l.lundberg@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/david.l.lundberg@gmail.com.jpg')} />
+        case 'dolf_96@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/dolf_96@hotmail.com.jpg')} />
+        case 'ebba.lundberg@users.tlth.se': return <Image style={hostImage} source={require('../../../resources/img/arkadTeam/Ebba_Lundberg.png')} />
+        case 'edvin72@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/edvin72@hotmail.com.jpg')} />
+        case 'elmer.henrik@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/elmer.henrik@gmail.com.jpg')} />
+        case 'elt15dba@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/elt15dba@student.lu.se.jpg')} />
+        case 'emelie.v.wiklund@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/emelie.v.wiklund@gmail.com.jpg')} />
+        case 'emil.palmenas@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/emil.palmenas@gmail.com.jpg')} />
+        case 'ersv1001@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/ersv1001@gmail.com.jpg')} />
+        case 'fabian.larhed@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/fabian.larhed@gmail.com.jpg')} />
+        case 'fanny.ejlertsson@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/fanny.ejlertsson@gmail.com.jpg')} />
+        case 'fi7023li-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/arkadTeam/Filip_Lindkvist.png')} />
+        case 'fionaahay@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/fionaahay@hotmail.com.jpg')} />
+        case 'georghanoivarsson@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/georghanoivarsson@gmail.com.jpg')} />
+        case 'go3751go-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/go3751go-s@student.lu.se.jpg')} />
+        case 'gopalakrishnan.rajappa@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/gopalakrishnan.rajappa@gmail.com.jpg')} />
+        case 'gsranjitha3003bsc@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/gsranjitha3003bsc@gmail.com.jpg')} />
+        case 'gustav.a.klotz@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/gustav.a.klotz@gmail.com.jpg')} />
+        case 'ha7758an-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/ha7758an-s@student.lu.se.jpg')} />
+        case 'hema.kalidasu@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/hema.kalidasu@gmail.com.jpg')} />
+        case 'henry.sandell@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/henry.sandell@gmail.com.jpg')} />
+        case 'hermanluthagen@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/hermanluthagen@gmail.com.jpg')} />
+        case 'id3741je-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/id3741je-s@student.lu.se.jpg')} />
+        case 'jessica.kageman@users.tlth.se': return <Image style={hostImage} source={require('../../../resources/img/arkadTeam/Jessica_Kageman.png')} />
+        case 'joelbacker10@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/joelbacker10@gmail.com.jpg')} />
+        case 'johnmoberg97@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/johnmoberg97@gmail.com.jpg')} />
+        case 'karloskarrikaas@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/karloskarrikaas@gmail.com.jpg')} />
+        case 'karnarjun2018@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/karnarjun2018@gmail.com.jpg')} />
+        case 'lan14elu@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/lan14elu@student.lu.se.jpg')} />
+        case 'li1782an-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/li1782an-s@student.lu.se.jpg')} />
+        case 'lilja.gustav@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/lilja.gustav@gmail.com.jpg')} />
+        case 'lisa.swanberg@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/lisa.swanberg@gmail.com.jpg')} />
+        case 'lisaafklint@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/lisaafklint@hotmail.com.jpg')} />
+        case 'lisachung98@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/lisachung98@gmail.com.jpg')} />
+        case 'ludvig.soederman@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/ludvig.soederman@gmail.com.jpg')} />
+        case 'manideepkumar7200@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/manideepkumar7200@gmail.com.jpg')} />
+        case 'meshachmilon@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/meshachmilon@gmail.com.jpg')} />
+        case 'molly.lilljebjornrusk@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/molly.lilljebjornrusk@gmail.com.jpg')} />
+        case 'nat14lsp@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/nat14lsp@student.lu.se.jpg')} />
+        case 'nermina_ng@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/nermina_ng@hotmail.com.jpg')} />
+        case 'niklas_karlsson93@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/niklas_karlsson93@hotmail.com.jpg')} />
+        case 'o.dekuijer@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/o.dekuijer@hotmail.com.jpg')} />
+        case 'oliviasamuelsson_@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/oliviasamuelsson_@hotmail.com.jpg')} />
+        case 'oscar.odestal@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/oscar.odestal@gmail.com.png')} />
+        case 'oskar.v.heimer@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/oskar.v.heimer@gmail.com.jpg')} />
+        case 'oskar@hindgren.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/oskar@hindgren.se.jpg')} />
+        case 'paw.eriksson@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/paw.eriksson@hotmail.com.jpg')} />
+        case 'rbitenieks@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/rbitenieks@gmail.com.jpg')} />
+        case 'rebeckasvensson27@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/rebeckasvensson27@gmail.com.jpg')} />
+        case 'rodrigo_ibq@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/rodrigo_ibq@hotmail.com.jpg')} />
+        case 'sa5141ol-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/sa5141ol-s@student.lu.se.jpg')} />
+        case 'sandraarvidsson@hotmail.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/sandraarvidsson@hotmail.se.jpg')} />
+        case 'sara.ahrari97@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/sara.ahrari97@gmail.com.jpg')} />
+        case 'sara.l.wallen@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/sara.l.wallen@gmail.com.jpg')} />
+        case 'sarajohannesson96@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/sarajohannesson96@gmail.com.jpg')} />
+        case 'sharaththandavamurthy@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/sharaththandavamurthy@gmail.com.jpg')} />
+        case 'sofiarokkones@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/sofiarokkones@gmail.com.jpg')} />
+        case 'stina.josephson@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/stina.josephson@hotmail.com.jpg')} />
+        case 'tna14ewr@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/tna14ewr@student.lu.se.jpg')} />
+        case 'tobiaswidmark97@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/tobiaswidmark97@gmail.com.png')} />
+        case 'tusjant@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/tusjant@gmail.com.jpg')} />
+        case 'uno.thurfjell@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/uno.thurfjell@gmail.com.jpg')} />
+        case 'vi8808da-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/vi8808da-s@student.lu.se.jpg')} />
+        case 'vov15ffa@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/vov15ffa@student.lu.se.jpg')} />
+        case 'ye0082ha-s@student.lu.se': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/ye0082ha-s@student.lu.se.jpg')} />
+        case 'wilhelmsson.clara@hotmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/wilhelmsson.clara@hotmail.com.jpg')} />
+        case 'zemtsovski.andrej@gmail.com': return <Image style={hostImage} source={require('../../../resources/img/careerFairHosts/zemtsovski.andrej@gmail.com.jpg')} />
+
+
+        default: return <Image style={hostImage} source={require('../../../resources/img/arkadTeam/default.png')} />
+        }
+  }
+
 }
 
 ProfileLoginScreen.propTypes = {

@@ -9,6 +9,7 @@ import StudiecentrumFirstFloor from '../../components/maps/StudiecentrumFirstFlo
 import StudiecentrumSecondFloor from '../../components/maps/StudiecentrumSecondFloor'
 import MapCompanyListItem from '../../components/listItems/MapCompanyListItem'
 import LoadingView from '../../components/LoadingView'
+import Button from '../../components/FloorButton'
 
 const styles = {
   container: { flex: 1 },
@@ -27,13 +28,15 @@ const styles = {
   listHeader: {
     height: 44,
     alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: global.lightGray,
     borderTopWidth: 1,
     borderBottomWidth: 1,
-    borderColor: global.separatorColor
+    borderColor: global.separatorColor,
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    justifyContent: 'space-between'
   },
-  listHeaderText: { fontWeight: 'bold' },
+  listHeaderText: { fontWeight: 'bold'},
   list: { flex: 1 }
 }
 
@@ -54,7 +57,7 @@ class HouseScreen extends Component {
     const { currentMap } = this.props
     if (prevProps.currentMap !== currentMap) {
       this.updateMap()
-      this.flatList.scrollToIndex({ index: 0, animated: false })
+      //this.flatList.scrollToIndex({ index: 0, animated: false })
     }
   }
 
@@ -153,7 +156,7 @@ class HouseScreen extends Component {
   render() {
     const { map } = this.state
     const {
-      navigation, selectedCompany, companyList, toggleChangeCompany
+      navigation, selectedCompany, companyList, toggleChangeCompany, toggleChangeMap
     } = this.props
     const {
       container, mapView, listContainer, listHeader, listHeaderText, list
@@ -164,6 +167,24 @@ class HouseScreen extends Component {
         <View style={listContainer}>
           <View style={listHeader}>
             <Text style={listHeaderText}>Companies</Text>
+            {console.log(this.state.map.type.name)}
+            { this.state.map.type.name == 'StudiecentrumFirstFloor' || this.state.map.type.name == 'StudiecentrumSecondFloor' || this.state.map.type.name == 'MatteannexetFirstFloor' || this.state.map.type.name == 'MatteannexetSecondFloor' ?
+               <Button title="Change floor" onPress={() => { switch (this.state.map.type.name) {
+                    case 'StudiecentrumFirstFloor':
+                      toggleChangeMap(global.studiecentrumSecondFloor)
+                      break;
+                    case 'StudiecentrumSecondFloor':
+                      toggleChangeMap(global.studiecentrumFirstFloor)
+                      break;
+                    case 'MatteannexetFirstFloor':
+                      toggleChangeMap(global.matteannexetSecondFloor)
+                      break;
+                    case "MatteannexetSecondFloor":
+                      toggleChangeMap(global.matteannexetFirstFloor)
+                      break;
+                  }
+                 }
+                   } /> : null}
           </View>
           <View style={list}>
             <FlatList
