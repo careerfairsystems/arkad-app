@@ -120,3 +120,7 @@ If you run into problems the following guides can be useful [Android](https://fa
 8. Move the new code over from the SVGR side to the map component. Replace the text between <Defs> and </Svg>
 9. Next, you need to add layered booth components. Use the script in resources/scripts/add_map_layers
 10. You should now have new working maps. Enjoy!
+
+## Archieve release version at end of year
+
+To keep track of previous year versions of the App, release-tagging is used. By going into release you can check the version from different years. If you need help to create a tag, a short guide is available here : https://github.com/careerfairsystems/arkad-app/blob/master/resources/documents/CreateReleaseGithub.docx
