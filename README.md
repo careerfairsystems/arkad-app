@@ -1,5 +1,6 @@
 # ARKAD mobile application
 
+## Mac Instructions
 ## 1. Install Node.js
 
 1.  Install HomeBrew: [instructions](https://docs.brew.sh/Installation)
@@ -50,6 +51,60 @@ Run: `brew install watchman`
     - Semicolons: `false`
 
 These settings are important to avoid conflicts and to get a common coding structure.
+
+## Windows Instructions
+
+
+## 1. Install nodeJS  
+Install NodeJS @v.11.13 from here https://nodejs.org/dist/v11.13.0/
+Later version might work, however later than version 12.9 has a compability issues our metro bundler version as of writing this 6/12/2019
+
+## 2. Install Android studio
+Follow the instructions under "Android development environment" on the react-native page (React-Native CLI Quickstart, Windows, Android)
+To install correct Android SDK Build tools
+1. Go to File - Settings - System settings - Android - SDK Tools
+2. Tick "Hide obsolete" and "Show Package details"
+3. Tick Android SDK Build Tools @ 28.0.3
+4. Press apply
+
+## 3. Clone repository to your computer
+1.  Go to your Git projects folder ex: `cd /path/to/my/git_folder`
+2.  Clone repository: `git clone https://github.com/careerfairsystems/arkad-app.git`
+3.  Go to the root of the cloned repo `cd /path/to/my/git_folder/repo_root`
+4.  Install npm: `npm install`
+
+## 4. Install Atom
+
+1.  Install [Atom](https://atom.io)
+2.  Open Atom and go to Settings/Preferences and select Install in the side menu
+3.  Install the following packages: `busy-signal`, `intentions`, `linter`, `linter-eslint`, `linter-ui-default`, `prettier-atom`
+4.  Setup `prettier-atom` by changing the following settings:
+    - ESLint Integration: `true`
+    - Format Files on Save: `true`
+    - Single Quotes: `true`
+    - Semicolons: `false`
+    
+## 5. Run application
+
+You can choose to run the application on either device or phone simulator.
+
+### Run application on device
+
+Android instructions can be found [here](https://facebook.github.io/react-native/docs/running-on-device.html).
+
+These steps can be quite tricky if you haven't used Android Studio before, running the application in a simulator, which is described below, is easier to setup.
+
+### Run application on phone simulator
+
+1.  Install React Native CLI (Command Line Tool): `npm install -g react-native-cli`
+    - You might have to run `npm install` again.
+    - Run `react-native run-android` to send the application to the virtual phone
+    - Sometimes you need to start 2 cmd prompts in project directory, and do `react-native start` in one, then do `react-native run-android` in the other.
+
+If you run into problems the following guides can be useful [Android](https://facebook.github.io/react-native/docs/getting-started.html#java-development-kit). You don't need to read the `Creating a new application` section as this has already been done.
+
+> Tip: Instead of using a virtual device in Android Studio you can use Genymotion, you download it from [here](https://www.genymotion.com/fun-zone/). Genymotion generally works better but you need to use Android Studio if you want to check the console
+
 
 ### Now you can start coding! :heart_eyes:
 
